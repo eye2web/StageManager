@@ -59,6 +59,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\BedrijfsbegeleiderView.xaml.cs">
+      <DependentUpon>BedrijfsbegeleiderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BedrijfView.xaml.cs">
+      <DependentUpon>BedrijfView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DocentView.xaml.cs">
+      <DependentUpon>DocentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
@@ -80,6 +89,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BedrijfsbegeleiderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BedrijfView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DocentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

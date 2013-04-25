@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace StageManager.Views
 {
     /// <summary>
-    /// Interaction logic for MenuView.xaml
+    /// Interaction logic for BedrijfView.xaml
     /// </summary>
-    public partial class MenuView : UserControl
+    public partial class BedrijfView : UserControl
     {
-        public MenuView()
+        public BedrijfView()
         {
             InitializeComponent();
         }
