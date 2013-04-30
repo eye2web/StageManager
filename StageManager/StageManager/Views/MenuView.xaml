@@ -7,12 +7,22 @@
              d:DesignHeight="380" d:DesignWidth="300">
     <Grid MinWidth="200" MaxWidth="300" Background="#FFD3E9FF">
         <Border BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto">
-            <Grid Margin="0,0,0,0" Width="auto">
+            <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
+                <Expander.Header>
+                    <TextBlock x:Name="Exp" Text="MENU" FontWeight="Bold" Visibility="Visible">
+                        <TextBlock.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform CenterX="25" CenterY="25" Angle="90" />
+                            </TransformGroup>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <Grid Margin="0,0,0,0" Width="auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="20,10,20,10">
+                <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
                     <Label Content="MENU" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
                 </Border>
                 <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" Width="auto" Margin="0,0,0,0" VerticalScrollBarVisibility="Auto">
@@ -26,15 +36,16 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-                        <TextBox Grid.Row="0" Text="Zoek" HorizontalAlignment="Stretch" Margin="20,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalContentAlignment="Center" TextWrapping="Wrap"/>
-                        <Button Grid.Row="1" Content="Overzicht" HorizontalAlignment="Stretch" Margin="20,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
-                        <Button Grid.Row="2" Content="Opleidingen" HorizontalAlignment="Stretch" Margin="20,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
-                        <Button Grid.Row="3" Content="Studenten" HorizontalAlignment="Stretch" Margin="20,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
-                        <Button Grid.Row="4" Content="Docenten" HorizontalAlignment="Stretch" Margin="20,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
-                        <Button Grid.Row="5" Content="Bedrijven" HorizontalAlignment="Stretch" Margin="20,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                        <TextBox Grid.Row="0" Text="Zoek" HorizontalAlignment="Stretch" Margin="00,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalContentAlignment="Center" TextWrapping="Wrap"/>
+                        <Button Grid.Row="1" Content="Overzicht" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
+                        <Button Grid.Row="2" Content="Opleidingen" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                        <Button Grid.Row="3" Content="Studenten" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                        <Button Grid.Row="4" Content="Docenten" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                        <Button Grid.Row="5" Content="Bedrijven" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
                     </Grid>
                 </ScrollViewer>
             </Grid>
+            </Expander>
         </Border>
     </Grid>
 

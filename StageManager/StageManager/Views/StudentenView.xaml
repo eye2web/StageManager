@@ -7,48 +7,53 @@
              d:DesignHeight="400" d:DesignWidth="600">
     <Grid Background="White">
         <Border BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto" Margin="0,0,0,0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="20,10,20,10">
-                    <Label Content="STUDENTEN" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
-                </Border>
-                <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Margin="20,0,0,0" Width="auto">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">
-                        <Grid Margin="0,0,0,0" Width="auto">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBox Grid.Row="0" Grid.Column="0" Text="Trefwoord(en)" HorizontalAlignment="Stretch" Margin="0,10,0,10" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalContentAlignment="Center" TextWrapping="Wrap"/>
-                            <Expander Header="Opleiding" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Margin="0,10,0,10" Grid.Row="1" Grid.Column="0" Width="auto">
-                                <Grid Background="#FFE5E5E5" Height="200"/>
-                            </Expander>
-                        </Grid>
-                    </ScrollViewer>
-                    <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-                        <ListView Width="300" Margin="10,10,20,0">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn/>
-                                </GridView>
-                            </ListView.View>
-                            <ListViewItem Content="{Binding Collection/Name}" Margin="0"/>
-                        </ListView>
-                    </ScrollViewer>
+            <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
+                <Expander.Header>
+                    <TextBlock Text="STUDENTEN" FontWeight="Bold" Visibility="Visible">
+                        <TextBlock.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform CenterX="25" CenterY="25" Angle="90" />
+                            </TransformGroup>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
+                        <Label Content="STUDENTEN" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Margin="0" Width="auto">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalScrollBarVisibility="Auto" Margin="0">
+                            <StackPanel>
+                                <TextBox Text="Trefwoord(en)" HorizontalAlignment="Stretch" Margin="0,10,0,10" VerticalAlignment="Stretch" Height="30" Width="auto" VerticalContentAlignment="Center" TextWrapping="Wrap"/>
+                                <Expander Header="Opleiding" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Margin="0,10,0,10" Width="auto">
+                                    <Grid Background="#FFE5E5E5" Height="200"/>
+                                </Expander>
+                                <Expander Header="Plaats" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Margin="0,10,0,10" Width="auto">
+                                    <Grid Background="#FFE5E5E5" Height="200"/>
+                                </Expander>
+                            </StackPanel>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Width="auto">
+                            <ListView Width="auto" Margin="10,10,20,0">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn/>
+                                    </GridView>
+                                </ListView.View>
+                                <ListViewItem Content="{Binding Collection/Name}" Margin="0"/>
+                            </ListView>
+                        </ScrollViewer>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Expander>
         </Border>
     </Grid>
 
