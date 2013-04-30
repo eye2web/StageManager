@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StudentSet" EntityType="Model1.Student" />
+          <EntitySet Name="LeraarSet" EntityType="Model1.Leraar" />
+          <EntitySet Name="BedrijfsbegeleiderSet" EntityType="Model1.Bedrijfsbegeleider" />
+          <EntitySet Name="BedrijfSet" EntityType="Model1.Bedrijf" />
+          <EntitySet Name="StageSet" EntityType="Model1.Stage" />
+          <AssociationSet Name="StudentStage" Association="Model1.StudentStage">
+            <End Role="Student" EntitySet="StudentSet" />
+            <End Role="Stage" EntitySet="StageSet" />
+          </AssociationSet>
+          <AssociationSet Name="LeraarStage" Association="Model1.LeraarStage">
+            <End Role="Leraar" EntitySet="LeraarSet" />
+            <End Role="Stage" EntitySet="StageSet" />
+          </AssociationSet>
+          <AssociationSet Name="BedrijfsbegeleiderBedrijf" Association="Model1.BedrijfsbegeleiderBedrijf">
+            <End Role="Bedrijfsbegeleider" EntitySet="BedrijfsbegeleiderSet" />
+            <End Role="Bedrijf" EntitySet="BedrijfSet" />
+          </AssociationSet>
+          <AssociationSet Name="BedrijfStage" Association="Model1.BedrijfStage">
+            <End Role="Bedrijf" EntitySet="BedrijfSet" />
+            <End Role="Stage" EntitySet="StageSet" />
+          </AssociationSet>
+          <AssociationSet Name="BedrijfsbegeleiderStage" Association="Model1.BedrijfsbegeleiderStage">
+            <End Role="Bedrijfsbegeleider" EntitySet="BedrijfsbegeleiderSet" />
+            <End Role="Stage" EntitySet="StageSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Student" Abstract="false">
+          <Key>
+            <PropertyRef Name="Studentnummer" />
+          </Key>
+          <Property Type="Int32" Name="Studentnummer" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Straatnaam_en_nr" Nullable="false" />
+          <Property Type="String" Name="Postcode" Nullable="false" />
+          <Property Type="String" Name="Plaats" Nullable="false" />
+          <Property Type="Int32" Name="Telefoonnummer" Nullable="false" />
+          <Property Type="Boolean" Name="EC_norm_behaald" Nullable="false" />
+          <NavigationProperty Name="Stage" Relationship="Model1.StudentStage" FromRole="Student" ToRole="Stage" />
+        </EntityType>
+        <EntityType Name="Leraar">
+          <Key>
+            <PropertyRef Name="Leraar_Id" />
+          </Key>
+          <Property Type="Int32" Name="Leraar_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Naam" Nullable="false" />
+          <NavigationProperty Name="Stage" Relationship="Model1.LeraarStage" FromRole="Leraar" ToRole="Stage" />
+        </EntityType>
+        <EntityType Name="Bedrijfsbegeleider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Naam" Nullable="false" />
+          <Property Type="String" Name="Functie" Nullable="true" />
+          <Property Type="Int32" Name="Telefoonnummer" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="String" Name="Opleidingsniveau" Nullable="true" />
+          <Property Type="String" Name="Minimale_begeleidingstijd_gegarandeerd" Nullable="false" />
+          <NavigationProperty Name="Bedrijf" Relationship="Model1.BedrijfsbegeleiderBedrijf" FromRole="Bedrijfsbegeleider" ToRole="Bedrijf" />
+          <Property Type="Int32" Name="BedrijfBedrijfs_Id" Nullable="false" />
+          <NavigationProperty Name="Stage" Relationship="Model1.BedrijfsbegeleiderStage" FromRole="Bedrijfsbegeleider" ToRole="Stage" />
+        </EntityType>
+        <EntityType Name="Bedrijf">
+          <Key>
+            <PropertyRef Name="Bedrijfs_Id" />
+          </Key>
+          <Property Type="Int32" Name="Bedrijfs_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Naam" Nullable="false" />
+          <Property Type="String" Name="Straatnaam_en_nummer" Nullable="false" />
+          <Property Type="String" Name="Postcode" Nullable="false" />
+          <Property Type="String" Name="Plaats" Nullable="false" />
+          <Property Type="Int32" Name="Telefoonnummer" Nullable="true" />
+          <Property Type="String" Name="Website" Nullable="true" />
+          <NavigationProperty Name="Bedrijfsbegeleider" Relationship="Model1.BedrijfsbegeleiderBedrijf" FromRole="Bedrijf" ToRole="Bedrijfsbegeleider" />
+          <NavigationProperty Name="Stage" Relationship="Model1.BedrijfStage" FromRole="Bedrijf" ToRole="Stage" />
+        </EntityType>
+        <EntityType Name="Stage">
+          <Key>
+            <PropertyRef Name="Stage_Id" />
+          </Key>
+          <Property Type="DateTime" Name="Start_datum" Nullable="true" />
+          <Property Type="DateTime" Name="Eind_datum" Nullable="true" />
+          <Property Type="String" Name="Stageopdracht_omschijving" Nullable="true" />
+          <Property Type="String" Name="Tools_en_Vaardigheden" Nullable="true" />
+          <Property Type="String" Name="Risico" Nullable="true" />
+          <NavigationProperty Name="Student" Relationship="Model1.StudentStage" FromRole="Stage" ToRole="Student" />
+          <Property Type="Int32" Name="StudentStudentnummer" Nullable="false" />
+          <NavigationProperty Name="Leraar" Relationship="Model1.LeraarStage" FromRole="Stage" ToRole="Leraar" />
+          <Property Type="Int32" Name="LeraarLeraar_Id" Nullable="false" />
+          <NavigationProperty Name="Bedrijf" Relationship="Model1.BedrijfStage" FromRole="Stage" ToRole="Bedrijf" />
+          <Property Type="Int32" Name="BedrijfBedrijfs_Id" Nullable="false" />
+          <NavigationProperty Name="Bedrijfsbegeleider" Relationship="Model1.BedrijfsbegeleiderStage" FromRole="Stage" ToRole="Bedrijfsbegeleider" />
+          <Property Type="Int32" Name="BedrijfsbegeleiderId" Nullable="false" />
+          <Property Type="Int32" Name="Stage_Id" Nullable="false" />
+        </EntityType>
+        <Association Name="StudentStage">
+          <End Type="Model1.Student" Role="Student" Multiplicity="1" />
+          <End Type="Model1.Stage" Role="Stage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Studentnummer" />
+            </Principal>
+            <Dependent Role="Stage">
+              <PropertyRef Name="StudentStudentnummer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LeraarStage">
+          <End Type="Model1.Leraar" Role="Leraar" Multiplicity="1" />
+          <End Type="Model1.Stage" Role="Stage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leraar">
+              <PropertyRef Name="Leraar_Id" />
+            </Principal>
+            <Dependent Role="Stage">
+              <PropertyRef Name="LeraarLeraar_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BedrijfsbegeleiderBedrijf">
+          <End Type="Model1.Bedrijfsbegeleider" Role="Bedrijfsbegeleider" Multiplicity="*" />
+          <End Type="Model1.Bedrijf" Role="Bedrijf" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Bedrijf">
+              <PropertyRef Name="Bedrijfs_Id" />
+            </Principal>
+            <Dependent Role="Bedrijfsbegeleider">
+              <PropertyRef Name="BedrijfBedrijfs_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BedrijfStage">
+          <End Type="Model1.Bedrijf" Role="Bedrijf" Multiplicity="1" />
+          <End Type="Model1.Stage" Role="Stage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bedrijf">
+              <PropertyRef Name="Bedrijfs_Id" />
+            </Principal>
+            <Dependent Role="Stage">
+              <PropertyRef Name="BedrijfBedrijfs_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BedrijfsbegeleiderStage">
+          <End Type="Model1.Bedrijfsbegeleider" Role="Bedrijfsbegeleider" Multiplicity="1" />
+          <End Type="Model1.Stage" Role="Stage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bedrijfsbegeleider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stage">
+              <PropertyRef Name="BedrijfsbegeleiderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
