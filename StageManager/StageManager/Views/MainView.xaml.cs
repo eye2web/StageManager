@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace StageManager.Views
 {
     /// <summary>
-    /// Interaction logic for MenuView.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MenuView : UserControl
+    public partial class MainView : Window
     {
-        public MenuView()
+        public MainView()
         {
             InitializeComponent();
         }

@@ -37,7 +37,12 @@
     <Reference Include="Caliburn.Micro">
       <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\net45\Caliburn.Micro.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -77,6 +82,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
+    <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
+    <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\IApplicationController.cs" />
+    <Compile Include="IShell.cs" />
+    <Compile Include="Models\Bedrijf.cs" />
+    <Compile Include="Models\Bedrijfsbegeleider.cs" />
+    <Compile Include="Models\Docent.cs" />
+    <Compile Include="Models\Entities.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Toewijzing.cs" />
+    <Compile Include="MVVM\PropertyChangedBase.cs" />
+    <Compile Include="MVVM\RelayCommand.cs" />
+    <Compile Include="Services\DefaultFactory.cs" />
+    <Compile Include="Services\EntityService.cs" />
+    <Compile Include="Services\IFactory.cs" />
+    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\Service.cs" />
+    <Compile Include="ShellViewModel.cs" />
+    <Compile Include="ViewModels\BedrijfsbegeleiderViewModel.cs" />
+    <Compile Include="ViewModels\BedrijfViewModel.cs" />
+    <Compile Include="ViewModels\DocentViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\OverzichtViewModel.cs" />
+    <Compile Include="ViewModels\StudentenViewModel.cs" />
+    <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="Views\BedrijfsbegeleiderView.xaml.cs">
       <DependentUpon>BedrijfsbegeleiderView.xaml</DependentUpon>
     </Compile>
@@ -86,8 +119,8 @@
     <Compile Include="Views\DocentView.xaml.cs">
       <DependentUpon>DocentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MenuView.xaml.cs">
-      <DependentUpon>MenuView.xaml</DependentUpon>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OverzichtView.xaml.cs">
       <DependentUpon>OverzichtView.xaml</DependentUpon>
@@ -98,7 +131,7 @@
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -106,7 +139,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -122,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MenuView.xaml">
+    <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,6 +224,7 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
