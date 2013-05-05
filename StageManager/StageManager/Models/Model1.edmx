@@ -14,7 +14,7 @@
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="StudentSet" EntityType="Model1.Student" />
-          <EntitySet Name="LeraarSet" EntityType="Model1.Leraar" />
+          <EntitySet Name="DocentSet" EntityType="Model1.Docent" />
           <EntitySet Name="BedrijfsbegeleiderSet" EntityType="Model1.Bedrijfsbegeleider" />
           <EntitySet Name="BedrijfSet" EntityType="Model1.Bedrijf" />
           <EntitySet Name="StageSet" EntityType="Model1.Stage" />
@@ -23,7 +23,7 @@
             <End Role="Stage" EntitySet="StageSet" />
           </AssociationSet>
           <AssociationSet Name="LeraarStage" Association="Model1.LeraarStage">
-            <End Role="Leraar" EntitySet="LeraarSet" />
+            <End Role="Leraar" EntitySet="DocentSet" />
             <End Role="Stage" EntitySet="StageSet" />
           </AssociationSet>
           <AssociationSet Name="BedrijfsbegeleiderBedrijf" Association="Model1.BedrijfsbegeleiderBedrijf">
@@ -37,6 +37,11 @@
           <AssociationSet Name="BedrijfsbegeleiderStage" Association="Model1.BedrijfsbegeleiderStage">
             <End Role="Bedrijfsbegeleider" EntitySet="BedrijfsbegeleiderSet" />
             <End Role="Stage" EntitySet="StageSet" />
+          </AssociationSet>
+          <EntitySet Name="Algemene_InformatieSet" EntityType="Model1.Algemene_Informatie" />
+          <AssociationSet Name="Algemene_InformatieDocent" Association="Model1.Algemene_InformatieDocent">
+            <End Role="Algemene_Informatie" EntitySet="Algemene_InformatieSet" />
+            <End Role="Docent" EntitySet="DocentSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Student" Abstract="false">
@@ -52,13 +57,23 @@
           <Property Type="Boolean" Name="EC_norm_behaald" Nullable="false" />
           <NavigationProperty Name="Stage" Relationship="Model1.StudentStage" FromRole="Student" ToRole="Stage" />
         </EntityType>
-        <EntityType Name="Leraar">
+        <EntityType Name="Docent">
           <Key>
             <PropertyRef Name="Leraar_Id" />
           </Key>
           <Property Type="Int32" Name="Leraar_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Naam" Nullable="false" />
+          <Property Type="String" Name="Naam" Nullable="true" />
           <NavigationProperty Name="Stage" Relationship="Model1.LeraarStage" FromRole="Leraar" ToRole="Stage" />
+          <Property Type="String" Name="Straatnaam_en_nr" Nullable="true" />
+          <Property Type="String" Name="Postcode" Nullable="true" />
+          <Property Type="String" Name="Plaats" Nullable="true" />
+          <Property Type="String" Name="Telefoonnummer" Nullable="true" />
+          <NavigationProperty Name="Algemene_Informatie" Relationship="Model1.Algemene_InformatieDocent" FromRole="Docent" ToRole="Algemene_Informatie" />
+          <Property Type="Int32" Name="Algemene_InformatieId" Nullable="false" />
+          <Property Type="Int16" Name="DBU1" Nullable="true" />
+          <Property Type="Int16" Name="DBU2" Nullable="true" />
+          <Property Type="Int16" Name="DBU3" Nullable="true" />
+          <Property Type="Int16" Name="DBU4" Nullable="true" />
         </EntityType>
         <EntityType Name="Bedrijfsbegeleider">
           <Key>
@@ -121,7 +136,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="LeraarStage">
-          <End Type="Model1.Leraar" Role="Leraar" Multiplicity="1" />
+          <End Type="Model1.Docent" Role="Leraar" Multiplicity="1" />
           <End Type="Model1.Stage" Role="Stage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Leraar">
@@ -165,6 +180,28 @@
             </Principal>
             <Dependent Role="Stage">
               <PropertyRef Name="BedrijfsbegeleiderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Algemene_Informatie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="Aantal_blokken" Nullable="false" />
+          <Property Type="DateTime" Name="Jaargang" Nullable="false" />
+          <Property Type="Int16" Name="Werk_Uren" Nullable="false" />
+          <NavigationProperty Name="Docent" Relationship="Model1.Algemene_InformatieDocent" FromRole="Algemene_Informatie" ToRole="Docent" />
+        </EntityType>
+        <Association Name="Algemene_InformatieDocent">
+          <End Type="Model1.Algemene_Informatie" Role="Algemene_Informatie" Multiplicity="1" />
+          <End Type="Model1.Docent" Role="Docent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Algemene_Informatie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Docent">
+              <PropertyRef Name="Algemene_InformatieId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
