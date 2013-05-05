@@ -81,5 +81,14 @@ namespace StageManager.ViewModels
                 OnPropertyChanged("Emailadres");
             }
         }
+        public string Telefoonnummer
+        {
+            get { return telefoonnummer; }
+            set
+            {
+                telefoonnummer = value;
+                OnPropertyChanged("telefoonnummer");
+            }
+        }
     }
 }
