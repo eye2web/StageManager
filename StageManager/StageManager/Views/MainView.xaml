@@ -47,16 +47,16 @@
                                         Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
                                 <Button x:Name="Opleidingen"
                                         Content="Opleidingen"
-                                        Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                                        Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
                                 <Button x:Name="Studenten" 
                                         Content="Studenten" 
-                                        Grid.Row="3" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                                        Grid.Row="3" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
                                 <Button x:Name="Docenten" 
                                         Content="Docenten" 
-                                        Grid.Row="4" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                                        Grid.Row="4" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
                                 <Button x:Name="Bedrijven" 
                                         Content="Bedrijven" 
-                                        Grid.Row="5" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto"/>
+                                        Grid.Row="5" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
                             </Grid>
                         </ScrollViewer>
                     </Grid>
