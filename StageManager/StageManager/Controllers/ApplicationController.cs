@@ -31,10 +31,22 @@ namespace StageManager.Controllers
             mainViewModel.Content = container.GetInstance(typeof(OverzichtViewModel), null) as OverzichtViewModel;
         }
 
+        public void ShowOpleidingen()
+        {
+        }
+
         public void ShowStudenten()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
             mainViewModel.Content = container.GetInstance(typeof(StudentenViewModel), null) as StudentenViewModel;
+        }
+
+        public void ShowDocenten()
+        {
+        }
+
+        public void ShowBedrijven()
+        {
         }
     }
 }

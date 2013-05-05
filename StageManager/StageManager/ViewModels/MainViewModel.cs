@@ -40,9 +40,26 @@ namespace StageManager.ViewModels
             app.ShowOverzicht();
         }
 
+/*
+        public void Opleidingen()
+        {
+            app.ShowOpleidingen();
+        }
+ */
+
         public void Studenten()
         {
             app.ShowStudenten();
+        }
+
+        public void Docenten()
+        {
+            app.ShowDocenten();
+        }
+
+        public void Bedrijven()
+        {
+            app.ShowBedrijven();
         }
     }
 }
