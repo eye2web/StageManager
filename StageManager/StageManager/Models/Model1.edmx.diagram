@@ -16,8 +16,8 @@
         </AssociationConnector>
         <AssociationConnector Association="Model1.BedrijfStage" />
         <AssociationConnector Association="Model1.BedrijfsbegeleiderStage" />
-        <EntityTypeShape EntityType="Model1.Algemene_Informatie" Width="1.5" PointX="0.75" PointY="6.5" />
-        <AssociationConnector Association="Model1.Algemene_InformatieDocent" />
+        <EntityTypeShape EntityType="Model1.Algemeen" Width="1.5" PointX="0.75" PointY="6.5" />
+        <AssociationConnector Association="Model1.DocentAlgemeen" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

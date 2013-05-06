@@ -25,5 +25,11 @@ namespace StageManager.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Student> StudentSet { get; set; }
+        public DbSet<Docent> DocentSet { get; set; }
+        public DbSet<Bedrijfsbegeleider> BedrijfsbegeleiderSet { get; set; }
+        public DbSet<Bedrijf> BedrijfSet { get; set; }
+        public DbSet<Stage> StageSet { get; set; }
+        public DbSet<Algemeen> AlgemeenSet { get; set; }
     }
 }
