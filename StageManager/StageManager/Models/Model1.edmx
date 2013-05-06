@@ -185,11 +185,10 @@
         </Association>
         <EntityType Name="Algemene_Informatie">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Jaargang" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int16" Name="Aantal_blokken" Nullable="false" />
           <Property Type="DateTime" Name="Jaargang" Nullable="false" />
+          <Property Type="Int16" Name="Aantal_blokken" Nullable="false" />
           <Property Type="Int16" Name="Werk_Uren" Nullable="false" />
           <NavigationProperty Name="Docent" Relationship="Model1.Algemene_InformatieDocent" FromRole="Algemene_Informatie" ToRole="Docent" />
         </EntityType>
@@ -198,10 +197,8 @@
           <End Type="Model1.Docent" Role="Docent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Algemene_Informatie">
-              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Docent">
-              <PropertyRef Name="Algemene_InformatieId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
