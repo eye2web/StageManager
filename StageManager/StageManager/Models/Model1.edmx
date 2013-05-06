@@ -42,10 +42,10 @@
       <PropertyRef Name="Studentnummer" />
     </Key>
     <Property Name="Studentnummer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" />
-    <Property Name="Straatnaam_en_nr" Type="varchar" Nullable="false" />
-    <Property Name="Postcode" Type="varchar" Nullable="false" />
-    <Property Name="Plaats" Type="varchar" Nullable="false" />
+    <Property Name="Name" Type="longtext" Nullable="false" />
+    <Property Name="Straatnaam_en_nr" Type="longtext" Nullable="false" />
+    <Property Name="Postcode" Type="longtext" Nullable="false" />
+    <Property Name="Plaats" Type="longtext" Nullable="false" />
     <Property Name="Telefoonnummer" Type="int" Nullable="false" />
     <Property Name="EC_norm_behaald" Type="bool" Nullable="false" />
   </EntityType>
@@ -54,11 +54,11 @@
       <PropertyRef Name="Leraar_Id" />
     </Key>
     <Property Name="Leraar_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Naam" Type="varchar" Nullable="true" />
-    <Property Name="Straatnaam_en_nr" Type="varchar" Nullable="true" />
-    <Property Name="Postcode" Type="varchar" Nullable="true" />
-    <Property Name="Plaats" Type="varchar" Nullable="true" />
-    <Property Name="Telefoonnummer" Type="varchar" Nullable="true" />
+    <Property Name="Naam" Type="longtext" Nullable="true" />
+    <Property Name="Straatnaam_en_nr" Type="longtext" Nullable="true" />
+    <Property Name="Postcode" Type="longtext" Nullable="true" />
+    <Property Name="Plaats" Type="longtext" Nullable="true" />
+    <Property Name="Telefoonnummer" Type="longtext" Nullable="true" />
     <Property Name="Algemene_InformatieId" Type="int" Nullable="false" />
     <Property Name="DBU1" Type="smallint" Nullable="true" />
     <Property Name="DBU2" Type="smallint" Nullable="true" />
@@ -71,12 +71,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Naam" Type="varchar" Nullable="false" />
-    <Property Name="Functie" Type="varchar" Nullable="true" />
+    <Property Name="Naam" Type="longtext" Nullable="false" />
+    <Property Name="Functie" Type="longtext" Nullable="true" />
     <Property Name="Telefoonnummer" Type="int" Nullable="true" />
-    <Property Name="Email" Type="varchar" Nullable="true" />
-    <Property Name="Opleidingsniveau" Type="varchar" Nullable="true" />
-    <Property Name="Minimale_begeleidingstijd_gegarandeerd" Type="varchar" Nullable="false" />
+    <Property Name="Email" Type="longtext" Nullable="true" />
+    <Property Name="Opleidingsniveau" Type="longtext" Nullable="true" />
+    <Property Name="Minimale_begeleidingstijd_gegarandeerd" Type="longtext" Nullable="false" />
     <Property Name="BedrijfBedrijfs_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="BedrijfSet">
@@ -84,12 +84,12 @@
       <PropertyRef Name="Bedrijfs_Id" />
     </Key>
     <Property Name="Bedrijfs_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Naam" Type="varchar" Nullable="false" />
-    <Property Name="Straatnaam_en_nummer" Type="varchar" Nullable="false" />
-    <Property Name="Postcode" Type="varchar" Nullable="false" />
-    <Property Name="Plaats" Type="varchar" Nullable="false" />
+    <Property Name="Naam" Type="longtext" Nullable="false" />
+    <Property Name="Straatnaam_en_nummer" Type="longtext" Nullable="false" />
+    <Property Name="Postcode" Type="longtext" Nullable="false" />
+    <Property Name="Plaats" Type="longtext" Nullable="false" />
     <Property Name="Telefoonnummer" Type="int" Nullable="true" />
-    <Property Name="Website" Type="varchar" Nullable="true" />
+    <Property Name="Website" Type="longtext" Nullable="true" />
   </EntityType>
   <EntityType Name="StageSet">
     <Key>
@@ -97,9 +97,9 @@
     </Key>
     <Property Name="Start_datum" Type="datetime" Nullable="true" />
     <Property Name="Eind_datum" Type="datetime" Nullable="true" />
-    <Property Name="Stageopdracht_omschijving" Type="varchar" Nullable="true" />
-    <Property Name="Tools_en_Vaardigheden" Type="varchar" Nullable="true" />
-    <Property Name="Risico" Type="varchar" Nullable="true" />
+    <Property Name="Stageopdracht_omschijving" Type="longtext" Nullable="true" />
+    <Property Name="Tools_en_Vaardigheden" Type="longtext" Nullable="true" />
+    <Property Name="Risico" Type="longtext" Nullable="true" />
     <Property Name="StudentStudentnummer" Type="int" Nullable="false" />
     <Property Name="LeraarLeraar_Id" Type="int" Nullable="false" />
     <Property Name="BedrijfBedrijfs_Id" Type="int" Nullable="false" />
