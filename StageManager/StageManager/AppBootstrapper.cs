@@ -35,8 +35,6 @@
             container.Singleton<IService, EntityService>();
             container.Singleton<Entities>();
 
-            //container.Singleton<MenuViewModel>();
-            //container.Singleton<OverzichtViewModel>();
             container.PerRequest<OverzichtViewModel>();
             container.PerRequest<StudentenViewModel>();
 

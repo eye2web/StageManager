@@ -7,10 +7,10 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <!-- Menu -->
-        <Grid Grid.Column="0" MinWidth="200" MaxWidth="300" Background="#FFD3E9FF">
+        <Grid Margin="5" Grid.Column="0" Background="#FFD3E9FF">
             <Border BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto">
                 <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
                     <Expander.Header>
@@ -22,7 +22,7 @@
                             </TextBlock.LayoutTransform>
                         </TextBlock>
                     </Expander.Header>
-                    <Grid Margin="0,0,0,0" Width="auto">
+                    <Grid Margin="0" Width="200">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="*"/>
@@ -64,7 +64,7 @@
             </Border>
         </Grid>
         <!-- Content -->
-        <ScrollViewer Grid.Column="1" Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
+        <ScrollViewer Grid.Column="1" Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
             <ContentControl x:Name="Content"
                         Content="{Binding Content}" />
         </ScrollViewer>
