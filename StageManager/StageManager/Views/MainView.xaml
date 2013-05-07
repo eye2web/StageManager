@@ -61,8 +61,10 @@
         </Grid>
         <!-- Content -->
         <ScrollViewer Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
-            <ContentControl x:Name="Contents"
+            <StackPanel x:Name="ContentContainer" Orientation="Horizontal">
+                <ContentControl x:Name="Contents"
                         Content="{Binding Contents}" />
+            </StackPanel>
         </ScrollViewer>
     </StackPanel>
     
