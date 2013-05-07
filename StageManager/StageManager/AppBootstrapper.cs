@@ -33,7 +33,7 @@
             // services
             container.Singleton<IFactory, DefaultFactory>();
             container.Singleton<IService, EntityService>();
-            container.Singleton<Entities>();
+            container.Singleton<Model1Container>();
 
             container.PerRequest<OverzichtViewModel>();
             container.PerRequest<KoppelViewModel>();

@@ -10,18 +10,18 @@ namespace StageManager.Services
     public class EntityService : IService
     {
         private readonly IFactory factory;
-        private readonly Entities entities;
+        private readonly Model1Container entities;
 
         public EntityService(
             IFactory factory,
-            Entities entities)
+            Model1Container entities)
         {
             this.factory = factory;
             this.entities = entities;
         }
         public IEnumerable<Student> Studenten
         {
-            get { return entities.Studenten; }
+            get { return entities.StudentSet; }
         }
 
         public event EventHandler StudentenChanged;
@@ -37,7 +37,7 @@ namespace StageManager.Services
         }
         public IEnumerable<Docent> Docenten
         {
-            get { return entities.Docenten; }
+            get { return entities.DocentSet; }
         }
 
         public event EventHandler DocentenChanged;
@@ -53,7 +53,7 @@ namespace StageManager.Services
         }
         public IEnumerable<Bedrijf> Bedrijven
         {
-            get { return entities.Bedrijven; }
+            get { return entities.BedrijfSet; }
         }
 
         public event EventHandler BedrijvenChanged;
@@ -69,7 +69,7 @@ namespace StageManager.Services
         }
         public IEnumerable<Bedrijfsbegeleider> Bedrijfsbegeleiders
         {
-            get { return entities.Bedrijfsbegeleiders; }
+            get { return entities.BedrijfsbegeleiderSet; }
         }
 
         public event EventHandler BedrijfsbegeleidersChanged;
