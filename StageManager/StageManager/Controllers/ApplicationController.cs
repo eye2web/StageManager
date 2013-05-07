@@ -28,7 +28,13 @@ namespace StageManager.Controllers
         public void ShowOverzicht()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
-            mainViewModel.Content = container.GetInstance(typeof(OverzichtViewModel), null) as OverzichtViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(OverzichtViewModel), null) as OverzichtViewModel;
+        }
+
+        public void ShowKoppel()
+        {
+            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(KoppelViewModel), null) as KoppelViewModel;
         }
 
         public void ShowOpleidingen()
@@ -38,7 +44,7 @@ namespace StageManager.Controllers
         public void ShowStudenten()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
-            mainViewModel.Content = container.GetInstance(typeof(StudentenViewModel), null) as StudentenViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(StudentenViewModel), null) as StudentenViewModel;
         }
 
         public void ShowDocenten()

@@ -4,13 +4,9 @@
         xmlns:my="clr-namespace:StageManager.Views"
         xmlns:vm="clr-namespace:StageManager.ViewModels"
         Title="Stage Manager" WindowState="Maximized">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
+    <StackPanel Orientation="Horizontal">
         <!-- Menu -->
-        <Grid Margin="5" Grid.Column="0" Background="#FFD3E9FF">
+        <Grid Margin="5" Background="#FFD3E9FF">
             <Border BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto">
                 <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
                     <Expander.Header>
@@ -45,7 +41,7 @@
                                 <Button x:Name="OpenOverzicht"
                                         Content="Overzicht"
                                         Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
-                                <Button x:Name="Opleidingen"
+                                <Button x:Name="OpenKoppel"
                                         Content="Opleidingen"
                                         Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,10,20,10" VerticalAlignment="Stretch" Height="auto" Width="auto" Background="#FFF7F7F7"/>
                                 <Button x:Name="Studenten" 
@@ -64,10 +60,10 @@
             </Border>
         </Grid>
         <!-- Content -->
-        <ScrollViewer Grid.Column="1" Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
-            <ContentControl x:Name="Content"
-                        Content="{Binding Content}" />
+        <ScrollViewer Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
+            <ContentControl x:Name="Contents"
+                        Content="{Binding Contents}" />
         </ScrollViewer>
-    </Grid>
+    </StackPanel>
     
 </Window>

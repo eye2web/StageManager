@@ -13,7 +13,7 @@ namespace StageManager.ViewModels
         private readonly IApplicationController app;
         private readonly OverzichtViewModel overzicht;
 
-        private PropertyChangedBase content;
+        private PropertyChangedBase content = new OverzichtViewModel();
 
         public MainViewModel(
             IApplicationController app,
@@ -25,19 +25,24 @@ namespace StageManager.ViewModels
 
         public OverzichtViewModel Overzicht { get { return overzicht; } }
 
-        public PropertyChangedBase Content
+        public PropertyChangedBase Contents
         {
             get { return content; }
             set
             {
                 content = value;
-                OnPropertyChanged("Content");
+                OnPropertyChanged("Contents");
             }
         }
 
         public void OpenOverzicht()
         {
             app.ShowOverzicht();
+        }
+
+        public void OpenKoppel()
+        {
+            app.ShowKoppel();
         }
 
 /*

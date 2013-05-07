@@ -36,6 +36,7 @@
             container.Singleton<Entities>();
 
             container.PerRequest<OverzichtViewModel>();
+            container.PerRequest<KoppelViewModel>();
             container.PerRequest<StudentenViewModel>();
 
             container.Singleton<MainViewModel>();

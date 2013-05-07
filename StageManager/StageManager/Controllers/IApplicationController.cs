@@ -10,6 +10,8 @@ namespace StageManager.Controllers
     {
         void ShowOverzicht();
 
+        void ShowKoppel();
+
 //      void ShowOpleidingen();
 
         void ShowStudenten();

@@ -45,8 +45,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -119,7 +121,9 @@
     <Compile Include="ShellViewModel.cs" />
     <Compile Include="ViewModels\BedrijfsbegeleiderViewModel.cs" />
     <Compile Include="ViewModels\BedrijfViewModel.cs" />
+    <Compile Include="ViewModels\BedrijvenViewModel.cs" />
     <Compile Include="ViewModels\DocentViewModel.cs" />
+    <Compile Include="ViewModels\KoppelViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OverzichtViewModel.cs" />
     <Compile Include="ViewModels\StudentenViewModel.cs" />
@@ -130,8 +134,14 @@
     <Compile Include="Views\BedrijfView.xaml.cs">
       <DependentUpon>BedrijfView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BedrijvenView.xaml.cs">
+      <DependentUpon>BedrijvenView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DocentView.xaml.cs">
       <DependentUpon>DocentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KoppelView.xaml.cs">
+      <DependentUpon>KoppelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -145,6 +155,14 @@
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\BedrijvenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KoppelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -243,6 +261,7 @@
   <ItemGroup>
     <Content Include="Models\Model1.edmx.sql" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
