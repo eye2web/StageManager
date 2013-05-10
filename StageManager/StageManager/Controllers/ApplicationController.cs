@@ -54,5 +54,10 @@ namespace StageManager.Controllers
         public void ShowBedrijven()
         {
         }
+
+        public void SaveAlgemeenSet()
+        {
+
+        }
     }
 }

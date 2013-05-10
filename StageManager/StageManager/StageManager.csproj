@@ -71,24 +71,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Algemeen.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
@@ -96,20 +78,38 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\IApplicationController.cs" />
     <Compile Include="IShell.cs" />
-    <Compile Include="Models\Bedrijf.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\algemeenset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bedrijfsbegeleider.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\bedrijfsbegeleiderset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Docent.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\bedrijfset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Stage.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\docentset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Student.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\StagemanagerDiagram.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StagemanagerDiagram.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagemanagerDiagram.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StagemanagerDiagram.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\stageset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\studentset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="MVVM\PropertyChangedBase.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
@@ -119,6 +119,7 @@
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\Service.cs" />
     <Compile Include="ShellViewModel.cs" />
+    <Compile Include="ViewModels\AlgemeenViewModel.cs" />
     <Compile Include="ViewModels\BedrijfsbegeleiderViewModel.cs" />
     <Compile Include="ViewModels\BedrijfViewModel.cs" />
     <Compile Include="ViewModels\BedrijvenViewModel.cs" />
@@ -128,6 +129,9 @@
     <Compile Include="ViewModels\OverzichtViewModel.cs" />
     <Compile Include="ViewModels\StudentenViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
+    <Compile Include="Views\AlgemeenView.xaml.cs">
+      <DependentUpon>AlgemeenView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BedrijfsbegeleiderView.xaml.cs">
       <DependentUpon>BedrijfsbegeleiderView.xaml</DependentUpon>
     </Compile>
@@ -155,6 +159,10 @@
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AlgemeenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BedrijvenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,22 +230,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\StagemanagerDiagram.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>StagemanagerDiagram.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Model1.Context.tt">
+    <None Include="Models\StagemanagerDiagram.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
+      <LastGenOutput>StagemanagerDiagram.Context.cs</LastGenOutput>
     </None>
-    <None Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="Models\StagemanagerDiagram.edmx.diagram">
+      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
     </None>
-    <None Include="Models\Model1.tt">
+    <None Include="Models\StagemanagerDiagram.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
+      <LastGenOutput>StagemanagerDiagram.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -258,10 +266,6 @@
   <ItemGroup>
     <Folder Include="Infrastructure\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\Model1.edmx.sql" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

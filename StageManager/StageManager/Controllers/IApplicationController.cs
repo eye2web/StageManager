@@ -12,6 +12,8 @@ namespace StageManager.Controllers
 
         void ShowKoppel();
 
+        void SaveAlgemeenSet();
+
 //      void ShowOpleidingen();
 
         void ShowStudenten();

@@ -12,27 +12,21 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Docent
+    public partial class studentset
     {
-        public Docent()
+        public studentset()
         {
-            this.Stage = new HashSet<Stage>();
+            this.stagesets = new HashSet<stageset>();
         }
     
-        public int Leraar_Id { get; set; }
-        public string Naam { get; set; }
+        public int Studentnummer { get; set; }
+        public string Name { get; set; }
         public string Straatnaam_en_nr { get; set; }
         public string Postcode { get; set; }
         public string Plaats { get; set; }
-        public string Telefoonnummer { get; set; }
-        public int Algemene_InformatieId { get; set; }
-        public Nullable<short> DBU1 { get; set; }
-        public Nullable<short> DBU2 { get; set; }
-        public Nullable<short> DBU3 { get; set; }
-        public Nullable<short> DBU4 { get; set; }
-        public int AlgemeenId { get; set; }
+        public int Telefoonnummer { get; set; }
+        public bool EC_norm_behaald { get; set; }
     
-        public virtual ICollection<Stage> Stage { get; set; }
-        public virtual Algemeen Algemeen { get; set; }
+        public virtual ICollection<stageset> stagesets { get; set; }
     }
 }

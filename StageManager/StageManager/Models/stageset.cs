@@ -12,7 +12,7 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Stage
+    public partial class stageset
     {
         public Nullable<System.DateTime> Start_datum { get; set; }
         public Nullable<System.DateTime> Eind_datum { get; set; }
@@ -25,9 +25,9 @@ namespace StageManager.Models
         public int BedrijfsbegeleiderId { get; set; }
         public int Stage_Id { get; set; }
     
-        public virtual Student Student { get; set; }
-        public virtual Docent Leraar { get; set; }
-        public virtual Bedrijf Bedrijf { get; set; }
-        public virtual Bedrijfsbegeleider Bedrijfsbegeleider { get; set; }
+        public virtual bedrijfsbegeleiderset bedrijfsbegeleiderset { get; set; }
+        public virtual bedrijfset bedrijfset { get; set; }
+        public virtual docentset docentset { get; set; }
+        public virtual studentset studentset { get; set; }
     }
 }

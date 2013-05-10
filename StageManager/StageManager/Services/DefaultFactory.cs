@@ -9,17 +9,17 @@ namespace StageManager.Services
 {
     class DefaultFactory : IFactory
     {
-        public Student CreateStudent()
+        public studentset CreateStudent()
         {
-            return new Student
+            return new studentset
             {
                 // Naam = naam,
                 // Opleiding = opleiding
             };
         }
-        public Docent CreateDocent()
+        public docentset CreateDocent()
         {
-            return new Docent
+            return new docentset
             {
                 // Naam = naam,
                 // Opleiding = opleiding

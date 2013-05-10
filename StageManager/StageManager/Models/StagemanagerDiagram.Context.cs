@@ -13,10 +13,10 @@ namespace StageManager.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class stagemanagerEntities : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public stagemanagerEntities()
+            : base("name=stagemanagerEntities")
         {
         }
     
@@ -25,11 +25,11 @@ namespace StageManager.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Student> StudentSet { get; set; }
-        public DbSet<Docent> DocentSet { get; set; }
-        public DbSet<Bedrijfsbegeleider> BedrijfsbegeleiderSet { get; set; }
-        public DbSet<Bedrijf> BedrijfSet { get; set; }
-        public DbSet<Stage> StageSet { get; set; }
-        public DbSet<Algemeen> AlgemeenSet { get; set; }
+        public DbSet<algemeenset> algemeensets { get; set; }
+        public DbSet<bedrijfsbegeleiderset> bedrijfsbegeleidersets { get; set; }
+        public DbSet<bedrijfset> bedrijfsets { get; set; }
+        public DbSet<docentset> docentsets { get; set; }
+        public DbSet<stageset> stagesets { get; set; }
+        public DbSet<studentset> studentsets { get; set; }
     }
 }

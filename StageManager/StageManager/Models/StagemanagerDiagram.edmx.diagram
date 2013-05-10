@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="45bbf2b36797424ebc7e16b53dd79d9d" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="stagemanagerModel.algemeenset" Width="2.25" PointX="3.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleiderset" Width="1.75" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfset" Width="1.75" PointX="0.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.docentset" Width="2.125" PointX="6.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.stageset" Width="2.25" PointX="3.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.studentset" Width="2.25" PointX="6.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="stagemanagerModel.FK_DocentAlgemeen" ManuallyRouted="false" />
+        <AssociationConnector Association="stagemanagerModel.FK_BedrijfsbegeleiderBedrijf" ManuallyRouted="false" />
+        <AssociationConnector Association="stagemanagerModel.FK_BedrijfsbegeleiderStage" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="stagemanagerModel.FK_BedrijfStage" ManuallyRouted="false" />
+        <AssociationConnector Association="stagemanagerModel.FK_LeraarStage" ManuallyRouted="false" />
+        <AssociationConnector Association="stagemanagerModel.FK_StudentStage" ManuallyRouted="false" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
