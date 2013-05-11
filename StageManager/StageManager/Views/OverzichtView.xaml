@@ -7,8 +7,8 @@
              xmlns:vm="clr-namespace:StageManager.ViewModels" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="500">
-    <StackPanel VerticalAlignment="Stretch" Background="White">
-            <Border BorderBrush="#FFA0A0A0" BorderThickness="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Margin="0">
+    <Grid Background="White">
+            <Border BorderBrush="#FFA0A0A0" BorderThickness="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="Auto" Margin="0">
                 <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
                     <Expander.Header>
                         <TextBlock Text="OVERZICHT" FontWeight="Bold" Visibility="Visible">
@@ -51,10 +51,5 @@
                     </StackPanel>
                 </Expander>
             </Border>
-        
-        <ScrollViewer Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
-            <ContentControl x:Name="Contents"
-                        Content="{Binding Contents}" />
-        </ScrollViewer>
-    </StackPanel>
+    </Grid>
 </UserControl>

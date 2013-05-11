@@ -40,7 +40,7 @@ namespace StageManager.Controllers
         public void ShowStudenten()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
-            mainViewModel.Contents = container.GetInstance(typeof(StudentenViewModel), null) as StudentenViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(StudentSelectieViewModel), null) as StudentSelectieViewModel;
         }
 
         public void ShowDocenten()

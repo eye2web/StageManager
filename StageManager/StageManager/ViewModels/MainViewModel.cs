@@ -48,6 +48,11 @@ namespace StageManager.ViewModels
             app.ShowKoppel();
         }
 
+        public void OpenStudentSelectie()
+        {
+            app.ShowStudenten();
+        }
+
 /*
         public void Opleidingen()
         {

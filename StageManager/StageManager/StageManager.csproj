@@ -128,6 +128,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OverzichtViewModel.cs" />
     <Compile Include="ViewModels\StudentenViewModel.cs" />
+    <Compile Include="ViewModels\StudentSelectieViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="Views\AlgemeenView.xaml.cs">
       <DependentUpon>AlgemeenView.xaml</DependentUpon>
@@ -155,6 +156,9 @@
     </Compile>
     <Compile Include="Views\StudentenView.xaml.cs">
       <DependentUpon>StudentenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentSelectieView.xaml.cs">
+      <DependentUpon>StudentSelectieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
@@ -204,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StudentenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentSelectieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
