@@ -15,10 +15,9 @@ namespace StageManager.ViewModels
         private readonly IApplicationController app;
         private AlgemeenView aV;
 
-        public AlgemeenViewModel(IApplicationController app,  AlgemeenView aV)
+        public AlgemeenViewModel()
         {
-            this.app = app;
-            this.aV = aV;
+            aV = new AlgemeenView();
         }
 
         public void SaveAlgemeenSet()
@@ -30,7 +29,8 @@ namespace StageManager.ViewModels
             aS.Werk_Uren = aV.Werkuren;
             aS.Blokken = aV.AantBlokken;
 
-            app.SaveAlgemeenSet();
+            smE.algemeensets.Add(aS);
+            smE.SaveChanges();
         }
     }
 }

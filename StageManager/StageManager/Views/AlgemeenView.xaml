@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="StageManager.Views.AlgemeenView"
+﻿<Window x:Class="StageManager.Views.AlgemeenView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -45,9 +45,9 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75"/>
-                <Button x:Name="SaveAlgemeenSet" Grid.Column="1" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+                <Button Grid.Column="1" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
 
             </Grid>
         </Grid>
     </Grid>
-</UserControl>
+</Window>

@@ -37,10 +37,6 @@ namespace StageManager.Controllers
             mainViewModel.Contents = container.GetInstance(typeof(KoppelViewModel), null) as KoppelViewModel;
         }
 
-        public void ShowOpleidingen()
-        {
-        }
-
         public void ShowStudenten()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;

@@ -20,9 +20,9 @@ namespace StageManager.Models
         }
     
         public int Id { get; set; }
-        public String Jaargang { get; set; }
-        public String Werk_Uren { get; set; }
-        public String Blokken { get; set; }
+        public string Jaargang { get; set; }
+        public string Werk_Uren { get; set; }
+        public string Blokken { get; set; }
     
         public virtual ICollection<docentset> docentsets { get; set; }
     }

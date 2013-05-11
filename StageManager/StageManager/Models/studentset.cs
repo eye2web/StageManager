@@ -14,11 +14,6 @@ namespace StageManager.Models
     
     public partial class studentset
     {
-        public studentset()
-        {
-            this.stagesets = new HashSet<stageset>();
-        }
-    
         public int Studentnummer { get; set; }
         public string Name { get; set; }
         public string Straatnaam_en_nr { get; set; }
@@ -26,7 +21,5 @@ namespace StageManager.Models
         public string Plaats { get; set; }
         public int Telefoonnummer { get; set; }
         public bool EC_norm_behaald { get; set; }
-    
-        public virtual ICollection<stageset> stagesets { get; set; }
     }
 }
