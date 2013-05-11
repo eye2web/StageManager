@@ -19,7 +19,6 @@ namespace StageManager.Views
     /// </summary>
     public partial class AlgemeenView : Window
     {
-
         public AlgemeenView()
         {
             InitializeComponent();
@@ -28,23 +27,17 @@ namespace StageManager.Views
 
         public String Jaargang
         {
-            get { return jaargang.ToString(); }
+            get { return jaargang.Text; }
         }
 
         public String Werkuren
         {
-            get { return werkuren.ToString(); }
+            get { return werkuren.Text; }
         }
 
         public String AantBlokken
         {
-            get { return aantBlokken.ToString(); }
+            get { return aantBlokken.Text; }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
     }
 }

@@ -12,7 +12,6 @@ namespace StageManager.ViewModels
     {
         private readonly IApplicationController app;
         private readonly OverzichtViewModel overzicht;
-        private AlgemeenViewModel aVM;
 
         private PropertyChangedBase content = new OverzichtViewModel();
 
@@ -22,8 +21,6 @@ namespace StageManager.ViewModels
         {
             this.app = app;
             this.overzicht = overzicht;
-            aVM = new AlgemeenViewModel();
-
         }
 
         public OverzichtViewModel Overzicht { get { return overzicht; } }

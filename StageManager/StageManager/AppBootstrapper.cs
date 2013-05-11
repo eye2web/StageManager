@@ -39,6 +39,7 @@
             container.PerRequest<KoppelViewModel>();
             container.PerRequest<StudentenViewModel>();
             container.PerRequest<StudentSelectieViewModel>();
+            container.PerRequest<AlgemeenViewModel>();
 
             container.Singleton<MainViewModel>();
         }
@@ -61,6 +62,7 @@
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {
             windowManager.ShowWindow(container.GetInstance(typeof(MainViewModel), null));
+            windowManager.ShowWindow(container.GetInstance(typeof(AlgemeenViewModel), null));
         }
     }
 }
