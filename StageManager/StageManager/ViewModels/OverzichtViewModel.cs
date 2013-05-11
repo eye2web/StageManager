@@ -1,4 +1,5 @@
-﻿using StageManager.MVVM;
+﻿using StageManager.Controllers;
+using StageManager.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace StageManager.ViewModels
 {
     public class OverzichtViewModel : PropertyChangedBase
     {
+
     }
 }

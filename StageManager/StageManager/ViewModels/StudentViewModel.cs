@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class StudentViewModel : PropertyChangedBase
+    public class StudentViewModel : PropertyChangedBase
     {
-        private string naam;
-        private int studentnummer;
+        private string naam; 
+        private int studentnummer;   
         private string opleiding;
         private string adres;
         private string postcode;
