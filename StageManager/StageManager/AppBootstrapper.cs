@@ -37,7 +37,6 @@
 
             container.PerRequest<OverzichtViewModel>();
             container.PerRequest<KoppelViewModel>();
-            container.PerRequest<StudentenViewModel>();
             container.PerRequest<StudentSelectieViewModel>();
             container.PerRequest<AlgemeenViewModel>();
 

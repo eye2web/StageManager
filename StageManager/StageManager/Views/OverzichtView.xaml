@@ -7,11 +7,13 @@
              xmlns:vm="clr-namespace:StageManager.ViewModels" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="500">
-    <Grid Background="White">
-            <Border BorderBrush="#FFA0A0A0" BorderThickness="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="Auto" Margin="0">
+    <StackPanel Orientation="Horizontal">
+        <!-- Gegevens Overzicht -->
+        <Grid Margin="0,0,5,0">
+            <Border Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="Auto" Margin="0">
                 <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
                     <Expander.Header>
-                        <TextBlock Text="OVERZICHT" FontWeight="Bold" Visibility="Visible">
+                        <TextBlock Text="GEGEVENS OVERZICHT" FontWeight="Bold" Visibility="Visible">
                             <TextBlock.LayoutTransform>
                                 <TransformGroup>
                                     <RotateTransform CenterX="25" CenterY="25" Angle="90" />
@@ -21,11 +23,103 @@
                     </Expander.Header>
                     <StackPanel Width="600">
                         <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
-                            <Label Content="OVERZICHT" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
+                            <Label Content="GEGEVENS OVERZICHT" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
                         </Border>
                         <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalScrollBarVisibility="Auto" Margin="0">
                             <StackPanel Margin="0,10,20,0">
-                                <Button x:Name="OpenKoppel" Padding="5" FontWeight="Bold">NIEUWE KOPPELING</Button>
+                                <Button Padding="5" FontWeight="Bold">SELECTIE MAILEN</Button>
+                                <ListView Margin="0,10,0,0" ItemsSource="{Binding StudentGegevensCollection}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Width="140" Header="E-mail" >
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock>
+                                                            <Hyperlink NavigateUri="{Binding Path=Email}">
+                                                                <TextBlock Text="{Binding Path=Email}" />
+                                                            </Hyperlink>    
+                                                        </TextBlock>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="140" Header="Naam" DisplayMemberBinding="{Binding StudentNaam}"  />
+                                            <GridViewColumn Width="140" Header="Gegevens"  DisplayMemberBinding="{Binding Gegevens}" />
+                                            <GridViewColumn Width="140" Header="Stageopdracht" DisplayMemberBinding="{Binding Stageopdracht}" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Expander>
+            </Border>
+        </Grid>
+        <!-- Stageopdracht Overzicht-->
+        <Grid Margin="0,0,5,0">
+            <Border Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="Auto" Margin="0">
+                <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
+                    <Expander.Header>
+                        <TextBlock Text="STAGEOPDRACHT OVERZICHT" FontWeight="Bold" Visibility="Visible">
+                            <TextBlock.LayoutTransform>
+                                <TransformGroup>
+                                    <RotateTransform CenterX="25" CenterY="25" Angle="90" />
+                                </TransformGroup>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Expander.Header>
+                    <StackPanel Width="600">
+                        <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
+                            <Label Content="STAGEOPDRACHT OVERZICHT" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        </Border>
+                        <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalScrollBarVisibility="Auto" Margin="0">
+                            <StackPanel Margin="0,10,20,0">
+                                <Button Padding="5" FontWeight="Bold">NIEUWE KOPPELING</Button>
+                                <DataGrid Margin="0,10,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn>
+                                            <DataGridTemplateColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.HeaderTemplate>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox IsChecked="{Binding Path=Checked, UpdateSourceTrigger=PropertyChanged}" Name="theCheckbox"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Docent" Width="auto" IsReadOnly="True"/>
+                                        <DataGridTemplateColumn Header="Student" Width="auto" IsReadOnly="True"/>
+                                        <DataGridTemplateColumn Header="Opleiding" Width="auto" IsReadOnly="True"/>
+                                        <DataGridTemplateColumn Header="Datum" Width="auto" IsReadOnly="True"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Expander>
+            </Border>
+        </Grid>
+        <!-- Koppelingen Overzicht -->
+        <Grid Margin="0,0,5,0">
+            <Border Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto" Height="Auto" Margin="0">
+                <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
+                    <Expander.Header>
+                        <TextBlock Text="KOPPELING OVERZICHT" FontWeight="Bold" Visibility="Visible">
+                            <TextBlock.LayoutTransform>
+                                <TransformGroup>
+                                    <RotateTransform CenterX="25" CenterY="25" Angle="90" />
+                                </TransformGroup>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Expander.Header>
+                    <StackPanel Width="600">
+                        <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
+                            <Label Content="KOPPELING OVERZICHT" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        </Border>
+                        <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalScrollBarVisibility="Auto" Margin="0">
+                            <StackPanel Margin="0,10,20,0">
+                                <Button Padding="5" FontWeight="Bold">NIEUWE KOPPELING</Button>
                                 <DataGrid Margin="0,10,0,0">
                                     <DataGrid.Columns>
                                         <DataGridTemplateColumn>
@@ -52,4 +146,5 @@
                 </Expander>
             </Border>
     </Grid>
+    </StackPanel>
 </UserControl>
