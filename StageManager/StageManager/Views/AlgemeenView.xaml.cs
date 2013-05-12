@@ -17,27 +17,11 @@ namespace StageManager.Views
     /// <summary>
     /// Interaction logic for AlgemeenView.xaml
     /// </summary>
-    public partial class AlgemeenView : Window
+    public partial class AlgemeenView : UserControl
     {
         public AlgemeenView()
         {
             InitializeComponent();
-            Show();
-        }
-
-        public String Jaargang
-        {
-            get { return jaargang.Text; }
-        }
-
-        public String Werkuren
-        {
-            get { return werkuren.Text; }
-        }
-
-        public String AantBlokken
-        {
-            get { return aantBlokken.Text; }
         }
     }
 }
