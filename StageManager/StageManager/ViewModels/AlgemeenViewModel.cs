@@ -117,10 +117,22 @@ namespace StageManager.ViewModels
             else
             {
                 SearchText = "No Such Records";
-                Jaargang = "0";
-                Werkuren = "0";
-                AantBlokken = "0";
             }
+        }
+
+        //Gevonde entry aanpassen
+        public void UpdateAlgemeenSet()
+        {
+            stagemanagerEntities smE = new stagemanagerEntities();
+                algemeenset aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
+
+                aS.Jaargang = (String)Jaargang;
+                aS.Werk_Uren = (String)Werkuren;
+                aS.Blokken = (String)AantBlokken;
+
+                smE.SaveChanges();
+
+                FillView();
         }
     }
 }

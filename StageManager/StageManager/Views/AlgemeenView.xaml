@@ -54,14 +54,16 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Button Grid.Column="0" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75"/>
-                <Button Grid.Column="1" Name="SaveAlgemeenSet" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+                <Button Grid.Column="1" Name="SaveAlgemeenSet" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
+                <Button Grid.Column="2" Name="UpdateAlgemeenSet" Content="Update"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
             </Grid>
 
             <DataGrid  Name="GritContents" 
