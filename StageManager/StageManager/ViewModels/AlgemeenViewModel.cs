@@ -63,21 +63,31 @@ namespace StageManager.ViewModels
             }
         }
 
-        public AlgemeenViewModel()
+        private String searchText;
+
+        public String SearchText
         {
-            Jaargang = "0";
-            Werkuren = "0";
-            AantBlokken = "0";
-            
+            get { return searchText; }
+            set
+            {
+                searchText = value;
+                OnPropertyChanged("SearchText");
+            }
+        }
+
+        public AlgemeenViewModel()
+        {            
             FillView();
         }
 
+        //Vul grid
         public void FillView()
         {
             stagemanagerEntities smE = new stagemanagerEntities();
             GritContents = smE.algemeensets.ToList();
-        }    
+        }
 
+        //Sla een object op
         public void SaveAlgemeenSet()
         {           
             stagemanagerEntities smE = new stagemanagerEntities();
@@ -91,6 +101,26 @@ namespace StageManager.ViewModels
             smE.SaveChanges();
 
             FillView();
+        }
+
+        //Zoek de eerste entry
+        public void SearchAlgemeenSet()
+        {
+            stagemanagerEntities smE = new stagemanagerEntities();
+            if (smE.algemeensets.Any(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)))
+            {
+                algemeenset aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
+                Jaargang = aS.Jaargang;
+                Werkuren = aS.Werk_Uren;
+                AantBlokken = aS.Blokken;
+            }
+            else
+            {
+                SearchText = "No Such Records";
+                Jaargang = "0";
+                Werkuren = "0";
+                AantBlokken = "0";
+            }
         }
     }
 }
