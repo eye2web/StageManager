@@ -134,5 +134,17 @@ namespace StageManager.ViewModels
 
                 FillView();
         }
+        
+        //Gevonde entry verwijderen
+        public void DeleteAlgemeenSet()
+        {
+            stagemanagerEntities smE = new stagemanagerEntities();
+            algemeenset aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
+            smE.algemeensets.Remove(aS);
+
+            smE.SaveChanges();
+
+            FillView();
+        }
     }
 }
