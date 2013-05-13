@@ -2,10 +2,7 @@ C# Project StageManager
 
 Requirements:
 
-	Software:
-	
-    C# Stagemanager Documentatie
-	
+	Software:	
 	MySQL connector 			6.6.5
 	
 	NuGet Packages:
