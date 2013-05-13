@@ -83,9 +83,9 @@ namespace StageManager.ViewModels
             stagemanagerEntities smE = new stagemanagerEntities();
             algemeenset aS = new algemeenset();
  
-            aS.Jaargang = ""+Jaargang;
-            aS.Werk_Uren = ""+Werkuren;
-            aS.Blokken = ""+AantBlokken;
+            aS.Jaargang = (String)Jaargang;
+            aS.Werk_Uren = (String)Werkuren;
+            aS.Blokken = (String)AantBlokken;
 
             smE.algemeensets.Add(aS);
             smE.SaveChanges();

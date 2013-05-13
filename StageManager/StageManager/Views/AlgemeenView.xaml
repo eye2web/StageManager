@@ -58,8 +58,19 @@
                 <Button Grid.Column="0" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75"/>
                 <Button Grid.Column="1" Name="SaveAlgemeenSet" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
             </Grid>
-            
-            <DataGrid  Grid.Column="1" CanUserAddRows="False" Name="GritContents"  AutoGenerateColumns="False" HorizontalAlignment="Center" VerticalAlignment="Top" Height="auto" Width="auto" Grid.Row="1">
+
+            <DataGrid  Name="GritContents" 
+                       Grid.Column="1" Grid.Row="1" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                       Height="auto" Width="auto" 
+                       
+                       AutoGenerateColumns="False"                       
+                       CanUserResizeColumns="False"
+                       CanUserAddRows="False"
+                       CanUserDeleteRows="False"
+                       CanUserResizeRows="False">
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Jaargang}"  Header="Jaargang" Width="auto" IsReadOnly="True"/>
                     <DataGridTextColumn Binding="{Binding Werk_Uren}" Header="Werkuren" Width="auto" IsReadOnly="True"/>
