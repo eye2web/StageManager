@@ -111,6 +111,12 @@
     <Compile Include="Models\studentset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WAlgemeenSet.cs" />
+    <Compile Include="Models\WBedrijfsBegeleiderSet.cs" />
+    <Compile Include="Models\WBedrijfSet.cs" />
+    <Compile Include="Models\WDocentSet.cs" />
+    <Compile Include="Models\WSrageSet.cs" />
+    <Compile Include="Models\WStudentSet.cs" />
     <Compile Include="MVVM\PropertyChangedBase.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="Services\DefaultFactory.cs" />
