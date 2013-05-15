@@ -5,17 +5,33 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="38797c76f1434bbdb8376432ba03b8a8" Name="Diagram1">
-        <EntityTypeShape EntityType="stagemanagerModel.algemeenset" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleiderset" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.bedrijfset" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.docentset" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.stageset" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.studentset" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="stagemanagerModel.FK_DocentAlgemeen" ManuallyRouted="false" />
-        <AssociationConnector Association="stagemanagerModel.FK_BedrijfsbegeleiderBedrijf" ManuallyRouted="false" />
-        <AssociationConnector Association="stagemanagerModel.FK_BedrijfsbegeleiderStage" ManuallyRouted="false" />
-        <AssociationConnector Association="stagemanagerModel.FK_BedrijfStage" ManuallyRouted="false" />
-        <AssociationConnector Association="stagemanagerModel.FK_LeraarStage" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="stagemanagerModel.algemeenset" Width="1.5" PointX="6.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleiderset" Width="1.5" PointX="1" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfset" Width="1.5" PointX="1" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.docentset" Width="1.5" PointX="6.375" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.stageset" Width="1.5" PointX="6.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.studentset" Width="1.5" PointX="9.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.persoon" Width="1.5" PointX="1" PointY="6.625" />
+        <EntityTypeShape EntityType="stagemanagerModel.adres" Width="1.5" PointX="1" PointY="8.875" />
+        <EntityTypeShape EntityType="stagemanagerModel.Opleiding" Width="1.5" PointX="9.875" PointY="5.5" />
+        <EntityTypeShape EntityType="stagemanagerModel.acedemie" Width="1.5" PointX="10" PointY="9.5" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfEnBegeleider" Width="1.5" PointX="3.75" PointY="2.125" />
+        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderstageset" />
+        <AssociationConnector Association="stagemanagerModel.stagesetstudentset" />
+        <AssociationConnector Association="stagemanagerModel.docentsetstageset" />
+        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset" />
+        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfset" />
+        <AssociationConnector Association="stagemanagerModel.Opleidingstudentset" />
+        <AssociationConnector Association="stagemanagerModel.Opleidingdocentset" />
+        <AssociationConnector Association="stagemanagerModel.algemeensetdocentset" />
+        <AssociationConnector Association="stagemanagerModel.acedemieOpleiding" />
+        <InheritanceConnector EntityType="stagemanagerModel.bedrijfsbegeleiderset" />
+        <InheritanceConnector EntityType="stagemanagerModel.studentset" />
+        <InheritanceConnector EntityType="stagemanagerModel.docentset" />
+        <InheritanceConnector EntityType="stagemanagerModel.bedrijfset" />
+        <EntityTypeShape EntityType="stagemanagerModel.Tool_vaardigheid" Width="1.5" PointX="12.75" PointY="0.875" />
+        <AssociationConnector Association="stagemanagerModel.Tool_vaardigheidstageset" />
+        <AssociationConnector Association="stagemanagerModel.Tool_vaardigheiddocentset" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
