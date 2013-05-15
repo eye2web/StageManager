@@ -61,7 +61,7 @@
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {
             windowManager.ShowWindow(container.GetInstance(typeof(MainViewModel), null));
-            windowManager.ShowWindow(container.GetInstance(typeof(AlgemeenViewModel), null));
+            //windowManager.ShowWindow(container.GetInstance(typeof(AlgemeenViewModel), null));
         }
     }
 }

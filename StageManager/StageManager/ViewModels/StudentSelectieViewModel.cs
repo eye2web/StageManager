@@ -10,7 +10,7 @@ namespace StageManager.ViewModels
 {
     public class StudentSelectieViewModel : PropertyChangedBase
     {
-        private List<studentset> gritContents;
+/*        private List<studentset> gritContents;
         public List<studentset> GritContents
         {
             get { return gritContents; }
@@ -31,6 +31,6 @@ namespace StageManager.ViewModels
             stagemanagerEntities smE = new stagemanagerEntities();
             GritContents = smE.studentsets.ToList();
         } 
-
+*/    
     }
 }
