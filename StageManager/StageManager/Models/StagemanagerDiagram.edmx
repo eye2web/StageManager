@@ -234,6 +234,19 @@
             <End Role="adres" EntitySet="adresSet" />
             <End Role="bedrijfset" EntitySet="bedrijfsetSet" />
           </AssociationSet>
+          <EntitySet Name="WebkeySet" EntityType="stagemanagerModel.Webkey" />
+          <AssociationSet Name="adresdocentset" Association="stagemanagerModel.adresdocentset">
+            <End Role="adres" EntitySet="adresSet" />
+            <End Role="docentset" EntitySet="persoonSet" />
+          </AssociationSet>
+          <AssociationSet Name="Webkeydocentset" Association="stagemanagerModel.Webkeydocentset">
+            <End Role="Webkey" EntitySet="WebkeySet" />
+            <End Role="docentset" EntitySet="persoonSet" />
+          </AssociationSet>
+          <AssociationSet Name="Webkeystudentset" Association="stagemanagerModel.Webkeystudentset">
+            <End Role="Webkey" EntitySet="WebkeySet" />
+            <End Role="studentset" EntitySet="persoonSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="algemeenset">
           <Key>
@@ -246,25 +259,28 @@
           <NavigationProperty Name="docentset" Relationship="stagemanagerModel.algemeensetdocentset" FromRole="algemeenset" ToRole="docentset" />
         </EntityType>
         <EntityType Name="bedrijfsbegeleiderset" BaseType="stagemanagerModel.persoon">
-          <Property Name="Functie" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
-          <Property Name="Opleidingsniveau" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
-          <Property Name="Minimale_begeleidingstijd_gegarandeerd" Type="String" Nullable="false" MaxLength="1073741823" Unicode="false" FixedLength="false" />
+          <Property Name="Functie" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Opleidingsniveau" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Minimale_begeleidingstijd_gegarandeerd" Type="Boolean" Nullable="true" />
           <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset" FromRole="bedrijfsbegeleiderset" ToRole="bedrijfEnBegeleider" />
         </EntityType>
         <EntityType Name="bedrijfset">
+          <Key>
+            <PropertyRef Name="Bedrijfs_Id" />
+          </Key>
           <Property Name="Bedrijfs_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="Naam" Type="String" Nullable="false" MaxLength="1073741823" Unicode="false" FixedLength="false" />
-          <Property Name="Telefoonnummer" Type="Int32" />
-          <Property Name="Website" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
+          <Property Name="Telefoonnummer" Type="Int32" Nullable="true" />
+          <Property Name="Website" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" Nullable="true" />
           <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderbedrijfset" FromRole="bedrijfset" ToRole="bedrijfEnBegeleider" />
           <NavigationProperty Name="adres" Relationship="stagemanagerModel.adresbedrijfset" FromRole="bedrijfset" ToRole="adres" />
         </EntityType>
         <EntityType Name="docentset" BaseType="stagemanagerModel.persoon">
           <Property Name="Leraar_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="DBU1" Type="Int16" />
-          <Property Name="DBU2" Type="Int16" />
-          <Property Name="DBU3" Type="Int16" />
-          <Property Name="DBU4" Type="Int16" />
+          <Property Name="DBU1" Type="Int16" Nullable="true" />
+          <Property Name="DBU2" Type="Int16" Nullable="true" />
+          <Property Name="DBU3" Type="Int16" Nullable="true" />
+          <Property Name="DBU4" Type="Int16" Nullable="true" />
           <NavigationProperty Name="stageset" Relationship="stagemanagerModel.docentsetstageset" FromRole="docentset" ToRole="stageset" />
           <Property Type="Int32" Name="stagesetStage_Id" Nullable="false" />
           <NavigationProperty Name="Opleiding" Relationship="stagemanagerModel.Opleidingdocentset" FromRole="docentset" ToRole="Opleiding" />
@@ -272,14 +288,16 @@
           <Property Type="Int32" Name="algemeensetId" Nullable="false" />
           <NavigationProperty Name="Tool_vaardigheid" Relationship="stagemanagerModel.Tool_vaardigheiddocentset" FromRole="docentset" ToRole="Tool_vaardigheid" />
           <Property Type="String" Name="Webkey" Nullable="false" />
+          <NavigationProperty Name="adres" Relationship="stagemanagerModel.adresdocentset" FromRole="docentset" ToRole="adres" />
+          <NavigationProperty Name="Webkey1" Relationship="stagemanagerModel.Webkeydocentset" FromRole="docentset" ToRole="Webkey" />
         </EntityType>
         <EntityType Name="stageset">
           <Key>
             <PropertyRef Name="Stage_Id" />
           </Key>
           <Property Name="Stage_Id" Type="Int32" Nullable="false" />
-          <Property Name="Start_datum" Type="DateTime" />
-          <Property Name="Eind_datum" Type="DateTime" />
+          <Property Name="Start_datum" Type="DateTime" Nullable="true" />
+          <Property Name="Eind_datum" Type="DateTime" Nullable="true" />
           <Property Name="Stageopdracht_omschijving" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderstageset" FromRole="stageset" ToRole="bedrijfEnBegeleider" />
           <NavigationProperty Name="studentset" Relationship="stagemanagerModel.stagesetstudentset" FromRole="stageset" ToRole="studentset" />
@@ -293,6 +311,7 @@
           <NavigationProperty Name="Opleiding" Relationship="stagemanagerModel.Opleidingstudentset" FromRole="studentset" ToRole="Opleiding" />
           <Property Type="Int32" Name="OpleidingId" Nullable="false" />
           <Property Type="String" Name="Webkey" Nullable="false" />
+          <NavigationProperty Name="Webkey1" Relationship="stagemanagerModel.Webkeystudentset" FromRole="studentset" ToRole="Webkey" />
         </EntityType>
         <EntityType Name="persoon">
           <Key>
@@ -300,16 +319,20 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
-          <Property Type="String" Name="Email" Nullable="false" />
-          <Property Type="String" Name="Telefoonnummer" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="Int32" Name="Telefoonnummer" Nullable="true" />
         </EntityType>
         <EntityType Name="adres">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Plaats" Nullable="false" />
           <Property Type="String" Name="Straat" Nullable="false" />
           <Property Type="String" Name="Huisnummer" Nullable="false" />
           <Property Type="String" Name="Postcode" Nullable="false" />
           <NavigationProperty Name="bedrijfset" Relationship="stagemanagerModel.adresbedrijfset" FromRole="adres" ToRole="bedrijfset" />
+          <NavigationProperty Name="docentset" Relationship="stagemanagerModel.adresdocentset" FromRole="adres" ToRole="docentset" />
         </EntityType>
         <EntityType Name="Opleiding">
           <Key>
@@ -442,6 +465,27 @@
         <Association Name="adresbedrijfset">
           <End Type="stagemanagerModel.adres" Role="adres" Multiplicity="*" />
           <End Type="stagemanagerModel.bedrijfset" Role="bedrijfset" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Webkey">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ConnectionKey" Nullable="false" />
+          <NavigationProperty Name="docentset" Relationship="stagemanagerModel.Webkeydocentset" FromRole="Webkey" ToRole="docentset" />
+          <NavigationProperty Name="studentset" Relationship="stagemanagerModel.Webkeystudentset" FromRole="Webkey" ToRole="studentset" />
+        </EntityType>
+        <Association Name="adresdocentset">
+          <End Type="stagemanagerModel.adres" Role="adres" Multiplicity="1" />
+          <End Type="stagemanagerModel.docentset" Role="docentset" Multiplicity="1" />
+        </Association>
+        <Association Name="Webkeydocentset">
+          <End Type="stagemanagerModel.Webkey" Role="Webkey" Multiplicity="1" />
+          <End Type="stagemanagerModel.docentset" Role="docentset" Multiplicity="1" />
+        </Association>
+        <Association Name="Webkeystudentset">
+          <End Type="stagemanagerModel.Webkey" Role="Webkey" Multiplicity="1" />
+          <End Type="stagemanagerModel.studentset" Role="studentset" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

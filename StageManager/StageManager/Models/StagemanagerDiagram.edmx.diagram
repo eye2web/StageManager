@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="38797c76f1434bbdb8376432ba03b8a8" Name="Diagram1">
-        <EntityTypeShape EntityType="stagemanagerModel.algemeenset" Width="1.5" PointX="6.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.algemeenset" Width="1.5" PointX="4.25" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleiderset" Width="1.5" PointX="1" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="stagemanagerModel.bedrijfset" Width="1.5" PointX="1" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="stagemanagerModel.docentset" Width="1.5" PointX="6.375" PointY="5.25" IsExpanded="true" />
@@ -32,6 +32,10 @@
         <AssociationConnector Association="stagemanagerModel.Tool_vaardigheidstageset" />
         <AssociationConnector Association="stagemanagerModel.Tool_vaardigheiddocentset" />
         <AssociationConnector Association="stagemanagerModel.adresbedrijfset" />
+        <EntityTypeShape EntityType="stagemanagerModel.Webkey" Width="1.5" PointX="7.375" PointY="9.5" />
+        <AssociationConnector Association="stagemanagerModel.adresdocentset" />
+        <AssociationConnector Association="stagemanagerModel.Webkeydocentset" />
+        <AssociationConnector Association="stagemanagerModel.Webkeystudentset" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
