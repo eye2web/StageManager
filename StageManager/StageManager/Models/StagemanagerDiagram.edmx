@@ -221,10 +221,6 @@
           <EntitySet Name="persoonSet" EntityType="stagemanagerModel.persoon" />
           <EntitySet Name="adresSet" EntityType="stagemanagerModel.adres" />
           <EntitySet Name="Tool_vaardigheidSet" EntityType="stagemanagerModel.Tool_vaardigheid" />
-          <AssociationSet Name="Tool_vaardigheidstageset" Association="stagemanagerModel.Tool_vaardigheidstageset">
-            <End Role="Tool_vaardigheid" EntitySet="Tool_vaardigheidSet" />
-            <End Role="stageset" EntitySet="stagesets" />
-          </AssociationSet>
           <AssociationSet Name="Tool_vaardigheiddocentset" Association="stagemanagerModel.Tool_vaardigheiddocentset">
             <End Role="Tool_vaardigheid" EntitySet="Tool_vaardigheidSet" />
             <End Role="docentset" EntitySet="persoonSet" />
@@ -246,6 +242,10 @@
           <AssociationSet Name="Webkeystudentset" Association="stagemanagerModel.Webkeystudentset">
             <End Role="Webkey" EntitySet="WebkeySet" />
             <End Role="studentset" EntitySet="persoonSet" />
+          </AssociationSet>
+          <AssociationSet Name="Tool_vaardigheidstageset" Association="stagemanagerModel.Tool_vaardigheidstageset">
+            <End Role="Tool_vaardigheid" EntitySet="Tool_vaardigheidSet" />
+            <End Role="stageset" EntitySet="stagesets" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="algemeenset">
@@ -451,13 +451,9 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Naam" Nullable="false" />
-          <NavigationProperty Name="stageset" Relationship="stagemanagerModel.Tool_vaardigheidstageset" FromRole="Tool_vaardigheid" ToRole="stageset" />
           <NavigationProperty Name="docentset" Relationship="stagemanagerModel.Tool_vaardigheiddocentset" FromRole="Tool_vaardigheid" ToRole="docentset" />
+          <NavigationProperty Name="stageset" Relationship="stagemanagerModel.Tool_vaardigheidstageset" FromRole="Tool_vaardigheid" ToRole="stageset" />
         </EntityType>
-        <Association Name="Tool_vaardigheidstageset">
-          <End Type="stagemanagerModel.Tool_vaardigheid" Role="Tool_vaardigheid" Multiplicity="*" />
-          <End Type="stagemanagerModel.stageset" Role="stageset" Multiplicity="*" />
-        </Association>
         <Association Name="Tool_vaardigheiddocentset">
           <End Type="stagemanagerModel.Tool_vaardigheid" Role="Tool_vaardigheid" Multiplicity="*" />
           <End Type="stagemanagerModel.docentset" Role="docentset" Multiplicity="*" />
@@ -486,6 +482,10 @@
         <Association Name="Webkeystudentset">
           <End Type="stagemanagerModel.Webkey" Role="Webkey" Multiplicity="1" />
           <End Type="stagemanagerModel.studentset" Role="studentset" Multiplicity="1" />
+        </Association>
+        <Association Name="Tool_vaardigheidstageset">
+          <End Type="stagemanagerModel.Tool_vaardigheid" Role="Tool_vaardigheid" Multiplicity="*" />
+          <End Type="stagemanagerModel.stageset" Role="stageset" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

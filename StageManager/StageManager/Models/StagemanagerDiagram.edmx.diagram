@@ -29,13 +29,13 @@
         <InheritanceConnector EntityType="stagemanagerModel.studentset" />
         <InheritanceConnector EntityType="stagemanagerModel.docentset" />
         <EntityTypeShape EntityType="stagemanagerModel.Tool_vaardigheid" Width="1.5" PointX="12.75" PointY="0.875" />
-        <AssociationConnector Association="stagemanagerModel.Tool_vaardigheidstageset" />
         <AssociationConnector Association="stagemanagerModel.Tool_vaardigheiddocentset" />
         <AssociationConnector Association="stagemanagerModel.adresbedrijfset" />
         <EntityTypeShape EntityType="stagemanagerModel.Webkey" Width="1.5" PointX="7.375" PointY="9.5" />
         <AssociationConnector Association="stagemanagerModel.adresdocentset" />
         <AssociationConnector Association="stagemanagerModel.Webkeydocentset" />
         <AssociationConnector Association="stagemanagerModel.Webkeystudentset" />
+        <AssociationConnector Association="stagemanagerModel.Tool_vaardigheidstageset" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
