@@ -200,7 +200,7 @@
           </AssociationSet>
           <AssociationSet Name="bedrijfEnBegeleiderbedrijfset" Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfset">
             <End Role="bedrijfEnBegeleider" EntitySet="bedrijfEnBegeleiderSet" />
-            <End Role="bedrijfset" EntitySet="adresSet" />
+            <End Role="bedrijfset" EntitySet="bedrijfsetSet" />
           </AssociationSet>
           <AssociationSet Name="Opleidingstudentset" Association="stagemanagerModel.Opleidingstudentset">
             <End Role="Opleiding" EntitySet="OpleidingSet" />
@@ -229,6 +229,11 @@
             <End Role="Tool_vaardigheid" EntitySet="Tool_vaardigheidSet" />
             <End Role="docentset" EntitySet="persoonSet" />
           </AssociationSet>
+          <EntitySet Name="bedrijfsetSet" EntityType="stagemanagerModel.bedrijfset" />
+          <AssociationSet Name="adresbedrijfset" Association="stagemanagerModel.adresbedrijfset">
+            <End Role="adres" EntitySet="adresSet" />
+            <End Role="bedrijfset" EntitySet="bedrijfsetSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="algemeenset">
           <Key>
@@ -246,12 +251,13 @@
           <Property Name="Minimale_begeleidingstijd_gegarandeerd" Type="String" Nullable="false" MaxLength="1073741823" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset" FromRole="bedrijfsbegeleiderset" ToRole="bedrijfEnBegeleider" />
         </EntityType>
-        <EntityType Name="bedrijfset" BaseType="stagemanagerModel.adres">
+        <EntityType Name="bedrijfset">
           <Property Name="Bedrijfs_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="Naam" Type="String" Nullable="false" MaxLength="1073741823" Unicode="false" FixedLength="false" />
           <Property Name="Telefoonnummer" Type="Int32" />
           <Property Name="Website" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderbedrijfset" FromRole="bedrijfset" ToRole="bedrijfEnBegeleider" />
+          <NavigationProperty Name="adres" Relationship="stagemanagerModel.adresbedrijfset" FromRole="bedrijfset" ToRole="adres" />
         </EntityType>
         <EntityType Name="docentset" BaseType="stagemanagerModel.persoon">
           <Property Name="Leraar_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
@@ -265,6 +271,7 @@
           <NavigationProperty Name="algemeenset" Relationship="stagemanagerModel.algemeensetdocentset" FromRole="docentset" ToRole="algemeenset" />
           <Property Type="Int32" Name="algemeensetId" Nullable="false" />
           <NavigationProperty Name="Tool_vaardigheid" Relationship="stagemanagerModel.Tool_vaardigheiddocentset" FromRole="docentset" ToRole="Tool_vaardigheid" />
+          <Property Type="String" Name="Webkey" Nullable="false" />
         </EntityType>
         <EntityType Name="stageset">
           <Key>
@@ -285,6 +292,7 @@
           <NavigationProperty Name="stageset" Relationship="stagemanagerModel.stagesetstudentset" FromRole="studentset" ToRole="stageset" />
           <NavigationProperty Name="Opleiding" Relationship="stagemanagerModel.Opleidingstudentset" FromRole="studentset" ToRole="Opleiding" />
           <Property Type="Int32" Name="OpleidingId" Nullable="false" />
+          <Property Type="String" Name="Webkey" Nullable="false" />
         </EntityType>
         <EntityType Name="persoon">
           <Key>
@@ -301,6 +309,7 @@
           <Property Type="String" Name="Straat" Nullable="false" />
           <Property Type="String" Name="Huisnummer" Nullable="false" />
           <Property Type="String" Name="Postcode" Nullable="false" />
+          <NavigationProperty Name="bedrijfset" Relationship="stagemanagerModel.adresbedrijfset" FromRole="adres" ToRole="bedrijfset" />
         </EntityType>
         <EntityType Name="Opleiding">
           <Key>
@@ -430,6 +439,10 @@
           <End Type="stagemanagerModel.Tool_vaardigheid" Role="Tool_vaardigheid" Multiplicity="*" />
           <End Type="stagemanagerModel.docentset" Role="docentset" Multiplicity="*" />
         </Association>
+        <Association Name="adresbedrijfset">
+          <End Type="stagemanagerModel.adres" Role="adres" Multiplicity="*" />
+          <End Type="stagemanagerModel.bedrijfset" Role="bedrijfset" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -480,7 +493,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="adresSet" >
+          <EntitySetMapping Name="bedrijfsetSet">
             <EntityTypeMapping TypeName="IsTypeOf(stagemanagerModel.bedrijfset)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
               <MappingFragment StoreEntitySet="bedrijfsets">
                 <ScalarProperty Name="Bedrijfs_Id" ColumnName="Bedrijfs_Id" />

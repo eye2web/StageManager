@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="stagemanagerModel.stageset" Width="1.5" PointX="6.5" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="stagemanagerModel.studentset" Width="1.5" PointX="9.5" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="stagemanagerModel.persoon" Width="1.5" PointX="1" PointY="6.625" />
-        <EntityTypeShape EntityType="stagemanagerModel.adres" Width="1.5" PointX="1" PointY="8.875" />
+        <EntityTypeShape EntityType="stagemanagerModel.adres" Width="1.5" PointX="1" PointY="8.75" />
         <EntityTypeShape EntityType="stagemanagerModel.Opleiding" Width="1.5" PointX="9.875" PointY="5.5" />
         <EntityTypeShape EntityType="stagemanagerModel.acedemie" Width="1.5" PointX="10" PointY="9.5" />
         <EntityTypeShape EntityType="stagemanagerModel.bedrijfEnBegeleider" Width="1.5" PointX="3.75" PointY="2.125" />
@@ -28,10 +28,10 @@
         <InheritanceConnector EntityType="stagemanagerModel.bedrijfsbegeleiderset" />
         <InheritanceConnector EntityType="stagemanagerModel.studentset" />
         <InheritanceConnector EntityType="stagemanagerModel.docentset" />
-        <InheritanceConnector EntityType="stagemanagerModel.bedrijfset" />
         <EntityTypeShape EntityType="stagemanagerModel.Tool_vaardigheid" Width="1.5" PointX="12.75" PointY="0.875" />
         <AssociationConnector Association="stagemanagerModel.Tool_vaardigheidstageset" />
         <AssociationConnector Association="stagemanagerModel.Tool_vaardigheiddocentset" />
+        <AssociationConnector Association="stagemanagerModel.adresbedrijfset" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
