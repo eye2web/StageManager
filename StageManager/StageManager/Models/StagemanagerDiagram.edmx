@@ -182,10 +182,6 @@
           <EntitySet Name="OpleidingSet" EntityType="stagemanagerModel.Opleiding" />
           <EntitySet Name="acedemieSet" EntityType="stagemanagerModel.acedemie" />
           <EntitySet Name="bedrijfEnBegeleiderSet" EntityType="stagemanagerModel.bedrijfEnBegeleider" />
-          <AssociationSet Name="bedrijfEnBegeleiderstageset" Association="stagemanagerModel.bedrijfEnBegeleiderstageset">
-            <End Role="bedrijfEnBegeleider" EntitySet="bedrijfEnBegeleiderSet" />
-            <End Role="stageset" EntitySet="stagesets" />
-          </AssociationSet>
           <AssociationSet Name="stagesetstudentset" Association="stagemanagerModel.stagesetstudentset">
             <End Role="stageset" EntitySet="stagesets" />
             <End Role="studentset" EntitySet="persoonSet" />
@@ -193,14 +189,6 @@
           <AssociationSet Name="docentsetstageset" Association="stagemanagerModel.docentsetstageset">
             <End Role="docentset" EntitySet="persoonSet" />
             <End Role="stageset" EntitySet="stagesets" />
-          </AssociationSet>
-          <AssociationSet Name="bedrijfEnBegeleiderbedrijfsbegeleiderset" Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset">
-            <End Role="bedrijfEnBegeleider" EntitySet="bedrijfEnBegeleiderSet" />
-            <End Role="bedrijfsbegeleiderset" EntitySet="persoonSet" />
-          </AssociationSet>
-          <AssociationSet Name="bedrijfEnBegeleiderbedrijfset" Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfset">
-            <End Role="bedrijfEnBegeleider" EntitySet="bedrijfEnBegeleiderSet" />
-            <End Role="bedrijfset" EntitySet="bedrijfsetSet" />
           </AssociationSet>
           <AssociationSet Name="Opleidingstudentset" Association="stagemanagerModel.Opleidingstudentset">
             <End Role="Opleiding" EntitySet="OpleidingSet" />
@@ -247,6 +235,18 @@
             <End Role="Tool_vaardigheid" EntitySet="Tool_vaardigheidSet" />
             <End Role="stageset" EntitySet="stagesets" />
           </AssociationSet>
+          <AssociationSet Name="bedrijfEnBegeleiderstageset" Association="stagemanagerModel.bedrijfEnBegeleiderstageset">
+            <End Role="bedrijfEnBegeleider" EntitySet="bedrijfEnBegeleiderSet" />
+            <End Role="stageset" EntitySet="stagesets" />
+          </AssociationSet>
+          <AssociationSet Name="bedrijfEnBegeleiderbedrijfsbegeleiderset" Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset">
+            <End Role="bedrijfEnBegeleider" EntitySet="bedrijfEnBegeleiderSet" />
+            <End Role="bedrijfsbegeleiderset" EntitySet="persoonSet" />
+          </AssociationSet>
+          <AssociationSet Name="bedrijfsetbedrijfEnBegeleider" Association="stagemanagerModel.bedrijfsetbedrijfEnBegeleider">
+            <End Role="bedrijfEnBegeleider" EntitySet="bedrijfEnBegeleiderSet" />
+            <End Role="bedrijfset" EntitySet="bedrijfsetSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="algemeenset">
           <Key>
@@ -272,8 +272,8 @@
           <Property Name="Naam" Type="String" Nullable="false" MaxLength="1073741823" Unicode="false" FixedLength="false" />
           <Property Name="Telefoonnummer" Type="Int32" Nullable="true" />
           <Property Name="Website" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" Nullable="true" />
-          <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderbedrijfset" FromRole="bedrijfset" ToRole="bedrijfEnBegeleider" />
           <NavigationProperty Name="adres" Relationship="stagemanagerModel.adresbedrijfset" FromRole="bedrijfset" ToRole="adres" />
+          <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfsetbedrijfEnBegeleider" FromRole="bedrijfset" ToRole="bedrijfEnBegeleider" />
         </EntityType>
         <EntityType Name="docentset" BaseType="stagemanagerModel.persoon">
           <Property Name="Leraar_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
@@ -299,10 +299,11 @@
           <Property Name="Start_datum" Type="DateTime" Nullable="true" />
           <Property Name="Eind_datum" Type="DateTime" Nullable="true" />
           <Property Name="Stageopdracht_omschijving" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderstageset" FromRole="stageset" ToRole="bedrijfEnBegeleider" />
           <NavigationProperty Name="studentset" Relationship="stagemanagerModel.stagesetstudentset" FromRole="stageset" ToRole="studentset" />
           <NavigationProperty Name="docentset" Relationship="stagemanagerModel.docentsetstageset" FromRole="stageset" ToRole="docentset" />
           <NavigationProperty Name="Tool_vaardigheid" Relationship="stagemanagerModel.Tool_vaardigheidstageset" FromRole="stageset" ToRole="Tool_vaardigheid" />
+          <NavigationProperty Name="bedrijfEnBegeleider" Relationship="stagemanagerModel.bedrijfEnBegeleiderstageset" FromRole="stageset" ToRole="bedrijfEnBegeleider" />
+          <Property Type="Int32" Name="bedrijfEnBegeleiderId" Nullable="false" />
         </EntityType>
         <EntityType Name="studentset" BaseType="stagemanagerModel.persoon">
           <Property Name="Studentnummer" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
@@ -360,14 +361,10 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="stageset" Relationship="stagemanagerModel.bedrijfEnBegeleiderstageset" FromRole="bedrijfEnBegeleider" ToRole="stageset" />
           <NavigationProperty Name="bedrijfsbegeleiderset" Relationship="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset" FromRole="bedrijfEnBegeleider" ToRole="bedrijfsbegeleiderset" />
-          <Property Type="Int32" Name="bedrijfsbegeleidersetId" Nullable="true" />
-          <NavigationProperty Name="bedrijfset" Relationship="stagemanagerModel.bedrijfEnBegeleiderbedrijfset" FromRole="bedrijfEnBegeleider" ToRole="bedrijfset" />
+          <Property Type="Int32" Name="bedrijfsbegeleidersetId" Nullable="false" />
+          <NavigationProperty Name="bedrijfset" Relationship="stagemanagerModel.bedrijfsetbedrijfEnBegeleider" FromRole="bedrijfEnBegeleider" ToRole="bedrijfset" />
           <Property Type="Int32" Name="bedrijfsetBedrijfs_Id" Nullable="false" />
           </EntityType>
-        <Association Name="bedrijfEnBegeleiderstageset">
-          <End Type="stagemanagerModel.bedrijfEnBegeleider" Role="bedrijfEnBegeleider" Multiplicity="1" />
-          <End Type="stagemanagerModel.stageset" Role="stageset" Multiplicity="*" />
-        </Association>
         <Association Name="stagesetstudentset">
           <End Type="stagemanagerModel.stageset" Role="stageset" Multiplicity="1" />
           <End Type="stagemanagerModel.studentset" Role="studentset" Multiplicity="1" />
@@ -382,26 +379,6 @@
             </Principal>
             <Dependent Role="docentset">
               <PropertyRef Name="stagesetStage_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="bedrijfEnBegeleiderbedrijfsbegeleiderset">
-          <End Type="stagemanagerModel.bedrijfEnBegeleider" Role="bedrijfEnBegeleider" Multiplicity="*" />
-          <End Type="stagemanagerModel.bedrijfsbegeleiderset" Role="bedrijfsbegeleiderset" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="bedrijfsbegeleiderset">
-            </Principal>
-            <Dependent Role="bedrijfEnBegeleider">
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="bedrijfEnBegeleiderbedrijfset">
-          <End Type="stagemanagerModel.bedrijfEnBegeleider" Role="bedrijfEnBegeleider" Multiplicity="*" />
-          <End Type="stagemanagerModel.bedrijfset" Role="bedrijfset" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="bedrijfset">
-            </Principal>
-            <Dependent Role="bedrijfEnBegeleider">
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -470,6 +447,7 @@
           <Property Type="String" Name="ConnectionKey" Nullable="false" />
           <NavigationProperty Name="docentset" Relationship="stagemanagerModel.Webkeydocentset" FromRole="Webkey" ToRole="docentset" />
           <NavigationProperty Name="studentset" Relationship="stagemanagerModel.Webkeystudentset" FromRole="Webkey" ToRole="studentset" />
+          <Property Type="String" Name="Status" Nullable="false" />
         </EntityType>
         <Association Name="adresdocentset">
           <End Type="stagemanagerModel.adres" Role="adres" Multiplicity="1" />
@@ -486,6 +464,42 @@
         <Association Name="Tool_vaardigheidstageset">
           <End Type="stagemanagerModel.Tool_vaardigheid" Role="Tool_vaardigheid" Multiplicity="*" />
           <End Type="stagemanagerModel.stageset" Role="stageset" Multiplicity="*" />
+        </Association>
+        <Association Name="bedrijfEnBegeleiderstageset">
+          <End Type="stagemanagerModel.bedrijfEnBegeleider" Role="bedrijfEnBegeleider" Multiplicity="1" />
+          <End Type="stagemanagerModel.stageset" Role="stageset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bedrijfEnBegeleider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="stageset">
+              <PropertyRef Name="bedrijfEnBegeleiderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bedrijfEnBegeleiderbedrijfsbegeleiderset">
+          <End Type="stagemanagerModel.bedrijfEnBegeleider" Role="bedrijfEnBegeleider" Multiplicity="*" />
+          <End Type="stagemanagerModel.bedrijfsbegeleiderset" Role="bedrijfsbegeleiderset" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="bedrijfsbegeleiderset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="bedrijfEnBegeleider">
+              <PropertyRef Name="bedrijfsbegeleidersetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bedrijfsetbedrijfEnBegeleider">
+          <End Type="stagemanagerModel.bedrijfEnBegeleider" Role="bedrijfEnBegeleider" Multiplicity="*" />
+          <End Type="stagemanagerModel.bedrijfset" Role="bedrijfset" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="bedrijfset">
+              <PropertyRef Name="Bedrijfs_Id" />
+            </Principal>
+            <Dependent Role="bedrijfEnBegeleider">
+              <PropertyRef Name="bedrijfsetBedrijfs_Id" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>

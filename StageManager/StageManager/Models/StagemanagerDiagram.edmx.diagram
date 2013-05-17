@@ -16,11 +16,8 @@
         <EntityTypeShape EntityType="stagemanagerModel.Opleiding" Width="1.5" PointX="9.875" PointY="5.5" />
         <EntityTypeShape EntityType="stagemanagerModel.acedemie" Width="1.5" PointX="10" PointY="9.5" />
         <EntityTypeShape EntityType="stagemanagerModel.bedrijfEnBegeleider" Width="1.5" PointX="3.75" PointY="2.125" />
-        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderstageset" />
         <AssociationConnector Association="stagemanagerModel.stagesetstudentset" />
         <AssociationConnector Association="stagemanagerModel.docentsetstageset" />
-        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset" />
-        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfset" />
         <AssociationConnector Association="stagemanagerModel.Opleidingstudentset" />
         <AssociationConnector Association="stagemanagerModel.Opleidingdocentset" />
         <AssociationConnector Association="stagemanagerModel.algemeensetdocentset" />
@@ -36,6 +33,9 @@
         <AssociationConnector Association="stagemanagerModel.Webkeydocentset" />
         <AssociationConnector Association="stagemanagerModel.Webkeystudentset" />
         <AssociationConnector Association="stagemanagerModel.Tool_vaardigheidstageset" />
+        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderstageset" />
+        <AssociationConnector Association="stagemanagerModel.bedrijfEnBegeleiderbedrijfsbegeleiderset" />
+        <AssociationConnector Association="stagemanagerModel.bedrijfsetbedrijfEnBegeleider" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
