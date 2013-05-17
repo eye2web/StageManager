@@ -78,7 +78,16 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\IApplicationController.cs" />
     <Compile Include="IShell.cs" />
+    <Compile Include="Models\acedemie.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\adres.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\algemeenset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bedrijfEnBegeleider.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\bedrijfsbegeleiderset.cs">
@@ -88,6 +97,12 @@
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\docentset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Opleiding.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\persoon.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StagemanagerDiagram.Context.cs">
@@ -111,10 +126,19 @@
     <Compile Include="Models\studentset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tool_vaardigheid.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vaardigheden_en_tools.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WAlgemeenSet.cs" />
     <Compile Include="Models\WBedrijfsBegeleiderSet.cs" />
     <Compile Include="Models\WBedrijfSet.cs" />
     <Compile Include="Models\WDocentSet.cs" />
+    <Compile Include="Models\Webkey.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WSrageSet.cs" />
     <Compile Include="Models\WStudentSet.cs" />
     <Compile Include="MVVM\PropertyChangedBase.cs" />
@@ -271,6 +295,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\StagemanagerDiagram.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

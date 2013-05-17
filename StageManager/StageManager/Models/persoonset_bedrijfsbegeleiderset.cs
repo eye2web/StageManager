@@ -12,18 +12,19 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class algemeenset
+    public partial class persoonset_bedrijfsbegeleiderset
     {
-        public algemeenset()
+        public persoonset_bedrijfsbegeleiderset()
         {
-            this.persoonset_docentset = new HashSet<persoonset_docentset>();
+            this.bedrijfenbegeleidersets = new HashSet<bedrijfenbegeleiderset>();
         }
     
+        public string Functie { get; set; }
+        public string Opleidingsniveau { get; set; }
+        public Nullable<bool> Minimale_begeleidingstijd_gegarandeerd { get; set; }
         public int Id { get; set; }
-        public string Jaargang { get; set; }
-        public string Werk_Uren { get; set; }
-        public string Blokken { get; set; }
     
-        public virtual ICollection<persoonset_docentset> persoonset_docentset { get; set; }
+        public virtual ICollection<bedrijfenbegeleiderset> bedrijfenbegeleidersets { get; set; }
+        public virtual persoonset persoonset { get; set; }
     }
 }

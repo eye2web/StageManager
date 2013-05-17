@@ -12,14 +12,17 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class studentset
+    public partial class adresset
     {
-        public int Studentnummer { get; set; }
-        public string Name { get; set; }
-        public string Straatnaam_en_nr { get; set; }
-        public string Postcode { get; set; }
+        public int Id { get; set; }
         public string Plaats { get; set; }
-        public int Telefoonnummer { get; set; }
-        public bool EC_norm_behaald { get; set; }
+        public string Straat { get; set; }
+        public string Huisnummer { get; set; }
+        public string Postcode { get; set; }
+        public int bedrijfset_Bedrijfs_Id { get; set; }
+        public int docentset_Id { get; set; }
+    
+        public virtual bedrijfsetset bedrijfsetset { get; set; }
+        public virtual persoonset_docentset persoonset_docentset { get; set; }
     }
 }

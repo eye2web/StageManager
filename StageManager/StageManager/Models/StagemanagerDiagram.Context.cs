@@ -12,6 +12,9 @@ namespace StageManager.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class stagemanagerEntities : DbContext
     {
@@ -25,11 +28,27 @@ namespace StageManager.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<acedemieset> acedemiesets { get; set; }
+        public DbSet<adresset> adressets { get; set; }
         public DbSet<algemeenset> algemeensets { get; set; }
-        public DbSet<bedrijfsbegeleiderset> bedrijfsbegeleidersets { get; set; }
-        public DbSet<bedrijfset> bedrijfsets { get; set; }
-        public DbSet<docentset> docentsets { get; set; }
+        public DbSet<bedrijfenbegeleiderset> bedrijfenbegeleidersets { get; set; }
+        public DbSet<bedrijfsetset> bedrijfsetsets { get; set; }
+        public DbSet<opleidingset> opleidingsets { get; set; }
+        public DbSet<persoonset> persoonsets { get; set; }
+        public DbSet<persoonset_bedrijfsbegeleiderset> persoonset_bedrijfsbegeleiderset { get; set; }
+        public DbSet<persoonset_docentset> persoonset_docentset { get; set; }
+        public DbSet<persoonset_studentset> persoonset_studentset { get; set; }
         public DbSet<stageset> stagesets { get; set; }
-        public DbSet<studentset> studentsets { get; set; }
+        public DbSet<tool_vaardigheidset> tool_vaardigheidset { get; set; }
+        public DbSet<webkeyset> webkeysets { get; set; }
+    
+        public virtual int SearchAlgemeenSet(string in_searchQuery)
+        {
+            var in_searchQueryParameter = in_searchQuery != null ?
+                new ObjectParameter("in_searchQuery", in_searchQuery) :
+                new ObjectParameter("in_searchQuery", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchAlgemeenSet", in_searchQueryParameter);
+        }
     }
 }
