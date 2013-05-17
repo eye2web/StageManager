@@ -42,13 +42,22 @@ namespace StageManager.Models
         public DbSet<tool_vaardigheidset> tool_vaardigheidset { get; set; }
         public DbSet<webkeyset> webkeysets { get; set; }
     
-        public virtual int SearchAlgemeenSet(string in_searchQuery)
+        public virtual ObjectResult<algemeenset> SearchAlgemeenSet(string in_searchQuery)
         {
             var in_searchQueryParameter = in_searchQuery != null ?
                 new ObjectParameter("in_searchQuery", in_searchQuery) :
                 new ObjectParameter("in_searchQuery", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchAlgemeenSet", in_searchQueryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeenset>("SearchAlgemeenSet", in_searchQueryParameter);
+        }
+    
+        public virtual ObjectResult<algemeenset> SearchAlgemeenSet(string in_searchQuery, MergeOption mergeOption)
+        {
+            var in_searchQueryParameter = in_searchQuery != null ?
+                new ObjectParameter("in_searchQuery", in_searchQuery) :
+                new ObjectParameter("in_searchQuery", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeenset>("SearchAlgemeenSet", mergeOption, in_searchQueryParameter);
         }
     }
 }
