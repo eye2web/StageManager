@@ -16,7 +16,7 @@ namespace StageManager.Models
     {
         public algemeenset()
         {
-            this.persoonset_docentset = new HashSet<persoonset_docentset>();
+            this.docentsets = new HashSet<docentset>();
         }
     
         public int Id { get; set; }
@@ -24,6 +24,6 @@ namespace StageManager.Models
         public string Werk_Uren { get; set; }
         public string Blokken { get; set; }
     
-        public virtual ICollection<persoonset_docentset> persoonset_docentset { get; set; }
+        public virtual ICollection<docentset> docentsets { get; set; }
     }
 }

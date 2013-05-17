@@ -12,9 +12,9 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class persoonset_docentset
+    public partial class docentset
     {
-        public persoonset_docentset()
+        public docentset()
         {
             this.adressets = new HashSet<adresset>();
             this.webkeysets = new HashSet<webkeyset>();

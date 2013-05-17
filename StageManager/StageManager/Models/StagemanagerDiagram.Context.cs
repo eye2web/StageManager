@@ -32,13 +32,13 @@ namespace StageManager.Models
         public DbSet<adresset> adressets { get; set; }
         public DbSet<algemeenset> algemeensets { get; set; }
         public DbSet<bedrijfenbegeleiderset> bedrijfenbegeleidersets { get; set; }
-        public DbSet<bedrijfsetset> bedrijfsetsets { get; set; }
+        public DbSet<bedrijfsbegeleiderset> bedrijfsbegeleidersets { get; set; }
+        public DbSet<bedrijfset> bedrijfsets { get; set; }
+        public DbSet<docentset> docentsets { get; set; }
         public DbSet<opleidingset> opleidingsets { get; set; }
         public DbSet<persoonset> persoonsets { get; set; }
-        public DbSet<persoonset_bedrijfsbegeleiderset> persoonset_bedrijfsbegeleiderset { get; set; }
-        public DbSet<persoonset_docentset> persoonset_docentset { get; set; }
-        public DbSet<persoonset_studentset> persoonset_studentset { get; set; }
         public DbSet<stageset> stagesets { get; set; }
+        public DbSet<studentset> studentsets { get; set; }
         public DbSet<tool_vaardigheidset> tool_vaardigheidset { get; set; }
         public DbSet<webkeyset> webkeysets { get; set; }
     

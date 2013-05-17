@@ -16,8 +16,8 @@ namespace StageManager.Models
     {
         public opleidingset()
         {
-            this.persoonset_studentset = new HashSet<persoonset_studentset>();
-            this.persoonset_docentset = new HashSet<persoonset_docentset>();
+            this.studentsets = new HashSet<studentset>();
+            this.docentsets = new HashSet<docentset>();
         }
     
         public int Id { get; set; }
@@ -25,7 +25,7 @@ namespace StageManager.Models
         public int acedemieId { get; set; }
     
         public virtual acedemieset acedemieset { get; set; }
-        public virtual ICollection<persoonset_studentset> persoonset_studentset { get; set; }
-        public virtual ICollection<persoonset_docentset> persoonset_docentset { get; set; }
+        public virtual ICollection<studentset> studentsets { get; set; }
+        public virtual ICollection<docentset> docentsets { get; set; }
     }
 }

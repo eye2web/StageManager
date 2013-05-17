@@ -16,14 +16,14 @@ namespace StageManager.Models
     {
         public tool_vaardigheidset()
         {
-            this.persoonset_docentset = new HashSet<persoonset_docentset>();
+            this.docentsets = new HashSet<docentset>();
             this.stagesets = new HashSet<stageset>();
         }
     
         public int Id { get; set; }
         public string Naam { get; set; }
     
-        public virtual ICollection<persoonset_docentset> persoonset_docentset { get; set; }
+        public virtual ICollection<docentset> docentsets { get; set; }
         public virtual ICollection<stageset> stagesets { get; set; }
     }
 }

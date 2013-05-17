@@ -23,8 +23,8 @@ namespace StageManager.Models
         public int bedrijfsbegeleidersetId { get; set; }
         public int bedrijfsetBedrijfs_Id { get; set; }
     
-        public virtual persoonset_bedrijfsbegeleiderset persoonset_bedrijfsbegeleiderset { get; set; }
+        public virtual bedrijfsbegeleiderset bedrijfsbegeleiderset { get; set; }
         public virtual ICollection<stageset> stagesets { get; set; }
-        public virtual bedrijfsetset bedrijfsetset { get; set; }
+        public virtual bedrijfset bedrijfset { get; set; }
     }
 }

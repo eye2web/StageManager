@@ -20,7 +20,7 @@ namespace StageManager.Models
         public int docentset_Id { get; set; }
         public int studentset_Id { get; set; }
     
-        public virtual persoonset_docentset persoonset_docentset { get; set; }
-        public virtual persoonset_studentset persoonset_studentset { get; set; }
+        public virtual docentset docentset { get; set; }
+        public virtual studentset studentset { get; set; }
     }
 }

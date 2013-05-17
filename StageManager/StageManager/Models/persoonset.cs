@@ -19,8 +19,8 @@ namespace StageManager.Models
         public string Email { get; set; }
         public Nullable<int> Telefoonnummer { get; set; }
     
-        public virtual persoonset_bedrijfsbegeleiderset persoonset_bedrijfsbegeleiderset { get; set; }
-        public virtual persoonset_docentset persoonset_docentset { get; set; }
-        public virtual persoonset_studentset persoonset_studentset { get; set; }
+        public virtual bedrijfsbegeleiderset bedrijfsbegeleiderset { get; set; }
+        public virtual docentset docentset { get; set; }
+        public virtual studentset studentset { get; set; }
     }
 }
