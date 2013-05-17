@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStudentSet: studentset
+    class WAlgemeen:algemeenset
     {
+        public WAlgemeen()
+            : base()
+        {
+
+        }
     }
 }

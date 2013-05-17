@@ -18,6 +18,7 @@ namespace StageManager.Models
         {
             this.docentsets = new HashSet<docentset>();
             this.tool_vaardigheidset = new HashSet<tool_vaardigheidset>();
+            this.bedrijfsbegeleiderset = new HashSet<bedrijfsbegeleiderset>();
         }
     
         public int Stage_Id { get; set; }
@@ -27,9 +28,9 @@ namespace StageManager.Models
         public int bedrijfEnBegeleiderId { get; set; }
         public int studentset_Id { get; set; }
     
-        public virtual bedrijfenbegeleiderset bedrijfenbegeleiderset { get; set; }
         public virtual ICollection<docentset> docentsets { get; set; }
         public virtual studentset studentset { get; set; }
         public virtual ICollection<tool_vaardigheidset> tool_vaardigheidset { get; set; }
+        public virtual ICollection<bedrijfsbegeleiderset> bedrijfsbegeleiderset { get; set; }
     }
 }

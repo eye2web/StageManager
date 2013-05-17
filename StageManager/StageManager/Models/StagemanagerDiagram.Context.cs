@@ -31,7 +31,6 @@ namespace StageManager.Models
         public DbSet<acedemieset> acedemiesets { get; set; }
         public DbSet<adresset> adressets { get; set; }
         public DbSet<algemeenset> algemeensets { get; set; }
-        public DbSet<bedrijfenbegeleiderset> bedrijfenbegeleidersets { get; set; }
         public DbSet<bedrijfsbegeleiderset> bedrijfsbegeleidersets { get; set; }
         public DbSet<bedrijfset> bedrijfsets { get; set; }
         public DbSet<docentset> docentsets { get; set; }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WSrageSet:stageset
+    class WPersoon:persoonset
     {
+        public WPersoon()
+            : base()
+        { }
     }
 }

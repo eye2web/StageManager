@@ -14,17 +14,13 @@ namespace StageManager.Models
     
     public partial class bedrijfsbegeleiderset
     {
-        public bedrijfsbegeleiderset()
-        {
-            this.bedrijfenbegeleidersets = new HashSet<bedrijfenbegeleiderset>();
-        }
-    
         public string Functie { get; set; }
         public string Opleidingsniveau { get; set; }
         public Nullable<bool> Minimale_begeleidingstijd_gegarandeerd { get; set; }
         public int Id { get; set; }
     
-        public virtual ICollection<bedrijfenbegeleiderset> bedrijfenbegeleidersets { get; set; }
         public virtual persoonset persoonset { get; set; }
+        public virtual stageset stageset { get; set; }
+        public virtual bedrijfset bedrijfset { get; set; }
     }
 }

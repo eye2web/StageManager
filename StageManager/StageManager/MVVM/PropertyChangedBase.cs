@@ -11,7 +11,9 @@ namespace StageManager.MVVM
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(string propertyName)
+        public PropertyChangedBase() { }
+
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             var handler = PropertyChanged;
             if (handler != null)

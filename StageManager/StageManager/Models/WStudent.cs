@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfSet:bedrijfset
+    class WStudent:studentset
     {
+        public WStudent()
+            : base()
+        { }
     }
 }
