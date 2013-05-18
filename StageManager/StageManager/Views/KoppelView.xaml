@@ -5,31 +5,67 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="620">
-    <Grid Background="White">
-        <Border BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto" Margin="0,0,0,0">
-            <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
-                <Expander.Header>
-                    <TextBlock Text="KOPPEL" FontWeight="Bold" Visibility="Visible">
-                        <TextBlock.LayoutTransform>
-                            <TransformGroup>
-                                <RotateTransform CenterX="25" CenterY="25" Angle="90" />
-                            </TransformGroup>
-                        </TextBlock.LayoutTransform>
-                    </TextBlock>
-                </Expander.Header>
-                <StackPanel Width="600">
-                    <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
-                        <Label Content="KOPPEL" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
+    <UserControl.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="TextBlock">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="SelectionBoxStyle" BasedOn="{StaticResource TextBoxStyle}" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+    </UserControl.Resources>
+    <Expander Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" Padding="0" IsExpanded="True" ExpandDirection="Right">
+        <Expander.Header>
+            <TextBlock Text="KOPPEL" FontWeight="Bold" Visibility="Visible">
+                <TextBlock.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform CenterX="25" CenterY="25" Angle="90" />
+                    </TransformGroup>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+        </Expander.Header>
+        <ScrollViewer Padding="20,0,20,20">
+            <DockPanel>
+                <!-- KoppelTitel -->
+                <Label Content="Koppel student aan _____" DockPanel.Dock="Top" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" FontSize="24" FontWeight="Light"/>
+                <!-- KoppelControls -->
+                <Grid DockPanel.Dock="Top" Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="180*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="#FFA0A0A0" Grid.Column="0" BorderThickness="1">
+                        <TextBlock Style="{StaticResource SelectionBoxStyle}">&lt;geselecteerde student&gt;</TextBlock>
                     </Border>
-                    <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Width="auto" VerticalScrollBarVisibility="Auto" Margin="0">
-                        <StackPanel Margin="0,10,20,0">
-                            <TextBlock>Hier komt een geselecteerde student</TextBlock>
-                            <TextBlock></TextBlock>
-                            <TextBlock>Hier komt een lijst van docenten waaraan de student gekoppeld kan worden</TextBlock>
-                        </StackPanel>
-                    </ScrollViewer>
-                </StackPanel>
-            </Expander>
-        </Border>
-    </Grid>
+                    <TextBlock Grid.Column="1" Style="{StaticResource TextBoxStyle}">aan</TextBlock>
+                    <Border BorderBrush="#FFA0A0A0" Grid.Column="2" BorderThickness="1">
+                        <TextBlock Style="{StaticResource SelectionBoxStyle}">&lt;geselecteerde docent&gt;</TextBlock>
+                    </Border>
+                    <Button Grid.Column="3" Margin="5,0,0,0" Style="{StaticResource ButtonStyle}">Koppelen</Button>
+                </Grid>
+                <!-- KoppelContent -->
+                <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" Margin="0,10,00,0">
+                        <DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn/>
+                                <DataGridTemplateColumn Header="Naam" Width="auto" IsReadOnly="True"/>
+                                <DataGridTemplateColumn Header="Beschikbare uren" Width="auto" IsReadOnly="True"/>
+                                <DataGridTemplateColumn Header="Kennisgebied" Width="auto" IsReadOnly="True"/>
+                                <DataGridTemplateColumn Header="Opleiding" Width="auto" IsReadOnly="True"/>
+                                <DataGridTemplateColumn Header="Afstand" Width="auto" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>                        
+                </ScrollViewer>
+                <!-- KoppelTweedeLezerKnop -->
+                <Button DockPanel.Dock="Bottom" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10" >Tweede lezer koppelen</Button>
+            </DockPanel>
+        </ScrollViewer>
+    </Expander>
 </UserControl>

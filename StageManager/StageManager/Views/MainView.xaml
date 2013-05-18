@@ -8,7 +8,7 @@
         <!-- Zoekvakstijl -->
         <Style x:Key="SearchStyle" TargetType="TextBox">
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="Margin" Value="0,10,20,10"/>
+            <Setter Property="Margin" Value="24,10,20,10"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="Height" Value="Auto"/>
             <Setter Property="Width" Value="Auto"/>
@@ -24,19 +24,65 @@
             <Setter Property="Width" Value="Auto"/>
             <Setter Property="Background" Value="#FFF7F7F7"/>
             <Setter Property="Padding" Value="5"/>
-        </Style>        
+        </Style> 
+        <!-- TopNavstijl -->
+        <Style x:Key="TopNavStyle" TargetType="DockPanel">
+            <Setter Property="Background" Value="#FF2197F9"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <!-- MenuButton -->
+        <Style x:Key="MenuButton" TargetType="Button">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FontSize" Value="16px"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="24,0,20,0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Opacity" Value="100"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <DockPanel>
+        <!-- TopPanel -->
+        <DockPanel DockPanel.Dock="Top" Style="{StaticResource TopNavStyle}" Background="#FF34BFB9">
+            <!-- Logo -->
+            <StackPanel DockPanel.Dock="Left" Width="230" Orientation="Horizontal">
+                <Image />
+                <TextBlock Height="Auto" VerticalAlignment="Center" FontWeight="Light" Margin="10" Foreground="White" FontSize="20">Stagemanager</TextBlock>
+            </StackPanel>
+            <!-- NavControls -->
+            <StackPanel DockPanel.Dock="Left" Width="200" Orientation="Horizontal">
+                <Canvas Width="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Ellipse HorizontalAlignment="Center"  Fill="White" Height="28" Width="28" Canvas.Left="6" Canvas.Top="6"/>
+                    <Ellipse HorizontalAlignment="Center"  Fill="#FF34BFB9" Height="24" Width="24" Canvas.Left="8" Canvas.Top="8"/>
+                    <Rectangle Canvas.Left="19" Canvas.Top="13" Height="14" Width="2" Fill="White"/>
+                    <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
+                </Canvas>
+                <Button Content="Nieuwe koppeling"
+                        x:Name="OpenStudentSelectie"
+                        Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent"/>
+            </StackPanel>
+            <!-- LoginButton -->
+            <StackPanel DockPanel.Dock="Right" Width="Auto" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Height="Auto" VerticalAlignment="Stretch" BorderThickness="0" Padding="10" Foreground="White" Background="Transparent">Inloggen</Button>
+                <Button Height="Auto" VerticalAlignment="Top" BorderThickness="0" Padding="0" Foreground="White" Background="#FF34BFB9">
+                    <Canvas Width="40">
+                        <Rectangle Canvas.Left="13" Canvas.Top="13" Height="2" Width="14" Fill="White"/>
+                        <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
+                        <Rectangle Canvas.Left="13" Canvas.Top="25" Height="2" Width="14" Fill="White"/>
+                    </Canvas>
+                </Button>
+            </StackPanel>
+        </DockPanel>
         <!-- MenuPanel -->
-        <Grid Grid.Column="0" Margin="5" Background="#FFD3E9FF">
-            <Border BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto">
-                <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
-                    <!-- ExpanderHeader -->
-                    <Expander.Header>
+        <Expander DockPanel.Dock="Left" Margin="0" IsExpanded="True" ExpandDirection="Right" Background="#FFF0F0F0">
+            <!-- ExpanderHeader -->
+            <Expander.Header>
                         <TextBlock x:Name="Exp" Text="MENU" FontWeight="Bold" Visibility="Visible">
                             <TextBlock.LayoutTransform>
                                 <TransformGroup>
@@ -45,32 +91,71 @@
                             </TextBlock.LayoutTransform>
                         </TextBlock>
                     </Expander.Header>
-                    <!-- ExpanderContent -->
-                    <StackPanel Width="200">
-                        <!-- MenuHeader -->
-                        <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
-                            <Label Content="MENU" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
-                        </Border>
-                        <!-- MenuContent -->
-                        <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" Width="auto" Margin="0,0,0,0" VerticalScrollBarVisibility="Auto">
+            <!-- ExpanderContent -->
+            <StackPanel MinWidth="200">
+                <!-- MenuHeader 
+                <Border Grid.Row="0" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,20,10">
+                    <Label Content="MENU" Margin="0" HorizontalAlignment="Center" FontWeight="Bold"/>
+                </Border>-->
+                <!-- MenuContent -->
+                <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" Width="auto" Margin="0" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBox Text="Zoek" Style="{StaticResource SearchStyle}" />
+                        <Expander IsExpanded="true">
+                            <Expander.Header>
+                                <TextBlock Text="Overzichten" FontSize="20" Foreground="Black" FontWeight="Light"/>
+                            </Expander.Header>
                             <StackPanel>
-                                <TextBox Text="Zoek" Style="{StaticResource SearchStyle}" />
-                                <Button x:Name="OpenOverzicht"
-                                        Content="Overzicht"
-                                        Style="{StaticResource ButtonStyle}" />
-                                <Button x:Name="Studenten"
-                                        Content="Nieuwe Koppeling"
-                                        Style="{StaticResource ButtonStyle}" />
+                                <Button Content="Proces"
+                                        x:Name="OpenOverzicht"
+                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Gegevens"
+                                        x:Name="OpenGegevensOverzicht"
+                                        Style="{StaticResource MenuButton}" />
                             </StackPanel>
-                        </ScrollViewer>
+                        </Expander>
+                        <Expander IsExpanded="true">
+                            <Expander.Header>
+                                <TextBlock FontSize="20" Foreground="Black" FontWeight="Light">Documenten</TextBlock>
+                            </Expander.Header>
+                            <StackPanel>
+                                <Button Content="Stagecontract"
+                                        Style="{StaticResource MenuButton}" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander IsExpanded="true">
+                            <Expander.Header>
+                                <TextBlock Text="Views (tijdelijk)" FontSize="20" Foreground="Black" FontWeight="Light"/>
+                            </Expander.Header>
+                            <StackPanel>
+                                <Button Content="Zoek"
+                                        x:Name="OpenZoek"
+                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Koppel"
+                                        x:Name="OpenKoppel"
+                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Student"
+                                        x:Name="OpenStudent"
+                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Docent"
+                                        x:Name="OpenDocent"
+                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Stageopdracht (ontbreekt)"
+                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Bedrijf (ontbreekt)"
+                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Bedrijfsbegeleider (ontbreekt)"
+                                        Style="{StaticResource MenuButton}" />
+                            </StackPanel>
+                        </Expander>                                
                     </StackPanel>
-                </Expander>
-            </Border>
-        </Grid>
+                </ScrollViewer>
+            </StackPanel>
+        </Expander>
         <!-- MainContent -->
-        <ScrollViewer Grid.Column="1"  Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="5">
-                <ContentControl x:Name="Contents"
+        <ScrollViewer DockPanel.Dock="Left"  Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="0">
+            <ContentControl x:Name="Contents"
                         Content="{Binding Contents}" />           
         </ScrollViewer>
-    </Grid>
+    </DockPanel>
 </Window>

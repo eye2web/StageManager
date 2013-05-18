@@ -21,7 +21,7 @@
     </UserControl.Resources>
     <StackPanel Orientation="Horizontal">
         <!-- StudentSelectieView -->
-        <Grid Margin="0,0,10,0">
+        <Grid>
             <Border Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto" Margin="0,0,0,0">
                 <Expander Margin="0" IsExpanded="True" ExpandDirection="Right">
                     <Expander.Header>
@@ -57,7 +57,7 @@
                                     </Expander>
                                 </StackPanel>
                             </ScrollViewer>
-                            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Width="auto" Margin="20,10,20,0" >
+                            <ScrollViewer Grid.Column="1" Width="auto" Margin="20,10,20,0" >
                                 
                                 <DataGrid Background="White" Name="GritContents"
                                           HorizontalAlignment="Stretch" 

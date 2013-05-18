@@ -35,9 +35,13 @@
             container.Singleton<IService, EntityService>();
             container.Singleton<stagemanagerEntities>();
 
+            container.PerRequest<ZoekViewModel>();
             container.PerRequest<OverzichtViewModel>();
+            container.PerRequest<GegevensOverzichtViewModel>();
             container.PerRequest<KoppelViewModel>();
-            container.PerRequest<StudentSelectieViewModel>();
+            container.PerRequest<StudentViewModel>();
+            container.PerRequest<DocentViewModel>();
+            container.PerRequest<StudentSelectieViewModel>(); //temp
             container.PerRequest<AlgemeenViewModel>();
 
             container.Singleton<MainViewModel>();

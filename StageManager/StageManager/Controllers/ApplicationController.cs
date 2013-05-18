@@ -31,6 +31,12 @@ namespace StageManager.Controllers
             mainViewModel.Contents = container.GetInstance(typeof(OverzichtViewModel), null) as OverzichtViewModel;
         }
 
+        public void ShowGegevensOverzicht()
+        {
+            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(GegevensOverzichtViewModel), null) as GegevensOverzichtViewModel;
+        }
+
         public void ShowKoppel()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
@@ -43,12 +49,22 @@ namespace StageManager.Controllers
             mainViewModel.Contents = container.GetInstance(typeof(StudentSelectieViewModel), null) as StudentSelectieViewModel;
         }
 
-        public void ShowDocenten()
+        public void ShowStudent()
         {
+            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(StudentViewModel), null) as StudentViewModel;
         }
 
-        public void ShowBedrijven()
+        public void ShowDocent()
         {
+            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(DocentViewModel), null) as DocentViewModel;
+        }
+
+        public void ShowZoek()
+        {
+            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(ZoekViewModel), null) as ZoekViewModel;
         }
 
         public void SaveAlgemeenSet()

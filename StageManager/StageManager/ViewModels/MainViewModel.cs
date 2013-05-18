@@ -40,9 +40,19 @@ namespace StageManager.ViewModels
             app.ShowOverzicht();
         }
 
+        public void OpenGegevensOverzicht()
+        {
+            app.ShowGegevensOverzicht();
+        }
+
         public void OpenKoppel()
         {
             app.ShowKoppel();
+        }
+
+        public void OpenZoek()
+        {
+            app.ShowZoek();
         }
 
         public void OpenStudentSelectie()
@@ -50,26 +60,14 @@ namespace StageManager.ViewModels
             app.ShowStudenten();
         }
 
-/*
-        public void Opleidingen()
+        public void OpenStudent()
         {
-            app.ShowOpleidingen();
-        }
- */
-
-        public void Studenten()
-        {
-            app.ShowStudenten();
+            app.ShowStudent();
         }
 
-        public void Docenten()
+        public void OpenDocent()
         {
-            app.ShowDocenten();
-        }
-
-        public void Bedrijven()
-        {
-            app.ShowBedrijven();
+            app.ShowDocent();
         }
     }
 }

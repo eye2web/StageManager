@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace StageManager.Views
 {
     /// <summary>
-    /// Interaction logic for BedrijvenView.xaml
+    /// Interaction logic for ZoekView.xaml
     /// </summary>
-    public partial class BedrijvenView : UserControl
+    public partial class ZoekView : UserControl
     {
-        public BedrijvenView()
+        public ZoekView()
         {
             InitializeComponent();
         }

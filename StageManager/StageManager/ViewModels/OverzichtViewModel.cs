@@ -55,15 +55,29 @@ namespace StageManager.ViewModels
 
     public class StudentGegevens 
     {
+        private string email;
+
         public string StudentNaam {get; set;}
         public string Gegevens {get; set;}
         public string Stageopdracht {get; set;}
-        public string Email {get; set;}
-        public string EmailURL { get; set; }
+        public Uri EmailURL { get; set; }
 
+        public string Email 
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                email = value;
+                EmailURL = new Uri("mailto:" + Email);
+            }
+        }
+        
         public StudentGegevens()
         {
-            EmailURL = "mailto:" + Email;
+            
         }
     }
 }

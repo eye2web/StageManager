@@ -12,12 +12,14 @@ namespace StageManager.Controllers
 
         void ShowKoppel();
 
-//      void ShowOpleidingen();
+        void ShowZoek();
 
         void ShowStudenten();
 
-        void ShowDocenten();
+        void ShowStudent();
 
-        void ShowBedrijven();
+        void ShowDocent();
+
+        void ShowGegevensOverzicht();
     }
 }

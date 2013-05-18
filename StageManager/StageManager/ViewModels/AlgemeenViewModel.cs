@@ -77,7 +77,7 @@ namespace StageManager.ViewModels
 
         public AlgemeenViewModel()
         {            
-            FillView();
+            //FillView();
         }
 
         //Vul grid
