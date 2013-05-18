@@ -1,4 +1,5 @@
-﻿using StageManager.MVVM;
+﻿using StageManager.Exceptions;
+using StageManager.MVVM;
 using StageManager.Services;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,66 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAcedemie : acedemieset, ISave
+    class WAcedemie:Wrapper<acedemieset>
     {
-        public WAcedemie()
-            :base()
+
+        public int Id
         {
+            get
+            {
+                return getSet().Id;
+            }
+
+            set
+            {
+                getSet().Id = value;
+                save(getSet());
+            }
         }
 
-        private void save()
+        public String Naam
         {
-            ISave.Entities.acedemiesets.Add(this);
+            get
+            {
+                return getSet().Naam;
+            }
+            set
+            {
+                getSet().Naam = value;
+                save(getSet());
+            }
+        }
+
+        public List<WOpleiding> opleidingsets
+        {
+            get
+            {
+                List<WOpleiding> oplSet = new List<WOpleiding>();
+                for (int i = 0; i < getSet().opleidingsets.Count; i++)
+                {
+                    oplSet.Add(new WOpleiding(getSet().opleidingsets.ElementAt(i)));
+                }
+                return oplSet;
+            }
+            set
+            {
+                List<opleidingset> list = new List<opleidingset>();
+                for (int i = 0; i < value.Count; i++)
+                {
+                    list.Add(value[i].getSet());
+                }
+                getSet().opleidingsets = list;
+                save(getSet());
+            }
+        }
+    
+        public WAcedemie(acedemieset set)
+            :base(set)
+        {
+            if (set == null)
+            {
+                throw new CantBeNullException("Acedemie");
+            }
         }
     }
 }

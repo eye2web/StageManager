@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StageManager.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStage:stageset
+    class WStage:Wrapper<stageset>
     {
-        public WStage()
-            : base()
+        public WStage(stageset set)
+            : base(set)
         { }
     }
 }

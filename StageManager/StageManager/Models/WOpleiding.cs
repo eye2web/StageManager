@@ -3,14 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfsBegeleider:Wrapper<bedrijfsbegeleiderset>
+    class WOpleiding : Wrapper<opleidingset>
     {
-        public WBedrijfsBegeleider(bedrijfsbegeleiderset set)
+        public WOpleiding(opleidingset set)
             : base(set)
-        { }
+        {
+        }
+
     }
 }
