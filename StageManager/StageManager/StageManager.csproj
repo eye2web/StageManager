@@ -81,7 +81,15 @@
     <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\IApplicationController.cs" />
+    <Compile Include="Exceptions\CantBeNullException.cs" />
     <Compile Include="IShell.cs" />
+    <Compile Include="Models\WAcedemie.cs" />
+    <Compile Include="Models\acedemieset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\adresset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\algemeenset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
@@ -92,6 +100,12 @@
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\docentset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\opleidingset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\persoonset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StagemanagerDiagram.Context.cs">
@@ -115,13 +129,30 @@
     <Compile Include="Models\studentset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tool_vaardigheidset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WAdres.cs" />
+    <Compile Include="Models\WAlgemeen.cs" />
+    <Compile Include="Models\WBedrijfsBegeleider.cs" />
+    <Compile Include="Models\WBedrijf.cs" />
+    <Compile Include="Models\WDocent.cs" />
+    <Compile Include="Models\webkeyset.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WOpleiding.cs" />
+    <Compile Include="Models\WPersoon.cs" />
+    <Compile Include="Models\WStage.cs" />
+    <Compile Include="Models\WStudent.cs" />
     <Compile Include="MVVM\PropertyChangedBase.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="Services\DefaultFactory.cs" />
     <Compile Include="Services\EntityService.cs" />
     <Compile Include="Services\IFactory.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\IWrapper.cs" />
     <Compile Include="Services\Service.cs" />
+    <Compile Include="Services\Wrapper.cs" />
     <Compile Include="ShellViewModel.cs" />
     <Compile Include="ViewModels\AlgemeenViewModel.cs" />
     <Compile Include="ViewModels\BedrijfsbegeleiderViewModel.cs" />

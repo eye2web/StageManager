@@ -16,23 +16,28 @@ namespace StageManager.Models
     {
         public docentset()
         {
-            this.stagesets = new HashSet<stageset>();
+            this.adressets = new HashSet<adresset>();
+            this.webkeysets = new HashSet<webkeyset>();
+            this.opleidingsets = new HashSet<opleidingset>();
+            this.tool_vaardigheidset = new HashSet<tool_vaardigheidset>();
         }
     
         public int Leraar_Id { get; set; }
-        public string Naam { get; set; }
-        public string Straatnaam_en_nr { get; set; }
-        public string Postcode { get; set; }
-        public string Plaats { get; set; }
-        public string Telefoonnummer { get; set; }
-        public int Algemene_InformatieId { get; set; }
         public Nullable<short> DBU1 { get; set; }
         public Nullable<short> DBU2 { get; set; }
         public Nullable<short> DBU3 { get; set; }
         public Nullable<short> DBU4 { get; set; }
-        public int AlgemeenId { get; set; }
+        public int stagesetStage_Id { get; set; }
+        public int algemeensetId { get; set; }
+        public string Webkey { get; set; }
+        public int Id { get; set; }
     
+        public virtual ICollection<adresset> adressets { get; set; }
         public virtual algemeenset algemeenset { get; set; }
-        public virtual ICollection<stageset> stagesets { get; set; }
+        public virtual persoonset persoonset { get; set; }
+        public virtual stageset stageset { get; set; }
+        public virtual ICollection<webkeyset> webkeysets { get; set; }
+        public virtual ICollection<opleidingset> opleidingsets { get; set; }
+        public virtual ICollection<tool_vaardigheidset> tool_vaardigheidset { get; set; }
     }
 }

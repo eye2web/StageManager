@@ -12,15 +12,15 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class bedrijfsbegeleiderset
+    public partial class webkeyset
     {
-        public string Functie { get; set; }
-        public string Opleidingsniveau { get; set; }
-        public Nullable<bool> Minimale_begeleidingstijd_gegarandeerd { get; set; }
         public int Id { get; set; }
+        public string ConnectionKey { get; set; }
+        public string Status { get; set; }
+        public int docentset_Id { get; set; }
+        public int studentset_Id { get; set; }
     
-        public virtual persoonset persoonset { get; set; }
-        public virtual stageset stageset { get; set; }
-        public virtual bedrijfset bedrijfset { get; set; }
+        public virtual docentset docentset { get; set; }
+        public virtual studentset studentset { get; set; }
     }
 }

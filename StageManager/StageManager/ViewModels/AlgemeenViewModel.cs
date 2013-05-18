@@ -113,10 +113,13 @@ namespace StageManager.ViewModels
                 Jaargang = aS.Jaargang;
                 Werkuren = aS.Werk_Uren;
                 AantBlokken = aS.Blokken;
+
+                GritContents = smE.SearchAlgemeenSet(SearchText).ToList();
             }
             else
             {
                 SearchText = "No Such Records";
+                FillView();
             }
         }
 

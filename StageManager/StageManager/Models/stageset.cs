@@ -14,19 +14,23 @@ namespace StageManager.Models
     
     public partial class stageset
     {
+        public stageset()
+        {
+            this.docentsets = new HashSet<docentset>();
+            this.tool_vaardigheidset = new HashSet<tool_vaardigheidset>();
+            this.bedrijfsbegeleiderset = new HashSet<bedrijfsbegeleiderset>();
+        }
+    
+        public int Stage_Id { get; set; }
         public Nullable<System.DateTime> Start_datum { get; set; }
         public Nullable<System.DateTime> Eind_datum { get; set; }
         public string Stageopdracht_omschijving { get; set; }
-        public string Tools_en_Vaardigheden { get; set; }
-        public string Risico { get; set; }
-        public int StudentStudentnummer { get; set; }
-        public int LeraarLeraar_Id { get; set; }
-        public int BedrijfBedrijfs_Id { get; set; }
-        public int BedrijfsbegeleiderId { get; set; }
-        public int Stage_Id { get; set; }
+        public int bedrijfEnBegeleiderId { get; set; }
+        public int studentset_Id { get; set; }
     
-        public virtual bedrijfsbegeleiderset bedrijfsbegeleiderset { get; set; }
-        public virtual bedrijfset bedrijfset { get; set; }
-        public virtual docentset docentset { get; set; }
+        public virtual ICollection<docentset> docentsets { get; set; }
+        public virtual studentset studentset { get; set; }
+        public virtual ICollection<tool_vaardigheidset> tool_vaardigheidset { get; set; }
+        public virtual ICollection<bedrijfsbegeleiderset> bedrijfsbegeleiderset { get; set; }
     }
 }
