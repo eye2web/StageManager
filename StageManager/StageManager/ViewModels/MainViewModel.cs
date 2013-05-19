@@ -11,19 +11,19 @@ namespace StageManager.ViewModels
     class MainViewModel : PropertyChangedBase
     {
         private readonly IApplicationController app;
-        private readonly OverzichtViewModel overzicht;
+        private readonly ProcesOverzichtViewModel overzicht;
 
-        private PropertyChangedBase content = new OverzichtViewModel();
+        private PropertyChangedBase content = new ProcesOverzichtViewModel();
 
         public MainViewModel(
             IApplicationController app,
-            OverzichtViewModel overzicht)
+            ProcesOverzichtViewModel overzicht)
         {
             this.app = app;
             this.overzicht = overzicht;
         }
 
-        public OverzichtViewModel Overzicht { get { return overzicht; } }
+        public ProcesOverzichtViewModel Overzicht { get { return overzicht; } }
 
         public PropertyChangedBase Contents
         {
@@ -35,9 +35,9 @@ namespace StageManager.ViewModels
             }
         }
 
-        public void OpenOverzicht()
+        public void OpenProcesOverzicht()
         {
-            app.ShowOverzicht();
+            app.ShowProcesOverzicht();
         }
 
         public void OpenGegevensOverzicht()

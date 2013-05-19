@@ -107,7 +107,7 @@
                             </Expander.Header>
                             <StackPanel>
                                 <Button Content="Proces"
-                                        x:Name="OpenOverzicht"
+                                        x:Name="OpenProcesOverzicht"
                                         Style="{StaticResource MenuButton}" />
                                 <Button Content="Gegevens"
                                         x:Name="OpenGegevensOverzicht"

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace StageManager.Views
 {
     /// <summary>
-    /// Interaction logic for OverzichtView.xaml
+    /// Interaction logic for ProcesOverzichtView.xaml
     /// </summary>
-    public partial class OverzichtView : UserControl
+    public partial class ProcesOverzichtView : UserControl
     {
-        public OverzichtView()
+        public ProcesOverzichtView()
         {
             InitializeComponent();
         }

@@ -13,28 +13,28 @@ namespace StageManager.Controllers
     {
         private readonly SimpleContainer container;
         private readonly IService service;
-        private readonly OverzichtViewModel overzichtViewModel;
+        private readonly ProcesOverzichtViewModel overzichtViewModel;
 
         public ApplicationController(
             SimpleContainer container,
             IService service,
-            OverzichtViewModel overzichtViewModel)
+            ProcesOverzichtViewModel overzichtViewModel)
         {
             this.container = container;
             this.service = service;
             this.overzichtViewModel = overzichtViewModel;
         }
 
-        public void ShowOverzicht()
-        {
-            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
-            mainViewModel.Contents = container.GetInstance(typeof(OverzichtViewModel), null) as OverzichtViewModel;
-        }
-
         public void ShowGegevensOverzicht()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
             mainViewModel.Contents = container.GetInstance(typeof(GegevensOverzichtViewModel), null) as GegevensOverzichtViewModel;
+        }
+
+        public void ShowProcesOverzicht()
+        {
+            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(ProcesOverzichtViewModel), null) as ProcesOverzichtViewModel;
         }
 
         public void ShowKoppel()
@@ -46,7 +46,7 @@ namespace StageManager.Controllers
         public void ShowStudenten()
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
-            mainViewModel.Contents = container.GetInstance(typeof(StudentSelectieViewModel), null) as StudentSelectieViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(DemoNieuwKoppelViewModel), null) as DemoNieuwKoppelViewModel;
         }
 
         public void ShowStudent()

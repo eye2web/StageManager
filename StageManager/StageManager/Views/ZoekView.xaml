@@ -34,7 +34,7 @@
                             </DockPanel>
                         </ScrollViewer>
                     <!-- LijstPanel -->
-                    <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="20,10,20,0">
+                    <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="20,10,0,0">
                             <DataGrid Background="White" Name="GritContents"
                                           HorizontalAlignment="Stretch" 
                                           VerticalAlignment="Stretch" 

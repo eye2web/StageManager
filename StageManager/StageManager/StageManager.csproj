@@ -161,8 +161,8 @@
     <Compile Include="ViewModels\GegevensOverzichtViewModel.cs" />
     <Compile Include="ViewModels\KoppelViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\OverzichtViewModel.cs" />
-    <Compile Include="ViewModels\StudentSelectieViewModel.cs" />
+    <Compile Include="ViewModels\ProcesOverzichtViewModel.cs" />
+    <Compile Include="ViewModels\DemoNieuwKoppelViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\ZoekViewModel.cs" />
     <Compile Include="Views\AlgemeenView.xaml.cs">
@@ -186,11 +186,11 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OverzichtView.xaml.cs">
-      <DependentUpon>OverzichtView.xaml</DependentUpon>
+    <Compile Include="Views\ProcesOverzichtView.xaml.cs">
+      <DependentUpon>ProcesOverzichtView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StudentSelectieView.xaml.cs">
-      <DependentUpon>StudentSelectieView.xaml</DependentUpon>
+    <Compile Include="Views\DemoNieuwKoppelView.xaml.cs">
+      <DependentUpon>DemoNieuwKoppelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
@@ -238,11 +238,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OverzichtView.xaml">
+    <Page Include="Views\ProcesOverzichtView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\StudentSelectieView.xaml">
+    <Page Include="Views\DemoNieuwKoppelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

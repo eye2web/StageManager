@@ -18,9 +18,9 @@ namespace StageManager.Views
     /// <summary>
     /// Interaction logic for StudentSelectieView.xaml
     /// </summary>
-    public partial class StudentSelectieView : UserControl
+    public partial class DemoNieuwKoppelView : UserControl
     {
-        public StudentSelectieView()
+        public DemoNieuwKoppelView()
         {
             InitializeComponent();
         }

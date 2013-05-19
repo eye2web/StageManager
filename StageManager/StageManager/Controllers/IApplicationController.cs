@@ -8,8 +8,6 @@ namespace StageManager.Controllers
 {
     public interface IApplicationController
     {
-        void ShowOverzicht();
-
         void ShowKoppel();
 
         void ShowZoek();
@@ -21,5 +19,7 @@ namespace StageManager.Controllers
         void ShowDocent();
 
         void ShowGegevensOverzicht();
+
+        void ShowProcesOverzicht();
     }
 }

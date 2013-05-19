@@ -36,12 +36,12 @@
             container.Singleton<stagemanagerEntities>();
 
             container.PerRequest<ZoekViewModel>();
-            container.PerRequest<OverzichtViewModel>();
+            container.PerRequest<ProcesOverzichtViewModel>();
             container.PerRequest<GegevensOverzichtViewModel>();
             container.PerRequest<KoppelViewModel>();
             container.PerRequest<StudentViewModel>();
             container.PerRequest<DocentViewModel>();
-            container.PerRequest<StudentSelectieViewModel>(); //temp
+            container.PerRequest<DemoNieuwKoppelViewModel>(); // voor jad-sessie demonstratie doeleinden
             container.PerRequest<AlgemeenViewModel>();
 
             container.Singleton<MainViewModel>();
