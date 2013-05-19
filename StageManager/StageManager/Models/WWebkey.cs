@@ -3,11 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WPersoon : Wrapper<persoonset>
+    class WWebkey : Wrapper<webkeyset>
     {
         public int Id
         {
@@ -20,55 +19,55 @@ namespace StageManager.Models
                 getSet().Id = value;
             }
         }
-        
-        public string Name
+
+        public string ConnectionKey
         {
             get
             {
-                return getSet().Name;
+                return getSet().ConnectionKey;
             }
             set
             {
-                getSet().Name = value;
-            }
-        }
-        
-        public string Email
-        {
-            get
-            {
-                return getSet().Email;
-            }
-            set
-            {
-                getSet().Email = value;
-            }
-        }
-        
-        public int? Telefoonnummer
-        {
-            get
-            {
-                return getSet().Telefoonnummer;
-            }
-            set
-            {
-                getSet().Telefoonnummer = value;
+                getSet().ConnectionKey = value;
             }
         }
 
-        public virtual bedrijfsbegeleiderset bedrijfsbegeleiderset
+        public string Status
         {
             get
             {
-                return getSet().bedrijfsbegeleiderset;
+                return getSet().Status;
             }
             set
             {
-                getSet().bedrijfsbegeleiderset = value;
+                getSet().Status = value;
             }
         }
-        
+
+        public int docentset_Id
+        {
+            get
+            {
+                return getSet().docentset_Id;
+            }
+            set
+            {
+                getSet().docentset_Id = value;
+            }
+        }
+
+        public int studentset_Id
+        {
+            get
+            {
+                return getSet().studentset_Id;
+            }
+            set
+            {
+                getSet().studentset_Id = value;
+            }
+        }
+
         public virtual docentset docentset
         {
             get
@@ -80,7 +79,7 @@ namespace StageManager.Models
                 getSet().docentset = value;
             }
         }
-       
+
         public virtual studentset studentset
         {
             get
@@ -93,7 +92,7 @@ namespace StageManager.Models
             }
         }
 
-        public WPersoon(persoonset set)
+        public WWebkey(webkeyset set)
             : base(set)
         { }
     }

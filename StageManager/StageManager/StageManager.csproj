@@ -144,6 +144,8 @@
     <Compile Include="Models\WPersoon.cs" />
     <Compile Include="Models\WStage.cs" />
     <Compile Include="Models\WStudent.cs" />
+    <Compile Include="Models\WTool_vaardigheidset.cs" />
+    <Compile Include="Models\WWebkey.cs" />
     <Compile Include="MVVM\PropertyChangedBase.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="Services\DefaultFactory.cs" />
