@@ -144,9 +144,9 @@ namespace StageManager.Models
             get
             {
                 List<WBedrijfsBegeleider> oplSet = new List<WBedrijfsBegeleider>();
-                for (int i = 0; i < getSet().bedrijfsbegeleiderset.Count; i++)
+                for (int i = 0; i < getSet().bedrijfsbegeleidersets.Count; i++)
                 {
-                    oplSet.Add(new WBedrijfsBegeleider(getSet().bedrijfsbegeleiderset.ElementAt(i)));
+                    oplSet.Add(new WBedrijfsBegeleider(getSet().bedrijfsbegeleidersets.ElementAt(i)));
                 }
                 return oplSet;
             }
@@ -157,7 +157,7 @@ namespace StageManager.Models
                 {
                     list.Add(value[i].getSet());
                 }
-                getSet().bedrijfsbegeleiderset = list;
+                getSet().bedrijfsbegeleidersets = list;
                 save(getSet());
             }
         }

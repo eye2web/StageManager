@@ -8,21 +8,29 @@ namespace StageManager.Models
 {
     class WTool_vaardigheidset:Wrapper<tool_vaardigheidset>
     {
-        public int Id {
-get{
-return getSet().Id;}
- set{
-getSet().Id = value;
-}
-}
-        
-        public string Naam {
-get{
-return getSet().Naam;}
- set{
-getSet().Naam = value;
-}
-}
+        public int Id
+        {
+            get
+            {
+                return getSet().Id;
+            }
+            set
+            {
+                getSet().Id = value;
+            }
+        }
+
+        public string Naam
+        {
+            get
+            {
+                return getSet().Naam;
+            }
+            set
+            {
+                getSet().Naam = value;
+            }
+        }
 
         public virtual List<WDocent> docentsets {
             get

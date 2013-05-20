@@ -18,9 +18,11 @@ namespace StageManager.Models
         public string Opleidingsniveau { get; set; }
         public Nullable<bool> Minimale_begeleidingstijd_gegarandeerd { get; set; }
         public int Id { get; set; }
+        public int stageset_Stage_Id { get; set; }
+        public int bedrijfset_Bedrijfs_Id { get; set; }
     
         public virtual persoonset persoonset { get; set; }
-        public virtual stageset stageset { get; set; }
         public virtual bedrijfset bedrijfset { get; set; }
+        public virtual stageset stageset { get; set; }
     }
 }
