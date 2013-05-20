@@ -6,7 +6,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WWebkey : Wrapper<webkeyset>
+    class WWebkey : Wrapper<webkeysets>
     {
         public int Id
         {
@@ -47,59 +47,9 @@ namespace StageManager.Models
             }
         }
 
-        public int docentset_Id
-        {
-            get
-            {
-                return getSet().docentset_Id;
-            }
-            set
-            {
-                getSet().docentset_Id = value;
-                save();
-            }
-        }
+       
 
-        public int studentset_Id
-        {
-            get
-            {
-                return getSet().studentset_Id;
-            }
-            set
-            {
-                getSet().studentset_Id = value;
-                save();
-            }
-        }
-
-        public virtual docentset docentset
-        {
-            get
-            {
-                return getSet().docentset;
-            }
-            set
-            {
-                getSet().docentset = value;
-                save();
-            }
-        }
-
-        public virtual studentset studentset
-        {
-            get
-            {
-                return getSet().studentset;
-            }
-            set
-            {
-                getSet().studentset = value;
-                save();
-            }
-        }
-
-        public WWebkey(webkeyset set)
+        public WWebkey(webkeysets set)
             : base(set)
         { }
     }

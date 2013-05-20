@@ -12,7 +12,7 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class bedrijfsbegeleiderset
+    public partial class bedrijfsbegeleidersets
     {
         public string Functie { get; set; }
         public string Opleidingsniveau { get; set; }
@@ -21,8 +21,8 @@ namespace StageManager.Models
         public int stageset_Stage_Id { get; set; }
         public int bedrijfset_Bedrijfs_Id { get; set; }
     
-        public virtual persoonset persoonset { get; set; }
-        public virtual bedrijfset bedrijfset { get; set; }
-        public virtual stageset stageset { get; set; }
+        public virtual persoonsets persoonsets { get; set; }
+        public virtual bedrijfsets bedrijfsets { get; set; }
+        public virtual stagesets stagesets { get; set; }
     }
 }

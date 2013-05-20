@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStudent : Wrapper<studentset>
+    class WStudent : Wrapper<studentsets>
     {
         public int Studentnummer
         {
@@ -47,20 +47,20 @@ namespace StageManager.Models
                 save();
             }
         }
-        
-        public string Webkey
+
+        public int webkeysets_Id
         {
             get
             {
-                return getSet().Webkey;
+                return getSet().webkeysets_Id;
             }
             set
             {
-                getSet().Webkey = value;
+                getSet().webkeysets_Id = value;
                 save();
             }
         }
-        
+
         public int Id
         {
             get
@@ -74,28 +74,28 @@ namespace StageManager.Models
             }
         }
 
-        public virtual opleidingset opleidingset
+        public virtual opleidingsets opleidingset
         {
             get
             {
-                return getSet().opleidingset;
+                return getSet().opleidingsets;
             }
             set
             {
-                getSet().opleidingset = value;
+                getSet().opleidingsets = value;
                 save();
             }
         }
         
-        public virtual persoonset persoonset
+        public virtual persoonsets persoonset
         {
             get
             {
-                return getSet().persoonset;
+                return getSet().persoonsets;
             }
             set
             {
-                getSet().persoonset = value;
+                getSet().persoonsets = value;
                 save();
             }
         }
@@ -113,7 +113,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<stageset> list = new List<stageset>();
+                List<stagesets> list = new List<stagesets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -136,7 +136,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<webkeyset> list = new List<webkeyset>();
+                List<webkeysets> list = new List<webkeysets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -146,7 +146,7 @@ namespace StageManager.Models
             }
         }
 
-        public WStudent(studentset set)
+        public WStudent(studentsets set)
             : base(set)
         { }
     }

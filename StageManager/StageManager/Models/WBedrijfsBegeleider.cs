@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfsBegeleider : Wrapper<bedrijfsbegeleiderset>
+    class WBedrijfsBegeleider : Wrapper<bedrijfsbegeleidersets>
     {
         public string Functie
         {
@@ -58,44 +58,44 @@ namespace StageManager.Models
             }
         }
 
-        public virtual persoonset persoonset
+        public virtual persoonsets persoonset
         {
             get
             {
-                return getSet().persoonset;
+                return getSet().persoonsets;
             }
             set
             {
-                getSet().persoonset = value;
+                getSet().persoonsets = value;
                 save();
             }
         }
-        public virtual stageset stageset
+        public virtual stagesets stageset
         {
             get
             {
-                return getSet().stageset;
+                return getSet().stagesets;
             }
             set
             {
-                getSet().stageset = value;
+                getSet().stagesets = value;
                 save();
             }
         }
-        public virtual bedrijfset bedrijfset
+        public virtual bedrijfsets bedrijfset
         {
             get
             {
-                return getSet().bedrijfset;
+                return getSet().bedrijfsets;
             }
             set
             {
-                getSet().bedrijfset = value;
+                getSet().bedrijfsets = value;
                 save();
             }
         }
 
-        public WBedrijfsBegeleider(bedrijfsbegeleiderset set)
+        public WBedrijfsBegeleider(bedrijfsbegeleidersets set)
             : base(set)
         { }
     }

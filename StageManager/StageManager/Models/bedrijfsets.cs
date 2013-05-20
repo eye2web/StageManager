@@ -12,18 +12,20 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class algemeenset
+    public partial class bedrijfsets
     {
-        public algemeenset()
+        public bedrijfsets()
         {
-            this.docentsets = new HashSet<docentset>();
+            this.bedrijfsbegeleidersets = new HashSet<bedrijfsbegeleidersets>();
         }
     
-        public int Id { get; set; }
-        public string Jaargang { get; set; }
-        public string Werk_Uren { get; set; }
-        public string Blokken { get; set; }
+        public int Bedrijfs_Id { get; set; }
+        public string Naam { get; set; }
+        public Nullable<int> Telefoonnummer { get; set; }
+        public string Website { get; set; }
+        public int adresset_Id { get; set; }
     
-        public virtual ICollection<docentset> docentsets { get; set; }
+        public virtual adressets adressets { get; set; }
+        public virtual ICollection<bedrijfsbegeleidersets> bedrijfsbegeleidersets { get; set; }
     }
 }

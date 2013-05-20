@@ -7,7 +7,7 @@ using StageManager.Services;
 
 namespace StageManager.Models
 {
-    class WDocent : Wrapper<docentset>
+    class WDocent : Wrapper<docentsets>
     {
         public int Leraar_Id
         {
@@ -93,15 +93,15 @@ namespace StageManager.Models
                 save();
             }
         }
-        public string Webkey
+        public int webkeysets_Id
         {
             get
             {
-                return getSet().Webkey;
+                return getSet().webkeysets_Id;
             }
             set
             {
-                getSet().Webkey = value;
+                getSet().webkeysets_Id = value;
                 save();
             }
         }
@@ -119,39 +119,39 @@ namespace StageManager.Models
         }
 
 
-        public virtual algemeenset algemeenset
+        public virtual algemeensets algemeenset
         {
             get
             {
-                return getSet().algemeenset;
+                return getSet().algemeensets;
             }
             set
             {
-                getSet().algemeenset = value;
+                getSet().algemeensets = value;
                 save();
             }
         }
-        public virtual persoonset persoonset
+        public virtual persoonsets persoonset
         {
             get
             {
-                return getSet().persoonset;
+                return getSet().persoonsets;
             }
             set
             {
-                getSet().persoonset = value;
+                getSet().persoonsets = value;
                 save();
             }
         }
-        public virtual stageset stageset
+        public virtual stagesets stageset
         {
             get
             {
-                return getSet().stageset;
+                return getSet().stagesets;
             }
             set
             {
-                getSet().stageset = value;
+                getSet().stagesets = value;
                 save();
             }
         }
@@ -170,7 +170,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<adresset> list = new List<adresset>();
+                List<adressets> list = new List<adressets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -192,7 +192,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<webkeyset> list = new List<webkeyset>();
+                List<webkeysets> list = new List<webkeysets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -214,7 +214,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<opleidingset> list = new List<opleidingset>();
+                List<opleidingsets> list = new List<opleidingsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -246,7 +246,7 @@ namespace StageManager.Models
             }
         }
 
-        public WDocent(docentset set)
+        public WDocent(docentsets set)
             : base(set)
         {
         }

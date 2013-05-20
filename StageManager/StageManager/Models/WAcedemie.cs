@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAcedemie:Wrapper<acedemieset>
+    class WAcedemie:Wrapper<acedemiesets>
     {
 
         public int Id
@@ -52,7 +52,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<opleidingset> list = new List<opleidingset>();
+                List<opleidingsets> list = new List<opleidingsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -62,7 +62,7 @@ namespace StageManager.Models
             }
         }
     
-        public WAcedemie(acedemieset set)
+        public WAcedemie(acedemiesets set)
             :base(set)
         {
         }

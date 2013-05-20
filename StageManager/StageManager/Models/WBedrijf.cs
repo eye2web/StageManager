@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijf:Wrapper<bedrijfset>
+    class WBedrijf:Wrapper<bedrijfsets>
     {
         public int Id
         {
@@ -73,7 +73,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<adresset> list = new List<adresset>();
+                List<adressets> list = new List<adressets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -96,7 +96,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<bedrijfsbegeleiderset> list = new List<bedrijfsbegeleiderset>();
+                List<bedrijfsbegeleidersets> list = new List<bedrijfsbegeleidersets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -106,7 +106,7 @@ namespace StageManager.Models
             }
         }
 
-        public WBedrijf(bedrijfset set)
+        public WBedrijf(bedrijfsets set)
             : base(set)
         {
         }

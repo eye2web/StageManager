@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAdres:Wrapper<adresset>
+    class WAdres:Wrapper<adressets>
     {
         public int Id
         {
@@ -72,62 +72,10 @@ namespace StageManager.Models
                 getSet().Postcode = value;
                 save();
             }
-        }
+        }      
         
-        public int bedrijfset_Bedrijfs_Id
-        {
-            get
-            {
-                return getSet().bedrijfset_Bedrijfs_Id;
-            }
-            private set
-            {
-                getSet().bedrijfset_Bedrijfs_Id = value;
-                save();
-            }
-        }
 
-        public int docentset_Id
-        {
-            get
-            {
-                return getSet().docentset_Id;
-            }
-            private set
-            {
-                getSet().docentset_Id = value;
-                save();
-            }
-        }
-
-        public WDocent Docent
-        {
-            get
-            {
-                return new WDocent(getSet().docentset);
-            }
-            set
-            {
-                getSet().docentset = value.getSet();
-                docentset_Id = value.Id;
-                save();
-            }
-        }
-
-        public WBedrijf Bedrijf
-        {
-            get
-            {
-                return new WBedrijf(getSet().bedrijfset);
-            }
-            set
-            {
-                getSet().bedrijfset = value.getSet();
-                save();
-            }
-        }
-
-        public WAdres(adresset set)
+        public WAdres(adressets set)
             : base(set)
         {
         }

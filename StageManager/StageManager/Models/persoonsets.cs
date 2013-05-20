@@ -12,16 +12,15 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class acedemieset
+    public partial class persoonsets
     {
-        public acedemieset()
-        {
-            this.opleidingsets = new HashSet<opleidingset>();
-        }
-    
         public int Id { get; set; }
-        public string Naam { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public Nullable<int> Telefoonnummer { get; set; }
     
-        public virtual ICollection<opleidingset> opleidingsets { get; set; }
+        public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
+        public virtual docentsets docentsets { get; set; }
+        public virtual studentsets studentsets { get; set; }
     }
 }

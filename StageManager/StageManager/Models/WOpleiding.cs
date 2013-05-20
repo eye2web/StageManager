@@ -6,7 +6,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WOpleiding : Wrapper<opleidingset>
+    class WOpleiding : Wrapper<opleidingsets>
     {
         public int Id
         {
@@ -47,15 +47,15 @@ namespace StageManager.Models
             }
         }
 
-        public virtual acedemieset acedemieset
+        public virtual acedemiesets acedemieset
         {
             get
             {
-                return getSet().acedemieset;
+                return getSet().acedemiesets;
             }
             set
             {
-                getSet().acedemieset = value;
+                getSet().acedemiesets = value;
                 save();
             }
         }
@@ -73,7 +73,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<studentset> list = new List<studentset>();
+                List<studentsets> list = new List<studentsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -96,7 +96,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<docentset> list = new List<docentset>();
+                List<docentsets> list = new List<docentsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -106,7 +106,7 @@ namespace StageManager.Models
             }
         }
 
-        public WOpleiding(opleidingset set)
+        public WOpleiding(opleidingsets set)
             : base(set)
         {
         }

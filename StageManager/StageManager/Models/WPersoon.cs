@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WPersoon : Wrapper<persoonset>
+    class WPersoon : Wrapper<persoonsets>
     {
         public int Id
         {
@@ -61,46 +61,46 @@ namespace StageManager.Models
             }
         }
 
-        public virtual bedrijfsbegeleiderset bedrijfsbegeleiderset
+        public virtual bedrijfsbegeleidersets bedrijfsbegeleiderset
         {
             get
             {
-                return getSet().bedrijfsbegeleiderset;
+                return getSet().bedrijfsbegeleidersets;
             }
             set
             {
-                getSet().bedrijfsbegeleiderset = value;
+                getSet().bedrijfsbegeleidersets = value;
                 save();
             }
         }
         
-        public virtual docentset docentset
+        public virtual docentsets docentset
         {
             get
             {
-                return getSet().docentset;
+                return getSet().docentsets;
             }
             set
             {
-                getSet().docentset = value;
+                getSet().docentsets = value;
                 save();
             }
         }
        
-        public virtual studentset studentset
+        public virtual studentsets studentset
         {
             get
             {
-                return getSet().studentset;
+                return getSet().studentsets;
             }
             set
             {
-                getSet().studentset = value;
+                getSet().studentsets = value;
                 save();
             }
         }
 
-        public WPersoon(persoonset set)
+        public WPersoon(persoonsets set)
             : base(set)
         { }
     }

@@ -12,13 +12,11 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class docentset
+    public partial class docentsets
     {
-        public docentset()
+        public docentsets()
         {
-            this.adressets = new HashSet<adresset>();
-            this.webkeysets = new HashSet<webkeyset>();
-            this.opleidingsets = new HashSet<opleidingset>();
+            this.opleidingsets = new HashSet<opleidingsets>();
             this.tool_vaardigheidset = new HashSet<tool_vaardigheidset>();
         }
     
@@ -29,15 +27,16 @@ namespace StageManager.Models
         public Nullable<short> DBU4 { get; set; }
         public int stagesetStage_Id { get; set; }
         public int algemeensetId { get; set; }
-        public string Webkey { get; set; }
         public int Id { get; set; }
+        public int adresset_Id { get; set; }
+        public int webkeysets_Id { get; set; }
     
-        public virtual ICollection<adresset> adressets { get; set; }
-        public virtual algemeenset algemeenset { get; set; }
-        public virtual persoonset persoonset { get; set; }
-        public virtual stageset stageset { get; set; }
-        public virtual ICollection<webkeyset> webkeysets { get; set; }
-        public virtual ICollection<opleidingset> opleidingsets { get; set; }
+        public virtual adressets adressets { get; set; }
+        public virtual algemeensets algemeensets { get; set; }
+        public virtual persoonsets persoonsets { get; set; }
+        public virtual stagesets stagesets { get; set; }
+        public virtual webkeysets webkeysets { get; set; }
+        public virtual ICollection<opleidingsets> opleidingsets { get; set; }
         public virtual ICollection<tool_vaardigheidset> tool_vaardigheidset { get; set; }
     }
 }

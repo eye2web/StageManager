@@ -12,15 +12,19 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class webkeyset
+    public partial class webkeysets
     {
+        public webkeysets()
+        {
+            this.docentsets = new HashSet<docentsets>();
+            this.studentsets = new HashSet<studentsets>();
+        }
+    
         public int Id { get; set; }
         public string ConnectionKey { get; set; }
         public string Status { get; set; }
-        public int docentset_Id { get; set; }
-        public int studentset_Id { get; set; }
     
-        public virtual docentset docentset { get; set; }
-        public virtual studentset studentset { get; set; }
+        public virtual ICollection<docentsets> docentsets { get; set; }
+        public virtual ICollection<studentsets> studentsets { get; set; }
     }
 }

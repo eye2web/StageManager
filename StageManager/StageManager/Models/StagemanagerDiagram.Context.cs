@@ -28,35 +28,31 @@ namespace StageManager.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<acedemieset> acedemiesets { get; set; }
-        public DbSet<adresset> adressets { get; set; }
-        public DbSet<algemeenset> algemeensets { get; set; }
-        public DbSet<bedrijfsbegeleiderset> bedrijfsbegeleidersets { get; set; }
-        public DbSet<bedrijfset> bedrijfsets { get; set; }
-        public DbSet<docentset> docentsets { get; set; }
-        public DbSet<opleidingset> opleidingsets { get; set; }
-        public DbSet<persoonset> persoonsets { get; set; }
-        public DbSet<stageset> stagesets { get; set; }
-        public DbSet<studentset> studentsets { get; set; }
+        public DbSet<acedemiesets> acedemiesets { get; set; }
+        public DbSet<adressets> adressets { get; set; }
+        public DbSet<algemeensets> algemeensets { get; set; }
+        public DbSet<bedrijfsbegeleidersets> bedrijfsbegeleidersets { get; set; }
+        public DbSet<bedrijfsets> bedrijfsets { get; set; }
+        public DbSet<docentsets> docentsets { get; set; }
+        public DbSet<opleidingsets> opleidingsets { get; set; }
+        public DbSet<persoonsets> persoonsets { get; set; }
+        public DbSet<stagesets> stagesets { get; set; }
+        public DbSet<studentsets> studentsets { get; set; }
         public DbSet<tool_vaardigheidset> tool_vaardigheidset { get; set; }
-        public DbSet<webkeyset> webkeysets { get; set; }
+        public DbSet<webkeysets> webkeysets { get; set; }
     
-        public virtual ObjectResult<algemeenset> SearchAlgemeenSet(string in_searchQuery)
+        public virtual int SearchAlgemeenSet(string in_searchQuery)
         {
             var in_searchQueryParameter = in_searchQuery != null ?
                 new ObjectParameter("in_searchQuery", in_searchQuery) :
                 new ObjectParameter("in_searchQuery", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeenset>("SearchAlgemeenSet", in_searchQueryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchAlgemeenSet", in_searchQueryParameter);
         }
     
-        public virtual ObjectResult<algemeenset> SearchAlgemeenSet(string in_searchQuery, MergeOption mergeOption)
+        public virtual int SearchDocentSet()
         {
-            var in_searchQueryParameter = in_searchQuery != null ?
-                new ObjectParameter("in_searchQuery", in_searchQuery) :
-                new ObjectParameter("in_searchQuery", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeenset>("SearchAlgemeenSet", mergeOption, in_searchQueryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchDocentSet");
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAlgemeen : Wrapper<algemeenset>
+    class WAlgemeen : Wrapper<algemeensets>
     {
         public int Id
         {
@@ -74,7 +74,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<docentset> list = new List<docentset>();
+                List<docentsets> list = new List<docentsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -84,7 +84,7 @@ namespace StageManager.Models
             }
         }
 
-        public WAlgemeen(algemeenset set)
+        public WAlgemeen(algemeensets set)
             : base(set)
         { }
     }

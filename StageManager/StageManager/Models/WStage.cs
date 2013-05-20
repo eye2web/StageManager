@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStage : Wrapper<stageset>
+    class WStage : Wrapper<stagesets>
     {
         public int Stage_Id
         {
@@ -100,7 +100,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<docentset> list = new List<docentset>();
+                List<docentsets> list = new List<docentsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -110,15 +110,15 @@ namespace StageManager.Models
             }
         }
         
-        public virtual studentset studentset
+        public virtual studentsets studentset
         {
             get
             {
-                return getSet().studentset;
+                return getSet().studentsets;
             }
             set
             {
-                getSet().studentset = value;
+                getSet().studentsets = value;
                 save();
             }
         }
@@ -159,7 +159,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<bedrijfsbegeleiderset> list = new List<bedrijfsbegeleiderset>();
+                List<bedrijfsbegeleidersets> list = new List<bedrijfsbegeleidersets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -169,7 +169,7 @@ namespace StageManager.Models
             }
         }
 
-        public WStage(stageset set)
+        public WStage(stagesets set)
             : base(set)
         { }
     }
