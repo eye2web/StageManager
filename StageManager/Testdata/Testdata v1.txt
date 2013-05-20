@@ -1,0 +1,91 @@
+
+LOCK TABLES `algemeensets` WRITE;
+/*!40000 ALTER TABLE `algemeensets` DISABLE KEYS */;
+DELETE FROM `algemeensets` ;
+INSERT INTO `algemeensets` VALUES (1, 2012, 1659, 4);
+INSERT INTO `algemeensets` VALUES (2, 2012, 2000, 4);
+INSERT INTO `algemeensets` VALUES (3, 2012, 1500, 4);
+INSERT INTO `algemeensets` VALUES (4, 2012, 1659, 5);
+INSERT INTO `algemeensets` VALUES (5, 2012, 2000, 5);
+INSERT INTO `algemeensets` VALUES (6, 2012, 1500, 5);
+INSERT INTO `algemeensets` VALUES (7, 2013, 1659, 4);
+INSERT INTO `algemeensets` VALUES (8, 2014, 1659, 4);
+INSERT INTO `algemeensets` VALUES (9, 2016, 1659, 4);
+INSERT INTO `algemeensets` VALUES (10, 2011, 500, 2);
+/*!40000 ALTER TABLE `algemeensets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `acedemiesets` WRITE;
+/*!40000 ALTER TABLE `acedemiesets` DISABLE KEYS */;
+DELETE FROM `acedemiesets` ;
+INSERT INTO `acedemiesets` VALUES (1, 'AI&I');
+INSERT INTO `acedemiesets` VALUES (2, 'AAFM');
+INSERT INTO `acedemiesets` VALUES (3, 'B&M');
+INSERT INTO `acedemiesets` VALUES (4, 'ABCT');
+INSERT INTO `acedemiesets` VALUES (5, 'TvG&M');
+INSERT INTO `acedemiesets` VALUES (6, 'AMBM');
+INSERT INTO `acedemiesets` VALUES (7, 'AFM');
+INSERT INTO `acedemiesets` VALUES (8, 'Gez');
+INSERT INTO `acedemiesets` VALUES (9, 'HR&B');
+INSERT INTO `acedemiesets` VALUES (10, 'Jur');
+/*!40000 ALTER TABLE `acedemiesets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `opleidingsets` WRITE;
+/*!40000 ALTER TABLE `opleidingsets` DISABLE KEYS */;
+DELETE FROM `opleidingsets` ;
+INSERT INTO `opleidingsets` VALUES (1, 'Informatica', 1);
+INSERT INTO `opleidingsets` VALUES (2, 'Informatica SO', 1);
+INSERT INTO `opleidingsets` VALUES (3, 'Informatica IBIS', 1);
+INSERT INTO `opleidingsets` VALUES (4, 'Elektro techniek', 1);
+INSERT INTO `opleidingsets` VALUES (5, 'Werktuig bouwkunde', 1);
+INSERT INTO `opleidingsets` VALUES (6, 'Commerciële Economie', 6);
+INSERT INTO `opleidingsets` VALUES (7, 'Bestuurdskunde en Overheidsmanagement', 10);
+INSERT INTO `opleidingsets` VALUES (8, 'Recht', 10);
+INSERT INTO `opleidingsets` VALUES (9, 'communicatie', 6);
+INSERT INTO `opleidingsets` VALUES (10, 'Bedrijfswiskunde', 6);
+/*!40000 ALTER TABLE `opleidingsets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `tool_vaardigheidset` WRITE;
+/*!40000 ALTER TABLE `tool_vaardigheidset` DISABLE KEYS */;
+DELETE FROM `tool_vaardigheidset` ;
+INSERT INTO `tool_vaardigheidset` VALUES (1, 'html');
+INSERT INTO `tool_vaardigheidset` VALUES (2, 'css');
+INSERT INTO `tool_vaardigheidset` VALUES (3, 'C#');
+INSERT INTO `tool_vaardigheidset` VALUES (4, 'Java');
+INSERT INTO `tool_vaardigheidset` VALUES (5, 'UML');
+INSERT INTO `tool_vaardigheidset` VALUES (6, 'Presenteren');
+INSERT INTO `tool_vaardigheidset` VALUES (7, 'Word');
+INSERT INTO `tool_vaardigheidset` VALUES (8, 'Excel');
+INSERT INTO `tool_vaardigheidset` VALUES (9, 'Economie');
+INSERT INTO `tool_vaardigheidset` VALUES (10, 'XML');
+/*!40000 ALTER TABLE `tool_vaardigheidset` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `algemeensets` WRITE;
+/*!40000 ALTER TABLE `algemeensets` DISABLE KEYS */;
+DELETE FROM `algemeensets` ;
+INSERT INTO `algemeensets` VALUES (1, 2012, 1000, 4);
+/*!40000 ALTER TABLE `algemeensets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+/*docenten*\
+
+/*studenten*\
+
+/*bedrijf begeleiders*\
+
+
+
+
+
+/*
+LOCK TABLES `algemeensets` WRITE;
+/*!40000 ALTER TABLE `algemeensets` DISABLE KEYS */;
+DELETE FROM `algemeensets` ;
+INSERT INTO `algemeensets` VALUES (1, 2012, 1000, 4);
+/*!40000 ALTER TABLE `algemeensets` ENABLE KEYS */;
+UNLOCK TABLES;
+*/
