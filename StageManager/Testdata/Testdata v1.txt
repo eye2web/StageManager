@@ -63,29 +63,96 @@ INSERT INTO `tool_vaardigheidset` VALUES (10, 'XML');
 /*!40000 ALTER TABLE `tool_vaardigheidset` ENABLE KEYS */;
 UNLOCK TABLES;
 
-LOCK TABLES `algemeensets` WRITE;
-/*!40000 ALTER TABLE `algemeensets` DISABLE KEYS */;
-DELETE FROM `algemeensets` ;
-INSERT INTO `algemeensets` VALUES (1, 2012, 1000, 4);
-/*!40000 ALTER TABLE `algemeensets` ENABLE KEYS */;
+LOCK TABLES `adressets` WRITE;
+/*!40000 ALTER TABLE `adressets` DISABLE KEYS */;
+DELETE FROM `adressets` ;
+INSERT INTO `adressets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `adressets` ENABLE KEYS */;
 UNLOCK TABLES;
 
+LOCK TABLES `bedrijfsets` WRITE;
+/*!40000 ALTER TABLE `bedrijfsets` DISABLE KEYS */;
+DELETE FROM `bedrijfsets` ;
+INSERT INTO `bedrijfsets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `bedrijfsets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+/*personen 30*\
+LOCK TABLES `persoonsets` WRITE;
+/*!40000 ALTER TABLE `persoonsets` DISABLE KEYS */;
+DELETE FROM `persoonsets` ;
+INSERT INTO `persoonsets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `persoonsets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+/*webkeys 20*\
+LOCK TABLES `webkeysets` WRITE;
+/*!40000 ALTER TABLE `webkeysets` DISABLE KEYS */;
+DELETE FROM `webkeysets` ;
+INSERT INTO `webkeysets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `webkeysets` ENABLE KEYS */;
+UNLOCK TABLES;
 
 /*docenten*\
 
+LOCK TABLES `docentsets` WRITE;
+/*!40000 ALTER TABLE `docentsets` DISABLE KEYS */;
+DELETE FROM `docentsets` ;
+INSERT INTO `docentsets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `docentsets` ENABLE KEYS */;
+UNLOCK TABLES;
+
 /*studenten*\
+
+LOCK TABLES `studentsets` WRITE;
+/*!40000 ALTER TABLE `studentsets` DISABLE KEYS */;
+DELETE FROM `studentsets` ;
+INSERT INTO `studentsets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `studentsets` ENABLE KEYS */;
+UNLOCK TABLES;
 
 /*bedrijf begeleiders*\
 
-
-
-
-
-/*
-LOCK TABLES `algemeensets` WRITE;
-/*!40000 ALTER TABLE `algemeensets` DISABLE KEYS */;
-DELETE FROM `algemeensets` ;
-INSERT INTO `algemeensets` VALUES (1, 2012, 1000, 4);
-/*!40000 ALTER TABLE `algemeensets` ENABLE KEYS */;
+LOCK TABLES `bedrijfsbegeleidersets` WRITE;
+/*!40000 ALTER TABLE `bedrijfsbegeleidersets` DISABLE KEYS */;
+DELETE FROM `bedrijfsbegeleidersets` ;
+INSERT INTO `bedrijfsbegeleidersets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `bedrijfsbegeleidersets` ENABLE KEYS */;
 UNLOCK TABLES;
-*/
+
+
+
+/*stage*\
+LOCK TABLES `stagesets` WRITE;
+/*!40000 ALTER TABLE `stagesets` DISABLE KEYS */;
+DELETE FROM `stagesets` ;
+INSERT INTO `stagesets` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `stagesets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+
+/*koppel*\
+
+LOCK TABLES `tool_vaardigheiddocentset` WRITE;
+/*!40000 ALTER TABLE `tool_vaardigheiddocentset` DISABLE KEYS */;
+DELETE FROM `tool_vaardigheiddocentset` ;
+INSERT INTO `tool_vaardigheiddocentset` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `tool_vaardigheiddocentset` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `tool_vaardigheidstageset` WRITE;
+/*!40000 ALTER TABLE `tool_vaardigheidstageset` DISABLE KEYS */;
+DELETE FROM `tool_vaardigheidstageset` ;
+INSERT INTO `tool_vaardigheidstageset` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `tool_vaardigheidstageset` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `opleidingdocentset` WRITE;
+/*!40000 ALTER TABLE `opleidingdocentset` DISABLE KEYS */;
+DELETE FROM `opleidingdocentset` ;
+INSERT INTO `opleidingdocentset` VALUES (1, '', '', '', '');
+/*!40000 ALTER TABLE `opleidingdocentset` ENABLE KEYS */;
+UNLOCK TABLES;
