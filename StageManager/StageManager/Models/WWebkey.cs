@@ -17,6 +17,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
 
@@ -29,6 +30,7 @@ namespace StageManager.Models
             set
             {
                 getSet().ConnectionKey = value;
+                save();
             }
         }
 
@@ -41,6 +43,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Status = value;
+                save();
             }
         }
 
@@ -53,6 +56,7 @@ namespace StageManager.Models
             set
             {
                 getSet().docentset_Id = value;
+                save();
             }
         }
 
@@ -65,6 +69,7 @@ namespace StageManager.Models
             set
             {
                 getSet().studentset_Id = value;
+                save();
             }
         }
 
@@ -77,6 +82,7 @@ namespace StageManager.Models
             set
             {
                 getSet().docentset = value;
+                save();
             }
         }
 
@@ -89,6 +95,7 @@ namespace StageManager.Models
             set
             {
                 getSet().studentset = value;
+                save();
             }
         }
 

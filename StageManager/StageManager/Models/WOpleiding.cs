@@ -17,6 +17,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
 
@@ -29,6 +30,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Naam = value;
+                save();
             }
         }
 
@@ -41,6 +43,7 @@ namespace StageManager.Models
             set
             {
                 getSet().acedemieId = value;
+                save();
             }
         }
 
@@ -53,6 +56,7 @@ namespace StageManager.Models
             set
             {
                 getSet().acedemieset = value;
+                save();
             }
         }
         
@@ -75,7 +79,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().studentsets = list;
-                save(getSet());
+                save();
             }
         }
         
@@ -98,7 +102,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().docentsets = list;
-                save(getSet());
+                save();
             }
         }
 

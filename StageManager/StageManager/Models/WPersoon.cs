@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
         
@@ -30,6 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Name = value;
+                save();
             }
         }
         
@@ -42,6 +44,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Email = value;
+                save();
             }
         }
         
@@ -54,6 +57,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Telefoonnummer = value;
+                save();
             }
         }
 
@@ -66,6 +70,7 @@ namespace StageManager.Models
             set
             {
                 getSet().bedrijfsbegeleiderset = value;
+                save();
             }
         }
         
@@ -78,6 +83,7 @@ namespace StageManager.Models
             set
             {
                 getSet().docentset = value;
+                save();
             }
         }
        
@@ -90,6 +96,7 @@ namespace StageManager.Models
             set
             {
                 getSet().studentset = value;
+                save();
             }
         }
 

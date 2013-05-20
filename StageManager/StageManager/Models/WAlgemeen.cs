@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
 
@@ -30,6 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Jaargang = value;
+                save();
             }
         }
 
@@ -42,6 +44,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Werk_Uren = value;
+                save();
             }
         }
 
@@ -54,6 +57,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Blokken = value;
+                save();
             }
         }
 
@@ -76,7 +80,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().docentsets = list;
-                save(getSet());
+                save();
             }
         }
 

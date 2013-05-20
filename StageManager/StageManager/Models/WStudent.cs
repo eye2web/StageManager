@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Studentnummer = value;
+                save();
             }
         }
         
@@ -30,6 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().EC_norm_behaald = value;
+                save();
             }
         }
         
@@ -42,6 +44,7 @@ namespace StageManager.Models
             set
             {
                 getSet().OpleidingId = value;
+                save();
             }
         }
         
@@ -54,6 +57,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Webkey = value;
+                save();
             }
         }
         
@@ -66,6 +70,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
 
@@ -78,6 +83,7 @@ namespace StageManager.Models
             set
             {
                 getSet().opleidingset = value;
+                save();
             }
         }
         
@@ -90,6 +96,7 @@ namespace StageManager.Models
             set
             {
                 getSet().persoonset = value;
+                save();
             }
         }
       
@@ -112,7 +119,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().stagesets = list;
-                save(getSet());
+                save();
             }
         }
        
@@ -135,7 +142,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().webkeysets = list;
-                save(getSet());
+                save();
             }
         }
 

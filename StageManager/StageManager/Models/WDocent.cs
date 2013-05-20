@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Leraar_Id = value;
+                save();
             }
         }
         public short? DBU1
@@ -29,6 +30,7 @@ namespace StageManager.Models
             set
             {
                 getSet().DBU1 = value;
+                save();
             }
         }
         public short? DBU2
@@ -40,6 +42,7 @@ namespace StageManager.Models
             set
             {
                 getSet().DBU2 = value;
+                save();
             }
         }
         public short? DBU3
@@ -51,6 +54,7 @@ namespace StageManager.Models
             set
             {
                 getSet().DBU3 = value;
+                save();
             }
         }
         public short? DBU4
@@ -62,6 +66,7 @@ namespace StageManager.Models
             set
             {
                 getSet().DBU4 = value;
+                save();
             }
         }
         public int stagesetStage_Id
@@ -73,6 +78,7 @@ namespace StageManager.Models
             set
             {
                 getSet().stagesetStage_Id = value;
+                save();
             }
         }
         public int algemeensetId
@@ -84,6 +90,7 @@ namespace StageManager.Models
             set
             {
                 getSet().algemeensetId = value;
+                save();
             }
         }
         public string Webkey
@@ -95,6 +102,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Webkey = value;
+                save();
             }
         }
         public int Id
@@ -106,6 +114,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
 
@@ -119,6 +128,7 @@ namespace StageManager.Models
             set
             {
                 getSet().algemeenset = value;
+                save();
             }
         }
         public virtual persoonset persoonset
@@ -130,6 +140,7 @@ namespace StageManager.Models
             set
             {
                 getSet().persoonset = value;
+                save();
             }
         }
         public virtual stageset stageset
@@ -141,6 +152,7 @@ namespace StageManager.Models
             set
             {
                 getSet().stageset = value;
+                save();
             }
         }
 
@@ -164,7 +176,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().adressets = list;
-                save(getSet());
+                save();
             }
         }
         public virtual List<WWebkey> webkeysets
@@ -186,7 +198,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().webkeysets = list;
-                save(getSet());
+                save();
             }
         }
         public virtual List<WOpleiding> opleidingsets
@@ -208,7 +220,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().opleidingsets = list;
-                save(getSet());
+                save();
             }
         }
         public virtual List<WTool_vaardigheidset> tool_vaardigheidset
@@ -230,7 +242,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().tool_vaardigheidset = list;
-                save(getSet());
+                save();
             }
         }
 

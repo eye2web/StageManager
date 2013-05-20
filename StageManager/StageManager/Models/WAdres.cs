@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
 
@@ -30,6 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Plaats = value;
+                save();
             }
         }
 
@@ -42,6 +44,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Straat = value;
+                save();
             }
         }
         
@@ -54,6 +57,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Huisnummer = value;
+                save();
             }
         }
         
@@ -66,6 +70,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Postcode = value;
+                save();
             }
         }
         
@@ -78,6 +83,7 @@ namespace StageManager.Models
             private set
             {
                 getSet().bedrijfset_Bedrijfs_Id = value;
+                save();
             }
         }
 
@@ -90,6 +96,7 @@ namespace StageManager.Models
             private set
             {
                 getSet().docentset_Id = value;
+                save();
             }
         }
 
@@ -103,13 +110,21 @@ namespace StageManager.Models
             {
                 getSet().docentset = value.getSet();
                 docentset_Id = value.Id;
+                save();
             }
         }
 
         public WBedrijf Bedrijf
         {
-            get { return new WBedrijf(getSet().bedrijfset); }
-            set { getSet().bedrijfset = value.getSet(); }
+            get
+            {
+                return new WBedrijf(getSet().bedrijfset);
+            }
+            set
+            {
+                getSet().bedrijfset = value.getSet();
+                save();
+            }
         }
 
         public WAdres(adresset set)

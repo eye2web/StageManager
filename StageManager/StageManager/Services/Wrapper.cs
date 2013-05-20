@@ -1,4 +1,5 @@
-﻿using StageManager.Models;
+﻿using StageManager.Exceptions;
+using StageManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,10 @@ namespace StageManager.Services
 
         public Wrapper(T t)
         {
-            set = t;
+            if (set == null)
+            {
+                throw new CantBeNullException(typeof(T).Name + " is NULL");
+            }
             if (timer == null)
             {
                 timer = new DispatcherTimer();
@@ -53,6 +57,11 @@ namespace StageManager.Services
             {
                 timer.Start();
             }
+        }
+
+        public void save()
+        {
+            save(getSet());
         }
 
         public virtual T getSet()

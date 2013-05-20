@@ -22,7 +22,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save(getSet());
+                save();
             }
         }
 
@@ -35,7 +35,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Naam = value;
-                save(getSet());
+                save();
             }
         }
 
@@ -58,17 +58,13 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().opleidingsets = list;
-                save(getSet());
+                save();
             }
         }
     
         public WAcedemie(acedemieset set)
             :base(set)
         {
-            if (set == null)
-            {
-                throw new CantBeNullException("Acedemie");
-            }
         }
     }
 }

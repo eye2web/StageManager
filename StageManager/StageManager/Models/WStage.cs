@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Stage_Id = value;
+                save();
             }
         }
         
@@ -30,6 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Start_datum = value;
+                save();
             }
         }
         
@@ -42,6 +44,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Eind_datum = value;
+                save();
             }
         }
         
@@ -54,6 +57,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Stageopdracht_omschijving = value;
+                save();
             }
         }
         
@@ -66,6 +70,7 @@ namespace StageManager.Models
             set
             {
                 getSet().bedrijfEnBegeleiderId = value;
+                save();
             }
         }
         
@@ -78,6 +83,7 @@ namespace StageManager.Models
             set
             {
                 getSet().bedrijfEnBegeleiderId = value;
+                save();
             }
         }
 
@@ -100,7 +106,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().docentsets = list;
-                save(getSet());
+                save();
             }
         }
         
@@ -113,6 +119,7 @@ namespace StageManager.Models
             set
             {
                 getSet().studentset = value;
+                save();
             }
         }
         
@@ -135,7 +142,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().tool_vaardigheidset = list;
-                save(getSet());
+                save();
             }
         }
         
@@ -158,7 +165,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().bedrijfsbegeleidersets = list;
-                save(getSet());
+                save();
             }
         }
 

@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Functie = value;
+                save();
             }
         }
         public string Opleidingsniveau
@@ -29,6 +30,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Opleidingsniveau = value;
+                save();
             }
         }
         public bool? Minimale_begeleidingstijd_gegarandeerd
@@ -40,6 +42,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Minimale_begeleidingstijd_gegarandeerd = value;
+                save();
             }
         }
         public int Id
@@ -51,6 +54,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
+                save();
             }
         }
 
@@ -63,6 +67,7 @@ namespace StageManager.Models
             set
             {
                 getSet().persoonset = value;
+                save();
             }
         }
         public virtual stageset stageset
@@ -74,6 +79,7 @@ namespace StageManager.Models
             set
             {
                 getSet().stageset = value;
+                save();
             }
         }
         public virtual bedrijfset bedrijfset
@@ -85,6 +91,7 @@ namespace StageManager.Models
             set
             {
                 getSet().bedrijfset = value;
+                save();
             }
         }
 

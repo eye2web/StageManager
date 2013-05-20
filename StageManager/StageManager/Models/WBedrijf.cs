@@ -18,6 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Bedrijfs_Id = value;
+                save();
             }
         }
 
@@ -30,6 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Naam = value;
+                save();
             }
         }
 
@@ -41,6 +43,7 @@ namespace StageManager.Models
             }
             set{
                 getSet().Telefoonnummer = value;
+                save();
             }
         }
 
@@ -53,6 +56,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Website = value;
+                save();
             }
         }
 
@@ -75,7 +79,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().adressets = list;
-                save(getSet());
+                save();
             }
         }
 
@@ -98,7 +102,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().bedrijfsbegeleidersets = list;
-                save(getSet());
+                save();
             }
         }
 
