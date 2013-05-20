@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c52a54bcc2e64e139218407966e2150e" Name="Diagram1">
-        <EntityTypeShape EntityType="stagemanagerModel.acedemiesets" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.adressets" Width="1.5" PointX="1.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.algemeensets" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleidersets" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsets" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.docentsets" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.opleidingsets" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.persoonsets" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.stagesets" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.studentsets" Width="1.5" PointX="10.5" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.tool_vaardigheidset" Width="1.5" PointX="15" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="stagemanagerModel.webkeysets" Width="1.5" PointX="3.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.acedemiesets" Width="1.5" PointX="12.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.adressets" Width="1.5" PointX="0.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.algemeensets" Width="1.5" PointX="7.625" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleidersets" Width="1.5" PointX="4.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsets" Width="1.5" PointX="1.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.docentsets" Width="1.5" PointX="8" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.opleidingsets" Width="1.5" PointX="10.125" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.persoonsets" Width="1.5" PointX="0.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.stagesets" Width="1.5" PointX="7.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.studentsets" Width="1.5" PointX="10.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.tool_vaardigheidset" Width="1.5" PointX="5.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="stagemanagerModel.webkeysets" Width="1.5" PointX="14" PointY="7.875" IsExpanded="true" />
         <AssociationConnector Association="stagemanagerModel.FK_acedemieOpleiding" ManuallyRouted="false" />
         <AssociationConnector Association="stagemanagerModel.FK_adressetbedrijfset" ManuallyRouted="false" />
         <AssociationConnector Association="stagemanagerModel.FK_adressetdocentset" ManuallyRouted="false" />
