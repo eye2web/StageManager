@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="stagemanagerModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="stagemanagerModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="stagemanagerModelStoreContainer">
           <EntitySet Name="acedemiesets" EntityType="stagemanagerModel.Store.acedemiesets" store:Type="Tables" Schema="stagemanager" />
           <EntitySet Name="adressets" EntityType="stagemanagerModel.Store.adressets" store:Type="Tables" Schema="stagemanager" />
@@ -185,9 +185,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" />
           <Property Name="Email" Type="varchar" />
           <Property Name="Telefoonnummer" Type="int" />
+          <Property Name="Voornaam" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Achternaam" Type="varchar" Nullable="false" MaxLength="255" />
         </EntityType>
         <EntityType Name="stagesets">
           <Key>
@@ -491,8 +492,7 @@
           <Parameter Name="in_searchQuery" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SearchDocentSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="stagemanager" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="stagemanagerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -578,7 +578,7 @@
             <End Role="tool_vaardigheidset" EntitySet="tool_vaardigheidset" />
           </AssociationSet>
           <FunctionImport Name="SearchAlgemeenSet">
-            <Parameter Name="in_searchQuery" Mode="In" Type="String" />
+          <Parameter Name="in_searchQuery" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SearchDocentSet" />
         </EntityContainer>
@@ -676,12 +676,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
           <Property Name="Email" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
           <Property Name="Telefoonnummer" Type="Int32" />
           <NavigationProperty Name="bedrijfsbegeleidersets" Relationship="stagemanagerModel.FK_bedrijfsbegeleiderset_inherits_persoon" FromRole="persoonsets" ToRole="bedrijfsbegeleidersets" />
           <NavigationProperty Name="docentsets" Relationship="stagemanagerModel.FK_docentset_inherits_persoon" FromRole="persoonsets" ToRole="docentsets" />
           <NavigationProperty Name="studentsets" Relationship="stagemanagerModel.FK_studentset_inherits_persoon" FromRole="persoonsets" ToRole="studentsets" />
+          <Property Type="String" Name="Voornaam" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Achternaam" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="stagesets">
           <Key>
@@ -1003,8 +1004,9 @@
           <EntitySetMapping Name="persoonsets">
             <EntityTypeMapping TypeName="stagemanagerModel.persoonsets">
               <MappingFragment StoreEntitySet="persoonsets">
+                <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Telefoonnummer" ColumnName="Telefoonnummer" />
               </MappingFragment>

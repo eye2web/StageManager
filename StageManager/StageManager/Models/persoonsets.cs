@@ -15,9 +15,10 @@ namespace StageManager.Models
     public partial class persoonsets
     {
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Email { get; set; }
         public Nullable<int> Telefoonnummer { get; set; }
+        public string Voornaam { get; set; }
+        public string Achternaam { get; set; }
     
         public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
         public virtual docentsets docentsets { get; set; }

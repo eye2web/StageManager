@@ -114,7 +114,7 @@ namespace StageManager.ViewModels
                 Werkuren = aS.Werk_Uren;
                 AantBlokken = aS.Blokken;
 
-                GritContents = smE.SearchAlgemeenSet(SearchText).ToList();
+               // GritContents = smE.SearchAlgemeenSet(SearchText).ToList();
             }
             else
             {

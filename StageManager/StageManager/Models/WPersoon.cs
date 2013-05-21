@@ -20,20 +20,7 @@ namespace StageManager.Models
                 getSet().Id = value;
                 save();
             }
-        }
-        
-        public string Name
-        {
-            get
-            {
-                return getSet().Name;
-            }
-            set
-            {
-                getSet().Name = value;
-                save();
-            }
-        }
+        } 
         
         public string Email
         {
