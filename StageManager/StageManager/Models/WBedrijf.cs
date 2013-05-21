@@ -60,35 +60,25 @@ namespace StageManager.Models
             }
         }
 
-        public List<WAdres> AdresSets
+        public WAdres AdresSets
         {
             get
             {
-                List<WAdres> list = new List<WAdres>();
-                for (int i = 0; i < getSet().adressets.Count; i++)
-                {
-                    list.Add(new WAdres(getSet().adressets.ElementAt(i)));
-                }
-                return list;
+                return new WAdres(getSet().adressets);
             }
             set
             {
-                List<adressets> list = new List<adressets>();
-                for (int i = 0; i < value.Count; i++)
-                {
-                    list.Add(value[i].getSet());
-                }
-                getSet().adressets = list;
+                getSet().adressets = value.getSet();
                 save();
             }
         }
 
-        public List<WBedrijfsBegeleider> BedrijfsbegeleiderSets
+        public List<WBedrijfsBegeleider> Bedrijfsbegeleidersets
         {
             get
             {
                 List<WBedrijfsBegeleider> list = new List<WBedrijfsBegeleider>();
-                for (int i = 0; i < getSet().adressets.Count; i++)
+                for (int i = 0; i < getSet().bedrijfsbegeleidersets.Count; i++)
                 {
                     list.Add(new WBedrijfsBegeleider(getSet().bedrijfsbegeleidersets.ElementAt(i)));
                 }

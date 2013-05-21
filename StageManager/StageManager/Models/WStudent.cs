@@ -21,7 +21,7 @@ namespace StageManager.Models
                 save();
             }
         }
-        
+
         public bool EC_norm_behaald
         {
             get
@@ -123,25 +123,15 @@ namespace StageManager.Models
             }
         }
        
-        public virtual List<WWebkey> webkeysets
+        public virtual WWebkey webkeysets
         {
             get
             {
-                List<WWebkey> oplSet = new List<WWebkey>();
-                for (int i = 0; i < getSet().stagesets.Count; i++)
-                {
-                    oplSet.Add(new WWebkey(getSet().webkeysets.ElementAt(i)));
-                }
-                return oplSet;
+                return new WWebkey(getSet().webkeysets);
             }
             set
             {
-                List<webkeysets> list = new List<webkeysets>();
-                for (int i = 0; i < value.Count; i++)
-                {
-                    list.Add(value[i].getSet());
-                }
-                getSet().webkeysets = list;
+                getSet().webkeysets = value.getSet();
                 save();
             }
         }

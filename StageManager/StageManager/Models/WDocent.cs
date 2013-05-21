@@ -157,47 +157,27 @@ namespace StageManager.Models
         }
 
 
-        public virtual List<WAdres> adressets
+        public virtual WAdres adressets
         {
             get
             {
-                List<WAdres> oplSet = new List<WAdres>();
-                for (int i = 0; i < getSet().opleidingsets.Count; i++)
-                {
-                    oplSet.Add(new WAdres(getSet().adressets.ElementAt(i)));
-                }
-                return oplSet;
+                return new WAdres(getSet().adressets);
             }
             set
             {
-                List<adressets> list = new List<adressets>();
-                for (int i = 0; i < value.Count; i++)
-                {
-                    list.Add(value[i].getSet());
-                }
-                getSet().adressets = list;
+                getSet().adressets = value.getSet();
                 save();
             }
         }
-        public virtual List<WWebkey> webkeysets
+        public virtual WWebkey webkeysets
         {
             get
             {
-                List<WWebkey> oplSet = new List<WWebkey>();
-                for (int i = 0; i < getSet().opleidingsets.Count; i++)
-                {
-                    oplSet.Add(new WWebkey(getSet().webkeysets.ElementAt(i)));
-                }
-                return oplSet;
+                return new WWebkey(getSet().webkeysets);
             }
             set
             {
-                List<webkeysets> list = new List<webkeysets>();
-                for (int i = 0; i < value.Count; i++)
-                {
-                    list.Add(value[i].getSet());
-                }
-                getSet().webkeysets = list;
+                getSet().webkeysets = value.getSet();
                 save();
             }
         }
