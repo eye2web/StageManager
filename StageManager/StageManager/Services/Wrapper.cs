@@ -34,6 +34,7 @@ namespace StageManager.Services
             {
                 se = new stagemanagerEntities();
             }
+            set = t;
         }
 
         void timer_Tick(object sender, EventArgs e)

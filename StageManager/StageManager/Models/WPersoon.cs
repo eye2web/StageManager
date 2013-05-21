@@ -87,6 +87,30 @@ namespace StageManager.Models
             }
         }
 
+        public virtual String Voornaam
+        {
+            get
+            {
+                return getSet().Voornaam;
+            }
+            set
+            {
+                getSet().Voornaam = value;
+            }
+        }
+
+        public virtual String Achternaam
+        {
+            get
+            {
+                return getSet().Achternaam;
+            }
+            set
+            {
+                getSet().Achternaam = value;
+            }
+        }
+
         public WPersoon(persoonsets set)
             : base(set)
         { }
