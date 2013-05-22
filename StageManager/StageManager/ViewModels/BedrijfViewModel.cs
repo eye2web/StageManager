@@ -38,7 +38,7 @@ namespace StageManager.ViewModels
             }
         }
 
-        public String Nummer
+        public String Huisnummer
         {
             get
             {
