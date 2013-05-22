@@ -158,7 +158,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public virtual List<WOpleiding> Opleidingset
+    public virtual List<WOpleiding> Opleidingset
         {
             get
             {

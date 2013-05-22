@@ -1,4 +1,5 @@
-﻿using StageManager.MVVM;
+﻿using StageManager.Models;
+using StageManager.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,8 @@ namespace StageManager.ViewModels
 {
     public class KoppelViewModel : PropertyChangedBase
     {
+        List<WDocent> DataGrid = WStored.SearchDocentSet();
+
+
     }
 }
