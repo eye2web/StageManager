@@ -187,6 +187,7 @@
           <Property Name="algemeensetId" Type="int" Nullable="false" />
           <Property Name="adresset_Id" Type="int" Nullable="false" />
           <Property Name="webkeysets_Id" Type="int" Nullable="false" />
+          <Property Name="VervoerMiddel" Type="char" MaxLength="50" />
         </EntityType>
         <EntityType Name="eindstagesets">
           <Key>
@@ -721,8 +722,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="String" Name="Functie" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Opleidingsniveau" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Functie" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Opleidingsniveau" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Minimale_begeleidingstijd_gegarandeerd" />
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="bedrijfset_Bedrijfs_Id" Nullable="false" />
@@ -735,9 +736,9 @@
             <PropertyRef Name="Bedrijfs_Id" />
           </Key>
           <Property Type="Int32" Name="Bedrijfs_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Naam" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Naam" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Telefoonnummer" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Website" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Website" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="adresset_Id" Nullable="false" />
           <NavigationProperty Name="adressets" Relationship="stagemanagerModel.FK_adressetbedrijfset" FromRole="bedrijfsets" ToRole="adressets" />
           <NavigationProperty Name="bedrijfsbegeleidersets" Relationship="stagemanagerModel.FK_bedrijfsbegeleidersetbedrijfset" FromRole="bedrijfsets" ToRole="bedrijfsbegeleidersets" />
@@ -773,6 +774,7 @@
           <NavigationProperty Name="webkeysets" Relationship="stagemanagerModel.FK_webkeysetsdocentsets" FromRole="docentsets" ToRole="webkeysets" />
           <NavigationProperty Name="kennisgebiedset" Relationship="stagemanagerModel.kennisgebieddocentset" FromRole="docentsets" ToRole="kennisgebiedset" />
           <NavigationProperty Name="opleidingsets" Relationship="stagemanagerModel.opleidingdocentset" FromRole="docentsets" ToRole="opleidingsets" />
+          <Property Type="String" Name="VervoerMiddel" MaxLength="50" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="eindstagesets">
           <Key>
@@ -822,9 +824,9 @@
             <PropertyRef Name="Stage_Id" />
           </Key>
           <Property Type="Int32" Name="Stage_Id" Nullable="false" />
-          <Property Type="DateTime" Name="Start_datum" />
-          <Property Type="DateTime" Name="Eind_datum" />
-          <Property Type="String" Name="Stageopdracht_omschijving" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Start_datum" Precision="0" />
+          <Property Type="DateTime" Name="Eind_datum" Precision="0" />
+          <Property Type="String" Name="Stageopdracht_omschijving" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Bedrijfsbegeleider_id" />
           <Property Type="Int32" Name="studentset_Id" Nullable="false" />
           <Property Type="Int32" Name="docentset_Id" />
@@ -1169,6 +1171,7 @@
           <EntitySetMapping Name="docentsets">
             <EntityTypeMapping TypeName="stagemanagerModel.docentsets">
               <MappingFragment StoreEntitySet="docentsets">
+                <ScalarProperty Name="VervoerMiddel" ColumnName="VervoerMiddel" />
                 <ScalarProperty Name="webkeysets_Id" ColumnName="webkeysets_Id" />
                 <ScalarProperty Name="adresset_Id" ColumnName="adresset_Id" />
                 <ScalarProperty Name="algemeensetId" ColumnName="algemeensetId" />
