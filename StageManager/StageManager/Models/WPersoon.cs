@@ -49,45 +49,6 @@ namespace StageManager.Models
             }
         }
 
-        public virtual WBedrijfsBegeleider bedrijfsbegeleiderset
-        {
-            get
-            {
-                return new WBedrijfsBegeleider(getSet().bedrijfsbegeleidersets);
-            }
-            set
-            {
-                getSet().bedrijfsbegeleidersets = value.getSet();
-                save(getSet());
-            }
-        }
-        
-        public virtual WDocent docentset
-        {
-            get
-            {
-                return new WDocent(getSet().docentsets);
-            }
-            set
-            {
-                getSet().docentsets = value.getSet();
-                save(getSet());
-            }
-        }
-       
-        public virtual WStudent studentset
-        {
-            get
-            {
-                return new WStudent(getSet().studentsets);
-            }
-            set
-            {
-                getSet().studentsets = value.getSet();
-                save(getSet());
-            }
-        }
-
         public virtual String Voornaam
         {
             get

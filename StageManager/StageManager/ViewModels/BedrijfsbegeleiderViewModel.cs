@@ -12,11 +12,29 @@ namespace StageManager.ViewModels
     {
         public WBedrijfsBegeleider begeleider;
 
-        public String Naam
+        public String Voornaam
         {
             get
             {
-                return begeleider.Voornaam + " " + begeleider.Achternaam;
+                return begeleider.Voornaam;
+            }
+            set
+            {
+                begeleider.Voornaam = value;
+                OnPropertyChanged("Voornaam");
+            }
+        }
+
+        public String Achternaam
+        {
+            get
+            {
+                return begeleider.Achternaam;
+            }
+            set
+            {
+                begeleider.Achternaam = value;
+                OnPropertyChanged("Achternaam");
             }
         }
 
@@ -34,6 +52,11 @@ namespace StageManager.ViewModels
             {
                 return begeleider.Email;
             }
+            set
+            {
+                begeleider.Email = value;
+                OnPropertyChanged("EMail");
+            }
         }
 
         public String Opleiding
@@ -42,6 +65,11 @@ namespace StageManager.ViewModels
             {
                 return begeleider.Opleidingsniveau;
             }
+            set
+            {
+                begeleider.Opleidingsniveau = value;
+                OnPropertyChanged("Opleiding");
+            }
         }
 
         public bool? BegeleidingUren
@@ -49,6 +77,11 @@ namespace StageManager.ViewModels
             get
             {
                 return begeleider.Minimale_begeleidingstijd_gegarandeerd;
+            }
+            set
+            {
+                begeleider.Minimale_begeleidingstijd_gegarandeerd = value;
+                OnPropertyChanged("BegeleidingUren");
             }
         }
     }

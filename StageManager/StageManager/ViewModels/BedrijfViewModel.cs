@@ -21,6 +21,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.Naam = value;
+                OnPropertyChanged("Naam");
             }
         }
 
@@ -33,6 +34,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Straat = value;
+                OnPropertyChanged("Straat");
             }
         }
 
@@ -45,6 +47,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Huisnummer = value;
+                OnPropertyChanged("Nummer");
             }
         }
 
@@ -57,6 +60,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Postcode = value;
+                OnPropertyChanged("Postcode");
             }
         }
 
@@ -69,6 +73,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Plaats = value;
+                OnPropertyChanged("Plaats");
             }
         }
     }

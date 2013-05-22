@@ -1,4 +1,5 @@
-﻿using StageManager.MVVM;
+﻿using StageManager.Models;
+using StageManager.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,85 +10,67 @@ namespace StageManager.ViewModels
 {
     public class StudentViewModel : PropertyChangedBase
     {
-        private string naam; 
-        private int studentnummer;   
-        private string opleiding;
-        private string adres;
-        private string postcode;
-        private string woonplaats;
-        private string telefoonnummer;
-        private string emailadres;
+        private WStudent student;
 
-        public string Naam
+        public string Voornaam
         {
-            get { return naam; }
+            get { return student.Voornaam; }
             set
             {
-                naam = value;
-                OnPropertyChanged("Naam");
+                student.Voornaam = value;
+                OnPropertyChanged("Voornaam");
             }
         }
-        public int Studentnummer
+
+        public String Achternaam
         {
-            get { return studentnummer; }
+            get
+            {
+                return student.Achternaam;
+            }
             set
             {
-                studentnummer = value;
+                student.Achternaam = value;
+                OnPropertyChanged("Achternaam");
+            }
+        }
+
+        public int Studentnummer
+        {
+            get { return student.Studentnummer; }
+            set
+            {
+                student.Studentnummer = value;
                 OnPropertyChanged("Studentnummer");
             }
         }
         public string Opleiding
         {
-            get { return opleiding; }
+            get { return student.opleidingset.Naam; }
             set
             {
-                opleiding = value;
+                student.opleidingset.Naam = value;
                 OnPropertyChanged("Opleiding");
             }
         }
-        public string Adres
-        {
-            get { return adres; }
-            set
-            {
-                adres = value;
-                OnPropertyChanged("Adres");
-            }
-        }
-        public string Postcode
-        {
-            get { return postcode; }
-            set
-            {
-                postcode = value;
-                OnPropertyChanged("Postcode");
-            }
-        }
-        public string Woonplaats
-        {
-            get { return woonplaats; }
-            set
-            {
-                woonplaats = value;
-                OnPropertyChanged("Woonplaats");
-            }
-        }
+
+       
         public string Emailadres
         {
-            get { return emailadres; }
+            get { return student.Email; }
             set
             {
-                emailadres = value;
+                student.Email = value;
                 OnPropertyChanged("Emailadres");
             }
         }
         public string Telefoonnummer
         {
-            get { return telefoonnummer; }
+            get { return student.Telefoonnummer; }
             set
             {
-                telefoonnummer = value;
-                OnPropertyChanged("telefoonnummer");
+                student.Telefoonnummer = value;
+                OnPropertyChanged("Telefoonnummer");
             }
         }
     }
