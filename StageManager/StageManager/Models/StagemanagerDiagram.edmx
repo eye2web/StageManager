@@ -577,7 +577,9 @@
           <Parameter Name="in_searchQuery" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SearchDocentSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="stagemanager" />
-        <Function Name="SearchStudentSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="stagemanager" />
+        <Function Name="SearchStudentSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="stagemanager">
+          <Parameter Name="in_SearchString" Type="varchar" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -682,10 +684,12 @@
             <End Role="opleidingsets" EntitySet="opleidingsets" />
           </AssociationSet>
           <FunctionImport Name="SearchAlgemeenSet" EntitySet="algemeensets" ReturnType="Collection(stagemanagerModel.algemeensets)">
-            <Parameter Name="in_searchQuery" Mode="In" Type="String" />
+          <Parameter Name="in_searchQuery" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SearchDocentSet" EntitySet="docentsets" ReturnType="Collection(stagemanagerModel.docentsets)" />
-          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)" />
+          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)">
+            <Parameter Name="in_SearchString" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="academiesets">
           <Key>
@@ -1290,7 +1294,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

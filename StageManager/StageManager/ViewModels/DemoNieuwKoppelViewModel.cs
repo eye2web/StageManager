@@ -34,16 +34,28 @@ namespace StageManager.ViewModels
             }
         }
 
+        private String searchString;
+
+        public String SearchString
+        {
+            get { return searchString; }
+            set {
+                searchString = value;
+                FillView(SearchString);
+            }
+        }
+
         public DemoNieuwKoppelViewModel()
-        {            
-            FillView();
+        {
+            SearchString = "";
+            FillView(SearchString);
         }
 
         //Vul grid
-        public void FillView()
+        public void FillView(String SearchString)
         {
             stagemanagerEntities smE = new stagemanagerEntities();
-            StudentGridContents = WStored.SearchStudentSet();
+            StudentGridContents = WStored.SearchStudentSet(SearchString);
             DocentGridContents = WStored.SearchDocentSet();
         }
     }
