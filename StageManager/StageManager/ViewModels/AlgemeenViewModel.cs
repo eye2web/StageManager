@@ -12,13 +12,13 @@ namespace StageManager.ViewModels
 {
     class AlgemeenViewModel : PropertyChangedBase
     {
-        private List<algemeensets> gritContents;
+        private List<algemeensets> gridContents;
 
-        public List<algemeensets> GritContents
+        public List<algemeensets> GridContents
         {
-            get { return gritContents; }
-            set { gritContents = value;
-            OnPropertyChanged("GritContents");
+            get { return gridContents; }
+            set { gridContents = value;
+            OnPropertyChanged("GridContents");
             }
         }
 
@@ -84,7 +84,7 @@ namespace StageManager.ViewModels
         public void FillView()
         {
             stagemanagerEntities smE = new stagemanagerEntities();
-            GritContents = smE.algemeensets.ToList();
+            GridContents = smE.algemeensets.ToList();
         }
 
         //Sla een object op
@@ -114,7 +114,7 @@ namespace StageManager.ViewModels
                 Werkuren = aS.Werk_Uren;
                 AantBlokken = aS.Blokken;
 
-               // GritContents = smE.SearchAlgemeenSet(SearchText).ToList();
+                GridContents = smE.SearchAlgemeenSet(SearchText).ToList();
             }
             else
             {

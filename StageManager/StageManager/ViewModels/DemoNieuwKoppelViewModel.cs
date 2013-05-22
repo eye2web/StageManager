@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    public class DemoNieuwKoppelViewModel : PropertyChangedBase
+    class DemoNieuwKoppelViewModel : PropertyChangedBase
     {
-//private List<WStudent> gritContents;
+        private List<WStudent> gritContents;
 
-    /*   public List<WStudent> GritContents
+        public List<WStudent> GritContents
         {
             get { return gritContents; }
             set
@@ -20,8 +20,7 @@ namespace StageManager.ViewModels
                 gritContents = value;
                 OnPropertyChanged("GritContents");
             }
-     }
-    */    
+     }    
 
         public DemoNieuwKoppelViewModel()
         {            
@@ -32,7 +31,7 @@ namespace StageManager.ViewModels
         public void FillView()
         {
             stagemanagerEntities smE = new stagemanagerEntities();
-           // GritContents =;
+            GritContents = WStored.SearchStudentSet();
         }
     }
 }

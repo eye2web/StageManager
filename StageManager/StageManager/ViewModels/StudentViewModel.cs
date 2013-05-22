@@ -46,10 +46,10 @@ namespace StageManager.ViewModels
         }
         public string Opleiding
         {
-            get { return student.opleidingset.Naam; }
+            get { return student.Opleidingset.Naam; }
             set
             {
-                student.opleidingset.Naam = value;
+                student.Opleidingset.Naam = value;
                 OnPropertyChanged("Opleiding");
             }
         }

@@ -686,11 +686,7 @@
             <End Role="docentsets" EntitySet="docentsets" />
             <End Role="opleidingsets" EntitySet="opleidingsets" />
           </AssociationSet>
-          <FunctionImport Name="SearchAlgemeenSet" EntitySet="algemeensets" ReturnType="Collection(stagemanagerModel.algemeensets)">
-            <Parameter Name="in_searchQuery" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)" />
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="academiesets">
           <Key>
             <PropertyRef Name="Id" />

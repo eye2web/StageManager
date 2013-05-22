@@ -75,7 +75,7 @@ namespace StageManager.Models
             }
         }
 
-        public virtual WOpleiding opleidingset
+        public virtual WOpleiding Opleidingset
         {
             get
             {
