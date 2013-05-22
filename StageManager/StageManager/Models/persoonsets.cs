@@ -23,5 +23,6 @@ namespace StageManager.Models
         public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
         public virtual docentsets docentsets { get; set; }
         public virtual studentsets studentsets { get; set; }
+        public virtual coordinator coordinator { get; set; }
     }
 }

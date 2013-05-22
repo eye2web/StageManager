@@ -20,7 +20,6 @@
         <AssociationConnector Association="stagemanagerModel.FK_algemeensetdocentset" ManuallyRouted="false" />
         <AssociationConnector Association="stagemanagerModel.FK_bedrijfsbegeleiderset_inherits_persoon" ManuallyRouted="false" />
         <AssociationConnector Association="stagemanagerModel.FK_bedrijfsbegeleidersetbedrijfset" ManuallyRouted="false" />
-        <AssociationConnector Association="stagemanagerModel.FK_stagesetbedrijfsbegeleiderset" ManuallyRouted="false" />
         <AssociationConnector Association="stagemanagerModel.FK_docentset_inherits_persoon" ManuallyRouted="false" />
         <AssociationConnector Association="stagemanagerModel.FK_webkeysetsdocentsets" ManuallyRouted="false" />
         <AssociationConnector Association="stagemanagerModel.FK_Opleidingstudentset" ManuallyRouted="false" />

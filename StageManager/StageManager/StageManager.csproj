@@ -83,7 +83,7 @@
     <Compile Include="Controllers\IApplicationController.cs" />
     <Compile Include="Exceptions\CantBeNullException.cs" />
     <Compile Include="IShell.cs" />
-    <Compile Include="Models\acedemiesets.cs">
+    <Compile Include="Models\academiesets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\adressets.cs">
@@ -98,7 +98,16 @@
     <Compile Include="Models\bedrijfsets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\coordinator.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\docentsets.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\eindstagesets.cs">
+      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\kennisgebiedset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\opleidingsets.cs">
@@ -126,9 +135,6 @@
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\studentsets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tool_vaardigheidset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WAcademie.cs" />

@@ -28,7 +28,6 @@ namespace StageManager.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<acedemiesets> acedemiesets { get; set; }
         public DbSet<adressets> adressets { get; set; }
         public DbSet<algemeensets> algemeensets { get; set; }
         public DbSet<bedrijfsbegeleidersets> bedrijfsbegeleidersets { get; set; }
@@ -38,8 +37,11 @@ namespace StageManager.Models
         public DbSet<persoonsets> persoonsets { get; set; }
         public DbSet<stagesets> stagesets { get; set; }
         public DbSet<studentsets> studentsets { get; set; }
-        public DbSet<tool_vaardigheidset> tool_vaardigheidset { get; set; }
         public DbSet<webkeysets> webkeysets { get; set; }
+        public DbSet<academiesets> academiesets { get; set; }
+        public DbSet<coordinator> coordinator { get; set; }
+        public DbSet<eindstagesets> eindstagesets { get; set; }
+        public DbSet<kennisgebiedset> kennisgebiedset { get; set; }
     
         public virtual int SearchAlgemeenSet(string in_searchQuery)
         {
@@ -53,6 +55,11 @@ namespace StageManager.Models
         public virtual int SearchDocentSet()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchDocentSet");
+        }
+    
+        public virtual int SearchStudentSet()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchStudentSet");
         }
     }
 }
