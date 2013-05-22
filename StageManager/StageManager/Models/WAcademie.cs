@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAcedemie:Wrapper<acedemiesets>
+    class WAcademie:Wrapper,ISetEntity<acedemiesets>
     {
 
         public int Id
@@ -22,7 +22,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -35,7 +35,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Naam = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -58,13 +58,25 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().opleidingsets = list;
-                save();
+                save(getSet());
             }
         }
     
-        public WAcedemie(acedemiesets set)
-            :base(set)
+        public WAcademie(acedemiesets set)
+            :base()
         {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
         }
+
+        public acedemiesets getSet()
+        {
+            return set;
+        }
+
+        private acedemiesets set { get; set; }
     }
 }

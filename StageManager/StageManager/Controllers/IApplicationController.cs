@@ -21,5 +21,7 @@ namespace StageManager.Controllers
         void ShowGegevensOverzicht();
 
         void ShowProcesOverzicht();
+
+        void ShowBedrijfsbegeleider();
     }
 }

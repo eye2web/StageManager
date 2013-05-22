@@ -1,5 +1,4 @@
-﻿using StageManager.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace StageManager.Services
 {
-    interface IWrapper
+    interface ISetEntity<T> where T: class
     {
-        void save(Object o);
+        T getSet();
     }
 }

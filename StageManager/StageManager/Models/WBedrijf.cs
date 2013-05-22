@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijf:Wrapper<bedrijfsets>
+    class WBedrijf : Wrapper, ISetEntity<bedrijfsets>
     {
         public int Id
         {
@@ -18,7 +19,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Bedrijfs_Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -31,7 +32,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Naam = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -43,7 +44,7 @@ namespace StageManager.Models
             }
             set{
                 getSet().Telefoonnummer = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -56,7 +57,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Website = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -69,7 +70,7 @@ namespace StageManager.Models
             set
             {
                 getSet().adressets = value.getSet();
-                save();
+                save(getSet());
             }
         }
 
@@ -92,13 +93,25 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().bedrijfsbegeleidersets = list;
-                save();
+                save(getSet());
             }
         }
 
         public WBedrijf(bedrijfsets set)
-            : base(set)
+            : base()
         {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
         }
+
+        public bedrijfsets getSet()
+        {
+            return set;
+        }
+
+        public bedrijfsets set { get; set; }
     }
 }

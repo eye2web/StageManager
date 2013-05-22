@@ -9,20 +9,15 @@ using System.Windows.Threading;
 
 namespace StageManager.Services
 {
-    class Wrapper<T> : IWrapper<T> where T : class
+    class Wrapper : IWrapper
     {
-        private T set;
         static private DispatcherTimer timer;
         static private stagemanagerEntities se;
         static private TimeSpan time;
 
 
-        public Wrapper(T t)
+        public Wrapper()
         {
-            if (set == null)
-            {
-                throw new CantBeNullException(typeof(T).Name + " is NULL");
-            }
             if (timer == null)
             {
                 timer = new DispatcherTimer();
@@ -34,7 +29,6 @@ namespace StageManager.Services
             {
                 se = new stagemanagerEntities();
             }
-            set = t;
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -44,10 +38,9 @@ namespace StageManager.Services
             se = new stagemanagerEntities();
         }
 
-        public void save(T t)
+        public void save(Object o)
         {
-            stagemanagerEntities se = new stagemanagerEntities();
-            se.Set<T>().Add(t);
+            se.Set(o.GetType()).Add(o);
             if (timer.IsEnabled)
             {
                 timer.Stop();
@@ -59,17 +52,5 @@ namespace StageManager.Services
                 timer.Start();
             }
         }
-
-        public void save()
-        {
-            save(getSet());
-        }
-
-        public virtual T getSet()
-        {
-            return set;
-        }
-
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WTool_vaardigheidset:Wrapper<tool_vaardigheidset>
+    class WKennisgebied : Wrapper, ISetEntity<tool_vaardigheidset>
     {
         public int Id
         {
@@ -17,7 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -30,7 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Naam = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -52,7 +53,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().docentsets = list;
-                save();
+                save(getSet());
             }
 }
         
@@ -74,12 +75,25 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().stagesets = list;
-                save();
+                save(getSet());
             }
 }
 
-        public WTool_vaardigheidset(tool_vaardigheidset set)
-            : base(set)
-        { }
+        public WKennisgebied(tool_vaardigheidset set)
+            : base()
+        {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
+        }
+
+        public tool_vaardigheidset getSet()
+        {
+            return set;
+        }
+
+        public tool_vaardigheidset set { get; set; }
     }
 }

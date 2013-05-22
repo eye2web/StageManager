@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WOpleiding : Wrapper<opleidingsets>
+    class WOpleiding : Wrapper, ISetEntity<opleidingsets>
     {
         public int Id
         {
@@ -17,7 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -30,7 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Naam = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -43,20 +44,20 @@ namespace StageManager.Models
             set
             {
                 getSet().acedemieId = value;
-                save();
+                save(getSet());
             }
         }
 
-        public virtual acedemiesets acedemieset
+        public virtual WAcademie acedemieset
         {
             get
             {
-                return getSet().acedemiesets;
+                return new WAcademie(getSet().acedemiesets);
             }
             set
             {
-                getSet().acedemiesets = value;
-                save();
+                getSet().acedemiesets = value.getSet();
+                save(getSet());
             }
         }
         
@@ -79,7 +80,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().studentsets = list;
-                save();
+                save(getSet());
             }
         }
         
@@ -102,14 +103,26 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().docentsets = list;
-                save();
+                save(getSet());
             }
         }
 
         public WOpleiding(opleidingsets set)
-            : base(set)
+            : base()
         {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
         }
 
+
+        public opleidingsets getSet()
+        {
+            return set;
+        }
+
+        public opleidingsets set { get; set; }
     }
 }

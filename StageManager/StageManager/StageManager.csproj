@@ -131,7 +131,7 @@
     <Compile Include="Models\tool_vaardigheidset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\WAcedemie.cs" />
+    <Compile Include="Models\WAcademie.cs" />
     <Compile Include="Models\WAdres.cs" />
     <Compile Include="Models\WAlgemeen.cs" />
     <Compile Include="Models\WBedrijfsBegeleider.cs" />
@@ -144,7 +144,7 @@
     <Compile Include="Models\WPersoon.cs" />
     <Compile Include="Models\WStage.cs" />
     <Compile Include="Models\WStudent.cs" />
-    <Compile Include="Models\WTool_vaardigheidset.cs" />
+    <Compile Include="Models\WKennisgebied.cs" />
     <Compile Include="Models\WWebkey.cs" />
     <Compile Include="MVVM\PropertyChangedBase.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
@@ -152,6 +152,7 @@
     <Compile Include="Services\EntityService.cs" />
     <Compile Include="Services\IFactory.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\ISetEntity.cs" />
     <Compile Include="Services\IWrapper.cs" />
     <Compile Include="Services\Service.cs" />
     <Compile Include="Services\Wrapper.cs" />

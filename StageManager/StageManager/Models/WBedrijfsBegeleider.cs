@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfsBegeleider : Wrapper<bedrijfsbegeleidersets>
+    class WBedrijfsBegeleider : WPersoon, ISetEntity<bedrijfsbegeleidersets>
     {
         public string Functie
         {
@@ -18,7 +19,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Functie = value;
-                save();
+                save(getSet());
             }
         }
         public string Opleidingsniveau
@@ -30,7 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Opleidingsniveau = value;
-                save();
+                save(getSet());
             }
         }
         public bool? Minimale_begeleidingstijd_gegarandeerd
@@ -42,7 +43,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Minimale_begeleidingstijd_gegarandeerd = value;
-                save();
+                save(getSet());
             }
         }
         public int Id
@@ -54,49 +55,62 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
-        public virtual persoonsets persoonset
+        public virtual WPersoon persoonset
         {
             get
             {
-                return getSet().persoonsets;
+                return new WPersoon(getSet().persoonsets);
             }
             set
             {
-                getSet().persoonsets = value;
-                save();
+                getSet().persoonsets = value.getSet();
+                save(getSet());
             }
         }
-        public virtual stagesets stageset
+        public virtual WStage stageset
         {
             get
             {
-                return getSet().stagesets;
+                return new WStage(getSet().stagesets);
             }
             set
             {
-                getSet().stagesets = value;
-                save();
+                getSet().stagesets = value.getSet();
+                save(getSet());
             }
         }
-        public virtual bedrijfsets bedrijfset
+        public virtual WBedrijf bedrijfset
         {
             get
             {
-                return getSet().bedrijfsets;
+                return new WBedrijf(getSet().bedrijfsets);
             }
             set
             {
-                getSet().bedrijfsets = value;
-                save();
+                getSet().bedrijfsets = value.getSet();
+                save(getSet());
             }
         }
 
         public WBedrijfsBegeleider(bedrijfsbegeleidersets set)
-            : base(set)
-        { }
+            : base(set.persoonsets)
+        {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
+        }
+
+        public bedrijfsbegeleidersets getSet()
+        {
+            return set;
+        }
+
+        public bedrijfsbegeleidersets set { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WWebkey : Wrapper<webkeysets>
+    class WWebkey : Wrapper, ISetEntity<webkeysets>
     {
         public int Id
         {
@@ -17,7 +18,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -30,7 +31,7 @@ namespace StageManager.Models
             set
             {
                 getSet().ConnectionKey = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -43,14 +44,27 @@ namespace StageManager.Models
             set
             {
                 getSet().Status = value;
-                save();
+                save(getSet());
             }
         }
 
-       
+
 
         public WWebkey(webkeysets set)
-            : base(set)
-        { }
+            : base()
+        {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
+        }
+
+        public webkeysets getSet()
+        {
+            return set;
+        }
+
+        public webkeysets set { get; set; }
     }
 }

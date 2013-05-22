@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStage : Wrapper<stagesets>
+    class WStage : Wrapper, ISetEntity<stagesets>
     {
         public int Stage_Id
         {
@@ -18,7 +19,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Stage_Id = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -31,7 +32,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Start_datum = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -44,7 +45,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Eind_datum = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -57,7 +58,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Stageopdracht_omschijving = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -70,7 +71,7 @@ namespace StageManager.Models
             set
             {
                 getSet().bedrijfEnBegeleiderId = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -83,7 +84,7 @@ namespace StageManager.Models
             set
             {
                 getSet().bedrijfEnBegeleiderId = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -106,31 +107,31 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().docentsets = list;
-                save();
+                save(getSet());
             }
         }
         
-        public virtual studentsets studentset
+        public virtual WStudent studentset
         {
             get
             {
-                return getSet().studentsets;
+                return new WStudent(getSet().studentsets);
             }
             set
             {
-                getSet().studentsets = value;
-                save();
+                getSet().studentsets = value.getSet();
+                save(getSet());
             }
         }
         
-        public virtual List<WTool_vaardigheidset> tool_vaardigheidset
+        public virtual List<WKennisgebied> tool_vaardigheidset
         {
             get
             {
-                List<WTool_vaardigheidset> oplSet = new List<WTool_vaardigheidset>();
+                List<WKennisgebied> oplSet = new List<WKennisgebied>();
                 for (int i = 0; i < getSet().tool_vaardigheidset.Count; i++)
                 {
-                    oplSet.Add(new WTool_vaardigheidset(getSet().tool_vaardigheidset.ElementAt(i)));
+                    oplSet.Add(new WKennisgebied(getSet().tool_vaardigheidset.ElementAt(i)));
                 }
                 return oplSet;
             }
@@ -142,7 +143,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().tool_vaardigheidset = list;
-                save();
+                save(getSet());
             }
         }
         
@@ -165,12 +166,25 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().bedrijfsbegeleidersets = list;
-                save();
+                save(getSet());
             }
         }
 
         public WStage(stagesets set)
-            : base(set)
-        { }
+            : base()
+        {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
+        }
+
+        public stagesets getSet()
+        {
+            return set;
+        }
+
+        public stagesets set { get; set; }
     }
 }

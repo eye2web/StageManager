@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStudent : Wrapper<studentsets>
+    class WStudent : WPersoon, ISetEntity<studentsets>
     {
         public int Studentnummer
         {
@@ -18,7 +19,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Studentnummer = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -31,7 +32,7 @@ namespace StageManager.Models
             set
             {
                 getSet().EC_norm_behaald = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -44,7 +45,7 @@ namespace StageManager.Models
             set
             {
                 getSet().OpleidingId = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -57,7 +58,7 @@ namespace StageManager.Models
             set
             {
                 getSet().webkeysets_Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -70,33 +71,33 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
-        public virtual opleidingsets opleidingset
+        public virtual WOpleiding opleidingset
         {
             get
             {
-                return getSet().opleidingsets;
+                return new WOpleiding(getSet().opleidingsets);
             }
             set
             {
-                getSet().opleidingsets = value;
-                save();
+                getSet().opleidingsets = value.getSet();
+                save(getSet());
             }
         }
         
-        public virtual persoonsets persoonset
+        public virtual WPersoon persoonset
         {
             get
             {
-                return getSet().persoonsets;
+                return new WPersoon(getSet().persoonsets);
             }
             set
             {
-                getSet().persoonsets = value;
-                save();
+                getSet().persoonsets = value.getSet();
+                save(getSet());
             }
         }
       
@@ -119,7 +120,7 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().stagesets = list;
-                save();
+                save(getSet());
             }
         }
        
@@ -132,12 +133,25 @@ namespace StageManager.Models
             set
             {
                 getSet().webkeysets = value.getSet();
-                save();
+                save(getSet());
             }
         }
 
         public WStudent(studentsets set)
-            : base(set)
-        { }
+            : base(set.persoonsets)
+        {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
+        }
+
+        public studentsets getSet()
+        {
+            return set;
+        }
+
+        public studentsets set { get; set; }
     }
 }

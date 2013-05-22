@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAlgemeen : Wrapper<algemeensets>
+    class WAlgemeen : Wrapper, ISetEntity<algemeensets>
     {
         public int Id
         {
@@ -18,7 +19,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -31,7 +32,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Jaargang = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -44,7 +45,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Werk_Uren = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -57,7 +58,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Blokken = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -80,12 +81,25 @@ namespace StageManager.Models
                     list.Add(value[i].getSet());
                 }
                 getSet().docentsets = list;
-                save();
+                save(getSet());
             }
         }
 
         public WAlgemeen(algemeensets set)
-            : base(set)
-        { }
+            : base()
+        {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
+        }
+
+        public algemeensets getSet()
+        {
+            return set;
+        }
+
+        public algemeensets set { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using StageManager.Services;
+﻿using StageManager.Exceptions;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAdres:Wrapper<adressets>
+    class WAdres : Wrapper, ISetEntity<adressets>
     {
         public int Id
         {
@@ -18,7 +19,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Id = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -31,7 +32,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Plaats = value;
-                save();
+                save(getSet());
             }
         }
 
@@ -44,7 +45,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Straat = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -57,7 +58,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Huisnummer = value;
-                save();
+                save(getSet());
             }
         }
         
@@ -70,14 +71,26 @@ namespace StageManager.Models
             set
             {
                 getSet().Postcode = value;
-                save();
+                save(getSet());
             }
         }      
         
 
         public WAdres(adressets set)
-            : base(set)
+            : base()
         {
+            if (set == null)
+            {
+                throw new CantBeNullException(set.GetType().Name + " is NULL");
+            }
+            this.set = set;
         }
+
+        public adressets getSet()
+        {
+            throw new NotImplementedException();
+        }
+
+        public adressets set { get; set; }
     }
 }
