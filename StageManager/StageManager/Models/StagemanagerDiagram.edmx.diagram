@@ -40,6 +40,7 @@
         <AssociationConnector Association="stagemanagerModel.FK_eindstagesets_inherits_stagesets" />
         <AssociationConnector Association="stagemanagerModel.kennisgebieddocentset" />
         <AssociationConnector Association="stagemanagerModel.kennisgebiedstageset" />
+        <AssociationConnector Association="stagemanagerModel.FK_bedrijfsbegeleiderset" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
