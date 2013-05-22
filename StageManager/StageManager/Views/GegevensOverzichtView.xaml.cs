@@ -28,7 +28,30 @@ namespace StageManager.Views
             InitializeComponent();
 
             Collection = new ObservableCollection<PGDummy>();
-            //Collection.Add(new PGDummy("", "m.aydin4@student.avans.nl", "Aydin, Murat", "Hyacinthenstraat 15", "Ingeleverd", "In orde", "Bob Bus"));
+
+            /*
+            Collection.Add(new PGDummy(4022335, "Achternaam", "Voorvoegsels", "roepnaam", "emailurl", "email", "straatnaam", 0, "toevoeging", "postcode", "plaats", "telefoonnummer", "slb61", "slb62", "slb63", "slb6t", "slb71",
+                "slb72", "slb7t", 2, "p", "eps", "formgoed", "toestex", "stagecontract", "docent", "bijzonderheden", "bedrijf", "branche", "bstraat", 14, "btoevoeging", "bpostcode", "bplaats", "bland", "bedrijfsbegeleider",
+                "bemailurl", "bemail", "btelefoon", "begtelefoon", "website"));
+             */
+
+            Collection.Add(new PGDummy(2043161, "Aydin", "", "Murat", "", "m.aydin4@student.avans.nl", "Hyacinthenstraat", 15, "", "5462 AE", "Veghel", "", "", "", "", "", "",
+                "", "", 0, "ja", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", "", "", "", "", "", ""));
+
+            Collection.Add(new PGDummy(2048620, "Baas", "", "Rosan", "", "r.baas1@student.avans.nl", "Bovenhof", 1, "", "5275 CN", "Den Dungen", "", "", "", "", "", "",
+                "", "", 0, "ja", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", "", "", "", "", "", ""));
+
+            Collection.Add(new PGDummy(2000606, "Berg", "van den", "Thomas", "", "tjm.vandenberg@student.avans.nl", "Dreef", 48, "", "4875 AC", "Etten-Leur", "", "", "", "", "", "",
+                "", "", 0, "ja", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", "", "", "", "", "", ""));
+
+            Collection.Add(new PGDummy(2052712, "Bijl", "", "Benny", "", "b.bijl@student.avans.nl", "Zoutelandehoeve", 14, "", "3137 EM", "Vlaardingen", "", "", "", "", "", "",
+                "", "", 0, "ja", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", "", "", "", "", "", ""));
+
+            Collection.Add(new PGDummy(2042135, "Blok", "", "Robin", "", "r.blok@student.avans.nl", "Bevrijdingslaan", 18, "", "4001 HZ", "Tiel", "", "Vrijstelling", "", "", "", "",
+                "", "", 0, "ja", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", "", "", "", "", "", ""));
+
+            Collection.Add(new PGDummy(2048172, "Boden", "ten", "Liza", "", "t.tenboden@student.avans.nl", "Dijkmanzoet", 90, "", "4007 XJ", "Tiel", "", "Heeft al stage gelopen? Is 3e jaars", "", "", "", "",
+                "", "", 0, "ja", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", "", "", "", "", "", ""));
 
             listView.ItemsSource = Collection;
         }

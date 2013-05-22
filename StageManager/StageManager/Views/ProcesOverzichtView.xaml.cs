@@ -33,7 +33,7 @@ namespace StageManager.Views
             StudentGegevensCollection.Add(new PDummy("", "tjm.vandenberg@student.avans.nl", "Berg van den, Thomas", "Dreef 48", "Ingeleverd", "In orde", "Bob Bus"));
             StudentGegevensCollection.Add(new PDummy("", "b.bijl@student.avans.nl", "Bijl, Benny", "Zoutelandehoeve 14", "Ingeleverd", "In orde", "Bob van der Putten"));
             StudentGegevensCollection.Add(new PDummy("", "r.blok@student.avans.nl", "Blok, Robin", "Bevrijdingslaan 18", "Ingeleverd", "In orde", "Ger Saris"));
-            StudentGegevensCollection.Add(new PDummy("", "l.tenboden@student.avans.nl", "Boden ten, Liza", "Dijkmanzoet 90", "Nog in te leveren", "Nog uitbreiden", "Ger Saris"));
+            StudentGegevensCollection.Add(new PDummy("", "l.tenboden@student.avans.nl", "Boden ten, Liza", "Dijkmanzoet 90", "N.v.t.", "Nog uitbreiden", "Ger Saris"));
 
             listView.ItemsSource = StudentGegevensCollection;
         }

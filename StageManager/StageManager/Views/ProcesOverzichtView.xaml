@@ -33,11 +33,11 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="140" Header="Student" DisplayMemberBinding="{Binding StudentNaam}"  />
-                            <GridViewColumn Width="140" Header="Gegevens"  DisplayMemberBinding="{Binding Gegevens}" />
-                            <GridViewColumn Width="140" Header="Stageopdracht ingeleverd" DisplayMemberBinding="{Binding Stageopdracht}" />
-                            <GridViewColumn Width="140" Header="Stageopdracht feedback" DisplayMemberBinding="{Binding Feedback}" />
-                            <GridViewColumn Width="140" Header="Docent" DisplayMemberBinding="{Binding Docent}" />                            
+                            <GridViewColumn Header="Student" DisplayMemberBinding="{Binding StudentNaam}"  />
+                            <GridViewColumn Header="Gegevens"  DisplayMemberBinding="{Binding Gegevens}" />
+                            <GridViewColumn Header="Stageopdracht ingeleverd" DisplayMemberBinding="{Binding Stageopdracht}" />
+                            <GridViewColumn Header="Stageopdracht feedback" DisplayMemberBinding="{Binding Feedback}" />
+                            <GridViewColumn Header="Docent" DisplayMemberBinding="{Binding Docent}" />                            
                         </GridView>
                     </ListView.View>
                 </ListView>
