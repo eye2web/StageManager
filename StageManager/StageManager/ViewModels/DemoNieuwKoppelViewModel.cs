@@ -10,28 +10,66 @@ namespace StageManager.ViewModels
 {
     class DemoNieuwKoppelViewModel : PropertyChangedBase
     {
-        private List<WStudent> gritContents;
+        private List<WStudent> studentGridContents;
 
-        public List<WStudent> GritContents
+        public List<WStudent> StudentGridContents
         {
-            get { return gritContents; }
+            get { return studentGridContents; }
             set
             {
-                gritContents = value;
-                OnPropertyChanged("GritContents");
+                studentGridContents = value;
+                OnPropertyChanged("StudentGridContents");
             }
-     }    
+        }
+
+        private List<WDocent> docentGridContents;
+
+        public List<WDocent> DocentGridContents
+        {
+            get { return docentGridContents; }
+            set
+            {
+                docentGridContents = value;
+                OnPropertyChanged("DocentGridContents");
+            }
+        }
+
+        private List<WDocent> lezerGridContents;
+
+        public List<WDocent> LezerGridContents
+        {
+            get { return lezerGridContents; }
+            set
+            {
+                lezerGridContents = value;
+                OnPropertyChanged("LezerGridContents");
+            }
+        }
+
+        private String searchString;
+
+        public String SearchString
+        {
+            get { return searchString; }
+            set {
+                searchString = value;
+                FillView(SearchString);
+            }
+        }
 
         public DemoNieuwKoppelViewModel()
-        {            
-            FillView();
+        {
+            SearchString = "";
+            FillView(SearchString);
         }
 
         //Vul grid
-        public void FillView()
+        public void FillView(String SearchString)
         {
             stagemanagerEntities smE = new stagemanagerEntities();
-            GritContents = WStored.SearchStudentSet();
+            StudentGridContents = WStored.SearchStudentSet(SearchString);
+            DocentGridContents = WStored.SearchDocentSet();
+            LezerGridContents = WStored.SearchDocentSet();
         }
     }
 }

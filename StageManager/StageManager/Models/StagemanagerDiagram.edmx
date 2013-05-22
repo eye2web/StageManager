@@ -577,17 +577,14 @@
           <Parameter Name="in_searchQuery" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SearchDocentSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="stagemanager" />
-        <Function Name="SearchStudentSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="stagemanager" />
+        <Function Name="SearchStudentSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="stagemanager">
+          <Parameter Name="in_SearchString" Type="varchar" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="stagemanagerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="stagemanagerEntities" p1:LazyLoadingEnabled="true">
-          <FunctionImport Name="SearchAlgemeenSet">
-          <Parameter Name="in_searchQuery" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SearchDocentSet" />
-          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)" />
           <EntitySet Name="academiesets" EntityType="stagemanagerModel.academiesets" />
           <EntitySet Name="adressets" EntityType="stagemanagerModel.adressets" />
           <EntitySet Name="algemeensets" EntityType="stagemanagerModel.algemeensets" />
@@ -686,6 +683,13 @@
             <End Role="docentsets" EntitySet="docentsets" />
             <End Role="opleidingsets" EntitySet="opleidingsets" />
           </AssociationSet>
+          <FunctionImport Name="SearchAlgemeenSet" EntitySet="algemeensets" ReturnType="Collection(stagemanagerModel.algemeensets)">
+          <Parameter Name="in_searchQuery" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchDocentSet" EntitySet="docentsets" ReturnType="Collection(stagemanagerModel.docentsets)" />
+          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)">
+            <Parameter Name="in_SearchString" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="academiesets">
           <Key>
@@ -1274,6 +1278,7 @@
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="SearchAlgemeenSet" FunctionName="stagemanagerModel.Store.SearchAlgemeenSet" />
+          <FunctionImportMapping FunctionImportName="SearchDocentSet" FunctionName="stagemanagerModel.Store.SearchDocentSet" />
           <FunctionImportMapping FunctionImportName="SearchStudentSet" FunctionName="stagemanagerModel.Store.SearchStudentSet" />
         </EntityContainerMapping>
       </Mapping>
@@ -1289,7 +1294,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

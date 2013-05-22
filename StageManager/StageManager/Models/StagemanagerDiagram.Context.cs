@@ -51,10 +51,19 @@ namespace StageManager.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeensets>("SearchAlgemeenSet", in_searchQueryParameter);
         }
-		
-        public virtual ObjectResult<studentsets> SearchStudentSet()
+    
+        public virtual ObjectResult<docentsets> SearchDocentSet()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<docentsets>("SearchDocentSet");
+        }
+    
+        public virtual ObjectResult<studentsets> SearchStudentSet(string in_SearchString)
+        {
+            var in_SearchStringParameter = in_SearchString != null ?
+                new ObjectParameter("in_SearchString", in_SearchString) :
+                new ObjectParameter("in_SearchString", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet", in_SearchStringParameter);
         }
     }
 }

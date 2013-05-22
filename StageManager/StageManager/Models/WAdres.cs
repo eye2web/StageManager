@@ -88,7 +88,7 @@ namespace StageManager.Models
 
         public adressets getSet()
         {
-            throw new NotImplementedException();
+            return set;
         }
 
         public adressets set { get; set; }

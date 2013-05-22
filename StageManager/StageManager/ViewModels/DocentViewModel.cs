@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 namespace StageManager.ViewModels
 {
     class DocentViewModel : PropertyChangedBase
-    {
-        private WDocent docent;
+    {        
+        private static Random random = new Random();
+        private WDocent docent = WStored.SearchDocentSet()[random.Next(WStored.SearchDocentSet().Count)];
 
         public String Voornaam
         {
