@@ -62,19 +62,6 @@ namespace StageManager.Models
             }
         }
         
-        public int bedrijfEnBegeleiderId
-        {
-            get
-            {
-                return getSet().bedrijfEnBegeleiderId;
-            }
-            set
-            {
-                getSet().bedrijfEnBegeleiderId = value;
-                save(getSet());
-            }
-        }
-        
         public int studentset_Id
         {
             get
@@ -83,30 +70,20 @@ namespace StageManager.Models
             }
             set
             {
-                getSet().bedrijfEnBegeleiderId = value;
+                getSet().studentset_Id = value;
                 save(getSet());
             }
         }
 
-        public virtual List<WDocent> docentsets
+        public virtual WDocent docentsets
         {
             get
             {
-                List<WDocent> oplSet = new List<WDocent>();
-                for (int i = 0; i < getSet().docentsets.Count; i++)
-                {
-                    oplSet.Add(new WDocent(getSet().docentsets.ElementAt(i)));
-                }
-                return oplSet;
+                return new WDocent(getSet().docentsets);
             }
             set
             {
-                List<docentsets> list = new List<docentsets>();
-                for (int i = 0; i < value.Count; i++)
-                {
-                    list.Add(value[i].getSet());
-                }
-                getSet().docentsets = list;
+                getSet().docentsets = value.getSet();
                 save(getSet());
             }
         }
@@ -129,43 +106,33 @@ namespace StageManager.Models
             get
             {
                 List<WKennisgebied> oplSet = new List<WKennisgebied>();
-                for (int i = 0; i < getSet().tool_vaardigheidset.Count; i++)
+                for (int i = 0; i < getSet().kennisgebiedset.Count; i++)
                 {
-                    oplSet.Add(new WKennisgebied(getSet().tool_vaardigheidset.ElementAt(i)));
+                    oplSet.Add(new WKennisgebied(getSet().kennisgebiedset.ElementAt(i)));
                 }
                 return oplSet;
             }
             set
             {
-                List<tool_vaardigheidset> list = new List<tool_vaardigheidset>();
+                List<kennisgebiedset> list = new List<kennisgebiedset>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
                 }
-                getSet().tool_vaardigheidset = list;
+                getSet().kennisgebiedset = list;
                 save(getSet());
             }
         }
         
-        public virtual List<WBedrijfsBegeleider> bedrijfsbegeleiderset
+        public virtual WBedrijfsBegeleider bedrijfsbegeleiderset
         {
             get
             {
-                List<WBedrijfsBegeleider> oplSet = new List<WBedrijfsBegeleider>();
-                for (int i = 0; i < getSet().bedrijfsbegeleidersets.Count; i++)
-                {
-                    oplSet.Add(new WBedrijfsBegeleider(getSet().bedrijfsbegeleidersets.ElementAt(i)));
-                }
-                return oplSet;
+                return new WBedrijfsBegeleider(getSet().bedrijfsbegeleidersets);
             }
             set
             {
-                List<bedrijfsbegeleidersets> list = new List<bedrijfsbegeleidersets>();
-                for (int i = 0; i < value.Count; i++)
-                {
-                    list.Add(value[i].getSet());
-                }
-                getSet().bedrijfsbegeleidersets = list;
+                getSet().bedrijfsbegeleidersets = value.getSet();
                 save(getSet());
             }
         }

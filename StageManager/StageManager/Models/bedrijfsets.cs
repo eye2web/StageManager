@@ -21,7 +21,7 @@ namespace StageManager.Models
     
         public int Bedrijfs_Id { get; set; }
         public string Naam { get; set; }
-        public Nullable<int> Telefoonnummer { get; set; }
+        public string Telefoonnummer { get; set; }
         public string Website { get; set; }
         public int adresset_Id { get; set; }
     

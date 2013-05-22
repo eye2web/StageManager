@@ -28,20 +28,20 @@ namespace StageManager.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<academiesets> academiesets { get; set; }
         public DbSet<adressets> adressets { get; set; }
         public DbSet<algemeensets> algemeensets { get; set; }
         public DbSet<bedrijfsbegeleidersets> bedrijfsbegeleidersets { get; set; }
         public DbSet<bedrijfsets> bedrijfsets { get; set; }
+        public DbSet<coordinator> coordinator { get; set; }
         public DbSet<docentsets> docentsets { get; set; }
+        public DbSet<eindstagesets> eindstagesets { get; set; }
+        public DbSet<kennisgebiedset> kennisgebiedset { get; set; }
         public DbSet<opleidingsets> opleidingsets { get; set; }
         public DbSet<persoonsets> persoonsets { get; set; }
         public DbSet<stagesets> stagesets { get; set; }
         public DbSet<studentsets> studentsets { get; set; }
         public DbSet<webkeysets> webkeysets { get; set; }
-        public DbSet<academiesets> academiesets { get; set; }
-        public DbSet<coordinator> coordinator { get; set; }
-        public DbSet<eindstagesets> eindstagesets { get; set; }
-        public DbSet<kennisgebiedset> kennisgebiedset { get; set; }
     
         public virtual int SearchAlgemeenSet(string in_searchQuery)
         {

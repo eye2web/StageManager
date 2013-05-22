@@ -7,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WKennisgebied : Wrapper, ISetEntity<tool_vaardigheidset>
+    class WKennisgebied : Wrapper, ISetEntity<kennisgebiedset>
     {
         public int Id
         {
@@ -79,7 +79,7 @@ namespace StageManager.Models
             }
 }
 
-        public WKennisgebied(tool_vaardigheidset set)
+        public WKennisgebied(kennisgebiedset set)
             : base()
         {
             if (set == null)
@@ -89,11 +89,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public tool_vaardigheidset getSet()
+        public kennisgebiedset getSet()
         {
             return set;
         }
 
-        public tool_vaardigheidset set { get; set; }
+        public kennisgebiedset set { get; set; }
     }
 }

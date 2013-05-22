@@ -14,15 +14,15 @@ namespace StageManager.Models
         {
             get
             {
-                return getSet().Leraar_Id;
+                return getSet().Id;
             }
             set
             {
-                getSet().Leraar_Id = value;
+                getSet().Id = value;
                 save(getSet());
             }
         }
-        public short? DBU1
+        public Double? DBU1
         {
             get
             {
@@ -34,7 +34,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public short? DBU2
+        public Double? DBU2
         {
             get
             {
@@ -46,7 +46,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public short? DBU3
+        public Double? DBU3
         {
             get
             {
@@ -58,7 +58,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public short? DBU4
+        public Double? DBU4
         {
             get
             {
@@ -70,18 +70,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public int stagesetStage_Id
-        {
-            get
-            {
-                return getSet().stagesetStage_Id;
-            }
-            set
-            {
-                getSet().stagesetStage_Id = value;
-                save(getSet());
-            }
-        }
+
         public int algemeensetId
         {
             get
@@ -144,19 +133,6 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public virtual WStage stageset
-        {
-            get
-            {
-                return new WStage(getSet().stagesets);
-            }
-            set
-            {
-                getSet().stagesets = value.getSet();
-                save(getSet());
-            }
-        }
-
 
         public virtual WAdres adressets
         {
@@ -211,18 +187,18 @@ namespace StageManager.Models
                 List<WKennisgebied> oplSet = new List<WKennisgebied>();
                 for (int i = 0; i < getSet().opleidingsets.Count; i++)
                 {
-                    oplSet.Add(new WKennisgebied(getSet().tool_vaardigheidset.ElementAt(i)));
+                    oplSet.Add(new WKennisgebied(getSet().kennisgebiedset.ElementAt(i)));
                 }
                 return oplSet;
             }
             set
             {
-                List<tool_vaardigheidset> list = new List<tool_vaardigheidset>();
+                List<kennisgebiedset> list = new List<kennisgebiedset>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
                 }
-                getSet().tool_vaardigheidset = list;
+                getSet().kennisgebiedset = list;
                 save(getSet());
             }
         }

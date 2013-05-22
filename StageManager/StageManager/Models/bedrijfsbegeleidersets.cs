@@ -16,7 +16,7 @@ namespace StageManager.Models
     {
         public bedrijfsbegeleidersets()
         {
-            this.stagesets1 = new HashSet<stagesets>();
+            this.stagesets = new HashSet<stagesets>();
         }
     
         public string Functie { get; set; }
@@ -25,8 +25,8 @@ namespace StageManager.Models
         public int Id { get; set; }
         public int bedrijfset_Bedrijfs_Id { get; set; }
     
+        public virtual ICollection<stagesets> stagesets { get; set; }
         public virtual persoonsets persoonsets { get; set; }
         public virtual bedrijfsets bedrijfsets { get; set; }
-        public virtual ICollection<stagesets> stagesets1 { get; set; }
     }
 }

@@ -71,18 +71,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public virtual WStage stageset
-        {
-            get
-            {
-                return new WStage(getSet().stagesets);
-            }
-            set
-            {
-                getSet().stagesets = value.getSet();
-                save(getSet());
-            }
-        }
+
         public virtual WBedrijf bedrijfset
         {
             get

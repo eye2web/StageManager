@@ -24,8 +24,8 @@ namespace StageManager.Models
         public string Naam { get; set; }
         public int acedemieId { get; set; }
     
+        public virtual academiesets academiesets { get; set; }
         public virtual ICollection<studentsets> studentsets { get; set; }
         public virtual ICollection<docentsets> docentsets { get; set; }
-        public virtual academiesets academiesets { get; set; }
     }
 }

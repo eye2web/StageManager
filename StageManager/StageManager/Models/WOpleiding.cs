@@ -52,11 +52,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WAcademie(getSet().acedemiesets);
+                return new WAcademie(getSet().academiesets);
             }
             set
             {
-                getSet().acedemiesets = value.getSet();
+                getSet().academiesets = value.getSet();
                 save(getSet());
             }
         }

@@ -36,7 +36,7 @@ namespace StageManager.Models
             }
         }
         
-        public int? Telefoonnummer
+        public String Telefoonnummer
         {
             get
             {

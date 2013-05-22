@@ -23,14 +23,14 @@ namespace StageManager.Models
         public Nullable<System.DateTime> Start_datum { get; set; }
         public Nullable<System.DateTime> Eind_datum { get; set; }
         public string Stageopdracht_omschijving { get; set; }
+        public Nullable<int> Bedrijfsbegeleider_id { get; set; }
         public int studentset_Id { get; set; }
         public Nullable<int> docentset_Id { get; set; }
-        public Nullable<int> Bedrijfsbegeleider_id { get; set; }
     
-        public virtual studentsets studentsets { get; set; }
-        public virtual docentsets docentsets1 { get; set; }
+        public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
+        public virtual docentsets docentsets { get; set; }
         public virtual eindstagesets eindstagesets { get; set; }
+        public virtual studentsets studentsets { get; set; }
         public virtual ICollection<kennisgebiedset> kennisgebiedset { get; set; }
-        public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets1 { get; set; }
     }
 }
