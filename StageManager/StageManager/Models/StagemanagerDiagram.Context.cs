@@ -43,28 +43,18 @@ namespace StageManager.Models
         public DbSet<studentsets> studentsets { get; set; }
         public DbSet<webkeysets> webkeysets { get; set; }
     
-        public virtual int SearchAlgemeenSet(string in_searchQuery)
+        public virtual ObjectResult<algemeensets> SearchAlgemeenSet(string in_searchQuery)
         {
             var in_searchQueryParameter = in_searchQuery != null ?
                 new ObjectParameter("in_searchQuery", in_searchQuery) :
                 new ObjectParameter("in_searchQuery", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchAlgemeenSet", in_searchQueryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeensets>("SearchAlgemeenSet", in_searchQueryParameter);
         }
-    
-        public virtual int SearchDocentSet()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchDocentSet");
-        }
-    
+		
         public virtual ObjectResult<studentsets> SearchStudentSet()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet");
-        }
-    
-        public virtual ObjectResult<studentsets> SearchStudentSet(MergeOption mergeOption)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet", mergeOption);
         }
     }
 }

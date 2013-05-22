@@ -686,6 +686,10 @@
             <End Role="docentsets" EntitySet="docentsets" />
             <End Role="opleidingsets" EntitySet="opleidingsets" />
           </AssociationSet>
+          <FunctionImport Name="SearchAlgemeenSet" EntitySet="algemeensets" ReturnType="Collection(stagemanagerModel.algemeensets)">
+            <Parameter Name="in_searchQuery" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)" />
         </EntityContainer>
         <EntityType Name="academiesets">
           <Key>
@@ -1104,9 +1108,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="stagemanagerModelStoreContainer" CdmEntityContainer="stagemanagerEntities">
-          <FunctionImportMapping FunctionImportName="SearchAlgemeenSet" FunctionName="stagemanagerModel.Store.SearchAlgemeenSet" />
-          <FunctionImportMapping FunctionImportName="SearchDocentSet" FunctionName="stagemanagerModel.Store.SearchDocentSet" />
-          <FunctionImportMapping FunctionImportName="SearchStudentSet" FunctionName="stagemanagerModel.Store.SearchStudentSet" />
           <EntitySetMapping Name="academiesets">
             <EntityTypeMapping TypeName="stagemanagerModel.academiesets">
               <MappingFragment StoreEntitySet="academiesets">
@@ -1276,6 +1277,8 @@
               <ScalarProperty Name="Id" ColumnName="docentsets_Id" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="SearchAlgemeenSet" FunctionName="stagemanagerModel.Store.SearchAlgemeenSet" />
+          <FunctionImportMapping FunctionImportName="SearchStudentSet" FunctionName="stagemanagerModel.Store.SearchStudentSet" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
