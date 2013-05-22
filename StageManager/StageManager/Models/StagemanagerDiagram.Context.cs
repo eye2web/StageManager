@@ -57,9 +57,14 @@ namespace StageManager.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchDocentSet");
         }
     
-        public virtual int SearchStudentSet()
+        public virtual ObjectResult<studentsets> SearchStudentSet()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SearchStudentSet");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet");
+        }
+    
+        public virtual ObjectResult<studentsets> SearchStudentSet(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet", mergeOption);
         }
     }
 }

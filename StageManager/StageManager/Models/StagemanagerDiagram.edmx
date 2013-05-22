@@ -587,7 +587,7 @@
           <Parameter Name="in_searchQuery" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SearchDocentSet" />
-          <FunctionImport Name="SearchStudentSet" />
+          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)" />
           <EntitySet Name="academiesets" EntityType="stagemanagerModel.academiesets" />
           <EntitySet Name="adressets" EntityType="stagemanagerModel.adressets" />
           <EntitySet Name="algemeensets" EntityType="stagemanagerModel.algemeensets" />

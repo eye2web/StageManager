@@ -149,6 +149,7 @@
     <Compile Include="Models\WOpleiding.cs" />
     <Compile Include="Models\WPersoon.cs" />
     <Compile Include="Models\WStage.cs" />
+    <Compile Include="Models\WStored.cs" />
     <Compile Include="Models\WStudent.cs" />
     <Compile Include="Models\WKennisgebied.cs" />
     <Compile Include="Models\WWebkey.cs" />
