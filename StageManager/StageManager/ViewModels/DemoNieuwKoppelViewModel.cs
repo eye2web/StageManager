@@ -34,6 +34,18 @@ namespace StageManager.ViewModels
             }
         }
 
+        private List<WDocent> lezerGridContents;
+
+        public List<WDocent> LezerGridContents
+        {
+            get { return lezerGridContents; }
+            set
+            {
+                lezerGridContents = value;
+                OnPropertyChanged("LezerGridContents");
+            }
+        }
+
         private String searchString;
 
         public String SearchString
@@ -57,6 +69,7 @@ namespace StageManager.ViewModels
             stagemanagerEntities smE = new stagemanagerEntities();
             StudentGridContents = WStored.SearchStudentSet(SearchString);
             DocentGridContents = WStored.SearchDocentSet();
+            LezerGridContents = WStored.SearchDocentSet();
         }
     }
 }
