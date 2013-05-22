@@ -10,17 +10,29 @@ namespace StageManager.ViewModels
 {
     class DemoNieuwKoppelViewModel : PropertyChangedBase
     {
-        private List<WStudent> gritContents;
+        private List<WStudent> studentGridContents;
 
-        public List<WStudent> GritContents
+        public List<WStudent> StudentGridContents
         {
-            get { return gritContents; }
+            get { return studentGridContents; }
             set
             {
-                gritContents = value;
-                OnPropertyChanged("GritContents");
+                studentGridContents = value;
+                OnPropertyChanged("StudentGridContents");
             }
-     }    
+        }
+
+        private List<WDocent> docentGridContents;
+
+        public List<WDocent> DocentGridContents
+        {
+            get { return docentGridContents; }
+            set
+            {
+                docentGridContents = value;
+                OnPropertyChanged("DocentGridContents");
+            }
+        }
 
         public DemoNieuwKoppelViewModel()
         {            
@@ -31,7 +43,8 @@ namespace StageManager.ViewModels
         public void FillView()
         {
             stagemanagerEntities smE = new stagemanagerEntities();
-            GritContents = WStored.SearchStudentSet();
+            StudentGridContents = WStored.SearchStudentSet();
+            DocentGridContents = WStored.SearchDocentSet();
         }
     }
 }

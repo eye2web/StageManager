@@ -20,5 +20,18 @@ namespace StageManager.Models
 
                 return returnList;
         }
+
+        public static List<WDocent> SearchDocentSet()
+        {
+            List<WDocent> returnList = new List<WDocent>();
+            stagemanagerEntities sme = new stagemanagerEntities();
+            List<docentsets> list = sme.SearchDocentSet().ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                returnList.Add(new WDocent(list[i]));
+            }
+
+            return returnList;
+        }
     }
 }

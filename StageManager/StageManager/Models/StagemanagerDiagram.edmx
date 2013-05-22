@@ -583,11 +583,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="stagemanagerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="stagemanagerEntities" p1:LazyLoadingEnabled="true">
-          <FunctionImport Name="SearchAlgemeenSet">
-          <Parameter Name="in_searchQuery" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SearchDocentSet" />
-          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)" />
           <EntitySet Name="academiesets" EntityType="stagemanagerModel.academiesets" />
           <EntitySet Name="adressets" EntityType="stagemanagerModel.adressets" />
           <EntitySet Name="algemeensets" EntityType="stagemanagerModel.algemeensets" />
@@ -686,6 +681,11 @@
             <End Role="docentsets" EntitySet="docentsets" />
             <End Role="opleidingsets" EntitySet="opleidingsets" />
           </AssociationSet>
+          <FunctionImport Name="SearchAlgemeenSet" EntitySet="algemeensets" ReturnType="Collection(stagemanagerModel.algemeensets)">
+            <Parameter Name="in_searchQuery" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchDocentSet" EntitySet="docentsets" ReturnType="Collection(stagemanagerModel.docentsets)" />
+          <FunctionImport Name="SearchStudentSet" EntitySet="studentsets" ReturnType="Collection(stagemanagerModel.studentsets)" />
           </EntityContainer>
         <EntityType Name="academiesets">
           <Key>
@@ -1274,6 +1274,7 @@
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="SearchAlgemeenSet" FunctionName="stagemanagerModel.Store.SearchAlgemeenSet" />
+          <FunctionImportMapping FunctionImportName="SearchDocentSet" FunctionName="stagemanagerModel.Store.SearchDocentSet" />
           <FunctionImportMapping FunctionImportName="SearchStudentSet" FunctionName="stagemanagerModel.Store.SearchStudentSet" />
         </EntityContainerMapping>
       </Mapping>
