@@ -12,7 +12,7 @@ namespace StageManager.Models
         {
             List<WStudent> returnList = new List<WStudent>();
             stagemanagerEntities sme = new stagemanagerEntities();
-            List<studentsets> list = sme.SearchStudentSet(searchString).ToList();
+            List<studentset> list = sme.SearchStudentSet(searchString).ToList();
             for (int i = 0; i < list.Count; i++)
             {
                 returnList.Add(new WStudent(list[i]));
@@ -25,7 +25,7 @@ namespace StageManager.Models
         {
             List<WDocent> returnList = new List<WDocent>();
             stagemanagerEntities sme = new stagemanagerEntities();
-            List<docentsets> list = sme.SearchDocentSet().ToList();
+            List<docentset> list = sme.SearchDocentSet().ToList();
             for (int i = 0; i < list.Count; i++)
             {
                 returnList.Add(new WDocent(list[i]));

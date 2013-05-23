@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStage : Wrapper, ISetEntity<stagesets>
+    class WStage : Wrapper, ISetEntity<stageset>
     {
         public int Stage_Id
         {
@@ -61,16 +61,28 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        
-        public int studentset_Id
+
+        public int studentset1_Id
         {
             get
             {
-                return getSet().studentset_Id;
+                return getSet().studentset1_Id;
             }
             set
             {
-                getSet().studentset_Id = value;
+                getSet().studentset1_Id = value;
+                save(getSet());
+            }
+        }
+        public int? studentset2_Id
+        {
+            get
+            {
+                return getSet().studentset2_Id;
+            }
+            set
+            {
+                getSet().studentset2_Id = value;
                 save(getSet());
             }
         }
@@ -79,11 +91,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WDocent(getSet().docentsets);
+                return new WDocent(getSet().docentset);
             }
             set
             {
-                getSet().docentsets = value.getSet();
+                getSet().docentset = value.getSet();
                 save(getSet());
             }
         }
@@ -92,11 +104,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WStudent(getSet().studentsets);
+                return new WStudent(getSet().studentset);
             }
             set
             {
-                getSet().studentsets = value.getSet();
+                getSet().studentset = value.getSet();
                 save(getSet());
             }
         }
@@ -106,9 +118,9 @@ namespace StageManager.Models
             get
             {
                 List<WKennisgebied> oplSet = new List<WKennisgebied>();
-                for (int i = 0; i < getSet().kennisgebiedset.Count; i++)
+                for (int i = 0; i < getSet().kennisgebiedsets.Count; i++)
                 {
-                    oplSet.Add(new WKennisgebied(getSet().kennisgebiedset.ElementAt(i)));
+                    oplSet.Add(new WKennisgebied(getSet().kennisgebiedsets.ElementAt(i)));
                 }
                 return oplSet;
             }
@@ -119,7 +131,7 @@ namespace StageManager.Models
                 {
                     list.Add(value[i].getSet());
                 }
-                getSet().kennisgebiedset = list;
+                getSet().kennisgebiedsets = list;
                 save(getSet());
             }
         }
@@ -128,16 +140,16 @@ namespace StageManager.Models
         {
             get
             {
-                return new WBedrijfsBegeleider(getSet().bedrijfsbegeleidersets);
+                return new WBedrijfsBegeleider(getSet().bedrijfsbegeleiderset);
             }
             set
             {
-                getSet().bedrijfsbegeleidersets = value.getSet();
+                getSet().bedrijfsbegeleiderset = value.getSet();
                 save(getSet());
             }
         }
 
-        public WStage(stagesets set)
+        public WStage(stageset set)
             : base()
         {
             if (set == null)
@@ -147,11 +159,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public stagesets getSet()
+        public stageset getSet()
         {
             return set;
         }
 
-        public stagesets set { get; set; }
+        public stageset set { get; set; }
     }
 }

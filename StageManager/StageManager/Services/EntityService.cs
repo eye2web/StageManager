@@ -19,7 +19,7 @@ namespace StageManager.Services
             this.factory = factory;
             this.entities = entities;
         }
-        public IEnumerable<studentsets> Studenten
+        public IEnumerable<studentset> Studenten
         {
             get { return entities.studentsets; }
         }
@@ -35,7 +35,7 @@ namespace StageManager.Services
                 handler(this, e);
             }
         }
-        public IEnumerable<docentsets> Docenten
+        public IEnumerable<docentset> Docenten
         {
             get { return entities.docentsets; }
         }
@@ -51,7 +51,7 @@ namespace StageManager.Services
                 handler(this, e);
             }
         }
-        public IEnumerable<bedrijfsets> Bedrijven
+        public IEnumerable<bedrijfset> Bedrijven
         {
             get { return entities.bedrijfsets; }
         }
@@ -67,7 +67,7 @@ namespace StageManager.Services
                 handler(this, e);
             }
         }
-        public IEnumerable<bedrijfsbegeleidersets> Bedrijfsbegeleiders
+        public IEnumerable<bedrijfsbegeleiderset> Bedrijfsbegeleiders
         {
             get { return entities.bedrijfsbegeleidersets; }
         }

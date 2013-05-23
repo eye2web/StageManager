@@ -19,7 +19,7 @@ namespace StageManager.Models
         public string Wachtwoord { get; set; }
         public Nullable<int> Academie_Id { get; set; }
     
-        public virtual academiesets academiesets { get; set; }
-        public virtual persoonsets persoonsets { get; set; }
+        public virtual academieset academieset { get; set; }
+        public virtual persoonset persoonset { get; set; }
     }
 }

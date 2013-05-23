@@ -8,7 +8,7 @@ using StageManager.Exceptions;
 
 namespace StageManager.Models
 {
-    class WDocent : WPersoon, ISetEntity<docentsets>
+    class WDocent : WPersoon, ISetEntity<docentset>
     {
         public int Leraar_Id
         {
@@ -113,11 +113,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WAlgemeen(getSet().algemeensets);
+                return new WAlgemeen(getSet().algemeenset);
             }
             set
             {
-                getSet().algemeensets = value.getSet();
+                getSet().algemeenset = value.getSet();
                 save(getSet());
             }
         }
@@ -125,11 +125,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WPersoon(getSet().persoonsets);
+                return new WPersoon(getSet().persoonset);
             }
             set
             {
-                getSet().persoonsets = value.getSet();
+                getSet().persoonset = value.getSet();
                 save(getSet());
             }
         }
@@ -138,11 +138,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WAdres(getSet().adressets);
+                return new WAdres(getSet().adresset);
             }
             set
             {
-                getSet().adressets = value.getSet();
+                getSet().adresset = value.getSet();
                 save(getSet());
             }
         }
@@ -150,11 +150,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WWebkey(getSet().webkeysets);
+                return new WWebkey(getSet().webkeyset);
             }
             set
             {
-                getSet().webkeysets = value.getSet();
+                getSet().webkeyset = value.getSet();
                 save(getSet());
             }
         }
@@ -171,7 +171,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<opleidingsets> list = new List<opleidingsets>();
+                List<opleidingset> list = new List<opleidingset>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -187,7 +187,7 @@ namespace StageManager.Models
                 List<WKennisgebied> oplSet = new List<WKennisgebied>();
                 for (int i = 0; i < getSet().opleidingsets.Count; i++)
                 {
-                    oplSet.Add(new WKennisgebied(getSet().kennisgebiedset.ElementAt(i)));
+                    oplSet.Add(new WKennisgebied(getSet().kennisgebiedsets.ElementAt(i)));
                 }
                 return oplSet;
             }
@@ -198,13 +198,13 @@ namespace StageManager.Models
                 {
                     list.Add(value[i].getSet());
                 }
-                getSet().kennisgebiedset = list;
+                getSet().kennisgebiedsets = list;
                 save(getSet());
             }
         }
 
-        public WDocent(docentsets set)
-            : base(set.persoonsets)
+        public WDocent(docentset set)
+            : base(set.persoonset)
         {
             if (set == null)
             {
@@ -213,11 +213,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public docentsets getSet()
+        public docentset getSet()
         {
             return set;
         }
 
-        public docentsets set { get; set; }
+        public docentset set { get; set; }
     }
 }

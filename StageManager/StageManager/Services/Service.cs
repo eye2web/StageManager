@@ -10,22 +10,22 @@ namespace StageManager.Services
     public class Service : IService
     {
         private readonly IFactory factory;
-        private readonly List<studentsets> studenten;
-        private readonly List<docentsets> docenten;
-        private readonly List<bedrijfsets> bedrijven;
-        private readonly List<bedrijfsbegeleidersets> bedrijfsbegeleiders;
+        private readonly List<studentset> studenten;
+        private readonly List<docentset> docenten;
+        private readonly List<bedrijfset> bedrijven;
+        private readonly List<bedrijfsbegeleiderset> bedrijfsbegeleiders;
 
         public Service(IFactory factory)
         {
             this.factory = factory;
 
-            this.studenten = new List<studentsets>();
-            this.docenten = new List<docentsets>();
-            this.bedrijven = new List<bedrijfsets>();
-            this.bedrijfsbegeleiders = new List<bedrijfsbegeleidersets>();
+            this.studenten = new List<studentset>();
+            this.docenten = new List<docentset>();
+            this.bedrijven = new List<bedrijfset>();
+            this.bedrijfsbegeleiders = new List<bedrijfsbegeleiderset>();
         }
 
-        public IEnumerable<studentsets> Studenten
+        public IEnumerable<studentset> Studenten
         {
             get { return studenten; }
         }
@@ -41,7 +41,7 @@ namespace StageManager.Services
             }
         }
 
-        public IEnumerable<docentsets> Docenten
+        public IEnumerable<docentset> Docenten
         {
             get { return docenten; }
         }
@@ -58,7 +58,7 @@ namespace StageManager.Services
             }
         }
 
-        public IEnumerable<bedrijfsets> Bedrijven
+        public IEnumerable<bedrijfset> Bedrijven
         {
             get { return bedrijven; }
         }
@@ -75,7 +75,7 @@ namespace StageManager.Services
             }
         }
 
-        public IEnumerable<bedrijfsbegeleidersets> Bedrijfsbegeleiders
+        public IEnumerable<bedrijfsbegeleiderset> Bedrijfsbegeleiders
         {
             get { return bedrijfsbegeleiders; }
         }

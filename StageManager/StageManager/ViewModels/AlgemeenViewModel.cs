@@ -12,9 +12,9 @@ namespace StageManager.ViewModels
 {
     class AlgemeenViewModel : PropertyChangedBase
     {
-        private List<algemeensets> gridContents;
+        private List<algemeenset> gridContents;
 
-        public List<algemeensets> GridContents
+        public List<algemeenset> GridContents
         {
             get { return gridContents; }
             set { gridContents = value;
@@ -91,7 +91,7 @@ namespace StageManager.ViewModels
         public void SaveAlgemeenSet()
         {           
             stagemanagerEntities smE = new stagemanagerEntities();
-            algemeensets aS = new algemeensets();
+            algemeenset aS = new algemeenset();
  
             aS.Jaargang = (String)Jaargang;
             aS.Werk_Uren = (String)Werkuren;
@@ -109,7 +109,7 @@ namespace StageManager.ViewModels
             stagemanagerEntities smE = new stagemanagerEntities();
             if (smE.algemeensets.Any(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)))
             {
-                algemeensets aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
+                algemeenset aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
                 Jaargang = aS.Jaargang;
                 Werkuren = aS.Werk_Uren;
                 AantBlokken = aS.Blokken;
@@ -127,7 +127,7 @@ namespace StageManager.ViewModels
         public void UpdateAlgemeenSet()
         {
             stagemanagerEntities smE = new stagemanagerEntities();
-                algemeensets aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
+                algemeenset aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
 
                 aS.Jaargang = (String)Jaargang;
                 aS.Werk_Uren = (String)Werkuren;
@@ -142,7 +142,7 @@ namespace StageManager.ViewModels
         public void DeleteAlgemeenSet()
         {
             stagemanagerEntities smE = new stagemanagerEntities();
-            algemeensets aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
+            algemeenset aS = smE.algemeensets.ToList().Where(x => (x.Jaargang == SearchText || x.Werk_Uren == SearchText || x.Blokken == SearchText)).First();
             smE.algemeensets.Remove(aS);
 
             smE.SaveChanges();

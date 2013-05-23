@@ -12,11 +12,12 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class studentsets
+    public partial class studentset
     {
-        public studentsets()
+        public studentset()
         {
-            this.stagesets = new HashSet<stagesets>();
+            this.stagesets = new HashSet<stageset>();
+            this.stagesets1 = new HashSet<stageset>();
         }
     
         public int Studentnummer { get; set; }
@@ -25,9 +26,10 @@ namespace StageManager.Models
         public int Id { get; set; }
         public int webkeysets_Id { get; set; }
     
-        public virtual opleidingsets opleidingsets { get; set; }
-        public virtual persoonsets persoonsets { get; set; }
-        public virtual ICollection<stagesets> stagesets { get; set; }
-        public virtual webkeysets webkeysets { get; set; }
+        public virtual opleidingset opleidingset { get; set; }
+        public virtual persoonset persoonset { get; set; }
+        public virtual ICollection<stageset> stagesets { get; set; }
+        public virtual ICollection<stageset> stagesets1 { get; set; }
+        public virtual webkeyset webkeyset { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfsBegeleider : WPersoon, ISetEntity<bedrijfsbegeleidersets>
+    class WBedrijfsBegeleider : WPersoon, ISetEntity<bedrijfsbegeleiderset>
     {
         public string Functie
         {
@@ -63,11 +63,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WPersoon(getSet().persoonsets);
+                return new WPersoon(getSet().persoonset);
             }
             set
             {
-                getSet().persoonsets = value.getSet();
+                getSet().persoonset = value.getSet();
                 save(getSet());
             }
         }
@@ -76,17 +76,17 @@ namespace StageManager.Models
         {
             get
             {
-                return new WBedrijf(getSet().bedrijfsets);
+                return new WBedrijf(getSet().bedrijfset);
             }
             set
             {
-                getSet().bedrijfsets = value.getSet();
+                getSet().bedrijfset = value.getSet();
                 save(getSet());
             }
         }
 
-        public WBedrijfsBegeleider(bedrijfsbegeleidersets set)
-            : base(set.persoonsets)
+        public WBedrijfsBegeleider(bedrijfsbegeleiderset set)
+            : base(set.persoonset)
         {
             if (set == null)
             {
@@ -95,11 +95,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public bedrijfsbegeleidersets getSet()
+        public bedrijfsbegeleiderset getSet()
         {
             return set;
         }
 
-        public bedrijfsbegeleidersets set { get; set; }
+        public bedrijfsbegeleiderset set { get; set; }
     }
 }

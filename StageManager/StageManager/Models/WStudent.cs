@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStudent : WPersoon, ISetEntity<studentsets>
+    class WStudent : WPersoon, ISetEntity<studentset>
     {
         public int Studentnummer
         {
@@ -79,11 +79,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WOpleiding(getSet().opleidingsets);
+                return new WOpleiding(getSet().opleidingset);
             }
             set
             {
-                getSet().opleidingsets = value.getSet();
+                getSet().opleidingset = value.getSet();
                 save(getSet());
             }
         }
@@ -92,11 +92,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WPersoon(getSet().persoonsets);
+                return new WPersoon(getSet().persoonset);
             }
             set
             {
-                getSet().persoonsets = value.getSet();
+                getSet().persoonset = value.getSet();
                 save(getSet());
             }
         }
@@ -114,7 +114,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<stagesets> list = new List<stagesets>();
+                List<stageset> list = new List<stageset>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -128,17 +128,17 @@ namespace StageManager.Models
         {
             get
             {
-                return new WWebkey(getSet().webkeysets);
+                return new WWebkey(getSet().webkeyset);
             }
             set
             {
-                getSet().webkeysets = value.getSet();
+                getSet().webkeyset = value.getSet();
                 save(getSet());
             }
         }
 
-        public WStudent(studentsets set)
-            : base(set.persoonsets)
+        public WStudent(studentset set)
+            : base(set.persoonset)
         {
             if (set == null)
             {
@@ -147,11 +147,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public studentsets getSet()
+        public studentset getSet()
         {
             return set;
         }
 
-        public studentsets set { get; set; }
+        public studentset set { get; set; }
     }
 }

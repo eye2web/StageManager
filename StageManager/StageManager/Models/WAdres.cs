@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WAdres : Wrapper, ISetEntity<adressets>
+    class WAdres : Wrapper, ISetEntity<adresset>
     {
         public int Id
         {
@@ -76,7 +76,7 @@ namespace StageManager.Models
         }      
         
 
-        public WAdres(adressets set)
+        public WAdres(adresset set)
             : base()
         {
             if (set == null)
@@ -86,11 +86,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public adressets getSet()
+        public adresset getSet()
         {
             return set;
         }
 
-        public adressets set { get; set; }
+        public adresset set { get; set; }
     }
 }

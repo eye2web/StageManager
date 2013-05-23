@@ -7,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WWebkey : Wrapper, ISetEntity<webkeysets>
+    class WWebkey : Wrapper, ISetEntity<webkeyset>
     {
         public int Id
         {
@@ -50,7 +50,7 @@ namespace StageManager.Models
 
 
 
-        public WWebkey(webkeysets set)
+        public WWebkey(webkeyset set)
             : base()
         {
             if (set == null)
@@ -60,11 +60,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public webkeysets getSet()
+        public webkeyset getSet()
         {
             return set;
         }
 
-        public webkeysets set { get; set; }
+        public webkeyset set { get; set; }
     }
 }

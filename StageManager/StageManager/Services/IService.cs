@@ -9,13 +9,13 @@ namespace StageManager.Services
 {
     public interface IService
     {
-        IEnumerable<studentsets> Studenten { get; }
+        IEnumerable<studentset> Studenten { get; }
 
-        IEnumerable<docentsets> Docenten { get; }
+        IEnumerable<docentset> Docenten { get; }
 
-        IEnumerable<bedrijfsets> Bedrijven { get; }
+        IEnumerable<bedrijfset> Bedrijven { get; }
 
-        IEnumerable<bedrijfsbegeleidersets> Bedrijfsbegeleiders { get; }
+        IEnumerable<bedrijfsbegeleiderset> Bedrijfsbegeleiders { get; }
 
         //void addStudent();
 

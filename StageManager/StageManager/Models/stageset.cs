@@ -12,11 +12,11 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class stagesets
+    public partial class stageset
     {
-        public stagesets()
+        public stageset()
         {
-            this.kennisgebiedset = new HashSet<kennisgebiedset>();
+            this.kennisgebiedsets = new HashSet<kennisgebiedset>();
         }
     
         public int Stage_Id { get; set; }
@@ -24,13 +24,15 @@ namespace StageManager.Models
         public Nullable<System.DateTime> Eind_datum { get; set; }
         public string Stageopdracht_omschijving { get; set; }
         public Nullable<int> Bedrijfsbegeleider_id { get; set; }
-        public int studentset_Id { get; set; }
+        public int studentset1_Id { get; set; }
+        public Nullable<int> studentset2_Id { get; set; }
         public Nullable<int> docentset_Id { get; set; }
     
-        public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
-        public virtual docentsets docentsets { get; set; }
-        public virtual eindstagesets eindstagesets { get; set; }
-        public virtual studentsets studentsets { get; set; }
-        public virtual ICollection<kennisgebiedset> kennisgebiedset { get; set; }
+        public virtual bedrijfsbegeleiderset bedrijfsbegeleiderset { get; set; }
+        public virtual docentset docentset { get; set; }
+        public virtual eindstageset eindstageset { get; set; }
+        public virtual studentset studentset { get; set; }
+        public virtual studentset studentset1 { get; set; }
+        public virtual ICollection<kennisgebiedset> kennisgebiedsets { get; set; }
     }
 }

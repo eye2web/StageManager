@@ -9,8 +9,8 @@ namespace StageManager.Services
 {
     public interface IFactory
     {
-        studentsets CreateStudent();
+        studentset CreateStudent();
 
-        docentsets CreateDocent();
+        docentset CreateDocent();
     }
 }

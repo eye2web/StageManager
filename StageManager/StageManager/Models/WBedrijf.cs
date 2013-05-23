@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijf : Wrapper, ISetEntity<bedrijfsets>
+    class WBedrijf : Wrapper, ISetEntity<bedrijfset>
     {
         public int Id
         {
@@ -65,11 +65,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WAdres(getSet().adressets);
+                return new WAdres(getSet().adresset);
             }
             set
             {
-                getSet().adressets = value.getSet();
+                getSet().adresset = value.getSet();
                 save(getSet());
             }
         }
@@ -87,7 +87,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<bedrijfsbegeleidersets> list = new List<bedrijfsbegeleidersets>();
+                List<bedrijfsbegeleiderset> list = new List<bedrijfsbegeleiderset>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -97,7 +97,7 @@ namespace StageManager.Models
             }
         }
 
-        public WBedrijf(bedrijfsets set)
+        public WBedrijf(bedrijfset set)
             : base()
         {
             if (set == null)
@@ -107,11 +107,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public bedrijfsets getSet()
+        public bedrijfset getSet()
         {
             return set;
         }
 
-        public bedrijfsets set { get; set; }
+        public bedrijfset set { get; set; }
     }
 }
