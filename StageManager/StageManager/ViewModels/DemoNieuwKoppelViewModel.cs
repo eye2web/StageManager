@@ -53,7 +53,7 @@ namespace StageManager.ViewModels
             get { return searchString; }
             set {
                 searchString = value;
-                FillView(SearchString);
+                StudentGridContents = WStored.SearchStudentSet(SearchString);
             }
         }
 
@@ -66,7 +66,6 @@ namespace StageManager.ViewModels
         //Vul grid
         public void FillView(String SearchString)
         {
-            stagemanagerEntities smE = new stagemanagerEntities();
             StudentGridContents = WStored.SearchStudentSet(SearchString);
             DocentGridContents = WStored.SearchDocentSet();
             LezerGridContents = WStored.SearchDocentSet();
