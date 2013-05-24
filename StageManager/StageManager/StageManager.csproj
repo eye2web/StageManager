@@ -83,37 +83,37 @@
     <Compile Include="Controllers\IApplicationController.cs" />
     <Compile Include="Exceptions\CantBeNullException.cs" />
     <Compile Include="IShell.cs" />
-    <Compile Include="Models\academieset.cs">
+    <Compile Include="Models\academiesets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\adresset.cs">
+    <Compile Include="Models\adressets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\algemeenset.cs">
+    <Compile Include="Models\algemeensets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\bedrijfsbegeleiderset.cs">
+    <Compile Include="Models\bedrijfsbegeleidersets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\bedrijfset.cs">
+    <Compile Include="Models\bedrijfsets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\coordinator.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\docentset.cs">
+    <Compile Include="Models\docentsets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\eindstageset.cs">
+    <Compile Include="Models\eindstagesets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\kennisgebiedset.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\opleidingset.cs">
+    <Compile Include="Models\opleidingsets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\persoonset.cs">
+    <Compile Include="Models\persoonsets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StagemanagerDiagram.Context.cs">
@@ -131,13 +131,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\stageset.cs">
+    <Compile Include="Models\stagesets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\studentset.cs">
+    <Compile Include="Models\studentsets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tempemailset.cs">
+    <Compile Include="Models\tempemailsets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WAcademie.cs" />
@@ -146,7 +146,7 @@
     <Compile Include="Models\WBedrijfsBegeleider.cs" />
     <Compile Include="Models\WBedrijf.cs" />
     <Compile Include="Models\WDocent.cs" />
-    <Compile Include="Models\webkeyset.cs">
+    <Compile Include="Models\webkeysets.cs">
       <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WOpleiding.cs" />

@@ -47,7 +47,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<docentset> list = new List<docentset>();
+                List<docentsets> list = new List<docentsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -69,7 +69,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<stageset> list = new List<stageset>();
+                List<stagesets> list = new List<stagesets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());

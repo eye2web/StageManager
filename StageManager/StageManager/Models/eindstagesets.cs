@@ -12,11 +12,12 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tempemailset
+    public partial class eindstagesets
     {
-        public string Email { get; set; }
-        public Nullable<int> Web_id { get; set; }
+        public int Stage_Id { get; set; }
+        public Nullable<int> TweedeLezer { get; set; }
     
-        public virtual webkeyset webkeyset { get; set; }
+        public virtual docentsets docentsets { get; set; }
+        public virtual stagesets stagesets { get; set; }
     }
 }

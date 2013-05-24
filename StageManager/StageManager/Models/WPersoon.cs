@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WPersoon : Wrapper, ISetEntity<persoonset>
+    class WPersoon : Wrapper, ISetEntity<persoonsets>
     {
         public int Id
         {
@@ -73,7 +73,7 @@ namespace StageManager.Models
             }
         }
 
-        public WPersoon(persoonset set)
+        public WPersoon(persoonsets set)
             : base()
         {
             if (set == null)
@@ -83,11 +83,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public persoonset getSet()
+        public persoonsets getSet()
         {
             return set;
         }
 
-        public persoonset set { get; set; }
+        public persoonsets set { get; set; }
     }
 }

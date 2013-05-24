@@ -12,14 +12,14 @@ namespace StageManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class docentset
+    public partial class docentsets
     {
-        public docentset()
+        public docentsets()
         {
-            this.eindstagesets = new HashSet<eindstageset>();
-            this.stagesets = new HashSet<stageset>();
-            this.kennisgebiedsets = new HashSet<kennisgebiedset>();
-            this.opleidingsets = new HashSet<opleidingset>();
+            this.eindstagesets = new HashSet<eindstagesets>();
+            this.stagesets = new HashSet<stagesets>();
+            this.kennisgebiedset = new HashSet<kennisgebiedset>();
+            this.opleidingsets = new HashSet<opleidingsets>();
         }
     
         public int Id { get; set; }
@@ -32,13 +32,13 @@ namespace StageManager.Models
         public int webkeysets_Id { get; set; }
         public string VervoerMiddel { get; set; }
     
-        public virtual adresset adresset { get; set; }
-        public virtual algemeenset algemeenset { get; set; }
-        public virtual ICollection<eindstageset> eindstagesets { get; set; }
-        public virtual persoonset persoonset { get; set; }
-        public virtual ICollection<stageset> stagesets { get; set; }
-        public virtual webkeyset webkeyset { get; set; }
-        public virtual ICollection<kennisgebiedset> kennisgebiedsets { get; set; }
-        public virtual ICollection<opleidingset> opleidingsets { get; set; }
+        public virtual adressets adressets { get; set; }
+        public virtual algemeensets algemeensets { get; set; }
+        public virtual ICollection<eindstagesets> eindstagesets { get; set; }
+        public virtual persoonsets persoonsets { get; set; }
+        public virtual ICollection<stagesets> stagesets { get; set; }
+        public virtual webkeysets webkeysets { get; set; }
+        public virtual ICollection<kennisgebiedset> kennisgebiedset { get; set; }
+        public virtual ICollection<opleidingsets> opleidingsets { get; set; }
     }
 }

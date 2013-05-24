@@ -28,66 +28,66 @@ namespace StageManager.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<academieset> academiesets { get; set; }
-        public DbSet<adresset> adressets { get; set; }
-        public DbSet<algemeenset> algemeensets { get; set; }
-        public DbSet<bedrijfsbegeleiderset> bedrijfsbegeleidersets { get; set; }
-        public DbSet<bedrijfset> bedrijfsets { get; set; }
-        public DbSet<coordinator> coordinators { get; set; }
-        public DbSet<docentset> docentsets { get; set; }
-        public DbSet<eindstageset> eindstagesets { get; set; }
-        public DbSet<kennisgebiedset> kennisgebiedsets { get; set; }
-        public DbSet<opleidingset> opleidingsets { get; set; }
-        public DbSet<persoonset> persoonsets { get; set; }
-        public DbSet<stageset> stagesets { get; set; }
-        public DbSet<studentset> studentsets { get; set; }
-        public DbSet<tempemailset> tempemailsets { get; set; }
-        public DbSet<webkeyset> webkeysets { get; set; }
+        public DbSet<academiesets> academiesets { get; set; }
+        public DbSet<adressets> adressets { get; set; }
+        public DbSet<algemeensets> algemeensets { get; set; }
+        public DbSet<bedrijfsbegeleidersets> bedrijfsbegeleidersets { get; set; }
+        public DbSet<bedrijfsets> bedrijfsets { get; set; }
+        public DbSet<coordinator> coordinator { get; set; }
+        public DbSet<docentsets> docentsets { get; set; }
+        public DbSet<eindstagesets> eindstagesets { get; set; }
+        public DbSet<kennisgebiedset> kennisgebiedset { get; set; }
+        public DbSet<opleidingsets> opleidingsets { get; set; }
+        public DbSet<persoonsets> persoonsets { get; set; }
+        public DbSet<stagesets> stagesets { get; set; }
+        public DbSet<studentsets> studentsets { get; set; }
+        public DbSet<tempemailsets> tempemailsets { get; set; }
+        public DbSet<webkeysets> webkeysets { get; set; }
     
-        public virtual ObjectResult<algemeenset> SearchAlgemeenSet(string in_searchQuery)
+        public virtual ObjectResult<algemeensets> SearchAlgemeenSet(string in_searchQuery)
         {
             var in_searchQueryParameter = in_searchQuery != null ?
                 new ObjectParameter("in_searchQuery", in_searchQuery) :
                 new ObjectParameter("in_searchQuery", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeenset>("SearchAlgemeenSet", in_searchQueryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeensets>("SearchAlgemeenSet", in_searchQueryParameter);
         }
     
-        public virtual ObjectResult<algemeenset> SearchAlgemeenSet(string in_searchQuery, MergeOption mergeOption)
+        public virtual ObjectResult<algemeensets> SearchAlgemeenSet(string in_searchQuery, MergeOption mergeOption)
         {
             var in_searchQueryParameter = in_searchQuery != null ?
                 new ObjectParameter("in_searchQuery", in_searchQuery) :
                 new ObjectParameter("in_searchQuery", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeenset>("SearchAlgemeenSet", mergeOption, in_searchQueryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<algemeensets>("SearchAlgemeenSet", mergeOption, in_searchQueryParameter);
         }
     
-        public virtual ObjectResult<docentset> SearchDocentSet()
+        public virtual ObjectResult<docentsets> SearchDocentSet()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<docentset>("SearchDocentSet");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<docentsets>("SearchDocentSet");
         }
     
-        public virtual ObjectResult<docentset> SearchDocentSet(MergeOption mergeOption)
+        public virtual ObjectResult<docentsets> SearchDocentSet(MergeOption mergeOption)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<docentset>("SearchDocentSet", mergeOption);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<docentsets>("SearchDocentSet", mergeOption);
         }
     
-        public virtual ObjectResult<studentset> SearchStudentSet(string in_SearchString)
-        {
-            var in_SearchStringParameter = in_SearchString != null ?
-                new ObjectParameter("in_SearchString", in_SearchString) :
-                new ObjectParameter("in_SearchString", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentset>("SearchStudentSet", in_SearchStringParameter);
-        }
-    
-        public virtual ObjectResult<studentset> SearchStudentSet(string in_SearchString, MergeOption mergeOption)
+        public virtual ObjectResult<studentsets> SearchStudentSet(string in_SearchString)
         {
             var in_SearchStringParameter = in_SearchString != null ?
                 new ObjectParameter("in_SearchString", in_SearchString) :
                 new ObjectParameter("in_SearchString", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentset>("SearchStudentSet", mergeOption, in_SearchStringParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet", in_SearchStringParameter);
+        }
+    
+        public virtual ObjectResult<studentsets> SearchStudentSet(string in_SearchString, MergeOption mergeOption)
+        {
+            var in_SearchStringParameter = in_SearchString != null ?
+                new ObjectParameter("in_SearchString", in_SearchString) :
+                new ObjectParameter("in_SearchString", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<studentsets>("SearchStudentSet", mergeOption, in_SearchStringParameter);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WOpleiding : Wrapper, ISetEntity<opleidingset>
+    class WOpleiding : Wrapper, ISetEntity<opleidingsets>
     {
         public int Id
         {
@@ -52,11 +52,11 @@ namespace StageManager.Models
         {
             get
             {
-                return new WAcademie(getSet().academieset);
+                return new WAcademie(getSet().academiesets);
             }
             set
             {
-                getSet().academieset = value.getSet();
+                getSet().academiesets = value.getSet();
                 save(getSet());
             }
         }
@@ -74,7 +74,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<studentset> list = new List<studentset>();
+                List<studentsets> list = new List<studentsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -97,7 +97,7 @@ namespace StageManager.Models
             }
             set
             {
-                List<docentset> list = new List<docentset>();
+                List<docentsets> list = new List<docentsets>();
                 for (int i = 0; i < value.Count; i++)
                 {
                     list.Add(value[i].getSet());
@@ -107,7 +107,7 @@ namespace StageManager.Models
             }
         }
 
-        public WOpleiding(opleidingset set)
+        public WOpleiding(opleidingsets set)
             : base()
         {
             if (set == null)
@@ -118,11 +118,11 @@ namespace StageManager.Models
         }
 
 
-        public opleidingset getSet()
+        public opleidingsets getSet()
         {
             return set;
         }
 
-        public opleidingset set { get; set; }
+        public opleidingsets set { get; set; }
     }
 }
