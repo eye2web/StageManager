@@ -10,9 +10,9 @@ namespace StageManager.ViewModels
 {
     class DemoNieuwKoppelViewModel : PropertyChangedBase
     {
-        private List<WStudent> studentGridContents;
+        private List<Object> studentGridContents;
 
-        public List<WStudent> StudentGridContents
+        public List<Object> StudentGridContents
         {
             get { return studentGridContents; }
             set
@@ -53,7 +53,16 @@ namespace StageManager.ViewModels
             get { return searchString; }
             set {
                 searchString = value;
-                StudentGridContents = WStored.SearchStudentSet(SearchString);
+                StudentGridContents = (from student in WStored.SearchStudentSet(SearchString)
+                                      select (Object)new
+                                      {
+                                         StudentNummer= student.Studentnummer,
+                                         Voornaam = student.Voornaam,
+                                         Achternaam = student.Achternaam,
+                                         Opleiding = student.Opleidingset.Naam,
+                                         EC_Norm_Behaald = student.EC_norm_behaald
+
+                                      }).ToList();
             }
         }
 
@@ -66,7 +75,7 @@ namespace StageManager.ViewModels
         //Vul grid
         public void FillView(String SearchString)
         {
-            StudentGridContents = WStored.SearchStudentSet(SearchString);
+            searchString = "";
             DocentGridContents = WStored.SearchDocentSet();
             LezerGridContents = WStored.SearchDocentSet();
         }

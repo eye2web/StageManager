@@ -56,21 +56,10 @@
                                           VerticalAlignment="Stretch" 
                                           Height="auto" Width="auto" 
                                           Grid.Row="1"
-                                          AutoGenerateColumns="False"
                                           CanUserResizeColumns="False"
                                           CanUserAddRows="False"
                                           CanUserDeleteRows="False"
-                                          CanUserResizeRows="False">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Studentnummer}"  Header="Studentnummer" Width="auto" IsReadOnly="True"/>
-                                    <DataGridTextColumn Binding="{Binding Voornaam}" Header="Voornaam" Width="auto" IsReadOnly="True"/>
-                                    <DataGridTextColumn Binding="{Binding Achternaam}" Header="Achternaam" Width="auto" IsReadOnly="True"/>
-                                    <DataGridTextColumn Binding="{Binding Path=Opleidingset.Naam}" Header="Opleiding" Width="auto" IsReadOnly="True"/>
-                                    <DataGridTextColumn Binding="{Binding EC_norm_behaald}" Header="EC norm behaald" Width="auto" IsReadOnly="True"/>
-                                    
-
-                                </DataGrid.Columns>
-                            </DataGrid>
+                                          CanUserResizeRows="False"/>
                         </ScrollViewer>
                     </DockPanel>
                 </DockPanel>
