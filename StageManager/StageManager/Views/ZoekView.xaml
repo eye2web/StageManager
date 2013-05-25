@@ -24,7 +24,7 @@
                     <!-- FilterPanel -->
                     <ScrollViewer VerticalAlignment="Stretch" MinWidth="200" Height="auto" VerticalScrollBarVisibility="Auto" Margin="0">
                             <DockPanel>
-                            <TextBox DockPanel.Dock="Top" Name="SearchString" Text="Trefwoord(en)"  HorizontalAlignment="Stretch" Margin="0,10,0,10" VerticalAlignment="Stretch" Height="30" Width="auto" VerticalContentAlignment="Center" TextWrapping="Wrap" FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}"/>
+                            <TextBox DockPanel.Dock="Top" Name="SearchString" Text="Trefwoord(en)"  HorizontalAlignment="Stretch" Margin="0,10,0,10" VerticalAlignment="Stretch" Height="30" Width="auto" VerticalContentAlignment="Center" TextWrapping="Wrap"/>
                             <Expander DockPanel.Dock="Top" Header="Opleiding" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" Margin="0,10,0,10" Width="auto">
                                     <StackPanel Name="Opleidingen" Background="#FFE5E5E5" Height="200"/>
                                 </Expander>
