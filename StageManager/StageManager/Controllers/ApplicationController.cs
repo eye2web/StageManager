@@ -61,10 +61,23 @@ namespace StageManager.Controllers
             mainViewModel.Contents = container.GetInstance(typeof(DocentViewModel), null) as DocentViewModel;
         }
 
-        public void ShowZoek()
+        public void ShowZoek(String search = "")
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
-            mainViewModel.Contents = container.GetInstance(typeof(ZoekViewModel), null) as ZoekViewModel;
+            if (mainViewModel.Contents.GetType() != typeof(ZoekViewModel))
+            {
+                var viewModel = container.GetInstance(typeof(ZoekViewModel), null) as ZoekViewModel;
+                mainViewModel.Contents = viewModel;
+                if (search != "" && search != null)
+                {
+                    viewModel.SearchString = search;
+                }
+            }
+            else if (search != "")
+            {
+                ((ZoekViewModel)mainViewModel.Contents).SearchString = search;
+            }
+            
         }
 
         public void SaveAlgemeenSet()

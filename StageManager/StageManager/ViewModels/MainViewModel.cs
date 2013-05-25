@@ -22,6 +22,20 @@ namespace StageManager.ViewModels
             this.app = app;
             this.overzicht = overzicht;
         }
+        private String zoek;
+        public String Zoek
+        {
+            get
+            {
+                return zoek;
+            }
+            set
+            {
+                zoek = value;
+                OnPropertyChanged("Zoek");
+                OpenZoek(zoek);
+            }
+        }
 
         public ProcesOverzichtViewModel Overzicht { get { return overzicht; } }
 
@@ -50,9 +64,9 @@ namespace StageManager.ViewModels
             app.ShowKoppel();
         }
 
-        public void OpenZoek()
+        public void OpenZoek(String search="")
         {
-            app.ShowZoek();
+            app.ShowZoek(search);
         }
 
         public void OpenStudentSelectie()

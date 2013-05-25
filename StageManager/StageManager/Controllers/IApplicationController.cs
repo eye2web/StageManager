@@ -10,7 +10,7 @@ namespace StageManager.Controllers
     {
         void ShowKoppel();
 
-        void ShowZoek();
+        void ShowZoek(String search="");
 
         void ShowStudenten();
 
