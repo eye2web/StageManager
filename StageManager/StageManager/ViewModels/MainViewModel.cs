@@ -1,4 +1,5 @@
 ﻿using StageManager.Controllers;
+using StageManager.Models;
 using StageManager.MVVM;
 using System;
 using System.Collections.Generic;
@@ -84,9 +85,9 @@ namespace StageManager.ViewModels
             app.ShowDocent();
         }
 
-        public void OpenBedrijfsbegeleider()
+        public void OpenBedrijfsbegeleider(WBedrijfsBegeleider begeleier)
         {
-            app.ShowBedrijfsbegeleider();
+            app.ShowBedrijfsbegeleider(begeleier);
         }
     }
 }

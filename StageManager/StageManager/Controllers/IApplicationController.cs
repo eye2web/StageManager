@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StageManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace StageManager.Controllers
 {
-    public interface IApplicationController
+    interface IApplicationController
     {
         void ShowKoppel();
 
-        void ShowZoek(String search="");
+        void ShowZoek(String search);
 
         void ShowStudenten();
 
@@ -22,6 +23,6 @@ namespace StageManager.Controllers
 
         void ShowProcesOverzicht();
 
-        void ShowBedrijfsbegeleider();
+        void ShowBedrijfsbegeleider(WBedrijfsBegeleider begeleider);
     }
 }

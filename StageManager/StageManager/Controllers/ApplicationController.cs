@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using StageManager.Models;
 using StageManager.Services;
 using StageManager.ViewModels;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Controllers
 {
-    public class ApplicationController : IApplicationController
+    class ApplicationController : IApplicationController
     {
         private readonly SimpleContainer container;
         private readonly IService service;
@@ -77,7 +78,7 @@ namespace StageManager.Controllers
             {
                 ((ZoekViewModel)mainViewModel.Contents).SearchString = search;
             }
-            
+
         }
 
         public void SaveAlgemeenSet()
@@ -86,7 +87,7 @@ namespace StageManager.Controllers
         }
 
 
-        public void ShowBedrijfsbegeleider()
+        public void ShowBedrijfsbegeleider(WBedrijfsBegeleider begeleider)
         {
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
             mainViewModel.Contents = container.GetInstance(typeof(BedrijfsbegeleiderViewModel), null) as BedrijfsbegeleiderViewModel;
