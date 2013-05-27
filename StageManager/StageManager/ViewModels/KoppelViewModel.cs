@@ -12,6 +12,8 @@ namespace StageManager.ViewModels
     {
         List<WDocent> DataGrid = WStored.SearchDocentSet();
 
+        public KoppelViewModel()
+        { }
 
     }
 }

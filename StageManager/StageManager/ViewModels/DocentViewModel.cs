@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace StageManager.ViewModels
 {
     class DocentViewModel : PropertyChangedBase
-    {        
+    {
         private static Random random = new Random();
         private WDocent docent = WStored.SearchDocentSet()[random.Next(WStored.SearchDocentSet().Count)];
 
@@ -110,5 +110,8 @@ namespace StageManager.ViewModels
                 OnPropertyChanged("EMail");
             }
         }
+
+        public DocentViewModel()
+        { }
     }
 }

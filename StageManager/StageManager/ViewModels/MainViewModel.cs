@@ -85,9 +85,9 @@ namespace StageManager.ViewModels
             app.ShowDocent();
         }
 
-        public void OpenBedrijfsbegeleider(WBedrijfsBegeleider begeleier)
+        public void OpenBedrijfsbegeleider()
         {
-            app.ShowBedrijfsbegeleider(begeleier);
+            app.ShowBedrijfsbegeleider();
         }
     }
 }

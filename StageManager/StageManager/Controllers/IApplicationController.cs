@@ -23,6 +23,6 @@ namespace StageManager.Controllers
 
         void ShowProcesOverzicht();
 
-        void ShowBedrijfsbegeleider(WBedrijfsBegeleider begeleider);
+        void ShowBedrijfsbegeleider();
     }
 }
