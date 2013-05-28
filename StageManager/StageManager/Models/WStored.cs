@@ -13,23 +13,30 @@ namespace StageManager.Models
 
         public static List<WStudent> SearchStudentSet(String searchString = "")
         {
-            return (from student
-                    in smE.studentsets.ToList()
-                    where student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
-                    student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
-                    student.opleidingsets.Naam.ToLower().Contains(searchString.ToLower()) ||
-                    student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
-                    select new WStudent(student)).ToList();
+            if (searchString == null)
+            {
+                return (from student in smE.studentsets.ToList() select new WStudent(student)).ToList();
+            }
+            else
+            {
+                return (from student
+                        in smE.studentsets.ToList()
+                        where student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
+                        student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
+                        student.opleidingsets.Naam.ToLower().Contains(searchString.ToLower()) ||
+                        student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
+                        select new WStudent(student)).ToList();
+            }
         }
 
         public static List<WDocent> SearchDocentSet()
         {
-            return (from docent in smE.docentsets select new WDocent(docent)).ToList();
+            return (from docent in smE.docentsets.ToList() select new WDocent(docent)).ToList();
         }
 
         public static List<WBedrijfsBegeleider> SearchBedrijfsBegeleiderSet()
         {
-            return (from begeleider in smE.bedrijfsbegeleidersets select new WBedrijfsBegeleider(begeleider)).ToList();
+            return (from begeleider in smE.bedrijfsbegeleidersets.ToList() select new WBedrijfsBegeleider(begeleider)).ToList();
         }
     }
 }
