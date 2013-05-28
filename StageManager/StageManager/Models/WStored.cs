@@ -38,5 +38,10 @@ namespace StageManager.Models
         {
             return (from begeleider in smE.bedrijfsbegeleidersets.ToList() select new WBedrijfsBegeleider(begeleider)).ToList();
         }
+
+        public static List<WOpleiding> SearchOpleidingSet()
+        {
+            return (from opleiding in smE.opleidingsets.ToList().OrderBy(o => o.Naam) select new WOpleiding(opleiding)).ToList();
+        }
     }
 }

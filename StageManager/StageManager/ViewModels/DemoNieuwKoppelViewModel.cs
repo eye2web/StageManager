@@ -51,18 +51,29 @@ namespace StageManager.ViewModels
         public String SearchString
         {
             get { return searchString; }
-            set {
+            set
+            {
                 searchString = value;
                 StudentGridContents = (from student in WStored.SearchStudentSet(SearchString)
-                                      select (Object)new
-                                      {
-                                         StudentNummer= student.Studentnummer,
-                                         Voornaam = student.Voornaam,
-                                         Achternaam = student.Achternaam,
-                                         Opleiding = student.Opleidingset.Naam,
-                                         EC_Norm_Behaald = student.EC_norm_behaald
+                                       select (Object)new
+                                       {
+                                           StudentNummer = student.Studentnummer,
+                                           Voornaam = student.Voornaam,
+                                           Achternaam = student.Achternaam,
+                                           Opleiding = student.Opleidingset.Naam,
+                                           EC_Norm_Behaald = student.EC_norm_behaald
 
-                                      }).ToList();
+                                       }).ToList();
+            }
+        }
+
+        private List<String> opleidingStack;
+
+        public List<String> OpleidingStack
+        {
+            get { return opleidingStack; }
+            set { opleidingStack = value;
+            OnPropertyChanged("OpleidingStack");
             }
         }
 
@@ -70,6 +81,7 @@ namespace StageManager.ViewModels
         {
             SearchString = "";
             FillView(SearchString);
+            OpleidingStack = (from opleiding in WStored.SearchOpleidingSet() select opleiding.Naam).ToList();
         }
 
         //Vul grid
