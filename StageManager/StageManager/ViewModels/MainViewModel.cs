@@ -89,5 +89,10 @@ namespace StageManager.ViewModels
         {
             app.ShowBedrijfsbegeleider();
         }
+
+        public void OpenBedrijf()
+        {
+            app.ShowBedrijf();
+        }
     }
 }

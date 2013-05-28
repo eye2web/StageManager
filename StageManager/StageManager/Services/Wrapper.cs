@@ -33,14 +33,12 @@ namespace StageManager.Services
 
         void timer_Tick(object sender, EventArgs e)
         {
-            se.SaveChanges();
+            int i = se.SaveChanges();
             timer.Stop();
-            se = new stagemanagerEntities();
         }
 
         public void save(Object o)
         {
-            se.Set(o.GetType()).Add(o);
             if (timer.IsEnabled)
             {
                 timer.Stop();
@@ -51,6 +49,7 @@ namespace StageManager.Services
             {
                 timer.Start();
             }
+            se.Set(o.GetType()).Add(o);
         }
     }
 }

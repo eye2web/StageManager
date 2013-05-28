@@ -142,10 +142,11 @@
                                         Style="{StaticResource MenuButton}" />
                                 <Button Content="Stageopdracht (ontbreekt)"
                                         Style="{StaticResource MenuButton}" />
-                                <Button Content="Bedrijf (ontbreekt)"
+                                <Button x:Name="OpenBedrijf"
+                                        Content="Bedrijf"
                                         Style="{StaticResource MenuButton}" />
                                 <Button x:Name="OpenBedrijfsbegeleider"
-                                    Content="Bedrijfsbegeleider (ontbreekt)"
+                                    Content="Bedrijfsbegeleider"
                                         Style="{StaticResource MenuButton}" />
                             </StackPanel>
                         </Expander>                                

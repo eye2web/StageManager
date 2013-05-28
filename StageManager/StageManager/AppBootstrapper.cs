@@ -43,6 +43,8 @@
             container.PerRequest<DocentViewModel>();
             container.PerRequest<DemoNieuwKoppelViewModel>(); // voor jad-sessie demonstratie doeleinden
             container.PerRequest<AlgemeenViewModel>();
+            container.PerRequest<BedrijfsbegeleiderViewModel>();
+            container.PerRequest<BedrijfViewModel>();
 
             container.Singleton<MainViewModel>();
         }

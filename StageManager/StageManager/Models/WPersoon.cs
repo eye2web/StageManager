@@ -58,6 +58,7 @@ namespace StageManager.Models
             set
             {
                 getSet().Voornaam = value;
+                save(getSet());
             }
         }
 
@@ -69,7 +70,8 @@ namespace StageManager.Models
             }
             set
             {
-                getSet().Achternaam = value;
+                getSet().Achternaam = value; 
+                save(getSet());
             }
         }
 

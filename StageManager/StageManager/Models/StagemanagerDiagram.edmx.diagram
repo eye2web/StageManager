@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c50a2f5cb03f47dc8d2d7d974d80d8d1" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="stagemanagerModel.academiesets" Width="1.5" PointX="6.465847193480398" PointY="26.909858000888423" />
-        <EntityTypeShape EntityType="stagemanagerModel.adressets" Width="1.5" PointX="7.708136735348095" PointY="14.609536133059084" />
-        <EntityTypeShape EntityType="stagemanagerModel.algemeensets" Width="1.5" PointX="5.8530100369141485" PointY="22.769079606406894" />
-        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleidersets" Width="1.5" PointX="4.1586166248464105" PointY="9.171853904226726" />
-        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsets" Width="1.5" PointX="1.0559589010923909" PointY="18.040988274869036" />
-        <EntityTypeShape EntityType="stagemanagerModel.coordinator" Width="1.5" PointX="11.019867712175412" PointY="6.3557314157279823" />
-        <EntityTypeShape EntityType="stagemanagerModel.docentsets" Width="1.5" PointX="7.2983358610879332" PointY="28.336612267576442" />
-        <EntityTypeShape EntityType="stagemanagerModel.eindstagesets" Width="1.5" PointX="1.368231693919856" PointY="18.326263749192591" />
-        <EntityTypeShape EntityType="stagemanagerModel.kennisgebiedset" Width="1.5" PointX="1.0362580758688311" PointY="11.055228715322553" />
-        <EntityTypeShape EntityType="stagemanagerModel.opleidingsets" Width="1.5" PointX="1.1964435433952341" PointY="7.9826087839820463" />
-        <EntityTypeShape EntityType="stagemanagerModel.persoonsets" Width="1.5" PointX="5.1861236529360166" PointY="22.218203912590724" />
-        <EntityTypeShape EntityType="stagemanagerModel.stagesets" Width="1.5" PointX="5.1433788468797594" PointY="21.401724199485837" />
-        <EntityTypeShape EntityType="stagemanagerModel.studentsets" Width="1.5" PointX="2.0379733732147018" PointY="15.436773307359207" />
-        <EntityTypeShape EntityType="stagemanagerModel.tempemailsets" Width="1.5" PointX="8.7324377245886424" PointY="5.6386929925711327" />
-        <EntityTypeShape EntityType="stagemanagerModel.webkeysets" Width="1.5" PointX="8.5032469315935142" PointY="28.6408504679058" />
+      <Diagram DiagramId="c50a2f5cb03f47dc8d2d7d974d80d8d1" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="stagemanagerModel.academiesets" Width="1.5" PointX="14.5" PointY="10.25" />
+        <EntityTypeShape EntityType="stagemanagerModel.adressets" Width="1.5" PointX="5" PointY="8.75" />
+        <EntityTypeShape EntityType="stagemanagerModel.algemeensets" Width="1.5" PointX="9.5" PointY="7" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsbegeleidersets" Width="1.5" PointX="7.75" PointY="0.875" />
+        <EntityTypeShape EntityType="stagemanagerModel.bedrijfsets" Width="1.5" PointX="5" PointY="3.375" />
+        <EntityTypeShape EntityType="stagemanagerModel.coordinator" Width="1.5" PointX="11.375" PointY="9.875" />
+        <EntityTypeShape EntityType="stagemanagerModel.docentsets" Width="1.5" PointX="11.375" PointY="5.125" />
+        <EntityTypeShape EntityType="stagemanagerModel.eindstagesets" Width="1.5" PointX="13.625" PointY="3.5" />
+        <EntityTypeShape EntityType="stagemanagerModel.kennisgebiedset" Width="1.5" PointX="9.375" PointY="4.5" />
+        <EntityTypeShape EntityType="stagemanagerModel.opleidingsets" Width="1.5" PointX="14.75" PointY="7.75" />
+        <EntityTypeShape EntityType="stagemanagerModel.persoonsets" Width="1.5" PointX="2.625" PointY="10.875" />
+        <EntityTypeShape EntityType="stagemanagerModel.stagesets" Width="1.5" PointX="11.125" PointY="0.5" />
+        <EntityTypeShape EntityType="stagemanagerModel.studentsets" Width="1.5" PointX="15.25" PointY="0.5" />
+        <EntityTypeShape EntityType="stagemanagerModel.tempemailsets" Width="1.5" PointX="20.625" PointY="5.75" />
+        <EntityTypeShape EntityType="stagemanagerModel.webkeysets" Width="1.5" PointX="18.25" PointY="5.625" />
         <AssociationConnector Association="stagemanagerModel.FK_acedemieOpleiding" />
         <AssociationConnector Association="stagemanagerModel.FK_coordinator_academiesets" />
         <AssociationConnector Association="stagemanagerModel.FK_adressetbedrijfset" />
@@ -32,7 +32,17 @@
         <AssociationConnector Association="stagemanagerModel.FK__docentsets" />
         <AssociationConnector Association="stagemanagerModel.FK_docentset_inherits_persoon" />
         <AssociationConnector Association="stagemanagerModel.FK_stagesets_docentsets" />
-        <AssociationConnector Association="stagemanagerModel.FK_webkeysetsdocentsets" />
+        <AssociationConnector Association="stagemanagerModel.FK_webkeysetsdocentsets" ManuallyRouted="true" >
+          <ConnectorPoint PointX="18.734066507690258" PointY="5.6249999999999964" />
+          <ConnectorPoint PointX="18.734066507690258" PointY="5.375" />
+          <ConnectorPoint PointX="18" PointY="5.375" />
+          <ConnectorPoint PointX="18" PointY="7.1188740065104108" />
+          <ConnectorPoint PointX="16.614583333333332" PointY="7.11887400651041" />
+          <ConnectorPoint PointX="16.447916666666668" PointY="7.1188740065104108" />
+          <ConnectorPoint PointX="15.770833833333333" PointY="7.11887400651041" />
+          <ConnectorPoint PointX="15.604167166666665" PointY="7.1188740065104108" />
+          <ConnectorPoint PointX="12.875" PointY="7.1188740065104108" />
+        </AssociationConnector>
         <AssociationConnector Association="stagemanagerModel.FK_eindstagesets_inherits_stagesets" />
         <AssociationConnector Association="stagemanagerModel.FK_Opleidingstudentset" />
         <AssociationConnector Association="stagemanagerModel.FK_studentset_inherits_persoon" />

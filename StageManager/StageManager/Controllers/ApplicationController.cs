@@ -92,5 +92,12 @@ namespace StageManager.Controllers
             var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
             mainViewModel.Contents = container.GetInstance(typeof(BedrijfsbegeleiderViewModel), null) as BedrijfsbegeleiderViewModel;
         }
+
+
+        public void ShowBedrijf()
+        {
+            var mainViewModel = container.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mainViewModel.Contents = container.GetInstance(typeof(BedrijfViewModel), null) as BedrijfViewModel;
+        }
     }
 }

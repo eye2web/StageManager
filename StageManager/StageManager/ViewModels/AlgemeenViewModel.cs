@@ -133,7 +133,7 @@ namespace StageManager.ViewModels
                 aS.Werk_Uren = (String)Werkuren;
                 aS.Blokken = (String)AantBlokken;
 
-                smE.SaveChanges();
+                int i = smE.SaveChanges();
 
                 FillView();
         }
