@@ -35,7 +35,6 @@ namespace StageManager.ViewModels
         }
 
         private List<WDocent> lezerGridContents;
-
         public List<WDocent> LezerGridContents
         {
             get { return lezerGridContents; }
@@ -54,28 +53,31 @@ namespace StageManager.ViewModels
             set
             {
                 searchString = value;
-                StudentGridContents = (from student in WStored.SearchStudentSet(SearchString)
-                                       select (Object)new
-                                       {
-                                           StudentNummer = student.Studentnummer,
-                                           Voornaam = student.Voornaam,
-                                           Achternaam = student.Achternaam,
-                                           Opleiding = student.Opleidingset.Naam,
-                                           EC_Norm_Behaald = student.EC_norm_behaald
+                searchStudent();                
+                OnPropertyChanged("SearchString");
+            }
+        }
 
-                                       }).ToList();
+        private String searchOpleiding;
+        public String SearchOpleiding
+        {
+            get { return searchOpleiding; }
+            set
+            {
+                searchOpleiding = value;
+                searchStudent();
+                OnPropertyChanged("SearchOpleiding");
             }
         }
 
         private List<String> opleidingStack;
-
         public List<String> OpleidingStack
         {
             get { return opleidingStack; }
             set { opleidingStack = value;
             OnPropertyChanged("OpleidingStack");
             }
-        }
+        }             
 
         public DemoNieuwKoppelViewModel()
         {
@@ -90,6 +92,20 @@ namespace StageManager.ViewModels
             searchString = "";
             DocentGridContents = WStored.SearchDocentSet();
             LezerGridContents = WStored.SearchDocentSet();
+        }
+
+        public void searchStudent()
+        {
+            StudentGridContents = (from student in WStored.SearchStudentSet(searchString, searchOpleiding)
+                                   select (Object)new
+                                   {
+                                       StudentNummer = student.Studentnummer,
+                                       Voornaam = student.Voornaam,
+                                       Achternaam = student.Achternaam,
+                                       Opleiding = student.Opleidingset.Naam,
+                                       EC_Norm_Behaald = student.EC_norm_behaald
+
+                                   }).ToList();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace StageManager.ViewModels
     public class StudentViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WStudent student = WStored.SearchStudentSet()[random.Next(WStored.SearchStudentSet().Count)];
+        private WStudent student = WStored.SearchStudentSet("", "")[random.Next(WStored.SearchStudentSet("", "").Count)];
 
         public string Voornaam
         {

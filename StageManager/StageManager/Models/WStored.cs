@@ -11,20 +11,34 @@ namespace StageManager.Models
         public static stagemanagerEntities smE = new stagemanagerEntities();
 
 
-        public static List<WStudent> SearchStudentSet(String searchString = "")
+        public static List<WStudent> SearchStudentSet(String searchString, String searchOpleiding)
         {
+            System.Diagnostics.Debug.WriteLine(searchString + " : " + searchOpleiding);
+
             if (searchString == null)
             {
-                return (from student in smE.studentsets.ToList() select new WStudent(student)).ToList();
+                return (from student
+                        in smE.studentsets.ToList()
+                        where student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())
+                        select new WStudent(student)).ToList();
             }
-            else
+            else if(searchOpleiding == null)
             {
                 return (from student
                         in smE.studentsets.ToList()
                         where student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
                         student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
-                        student.opleidingsets.Naam.ToLower().Contains(searchString.ToLower()) ||
                         student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
+                        select new WStudent(student)).ToList();
+            }
+            else
+            {
+                return (from student
+                        in smE.studentsets.ToList()
+                        where (student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
+                        student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
+                        student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())) &&
+                        (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower()))
                         select new WStudent(student)).ToList();
             }
         }

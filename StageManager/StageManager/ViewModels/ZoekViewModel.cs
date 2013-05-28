@@ -19,7 +19,7 @@ namespace StageManager.ViewModels
             {
                 searchString = value;
                 OnPropertyChanged("SearchString");
-                GridContents = (from student in WStored.SearchStudentSet(SearchString)
+                GridContents = (from student in WStored.SearchStudentSet(SearchString, "")
                                        select (Object)new
                                        {
                                            StudentNummer = student.Studentnummer,
