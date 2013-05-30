@@ -13,7 +13,6 @@ namespace StageManager.Models
 
         public static List<WStudent> SearchStudentSet(String searchString, String searchOpleiding)
         {
-            System.Diagnostics.Debug.WriteLine(searchString + " : " + searchOpleiding);
 
             if (searchString == null)
             {
@@ -43,9 +42,20 @@ namespace StageManager.Models
             }
         }
 
-        public static List<WDocent> SearchDocentSet()
+        public static List<WDocent> SearchDocentSet(String searchString)
         {
-            return (from docent in smE.docentsets.ToList() select new WDocent(docent)).ToList();
+            if (searchString == null)
+            {
+                return (from docent in smE.docentsets.ToList() select new WDocent(docent)).ToList();
+            }
+            else
+            {
+                return (from docent 
+                            in smE.docentsets.ToList()
+                            where (docent.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
+                            docent.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()))
+                        select new WDocent(docent)).ToList();
+            }
         }
 
         public static List<WBedrijfsBegeleider> SearchBedrijfsBegeleiderSet()

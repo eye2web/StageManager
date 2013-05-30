@@ -11,7 +11,7 @@ namespace StageManager.ViewModels
     class DocentViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WDocent docent = WStored.SearchDocentSet()[random.Next(WStored.SearchDocentSet().Count)];
+        private WDocent docent = WStored.SearchDocentSet(null)[random.Next(WStored.SearchDocentSet(null).Count)];
 
         public String Voornaam
         {

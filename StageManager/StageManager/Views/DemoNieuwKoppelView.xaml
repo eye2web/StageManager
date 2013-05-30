@@ -59,7 +59,8 @@
                                           CanUserResizeColumns="False"
                                           CanUserAddRows="False"
                                           CanUserDeleteRows="False"
-                                          CanUserResizeRows="False"/>
+                                          CanUserResizeRows="False"
+                                          SelectedItem="{Binding Path=SelectedStudent}" />
                         </ScrollViewer>
                     </DockPanel>
                 </DockPanel>
@@ -89,11 +90,11 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Border BorderBrush="#FFA0A0A0" Grid.Column="0" BorderThickness="1">
-                            <TextBlock Style="{StaticResource SelectionBoxStyle}">&lt;geselecteerde student&gt;</TextBlock>
+                            <TextBlock Style="{StaticResource SelectionBoxStyle}" Name="KoppelStudentNaam"> &lt;geselecteerde student&gt;</TextBlock>
                         </Border>
                         <TextBlock Grid.Column="1" Style="{StaticResource TextBoxStyle}">aan</TextBlock>
                         <Border BorderBrush="#FFA0A0A0" Grid.Column="2" BorderThickness="1">
-                            <TextBlock Style="{StaticResource SelectionBoxStyle}">&lt;geselecteerde docent&gt;</TextBlock>
+                            <TextBlock Style="{StaticResource SelectionBoxStyle}" Name="KoppelDocentNaam" >&lt;geselecteerde docent&gt;</TextBlock>
                         </Border>
                         <Button Grid.Column="3" Margin="5,0,0,0" Style="{StaticResource ButtonStyle}">Koppelen</Button>
                     </Grid>
@@ -108,7 +109,8 @@
                                           CanUserResizeColumns="False"
                                           CanUserAddRows="False"
                                           CanUserDeleteRows="False"
-                                          CanUserResizeRows="False">
+                                          CanUserResizeRows="False"
+                                          SelectedItem="{Binding Path=SelectedDocent}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Voornaam}" Header="Voornaam" Width="auto" IsReadOnly="True"/>
                                 <DataGridTextColumn Binding="{Binding Achternaam}" Header="Achternaam" Width="auto" IsReadOnly="True"/>
