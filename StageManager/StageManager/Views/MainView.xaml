@@ -140,7 +140,8 @@
                                 <Button Content="Docent"
                                         x:Name="OpenDocent"
                                         Style="{StaticResource MenuButton}" />
-                                <Button Content="Stageopdracht (ontbreekt)"
+                                <Button Content="Stageopdracht"
+                                        x:Name="OpenStageopdracht"
                                         Style="{StaticResource MenuButton}" />
                                 <Button x:Name="OpenBedrijf"
                                         Content="Bedrijf"

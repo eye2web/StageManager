@@ -72,5 +72,10 @@ namespace StageManager.Models
         {
             return (from bedrijf in smE.bedrijfsets.ToList() select new WBedrijf(bedrijf)).ToList();
         }
+
+        public static List<WStage> SearchStageSet()
+        {
+            return (from stage in smE.stagesets.ToList() select new WStage(stage)).ToList();
+        }
     }
 }

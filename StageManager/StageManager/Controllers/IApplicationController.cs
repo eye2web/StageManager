@@ -19,6 +19,8 @@ namespace StageManager.Controllers
 
         void ShowDocent();
 
+        void ShowStageopdracht();
+
         void ShowGegevensOverzicht();
 
         void ShowProcesOverzicht();

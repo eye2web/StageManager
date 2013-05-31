@@ -41,6 +41,7 @@
             container.PerRequest<KoppelViewModel>();
             container.PerRequest<StudentViewModel>();
             container.PerRequest<DocentViewModel>();
+            container.PerRequest<StageopdrachtViewModel>();
             container.PerRequest<DemoNieuwKoppelViewModel>(); // voor jad-sessie demonstratie doeleinden
             container.PerRequest<AlgemeenViewModel>();
             container.PerRequest<BedrijfsbegeleiderViewModel>();
