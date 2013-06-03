@@ -19,7 +19,7 @@ namespace StageManager.ViewModels
             set
             {
                 stage.Start_datum = value;
-                //OnPropertyChanged(StartDatum);
+                OnPropertyChanged("StartDatum");
             }
         }
 
@@ -29,7 +29,7 @@ namespace StageManager.ViewModels
             set
             {
                 stage.Eind_datum = value;
-                //OnPropertyChanged(StartDatum);
+                OnPropertyChanged("EindDatum");
             }
         }
 
@@ -39,8 +39,72 @@ namespace StageManager.ViewModels
             set
             {
                 stage.Stageopdracht_omschijving = value;
-                OnPropertyChanged(Omschrijving);
+                OnPropertyChanged("Omschrijving");
             }
+        }
+
+        public string EersteStudent
+        {
+            get 
+            {
+                try
+                {
+                    return stage.studentset2.Voornaam + " " + stage.studentset2.Achternaam;
+                }
+                catch (NullReferenceException)
+                {
+                    return "";
+                }
+            }
+            set { }
+        }
+
+        public string TweedeStudent
+        {
+            get 
+            {
+                try
+                {
+                    return stage.studentset.Voornaam + " " + stage.studentset.Achternaam;;
+                }
+                catch (NullReferenceException)
+                {
+                    return "";
+                }
+            }
+            set { }
+        }
+
+        public string Bedrijfsbegeleider
+        {
+            get
+            {
+                try
+                {
+                    return stage.bedrijfsbegeleiderset.Voornaam + " " + stage.bedrijfsbegeleiderset.Achternaam;
+                }
+                catch (NullReferenceException)
+                {
+                    return "";
+                }
+            }
+            set { }
+        }
+
+        public string Docent
+        {
+            get
+            {
+                try
+                {
+                    return stage.docentsets.Voornaam + " " + stage.docentsets.Achternaam;
+                }
+                catch (NullReferenceException)
+                {
+                    return "";
+                }
+            }
+            set { }
         }
     }
 }
