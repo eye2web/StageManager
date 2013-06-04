@@ -46,7 +46,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public int Id
+        public new int Id
         {
             get
             {
@@ -95,11 +95,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public bedrijfsbegeleidersets getSet()
+        public new bedrijfsbegeleidersets getSet()
         {
             return set;
         }
 
-        public bedrijfsbegeleidersets set { get; set; }
+        public new bedrijfsbegeleidersets set { get; set; }
     }
 }

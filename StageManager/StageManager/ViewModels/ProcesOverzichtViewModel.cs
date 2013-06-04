@@ -31,7 +31,7 @@ namespace StageManager.ViewModels
 
         public ProcesOverzichtViewModel()
         {
-            GridContents = (from student in WStored.SearchStudentSet("", "")
+            GridContents = (from student in new WStored().SearchStudentSet("", "")
                             select (Object)new
                             {
                                 Email = student.Email,

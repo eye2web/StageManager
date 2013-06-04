@@ -10,7 +10,7 @@ namespace StageManager.ViewModels
 {
     public class KoppelViewModel : PropertyChangedBase
     {
-        List<WDocent> DataGrid = WStored.SearchDocentSet(null);
+        List<WDocent> DataGrid = new WStored().SearchDocentSet(null);
 
         public KoppelViewModel()
         { }

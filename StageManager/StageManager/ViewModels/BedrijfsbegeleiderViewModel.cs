@@ -11,7 +11,7 @@ namespace StageManager.ViewModels
     class BedrijfsbegeleiderViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WBedrijfsBegeleider begeleider = WStored.SearchBedrijfsBegeleiderSet()[random.Next(WStored.SearchBedrijfsBegeleiderSet().Count)];//temp
+        private WBedrijfsBegeleider begeleider = new WStored().SearchBedrijfsBegeleiderSet()[random.Next(new WStored().SearchBedrijfsBegeleiderSet().Count)];//temp
 
         public String Voornaam
         {

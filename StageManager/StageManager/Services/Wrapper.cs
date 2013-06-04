@@ -12,9 +12,14 @@ namespace StageManager.Services
     class Wrapper : IWrapper
     {
         static private DispatcherTimer timer;
-        static private stagemanagerEntities se;
+        static private stagemanagerEntities stageManagerEntities;
         static private TimeSpan time;
 
+        public static stagemanagerEntities StageManagerEntities
+        {
+            get { return Wrapper.stageManagerEntities; }
+            set { Wrapper.stageManagerEntities = value; }
+        }
 
         public Wrapper()
         {
@@ -25,15 +30,15 @@ namespace StageManager.Services
                 timer.Interval = time;
                 timer.Tick += timer_Tick;
             }
-            if (se == null)
+            if (stageManagerEntities == null)
             {
-                se = new stagemanagerEntities();
+                stageManagerEntities = new stagemanagerEntities();
             }
         }
 
         void timer_Tick(object sender, EventArgs e)
         {
-            int i = se.SaveChanges();
+            int i = stageManagerEntities.SaveChanges();
             timer.Stop();
         }
 
@@ -49,7 +54,24 @@ namespace StageManager.Services
             {
                 timer.Start();
             }
-            se.Set(o.GetType()).Add(o);
+        }
+
+
+        public void add(object o)
+        {
+            if (stageManagerEntities.Set(o.GetType()).Find(o) == null)
+            {
+                stageManagerEntities.Set(o.GetType()).Add(o);
+                save(o);
+            }
+        }
+        public void delete(object o)
+        {
+            if (stageManagerEntities.Set(o.GetType()).Find(o) != null)
+            {
+                stageManagerEntities.Set(o.GetType()).Remove(o);
+                save(o);
+            }
         }
     }
 }

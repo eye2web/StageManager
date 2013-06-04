@@ -11,7 +11,7 @@ namespace StageManager.ViewModels
     class StageopdrachtViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WStage stage = WStored.SearchStageSet()[random.Next(WStored.SearchStageSet().Count)];
+        private WStage stage = new WStored().SearchStageSet()[random.Next(new WStored().SearchStageSet().Count)];
 
         public DateTime? StartDatum
         {

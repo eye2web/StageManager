@@ -10,5 +10,7 @@ namespace StageManager.Services
     interface IWrapper
     {
         void save(Object o);
+        void add(Object o);
+        void delete(Object o);
     }
 }

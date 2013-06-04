@@ -64,14 +64,14 @@ namespace StageManager.ViewModels
         {
             SearchString = "";
             searchString = "Trefwoord(en)";
-            OpleidingStack = (from opleiding in WStored.SearchOpleidingSet() select opleiding.Naam).ToList();
+            OpleidingStack = (from opleiding in new WStored().SearchOpleidingSet() select opleiding.Naam).ToList();
 
         }
 
         public void searchStudent()
         {
             List<Object> list = new List<object>();
-            list = (from student in WStored.SearchStudentSet(searchString, searchOpleiding)
+            list = (from student in new WStored().SearchStudentSet(searchString, searchOpleiding)
                     select (Object)new
                     {
                         StudentNummer = student.Studentnummer,

@@ -62,7 +62,7 @@ namespace StageManager.Models
             }
         }
 
-        public int Id
+        public new int Id
         {
             get
             {
@@ -147,11 +147,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public studentsets getSet()
+        public new studentsets getSet()
         {
             return set;
         }
 
-        public studentsets set { get; set; }
+        public new studentsets set { get; set; }
     }
 }

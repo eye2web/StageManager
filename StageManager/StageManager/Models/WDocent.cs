@@ -95,7 +95,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public int Id
+        public new int Id
         {
             get
             {
@@ -213,11 +213,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public docentsets getSet()
+        public new docentsets getSet()
         {
             return set;
         }
 
-        public docentsets set { get; set; }
+        public new docentsets set { get; set; }
     }
 }
