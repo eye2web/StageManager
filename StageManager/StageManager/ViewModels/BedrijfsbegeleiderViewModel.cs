@@ -1,10 +1,10 @@
-﻿using StageManager.MVVM;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StageManager.Models;
+using Caliburn.Micro;
 
 namespace StageManager.ViewModels
 {
@@ -22,7 +22,7 @@ namespace StageManager.ViewModels
             set
             {
                 begeleider.Voornaam = value;
-                OnPropertyChanged("Voornaam");
+                NotifyOfPropertyChange(() => Voornaam);
             }
         }
 
@@ -35,7 +35,7 @@ namespace StageManager.ViewModels
             set
             {
                 begeleider.Achternaam = value;
-                OnPropertyChanged("Achternaam");
+                NotifyOfPropertyChange(() => Achternaam);
             }
         }
 
@@ -56,7 +56,7 @@ namespace StageManager.ViewModels
             set
             {
                 begeleider.Email = value;
-                OnPropertyChanged("EMail");
+                NotifyOfPropertyChange(() => EMail);
             }
         }
 
@@ -69,7 +69,7 @@ namespace StageManager.ViewModels
             set
             {
                 begeleider.Opleidingsniveau = value;
-                OnPropertyChanged("Opleiding");
+                NotifyOfPropertyChange(() => Opleiding);
             }
         }
 
@@ -82,7 +82,7 @@ namespace StageManager.ViewModels
             set
             {
                 begeleider.Minimale_begeleidingstijd_gegarandeerd = value;
-                OnPropertyChanged("BegeleidingUren");
+                NotifyOfPropertyChange(() => BegeleidingUren);
             }
         }
 

@@ -1,5 +1,5 @@
-﻿using StageManager.Models;
-using StageManager.MVVM;
+﻿using Caliburn.Micro;
+using StageManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace StageManager.ViewModels
             set
             {
                 stage.Start_datum = value;
-                OnPropertyChanged("StartDatum");
+                NotifyOfPropertyChange(() => StartDatum);
             }
         }
 
@@ -29,7 +29,7 @@ namespace StageManager.ViewModels
             set
             {
                 stage.Eind_datum = value;
-                OnPropertyChanged("EindDatum");
+                NotifyOfPropertyChange(() => EindDatum);
             }
         }
 
@@ -39,7 +39,7 @@ namespace StageManager.ViewModels
             set
             {
                 stage.Stageopdracht_omschijving = value;
-                OnPropertyChanged("Omschrijving");
+                NotifyOfPropertyChange(() => Omschrijving);
             }
         }
 

@@ -1,5 +1,5 @@
-﻿using StageManager.Models;
-using StageManager.MVVM;
+﻿using Caliburn.Micro;
+using StageManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace StageManager.ViewModels
             set
             {
                 student.Voornaam = value;
-                OnPropertyChanged("Voornaam");
+                NotifyOfPropertyChange(() => Voornaam);
             }
         }
 
@@ -32,7 +32,7 @@ namespace StageManager.ViewModels
             set
             {
                 student.Achternaam = value;
-                OnPropertyChanged("Achternaam");
+                NotifyOfPropertyChange(() => Achternaam);
             }
         }
 
@@ -42,7 +42,7 @@ namespace StageManager.ViewModels
             set
             {
                 student.Studentnummer = value;
-                OnPropertyChanged("Studentnummer");
+                NotifyOfPropertyChange(() => Studentnummer);
             }
         }
         public string Opleiding
@@ -51,7 +51,7 @@ namespace StageManager.ViewModels
             set
             {
                 student.Opleidingset.Naam = value;
-                OnPropertyChanged("Opleiding");
+                NotifyOfPropertyChange(() => Opleiding);
             }
         }
 
@@ -62,7 +62,7 @@ namespace StageManager.ViewModels
             set
             {
                 student.Email = value;
-                OnPropertyChanged("Emailadres");
+                NotifyOfPropertyChange(() => Emailadres);
             }
         }
         public string Telefoonnummer
@@ -71,7 +71,7 @@ namespace StageManager.ViewModels
             set
             {
                 student.Telefoonnummer = value;
-                OnPropertyChanged("Telefoonnummer");
+                NotifyOfPropertyChange(() => Telefoonnummer);
             }
         }
     }

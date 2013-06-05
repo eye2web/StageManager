@@ -15,60 +15,29 @@
     using StageManager.Services;
     using StageManager.Models;
 
-    public class AppBootstrapper : Bootstrapper<IShell>
+    public class AppBootstrapper : Bootstrapper
     {
-        private SimpleContainer container;
         private WindowManager windowManager;
+        private ViewController viewController;
+        private DefaultFactory defaultFactory;
+        private EntityService entityService;
+        private stagemanagerEntities smEntities;
 
-        protected override void Configure()
+        public AppBootstrapper()
         {
-            container = new SimpleContainer();
-            container.Instance<SimpleContainer>(container);
-
             windowManager = new WindowManager();
-            container.Instance<WindowManager>(windowManager);
+            defaultFactory = new DefaultFactory();
+            smEntities = new stagemanagerEntities();
 
-            container.Singleton<IApplicationController, ApplicationController>();
+            entityService = new EntityService(defaultFactory, smEntities);
+            viewController = new ViewController();
 
-            // services
-            container.Singleton<IFactory, DefaultFactory>();
-            container.Singleton<IService, EntityService>();
-            container.Singleton<stagemanagerEntities>();
+            // Observer observable
+            MainViewModel mainViewModel = new MainViewModel();
+            mainViewModel.SomethingHappened += viewController.HandleEvent;
 
-            container.PerRequest<ZoekViewModel>();
-            container.PerRequest<ProcesOverzichtViewModel>();
-            container.PerRequest<GegevensOverzichtViewModel>();
-            container.PerRequest<KoppelViewModel>();
-            container.PerRequest<StudentViewModel>();
-            container.PerRequest<DocentViewModel>();
-            container.PerRequest<StageopdrachtViewModel>();
-            container.PerRequest<DemoNieuwKoppelViewModel>(); // voor jad-sessie demonstratie doeleinden
-            container.PerRequest<AlgemeenViewModel>();
-            container.PerRequest<BedrijfsbegeleiderViewModel>();
-            container.PerRequest<BedrijfViewModel>();
-
-            container.Singleton<MainViewModel>();
-        }
-
-        protected override object GetInstance(Type serviceType, string key)
-        {
-            return container.GetInstance(serviceType, key);
-        }
-
-        protected override IEnumerable<object> GetAllInstances(Type serviceType)
-        {
-            return container.GetAllInstances(serviceType);
-        }
-
-        protected override void BuildUp(object instance)
-        {
-            container.BuildUp(instance);
-        }
-
-        protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
-        {
-            windowManager.ShowWindow(container.GetInstance(typeof(MainViewModel), null));
-            //windowManager.ShowWindow(container.GetInstance(typeof(AlgemeenViewModel), null));
+            // Show Window
+            windowManager.ShowWindow(mainViewModel);
         }
     }
 }

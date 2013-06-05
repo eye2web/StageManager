@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:my="clr-namespace:StageManager.Views"
         xmlns:vm="clr-namespace:StageManager.ViewModels"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cal="http://www.caliburnproject.org"
         Title="Stage Manager" WindowState="Maximized">
     <Window.Resources>
         <!-- Zoekvakstijl -->
@@ -100,18 +102,30 @@
                 <!-- MenuContent -->
                 <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" Width="auto" Margin="0" VerticalScrollBarVisibility="Auto">
                     <StackPanel>
-                        <TextBox Name="Zoek" Text="Zoek" Style="{StaticResource SearchStyle}" />
+                        <TextBox Name="Search" Text="Zoek" Style="{StaticResource SearchStyle}" />
                         <Expander IsExpanded="true">
                             <Expander.Header>
                                 <TextBlock Text="Overzichten" FontSize="20" Foreground="Black" FontWeight="Light"/>
                             </Expander.Header>
                             <StackPanel>
-                                <Button Content="Proces"
-                                        x:Name="OpenProcesOverzicht"
-                                        Style="{StaticResource MenuButton}" />
-                                <Button Content="Gegevens"
-                                        x:Name="OpenGegevensOverzicht"
-                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Proces" Style="{StaticResource MenuButton}">
+                                 <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="ProcesOverzicht" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="Gegevens" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="GegevensOverzicht" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                             </StackPanel>
                         </Expander>
                         <Expander IsExpanded="true">
@@ -119,8 +133,15 @@
                                 <TextBlock FontSize="20" Foreground="Black" FontWeight="Light">Documenten</TextBlock>
                             </Expander.Header>
                             <StackPanel>
-                                <Button Content="Stagecontract"
-                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Stagecontract" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="StageContract" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                             </StackPanel>
                         </Expander>
                         <Expander IsExpanded="true">
@@ -128,27 +149,69 @@
                                 <TextBlock Text="Views (tijdelijk)" FontSize="20" Foreground="Black" FontWeight="Light"/>
                             </Expander.Header>
                             <StackPanel>
-                                <Button Content="Zoek"
-                                        x:Name="OpenZoek"
-                                        Style="{StaticResource MenuButton}" />
-                                <Button Content="Koppel"
-                                        x:Name="OpenKoppel"
-                                        Style="{StaticResource MenuButton}" />
-                                <Button Content="Student"
-                                        x:Name="OpenStudent"
-                                        Style="{StaticResource MenuButton}" />
-                                <Button Content="Docent"
-                                        x:Name="OpenDocent"
-                                        Style="{StaticResource MenuButton}" />
-                                <Button Content="Stageopdracht"
-                                        x:Name="OpenStageopdracht"
-                                        Style="{StaticResource MenuButton}" />
-                                <Button x:Name="OpenBedrijf"
-                                        Content="Bedrijf"
-                                        Style="{StaticResource MenuButton}" />
-                                <Button x:Name="OpenBedrijfsbegeleider"
-                                    Content="Bedrijfsbegeleider"
-                                        Style="{StaticResource MenuButton}" />
+                                <Button Content="Zoek" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Zoek" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="Koppel" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Koppel" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="Student" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Student" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="Docent" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Docent" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="Stageopdracht" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Stageopdracht" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="Bedrijf" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Bedrijf" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button Content="Bedrijfsbegeleider" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Bedrijfsbegeleider" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                             </StackPanel>
                         </Expander>                                
                     </StackPanel>

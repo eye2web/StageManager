@@ -1,5 +1,5 @@
-﻿using StageManager.Models;
-using StageManager.MVVM;
+﻿using Caliburn.Micro;
+using StageManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

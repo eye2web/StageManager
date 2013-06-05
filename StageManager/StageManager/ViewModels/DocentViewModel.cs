@@ -1,5 +1,5 @@
-﻿using StageManager.Models;
-using StageManager.MVVM;
+﻿using Caliburn.Micro;
+using StageManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.Voornaam = value;
-                OnPropertyChanged("Voornaam");
+                NotifyOfPropertyChange(() => Voornaam);
             }
         }
         public String Achternaam
@@ -34,7 +34,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.Achternaam = value;
-                OnPropertyChanged("Achternaam");
+                NotifyOfPropertyChange(() => Achternaam);
             }
         }
         public String Straat
@@ -46,7 +46,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.adressets.Straat = value;
-                OnPropertyChanged("Straat");
+                NotifyOfPropertyChange(() => Straat);
             }
         }
         public String Huisnummer
@@ -58,7 +58,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.adressets.Huisnummer = value;
-                OnPropertyChanged("Huisnummer");
+                NotifyOfPropertyChange(() => Huisnummer);
             }
         }
 
@@ -71,7 +71,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.adressets.Postcode = value;
-                OnPropertyChanged("Postcode");
+                NotifyOfPropertyChange(() => Postcode);
             }
         }
         public String Woonplaats
@@ -83,7 +83,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.adressets.Plaats = value;
-                OnPropertyChanged("Woonplaats");
+                NotifyOfPropertyChange(() => Woonplaats);
             }
         }
         public String Telefoon
@@ -95,7 +95,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.Telefoonnummer = value;
-                OnPropertyChanged("Telefoon");
+                NotifyOfPropertyChange(() => Telefoon);
             }
         }
         public String EMail
@@ -107,7 +107,7 @@ namespace StageManager.ViewModels
             set
             {
                 docent.Email = value;
-                OnPropertyChanged("EMail");
+                NotifyOfPropertyChange(() => EMail);
             }
         }
 

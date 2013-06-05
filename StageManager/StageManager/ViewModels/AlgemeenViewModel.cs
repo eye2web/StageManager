@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using StageManager.Models;
 using StageManager.Views;
-using StageManager.MVVM;
 using StageManager.Controllers;
+using Caliburn.Micro;
 
 namespace StageManager.ViewModels
 {
@@ -18,7 +18,7 @@ namespace StageManager.ViewModels
         {
             get { return gridContents; }
             set { gridContents = value;
-            OnPropertyChanged("GridContents");
+            NotifyOfPropertyChange(() => GridContents);
             }
         }
 
@@ -30,7 +30,7 @@ namespace StageManager.ViewModels
             {
                 if (int.TryParse(value, out jaargang))
                 {
-                    OnPropertyChanged("Jaargang");
+                    NotifyOfPropertyChange(() => Jaargang);
                 }
             }
         }
@@ -43,7 +43,7 @@ namespace StageManager.ViewModels
             {
                 if (int.TryParse(value, out werkuren))
                 {
-                    OnPropertyChanged("Werkuren");
+                    NotifyOfPropertyChange(() => Werkuren);
                 }
             }
         
@@ -58,7 +58,7 @@ namespace StageManager.ViewModels
             {
                 if (int.TryParse(value, out aantBlokken))
                 {
-                    OnPropertyChanged("AantBlokken");
+                    NotifyOfPropertyChange(() => AantBlokken);
                 }
             }
         }
@@ -71,7 +71,7 @@ namespace StageManager.ViewModels
             set
             {
                 searchText = value;
-                OnPropertyChanged("SearchText");
+                NotifyOfPropertyChange(() => SearchText);
             }
         }
 

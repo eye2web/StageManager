@@ -1,4 +1,4 @@
-﻿using StageManager.MVVM;
+﻿using Caliburn.Micro;
 using StageManager.Models;
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace StageManager.ViewModels
             set
             {
                 studentGridContents = value;
-                OnPropertyChanged("StudentGridContents");
+                NotifyOfPropertyChange(() => StudentGridContents);
             }
         }
 
@@ -28,7 +28,7 @@ namespace StageManager.ViewModels
             set
             {
                 docentGridContents = value;
-                OnPropertyChanged("DocentGridContents");
+                NotifyOfPropertyChange(() => DocentGridContents);
             }
         }
 
@@ -39,7 +39,7 @@ namespace StageManager.ViewModels
             set
             {
                 lezerGridContents = value;
-                OnPropertyChanged("LezerGridContents");
+                NotifyOfPropertyChange(() => LezerGridContents);
             }
         }
 
@@ -50,8 +50,8 @@ namespace StageManager.ViewModels
             set
             {
                 searchString = value;
-                searchStudent();                
-                OnPropertyChanged("SearchString");
+                searchStudent();
+                NotifyOfPropertyChange(() => SearchString);
             }
         }
 
@@ -63,7 +63,7 @@ namespace StageManager.ViewModels
             {
                 searchOpleiding = value;
                 searchStudent();
-                OnPropertyChanged("SearchOpleiding");
+                NotifyOfPropertyChange(() => SearchOpleiding);
             }
         }
 
@@ -72,7 +72,7 @@ namespace StageManager.ViewModels
         {
             get { return opleidingStack; }
             set { opleidingStack = value;
-            OnPropertyChanged("OpleidingStack");
+            NotifyOfPropertyChange(() => OpleidingStack);
             }
         }
 
@@ -85,7 +85,7 @@ namespace StageManager.ViewModels
             {
                 selectedStudent = new WStored().SearchStudentSet(value.GetType().GetProperty("StudentNummer").GetMethod.Invoke(value, null).ToString(), "").First();
                 KoppelStudent = selectedStudent;
-                OnPropertyChanged("SelectedStudent");
+                NotifyOfPropertyChange(() => SelectedStudent);
             }
         }
 
@@ -98,7 +98,7 @@ namespace StageManager.ViewModels
             {
                 koppelStudent = value;
                 KoppelStudentNaam = koppelStudent.Achternaam + ", " + koppelStudent.Voornaam;
-                OnPropertyChanged("KoppelStudent");
+                NotifyOfPropertyChange(() => KoppelStudent);
             }
         }
 
@@ -110,7 +110,7 @@ namespace StageManager.ViewModels
             set
             {
                 koppelStudentNaam = value;
-                OnPropertyChanged("KoppelStudentNaam");
+                NotifyOfPropertyChange(() => KoppelStudentNaam);
             }
         }
 
@@ -123,7 +123,7 @@ namespace StageManager.ViewModels
             {
                 selectedDocent = new WStored().SearchDocentSet(value.GetType().GetProperty("Voornaam").GetMethod.Invoke(value, null).ToString()).First();
                 KoppelDocent = selectedDocent;
-                OnPropertyChanged("SelectedDocent");
+                NotifyOfPropertyChange(() => SelectedDocent);
             }
         }
 
@@ -136,7 +136,7 @@ namespace StageManager.ViewModels
             {
                 koppelDocent = value;
                 KoppelDocentNaam = koppelDocent.Achternaam + ", " + koppelDocent.Voornaam;
-                OnPropertyChanged("KoppelDocent");
+                NotifyOfPropertyChange(() => KoppelDocent);
             }
         }
 
@@ -147,7 +147,7 @@ namespace StageManager.ViewModels
             get { return koppelDocentNaam; }
             set {
                 koppelDocentNaam = value;
-                OnPropertyChanged("KoppelDocentNaam");
+                NotifyOfPropertyChange(() => KoppelDocentNaam);
             }
         }
 

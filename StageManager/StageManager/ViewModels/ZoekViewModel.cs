@@ -1,5 +1,5 @@
-﻿using StageManager.Models;
-using StageManager.MVVM;
+﻿using Caliburn.Micro;
+using StageManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace StageManager.ViewModels
             {
                 searchString = value;
                 searchStudent();
-                OnPropertyChanged("SearchString");
+                NotifyOfPropertyChange(() => SearchString);
             }
         }
 
@@ -30,7 +30,7 @@ namespace StageManager.ViewModels
             set
             {
                 opleidingStack = value;
-                OnPropertyChanged("OpleidingStack");
+                NotifyOfPropertyChange(() => OpleidingStack);
             }
         }             
 
@@ -42,7 +42,7 @@ namespace StageManager.ViewModels
             {
                 searchOpleiding = value;
                 searchStudent();
-                OnPropertyChanged("SearchOpleiding");
+                NotifyOfPropertyChange(() => SearchOpleiding);
             }
         }
 
@@ -56,7 +56,7 @@ namespace StageManager.ViewModels
             set
             {
                 gridContents = value;
-                OnPropertyChanged("GridContents");
+                NotifyOfPropertyChange(() => GridContents);
             }
         }
 

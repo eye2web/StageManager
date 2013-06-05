@@ -1,103 +1,59 @@
-﻿using StageManager.Controllers;
+﻿using Caliburn.Micro;
+using StageManager.Controllers;
 using StageManager.Models;
-using StageManager.MVVM;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class MainViewModel : PropertyChangedBase
+    public class MainViewModel : PropertyChangedBase
     {
-        private readonly IApplicationController app;
-        private readonly ProcesOverzichtViewModel overzicht;
+        public event EventHandler SomethingHappened;
+        public string currentButton { get; set; }
 
-        private PropertyChangedBase content = new ProcesOverzichtViewModel();
-
-        public MainViewModel(
-            IApplicationController app,
-            ProcesOverzichtViewModel overzicht)
+        public MainViewModel()
         {
-            this.app = app;
-            this.overzicht = overzicht;
         }
-        private String zoek;
-        public String Zoek
+
+        private String search;
+        public String Search
         {
             get
             {
-                return zoek;
+                return search;
             }
             set
             {
-                zoek = value;
-                OnPropertyChanged("Zoek");
-                OpenZoek(zoek);
+                search = value;
+                NotifyOfPropertyChange(() => Search);
+                //OpenZoek(zoek);
             }
         }
 
-        public ProcesOverzichtViewModel Overzicht { get { return overzicht; } }
-
-        public PropertyChangedBase Contents
+        private Object content;
+        public Object Contents
         {
             get { return content; }
             set
             {
                 content = value;
-                OnPropertyChanged("Contents");
+                NotifyOfPropertyChange(() => Contents);
             }
         }
 
-        public void OpenProcesOverzicht()
+        public void ChangeButton(string name)
         {
-            app.ShowProcesOverzicht();
-        }
+            currentButton = name;
 
-        public void OpenGegevensOverzicht()
-        {
-            app.ShowGegevensOverzicht();
-        }
-
-        public void OpenKoppel()
-        {
-            app.ShowKoppel();
-        }
-
-        public void OpenZoek(String search="")
-        {
-            app.ShowZoek(search);
-        }
-
-        public void OpenStudentSelectie()
-        {
-            app.ShowStudenten();
-        }
-
-        public void OpenStudent()
-        {
-            app.ShowStudent();
-        }
-
-        public void OpenDocent()
-        {
-            app.ShowDocent();
-        }
-
-        public void OpenStageopdracht()
-        {
-            app.ShowStageopdracht();
-        }
-
-        public void OpenBedrijfsbegeleider()
-        {
-            app.ShowBedrijfsbegeleider();
-        }
-
-        public void OpenBedrijf()
-        {
-            app.ShowBedrijf();
+            EventHandler handler = SomethingHappened;
+            if (handler != null)
+            {
+                handler(this, EventArgs.Empty);
+            }
         }
     }
 }

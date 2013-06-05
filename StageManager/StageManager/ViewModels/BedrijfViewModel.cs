@@ -1,5 +1,5 @@
-﻿using StageManager.Models;
-using StageManager.MVVM;
+﻿using Caliburn.Micro;
+using StageManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.Naam = value;
-                OnPropertyChanged("Naam");
+                NotifyOfPropertyChange(() => Naam);
             }
         }
 
@@ -34,7 +34,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Straat = value;
-                OnPropertyChanged("Straat");
+                NotifyOfPropertyChange(() => Straat);
             }
         }
 
@@ -47,7 +47,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Huisnummer = value;
-                OnPropertyChanged("Nummer");
+                NotifyOfPropertyChange(() => Huisnummer);
             }
         }
 
@@ -60,7 +60,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Postcode = value;
-                OnPropertyChanged("Postcode");
+                NotifyOfPropertyChange(() => Postcode);
             }
         }
 
@@ -73,7 +73,7 @@ namespace StageManager.ViewModels
             set
             {
                 bedrijf.AdresSets.Plaats = value;
-                OnPropertyChanged("Plaats");
+                NotifyOfPropertyChange(() => Plaats);
             }
         }
     }

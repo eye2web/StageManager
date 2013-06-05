@@ -1,5 +1,4 @@
 ﻿using StageManager.Exceptions;
-using StageManager.MVVM;
 using StageManager.Services;
 using System;
 using System.Collections.Generic;
