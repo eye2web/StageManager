@@ -74,6 +74,7 @@
     <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -178,6 +179,7 @@
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\ISetEntity.cs" />
     <Compile Include="Services\IWrapper.cs" />
+    <Compile Include="Services\Mailer.cs" />
     <Compile Include="Services\Service.cs" />
     <Compile Include="Services\Wrapper.cs" />
     <Compile Include="Controllers\ViewController.cs" />
@@ -187,6 +189,7 @@
     <Compile Include="ViewModels\DocentViewModel.cs" />
     <Compile Include="ViewModels\GegevensOverzichtViewModel.cs" />
     <Compile Include="ViewModels\KoppelViewModel.cs" />
+    <Compile Include="ViewModels\MailViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ProcesOverzichtViewModel.cs" />
     <Compile Include="ViewModels\DemoNieuwKoppelViewModel.cs" />
@@ -210,6 +213,9 @@
     </Compile>
     <Compile Include="Views\KoppelView.xaml.cs">
       <DependentUpon>KoppelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MailView.xaml.cs">
+      <DependentUpon>MailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -238,6 +244,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\KoppelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

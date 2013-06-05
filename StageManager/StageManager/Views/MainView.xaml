@@ -75,6 +75,18 @@
                     </i:Interaction.Triggers>
                 </Button>
             </StackPanel>
+            <!-- Mailing -->
+            <StackPanel DockPanel.Dock="Left" Width="200" Orientation="Horizontal">
+                <Button Content="Voeg leerlingen toe" Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="ChangeButton">
+                                <cal:Parameter Value="Mail" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
             <!-- LoginButton -->
             <StackPanel DockPanel.Dock="Right" Width="Auto" HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button Height="Auto" VerticalAlignment="Stretch" BorderThickness="0" Padding="10" Foreground="White" Background="Transparent">Inloggen</Button>
