@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StageManager.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +15,7 @@ namespace StageManager.Services
     class Mailer
     {
         private static LinkedList<MailMessage> mails;
+        private static WStored stored;
         private static SmtpClient smtp = new SmtpClient();
         private static bool _init;
         private static bool isSending;
@@ -32,8 +34,10 @@ namespace StageManager.Services
                 smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.SendCompleted += next;
                 smtp.Credentials = new NetworkCredential("min08.stagemanager@gmail.com", "Stagemanager");
-
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                stored = new WStored();
+
                 smtp.EnableSsl = true;
                 isSending = false;
                 _init = true;
@@ -64,9 +68,9 @@ namespace StageManager.Services
         public static void Send(String to, String body, String Subject, IDictionary replacements = null)
         {
             init();
-            char[] c = { ',', ';', ' ', ':', '\t' };
+            char[] c = { ',', ';', ' ', ':' };
             String[] To = to.Split(c);
-            for (int i = 0; i < to.Length; i++)
+            for (int i = 0; i < To.Length; i++)
             {
                 MailDefinition m = new MailDefinition();
                 if (!replacements.Contains("\n"))
@@ -82,6 +86,18 @@ namespace StageManager.Services
             {
                 next(null, null);
             }
+        }
+
+        public static void SendNew(String to, String body, String Subject, IDictionary replacements = null)
+        {
+            init();
+            if (replacements.Contains("%webkey%"))
+            {
+                replacements.Remove("%webkey%");
+            }
+            String webkey = stored.Webkey(to);
+            replacements.Add("%webkey%", "<a href='" + webkey + "'>" + webkey + "</a>");
+            Send(to, body, Subject, replacements);
         }
     }
 }

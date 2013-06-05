@@ -75,5 +75,10 @@ namespace StageManager.Models
         {
             return (from stage in StageManagerEntities.stagesets.ToList() select new WStage(stage)).ToList();
         }
+
+        public string Webkey(string email)//TODO: FIX!!!
+        {
+            return email.GetHashCode().ToString();
+        }
     }
 }

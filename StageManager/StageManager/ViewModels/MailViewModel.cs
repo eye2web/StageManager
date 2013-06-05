@@ -26,9 +26,7 @@ namespace StageManager.ViewModels
         }
         public void Send()
         {
-            ListDictionary replacements = new ListDictionary();
-            replacements.Add("%webkey%", "<a href='webkey'>REPLACED</a>");
-            Mailer.Send(To, Message, Subject, replacements);
+            Mailer.SendNew(To, Message, Subject, new ListDictionary());
         }
     }
 }
