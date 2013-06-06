@@ -24,9 +24,9 @@ namespace StageManager.Models
         public Nullable<System.DateTime> Eind_datum { get; set; }
         public string Stageopdracht_omschijving { get; set; }
         public Nullable<int> Bedrijfsbegeleider_id { get; set; }
-        public int studentset1_Id { get; set; }
-        public Nullable<int> studentset2_Id { get; set; }
         public Nullable<int> docentset_Id { get; set; }
+        public Nullable<int> Student1 { get; set; }
+        public Nullable<int> Student2 { get; set; }
     
         public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
         public virtual docentsets docentsets { get; set; }

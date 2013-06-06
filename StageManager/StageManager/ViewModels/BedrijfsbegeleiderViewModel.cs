@@ -13,7 +13,7 @@ namespace StageManager.ViewModels
         private static Random random = new Random();
         private WBedrijfsBegeleider begeleider = new WStored().SearchBedrijfsBegeleiderSet()[random.Next(new WStored().SearchBedrijfsBegeleiderSet().Count)];//temp
 
-        public String Voornaam
+        /*public String Voornaam
         {
             get
             {
@@ -38,7 +38,7 @@ namespace StageManager.ViewModels
                 NotifyOfPropertyChange(() => Achternaam);
             }
         }
-
+        */
         public String Functie
         {
             get
@@ -47,7 +47,7 @@ namespace StageManager.ViewModels
             }
         }
 
-        public String EMail
+       /* public String EMail
         {
             get
             {
@@ -58,7 +58,7 @@ namespace StageManager.ViewModels
                 begeleider.Email = value;
                 NotifyOfPropertyChange(() => EMail);
             }
-        }
+        }*/
 
         public String Opleiding
         {

@@ -68,7 +68,7 @@ namespace StageManager.Services
         public static void Send(String to, String body, String Subject, IDictionary replacements = null)
         {
             init();
-            char[] c = { ',', ';', ' ', ':' };
+            char[] c = { ',', ';', ':' };
             String[] To = to.Split(c);
             for (int i = 0; i < To.Length; i++)
             {
@@ -80,7 +80,7 @@ namespace StageManager.Services
                 m.IsBodyHtml = true;
                 m.Subject = Subject;
                 m.From = "min08.stagemanager@gmail.com";
-                mails.AddLast(m.CreateMailMessage(to, replacements, body, new System.Web.UI.Control()));
+                mails.AddLast(m.CreateMailMessage(To[i], replacements, body, new System.Web.UI.Control()));
             }
             if (!isSending)
             {

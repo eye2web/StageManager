@@ -20,7 +20,6 @@ namespace StageManager.Models
         public string Email { get; set; }
         public string Telefoonnummer { get; set; }
     
-        public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
         public virtual coordinator coordinator { get; set; }
         public virtual docentsets docentsets { get; set; }
         public virtual studentsets studentsets { get; set; }

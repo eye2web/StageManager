@@ -62,15 +62,15 @@ namespace StageManager.Models
             }
         }
 
-        public int studentset1_Id
+        public int? studentset1_Id
         {
             get
             {
-                return getSet().studentset1_Id;
+                return getSet().Student1;
             }
             set
             {
-                getSet().studentset1_Id = value;
+                getSet().Student1 = value;
                 save(getSet());
             }
         }
@@ -78,11 +78,11 @@ namespace StageManager.Models
         {
             get
             {
-                return getSet().studentset2_Id;
+                return getSet().Student2;
             }
             set
             {
-                getSet().studentset2_Id = value;
+                getSet().Student2 = value;
                 save(getSet());
             }
         }

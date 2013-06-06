@@ -101,61 +101,61 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Exceptions\CantBeNullException.cs" />
     <Compile Include="Models\academiesets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\adressets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\algemeensets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\bedrijfsbegeleidersets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\bedrijfsets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\coordinator.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\docentsets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\eindstagesets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\kennisgebiedset.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\opleidingsets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\persoonsets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StagemanagerDiagram.Context.cs">
+    <Compile Include="Models\StagemanagerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StagemanagerDiagram.Context.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StagemanagerDiagram.cs">
+    <Compile Include="Models\StagemanagerModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StagemanagerDiagram.Designer.cs">
+    <Compile Include="Models\StagemanagerModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
+      <DependentUpon>StagemanagerModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\stagesets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\studentsets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tempemailsets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WAcademie.cs" />
     <Compile Include="Models\WAdres.cs" />
@@ -164,7 +164,7 @@
     <Compile Include="Models\WBedrijf.cs" />
     <Compile Include="Models\WDocent.cs" />
     <Compile Include="Models\webkeysets.cs">
-      <DependentUpon>StagemanagerDiagram.tt</DependentUpon>
+      <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WOpleiding.cs" />
     <Compile Include="Models\WPersoon.cs" />
@@ -318,22 +318,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\StagemanagerDiagram.edmx">
+    <EntityDeploy Include="Models\StagemanagerModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StagemanagerDiagram.Designer.cs</LastGenOutput>
+      <LastGenOutput>StagemanagerModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\StagemanagerDiagram.Context.tt">
+    <None Include="Models\StagemanagerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
-      <LastGenOutput>StagemanagerDiagram.Context.cs</LastGenOutput>
+      <DependentUpon>StagemanagerModel.edmx</DependentUpon>
+      <LastGenOutput>StagemanagerModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="Models\StagemanagerDiagram.edmx.diagram">
-      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
+    <None Include="Models\StagemanagerModel.edmx.diagram">
+      <DependentUpon>StagemanagerModel.edmx</DependentUpon>
     </None>
-    <None Include="Models\StagemanagerDiagram.tt">
+    <None Include="Models\StagemanagerModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StagemanagerDiagram.edmx</DependentUpon>
-      <LastGenOutput>StagemanagerDiagram.cs</LastGenOutput>
+      <DependentUpon>StagemanagerModel.edmx</DependentUpon>
+      <LastGenOutput>StagemanagerModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>

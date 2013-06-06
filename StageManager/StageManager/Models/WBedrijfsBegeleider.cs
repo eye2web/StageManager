@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfsBegeleider : WPersoon, ISetEntity<bedrijfsbegeleidersets>
+    class WBedrijfsBegeleider :Wrapper, ISetEntity<bedrijfsbegeleidersets>
     {
         public string Functie
         {
@@ -59,19 +59,6 @@ namespace StageManager.Models
             }
         }
 
-        public virtual WPersoon persoonset
-        {
-            get
-            {
-                return new WPersoon(getSet().persoonsets);
-            }
-            set
-            {
-                getSet().persoonsets = value.getSet();
-                save(getSet());
-            }
-        }
-
         public virtual WBedrijf bedrijfset
         {
             get
@@ -86,7 +73,7 @@ namespace StageManager.Models
         }
 
         public WBedrijfsBegeleider(bedrijfsbegeleidersets set)
-            : base(set.persoonsets)
+            : base()
         {
             if (set == null)
             {

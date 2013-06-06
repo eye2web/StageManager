@@ -81,12 +81,13 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    return stage.bedrijfsbegeleiderset.Voornaam + " " + stage.bedrijfsbegeleiderset.Achternaam;
+                    //return stage.bedrijfsbegeleiderset.Voornaam + " " + stage.bedrijfsbegeleiderset.Achternaam;
                 }
                 catch (NullReferenceException)
                 {
                     return "";
                 }
+                return "Geen BedrijfsBegeleider gekoppeld";
             }
             set { }
         }
