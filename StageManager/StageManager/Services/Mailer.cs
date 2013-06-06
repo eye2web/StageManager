@@ -80,7 +80,12 @@ namespace StageManager.Services
                 m.IsBodyHtml = true;
                 m.Subject = Subject;
                 m.From = "min08.stagemanager@gmail.com";
-                mails.AddLast(m.CreateMailMessage(To[i], replacements, body, new System.Web.UI.Control()));
+                try
+                {
+                    mails.AddLast(m.CreateMailMessage(To[i], replacements, body, new System.Web.UI.Control()));
+                }
+                catch (Exception)//TODO
+                { };
             }
             if (!isSending)
             {
