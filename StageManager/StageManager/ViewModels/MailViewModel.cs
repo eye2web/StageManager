@@ -10,7 +10,32 @@ namespace StageManager.ViewModels
 {
     class MailViewModel
     {
-        public String To { get; set; }
+        private String to;
+        public String To
+        {
+            get
+            {
+                return to;
+            }
+            set
+            {
+                char[] c = value.ToCharArray();
+                String s="";
+                for (int i = 0; i < c.Length; i++)
+                {
+                    if (c[i] == '\n' || c[i] == ' ')
+                    {
+                        c[i] = ',';
+                    }
+                    if (c[i] != '\r')
+                    {
+                        s += c[i];
+                    }
+                }
+                to = s;
+            }
+        }
+
         public String Message { get; set; }
         public String Subject { get; set; }
 
@@ -26,7 +51,12 @@ namespace StageManager.ViewModels
         }
         public void Send()
         {
-            Mailer.SendNew(To, Message, Subject, new ListDictionary());
+            char[] c = { ',', ';', ' ', ':' };
+            String[] to = To.Split(c);
+            for (int i = 0; i < to.Length; i++)
+            {
+                Mailer.SendNew(to[i].Trim(), Message, Subject, new ListDictionary());
+            }
         }
     }
 }
