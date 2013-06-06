@@ -16,7 +16,8 @@ namespace StageManager.Models
             {
                 return (from student
                         in StageManagerEntities.studentsets.ToList()
-                        where student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())
+                        where student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower()) &&
+                        student.stagesets.First().docentset_Id ==  null
                         select new WStudent(student)).ToList();
             }
             else if (searchOpleiding == null)
@@ -25,7 +26,8 @@ namespace StageManager.Models
                         in StageManagerEntities.studentsets.ToList()
                         where student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
                         student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
-                        student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
+                        student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) &&
+                        student.stagesets.First().docentset_Id == null
                         select new WStudent(student)).ToList();
             }
             else
@@ -35,7 +37,8 @@ namespace StageManager.Models
                         where (student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
                         student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
                         student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())) &&
-                        (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower()))
+                        (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())) &&
+                        student.stagesets.First().docentset_Id == null
                         select new WStudent(student)).ToList();
             }
         }
@@ -74,6 +77,13 @@ namespace StageManager.Models
         public List<WStage> SearchStageSet()
         {
             return (from stage in StageManagerEntities.stagesets.ToList() select new WStage(stage)).ToList();
+        }
+
+        public WStage SearchStageSet(int StudentId)
+        {
+            return (from stage in StageManagerEntities.stagesets.ToList()
+                    where stage.Student1 == StudentId
+                    select new WStage(stage)).First();
         }
 
         public string Webkey(string email)//TODO: FIX!!!

@@ -71,8 +71,10 @@ namespace StageManager.ViewModels
         public List<String> OpleidingStack
         {
             get { return opleidingStack; }
-            set { opleidingStack = value;
-            NotifyOfPropertyChange(() => OpleidingStack);
+            set
+            {
+                opleidingStack = value;
+                NotifyOfPropertyChange(() => OpleidingStack);
             }
         }
 
@@ -85,7 +87,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    selectedStudent = new WStored().SearchStudentSet(value.GetType().GetProperty("StudentNummer").GetMethod.Invoke(value, null).ToString(), "").First();
+                    selectedStudent = new WStored().SearchStudentSet(value.GetType().GetProperty("Studentnummer").GetMethod.Invoke(value, null).ToString(), "").First();
                     KoppelStudent = selectedStudent;
                     NotifyOfPropertyChange(() => SelectedStudent);
                 }
@@ -152,7 +154,8 @@ namespace StageManager.ViewModels
         {
 
             get { return koppelDocentNaam; }
-            set {
+            set
+            {
                 koppelDocentNaam = value;
                 NotifyOfPropertyChange(() => KoppelDocentNaam);
             }
@@ -162,31 +165,32 @@ namespace StageManager.ViewModels
         public DemoNieuwKoppelViewModel()
         {
             SearchString = "";
-            FillView(SearchString);
+            SearchOpleiding = "";
+            FillView();
             OpleidingStack = (from opleiding in new WStored().SearchOpleidingSet() select opleiding.Naam).ToList();
         }
 
         //Vul grid
-        public void FillView(String SearchString)
+        public void FillView()
         {
-            searchString = "";
             DocentGridContents = new WStored().SearchDocentSet(null);
             LezerGridContents = new WStored().SearchDocentSet(null);
         }
 
         public void searchStudent()
         {
-            StudentGridContents = (from student in new WStored().SearchStudentSet(searchString, searchOpleiding)
-                                   select (Object)new
-                                   {
-                                       StudentNummer = student.Studentnummer,
-                                       Voornaam = student.Voornaam,
-                                       Achternaam = student.Achternaam,
-                                       Opleiding = student.Opleidingset.Naam,
-                                       EC_Norm_Behaald = student.EC_norm_behaald
-
-                                   }).ToList();
+            StudentGridContents = (from student in new WStored().SearchStudentSet(SearchString, SearchOpleiding)
+                                   select (object)new { Studentnummer = student.Studentnummer, Voornaam = student.Voornaam, Achternaam = student.Achternaam, EC_norm_behaald = student.EC_norm_behaald }).ToList();
         }
 
+        public void Koppelen()
+        {
+            WStage myStage = new WStored().SearchStageSet(KoppelStudent.Id);
+            myStage.docentsets = KoppelDocent;
+
+            SearchString = "";
+            SearchOpleiding = "";
+            searchStudent();
+        }
     }
 }
