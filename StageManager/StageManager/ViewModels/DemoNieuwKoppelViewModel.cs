@@ -83,9 +83,16 @@ namespace StageManager.ViewModels
             get { return selectedStudent; }
             set
             {
-                selectedStudent = new WStored().SearchStudentSet(value.GetType().GetProperty("StudentNummer").GetMethod.Invoke(value, null).ToString(), "").First();
-                KoppelStudent = selectedStudent;
-                NotifyOfPropertyChange(() => SelectedStudent);
+                try
+                {
+                    selectedStudent = new WStored().SearchStudentSet(value.GetType().GetProperty("StudentNummer").GetMethod.Invoke(value, null).ToString(), "").First();
+                    KoppelStudent = selectedStudent;
+                    NotifyOfPropertyChange(() => SelectedStudent);
+                }
+                catch
+                {
+
+                }
             }
         }
 
