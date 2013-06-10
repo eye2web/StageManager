@@ -46,6 +46,21 @@ namespace StageManager.ViewModels
             }
         }
 
+        private Dictionary<Object,WStudent> list;
+        Dictionary<Object, WStudent> List
+        {
+            get
+            {
+                return list;
+            }
+            set
+            {
+                list = value;
+                GridContents = value.Keys.ToList();
+                NotifyOfPropertyChange(() => List);
+            }
+        }
+
         private List<Object> gridContents;
         public List<object> GridContents
         {
@@ -60,6 +75,19 @@ namespace StageManager.ViewModels
             }
         }
 
+        private WStudent selectedStudent;
+        public Object SelectedStudent
+        {
+            get
+            {
+                return selectedStudent;
+            }
+            set
+            {
+                List.TryGetValue(value, out selectedStudent);
+            }
+        }
+
         public ZoekViewModel()
         {
             SearchString = "";
@@ -70,26 +98,24 @@ namespace StageManager.ViewModels
 
         public void searchStudent()
         {
-            List<Object> list = new List<object>();
-            list = (from student in new WStored().SearchStudentSet(searchString, searchOpleiding)
-                    select (Object)new
+            list = new Dictionary<object, WStudent>();
+            list = (new WStored().SearchStudentSet(searchString, searchOpleiding).ToDictionary(t=>(Object)new
                     {
-                        StudentNummer = student.Studentnummer,
-                        Voornaam = student.Voornaam,
-                        Achternaam = student.Achternaam,
-                        Opleiding = student.Opleidingset.Naam,
-                        EC_Norm_Behaald = student.EC_norm_behaald
-
-                    }).ToList();
+                            StudentNummer = t.Studentnummer,
+                            Voornaam = t.Voornaam,
+                            Achternaam = t.Achternaam,
+                            Opleiding = t.Opleidingset.Naam,
+                            EC_Norm_Behaald = t.EC_norm_behaald
+                    },t=>t));
             if (list.Count == 0)
             {
                 list.Add((Object)new
                 {
                     Error = "No occurrences found!"
-                });
+                },null);
 
             }
-                GridContents = list;
+                GridContents = list.Keys.ToList();
         }
     }
 }
