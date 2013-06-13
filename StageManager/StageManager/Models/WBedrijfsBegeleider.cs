@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfsBegeleider :Wrapper, ISetEntity<bedrijfsbegeleidersets>
+    public class WBedrijfsBegeleider :Wrapper, ISetEntity<bedrijfsbegeleidersets>
     {
         public string Functie
         {
@@ -46,7 +46,7 @@ namespace StageManager.Models
                 save(getSet());
             }
         }
-        public new int Id
+        public int Id
         {
             get
             {
@@ -82,11 +82,11 @@ namespace StageManager.Models
             this.set = set;
         }
 
-        public new bedrijfsbegeleidersets getSet()
+        public bedrijfsbegeleidersets getSet()
         {
             return set;
         }
 
-        public new bedrijfsbegeleidersets set { get; set; }
+        public bedrijfsbegeleidersets set { get; set; }
     }
 }

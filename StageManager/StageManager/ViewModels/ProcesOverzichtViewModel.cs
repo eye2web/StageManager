@@ -14,8 +14,22 @@ namespace StageManager.ViewModels
          * ("", "m.aydin4@student.avans.nl", "Aydin, Murat", "Hyacinthenstraat 15", "Ingeleverd", "In orde", "Bob Bus"))
          */
 
-        private List<Object> gridContents;
+        private Dictionary<Object, WStudent> list;
+        Dictionary<Object, WStudent> List
+        {
+            get
+            {
+                return list;
+            }
+            set
+            {
+                list = value;
+                GridContents = value.Keys.ToList();
+                NotifyOfPropertyChange(() => List);
+            }
+        }
 
+        private List<Object> gridContents;
         public List<object> GridContents
         {
             get
@@ -29,19 +43,42 @@ namespace StageManager.ViewModels
             }
         }
 
+        private List<WStudent> selectedStudents;
+        public List<Object> SelectedStudents
+        {
+            get
+            {
+                return (from s in selectedStudents select (Object)s).ToList();
+            }
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < value.Count; i++)
+                    {
+                        WStudent s = null;
+                        List.TryGetValue(value[i], out s);
+                        selectedStudents.Add(s);
+                    }
+                    NotifyOfPropertyChange(() => SelectedStudents);
+                }
+            }
+        }
+
         public ProcesOverzichtViewModel()
         {
-            GridContents = (from student in new WStored().SearchStudentSet("", "")
-                            select (Object)new
+            selectedStudents = new List<WStudent>();
+            List = new Dictionary<object, WStudent>();
+            List = new WStored().SearchStudentSet("", "").ToDictionary(t => (Object)new
                             {
-                                Email = student.Email,
-                                EmailURL = "mailto:" + student.Email,
-                                StudentNaam = student.Achternaam + ", " + student.Voornaam,
+                                Email = t.Email,
+                                EmailURL = "mailto:" + t.Email,
+                                StudentNaam = t.Achternaam + ", " + t.Voornaam,
                                 Gegevens = "Adres komt hier",
                                 Stageopdracht = true,
                                 Feedback = "Geen",
                                 Docent = "Docent"
-                            }).ToList();
+                            }, t => t);
         }
     }
 }

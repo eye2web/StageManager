@@ -76,7 +76,7 @@ namespace StageManager.ViewModels
         }
 
         private WStudent selectedStudent;
-        public Object SelectedStudent
+        public WStudent SelectedStudent
         {
             get
             {

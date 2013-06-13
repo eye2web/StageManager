@@ -100,7 +100,15 @@ namespace StageManager.Services
             {
                 replacements.Remove("%webkey%");
             }
-            String webkey = stored.Webkey(to);
+            String webkey;
+            if(stored.containsMail(to))
+            {
+                webkey = stored.mailWebkey(to).ConnectionKey;
+            }
+            else
+            {
+            webkey = stored.NewWebkey(to);
+            }
             replacements.Add("%webkey%", "<a href='" + webkey + "'>" + webkey + "</a>");
             Send(to, body, Subject, replacements);
         }

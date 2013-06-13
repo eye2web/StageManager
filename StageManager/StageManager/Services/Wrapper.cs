@@ -9,7 +9,7 @@ using System.Windows.Threading;
 
 namespace StageManager.Services
 {
-    class Wrapper : IWrapper
+    public class Wrapper : IWrapper
     {
         static private DispatcherTimer timer;
         static private stagemanagerEntities stageManagerEntities;

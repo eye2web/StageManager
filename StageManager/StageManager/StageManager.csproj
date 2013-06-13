@@ -172,6 +172,7 @@
     <Compile Include="Models\WStored.cs" />
     <Compile Include="Models\WStudent.cs" />
     <Compile Include="Models\WKennisgebied.cs" />
+    <Compile Include="Models\WTempmail.cs" />
     <Compile Include="Models\WWebkey.cs" />
     <Compile Include="Services\DefaultFactory.cs" />
     <Compile Include="Services\EntityService.cs" />

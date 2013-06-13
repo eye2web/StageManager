@@ -9,7 +9,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Margin="5">
@@ -28,7 +29,39 @@
             <Label Content="Onderwerp:" Grid.Column="0" HorizontalContentAlignment="Right"/>
             <TextBox Name="Subject" Grid.Column="1"/>
         </Grid>
-        <TextBox Name="Message" Grid.Row="2"  AcceptsReturn="True" TextWrapping="Wrap" Margin="5"/>
-        <Button Name="Send" Content="Stuur" Grid.Row="3" Margin="5"/>
+        <Label Background="Red" Grid.Row="2" Content="In het bericht moet %webkey% voorkomen" Foreground="White" HorizontalContentAlignment="Center" Margin="5" Focusable="{Binding Visible}" Height="0" MaxHeight="26">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <Trigger Property="Focusable" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="30" Duration="0:0:1"/>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" To="5,5" Duration="0:0:1"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1"/>
+                                        <Storyboard RepeatBehavior="Forever">
+                                            <ColorAnimation  Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" AutoReverse="True" To="Transparent" Duration="0:0:2" AccelerationRatio="0.5"/>
+                                        </Storyboard>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation  Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" To="Red" Duration="0:0:0.5"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:1"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Height" To="0" Duration="0:0:1"/>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" To="5,0" Duration="0:0:1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                                </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <TextBox Name="Message" Grid.Row="3"  AcceptsReturn="True" TextWrapping="Wrap" Margin="5"/>
+        <Button Name="Send" Content="Stuur" Grid.Row="4" Margin="5"/>
     </Grid>
 </UserControl>

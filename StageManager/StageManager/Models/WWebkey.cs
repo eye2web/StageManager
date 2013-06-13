@@ -7,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    class WWebkey : Wrapper, ISetEntity<webkeysets>
+    public class WWebkey : Wrapper, ISetEntity<webkeysets>
     {
         public int Id
         {

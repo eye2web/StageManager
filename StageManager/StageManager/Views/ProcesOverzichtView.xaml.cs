@@ -25,6 +25,7 @@ namespace StageManager.Views
         public ProcesOverzichtView()
         {
             InitializeComponent();
+            new ListView().SelectedIte
         }
 
         private void Email_RequestNavigate(object sender, RequestNavigateEventArgs e)

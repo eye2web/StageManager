@@ -1,14 +1,16 @@
-﻿using StageManager.Services;
+﻿using Caliburn.Micro;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StageManager.ViewModels
 {
-    class MailViewModel
+    class MailViewModel :PropertyChangedBase
     {
         private String to;
         public String To
@@ -35,9 +37,42 @@ namespace StageManager.ViewModels
                 to = s;
             }
         }
+        private String message;
+        public String Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                message = value;
+                if (message.Contains("%webkey%"))
+                {
+                    Visible = false;
+                }
+                else
+                {
+                    Visible = true;
+                }
+                NotifyOfPropertyChange(()=>Message);
+            }
+        }
 
-        public String Message { get; set; }
         public String Subject { get; set; }
+        private bool visible;
+        public bool Visible
+        {
+            get
+            {
+                return visible;
+            }
+            set
+            {
+                visible = value;
+                NotifyOfPropertyChange(() => Visible);
+            }
+        }
 
         public MailViewModel()
         {

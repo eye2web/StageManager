@@ -4,7 +4,7 @@ using System;
 
 namespace StageManager.Models
 {
-    class WPersoon : Wrapper, ISetEntity<persoonsets>
+    public class WPersoon : Wrapper, ISetEntity<persoonsets>
     {
         public int Id
         {

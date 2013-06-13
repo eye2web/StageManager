@@ -9,6 +9,8 @@ namespace StageManager.Models
 {
     class WStored : Wrapper
     {
+        private Random r = new Random();
+
         public List<WStudent> SearchStudentSet(String searchString, String searchOpleiding)
         {
 
@@ -86,9 +88,51 @@ namespace StageManager.Models
                     select new WStage(stage)).First();
         }
 
-        public string Webkey(string email)//TODO: FIX!!!
+        public bool containsMail(String mailadres)
         {
-            return email.GetHashCode().ToString();
+            return (from mail in StageManagerEntities.tempemailsets.ToList()
+                    where mail.Email == mailadres
+                    select new WTempmail(mail)).Count() != 0;
+        }
+
+        public WWebkey mailWebkey(String mailadres)
+        {
+            return (from mail in StageManagerEntities.tempemailsets.ToList()
+                    where mail.Email == mailadres
+                    select new WWebkey(mail.webkeysets)).First();
+        }
+
+        public string NewWebkey(string to)
+        {
+            String key= "";
+            List<WWebkey> list = new List<WWebkey>();
+            do
+            {
+                key = randomSting(10);
+                list = (from webkey in StageManagerEntities.webkeysets where webkey.ConnectionKey == key select new WWebkey(webkey)).ToList();
+            }
+            while (list.Count > 0);
+            new WTempmail(new tempemailsets() { Email = to }) { webkeysets = new WWebkey(new webkeysets()) {ConnectionKey=key } };
+            return key;
+        }
+
+        private string randomSting(int p)
+        {
+            if (p <= 0)
+            {
+                return null;
+            }
+            String key = "";
+            char[] list = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                              'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                              'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+                              'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '@', '#', '$', '%', '^',
+                              '&', '*', '-', '+' };
+            for (int i = 0; i < p; i++)
+            {
+                key += list[r.Next(list.Length)];
+            }
+            return key;
         }
     }
 }
