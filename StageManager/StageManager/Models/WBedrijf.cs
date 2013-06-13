@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    public class WBedrijf : Wrapper, ISetEntity<bedrijfsets>
+    class WBedrijf : Wrapper, ISetEntity<bedrijfsets>
     {
         public int Id
         {

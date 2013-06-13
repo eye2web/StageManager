@@ -8,7 +8,7 @@ using StageManager.Exceptions;
 
 namespace StageManager.Models
 {
-    public class WDocent : WPersoon, ISetEntity<docentsets>
+    class WDocent : WPersoon, ISetEntity<docentsets>
     {
         public int Leraar_Id
         {

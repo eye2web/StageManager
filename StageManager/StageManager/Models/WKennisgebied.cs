@@ -7,7 +7,7 @@ using System.Text;
 
 namespace StageManager.Models
 {
-    public class WKennisgebied : Wrapper, ISetEntity<kennisgebiedset>
+    class WKennisgebied : Wrapper, ISetEntity<kennisgebiedset>
     {
         public int Id
         {

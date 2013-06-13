@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    public class WAdres : Wrapper, ISetEntity<adressets>
+    class WAdres : Wrapper, ISetEntity<adressets>
     {
         public int Id
         {
