@@ -9,9 +9,7 @@
         <Style x:Key="Style" TargetType="TextBlock"></Style>
         <Style TargetType="TextBox"></Style>
     </UserControl.Resources>
-    <Grid Grid.Column="5" Background="White">
-        <Border BorderBrush="#FFA0A0A0" BorderThickness="1" HorizontalAlignment="Stretch" Width="auto" Margin="0,0,0,0">
-            <Expander Margin="0" ExpandDirection="Right" IsExpanded="True">
+            <Expander Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" Padding="0" IsExpanded="True" ExpandDirection="Right">
                 <Expander.Header>
                     <TextBlock Text="GEGEVENS BEDRIJFSBEGELEIDER" FontWeight="Bold" Visibility="Visible">
                         <TextBlock.LayoutTransform>
@@ -72,6 +70,4 @@
                     </ScrollViewer>
                 </Grid>
             </Expander>
-        </Border>
-    </Grid>
 </UserControl>

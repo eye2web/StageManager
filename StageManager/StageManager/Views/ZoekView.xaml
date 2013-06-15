@@ -44,7 +44,7 @@
                                           CanUserAddRows="False"
                                           CanUserDeleteRows="False"
                                           CanUserResizeRows="False"
-                                          SelectedItem="{Binding Path=SelectedStudent}"/>
+                                          SelectedItem="{Binding Path=SelectedObject}"/>
                         </ScrollViewer>
                 </DockPanel>
             </DockPanel>

@@ -101,26 +101,11 @@ namespace StageManager.Models
             }
         }
       
-        public virtual List<WStage> stagesets
+        public virtual WStage stagesets
         {
             get
             {
-                List<WStage> oplSet = new List<WStage>();
-                for (int i = 0; i < getSet().stagesets.Count; i++)
-                {
-                    oplSet.Add(new WStage(getSet().stagesets.ElementAt(i)));
-                }
-                return oplSet;
-            }
-            set
-            {
-                List<stagesets> list = new List<stagesets>();
-                for (int i = 0; i < value.Count; i++)
-                {
-                    list.Add(value[i].getSet());
-                }
-                getSet().stagesets = list;
-                save(getSet());
+                return new WStage(getSet().stagesets.First());
             }
         }
        

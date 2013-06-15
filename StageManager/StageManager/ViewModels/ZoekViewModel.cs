@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using StageManager.Models;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    public class ZoekViewModel : PropertyChangedBase
+    public class ZoekViewModel : PropertyChanged
     {
         private String searchString;
 
@@ -76,34 +77,32 @@ namespace StageManager.ViewModels
         }
 
         private WStudent selectedStudent;
-
-        internal WStudent SelectedStudent
-        {
-            get { return selectedStudent; }
-            set { selectedStudent = value;
-            Main.ChangeButton("Koppel", new List<Object>(){SelectedStudent}, Services.Clear.No);
-            }
-        }
         public object SelectedObject
         {
             get
             {
-                return SelectedStudent;
+                return selectedStudent;
             }
             set
             {
                 WStudent s;
                 List.TryGetValue(value, out s);
-                SelectedStudent = s;
+                Main.ChangeButton("Koppel", new List<Object>() { s.stagesets }, Services.Clear.No);
+
             }
         }
 
-        public ZoekViewModel(MainViewModel main,String zoekString)
+        public ZoekViewModel(MainViewModel main)
         {
             Main = main;
-            SearchString = zoekString;
             OpleidingStack = (from opleiding in new WStored().SearchOpleidingSet() select opleiding.Naam).ToList();
+            searchStudent();
+        }
 
+        public ZoekViewModel(MainViewModel main, String zoekString)
+            : this(main)
+        {
+            SearchString = zoekString;
         }
 
         public void searchStudent()
@@ -129,5 +128,17 @@ namespace StageManager.ViewModels
         }
 
         public MainViewModel Main { get; set; }
+
+        public override void update(object[] o)
+        {
+            try
+            {
+                SearchString = (String)o[1];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

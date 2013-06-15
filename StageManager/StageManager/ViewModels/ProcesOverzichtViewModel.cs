@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    public class ProcesOverzichtViewModel : PropertyChangedBase
+    public class ProcesOverzichtViewModel : PropertyChanged
     {
         /*
          * ("", "m.aydin4@student.avans.nl", "Aydin, Murat", "Hyacinthenstraat 15", "Ingeleverd", "In orde", "Bob Bus"))
@@ -77,7 +77,7 @@ namespace StageManager.ViewModels
                             Docent = (String)value.GetType().GetProperty("Docent").GetMethod.Invoke(value, null)
                         };
                         list.Remove(value);
-                        list.Add(o,s);
+                        list.Add(o, s);
                         List = list;
                     }
                 }

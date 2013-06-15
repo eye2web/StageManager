@@ -3,6 +3,7 @@ using StageManager.Services;
 using StageManager.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
@@ -40,22 +41,35 @@ namespace StageManager.Controllers
 
             Assembly currAssembly = Assembly.GetExecutingAssembly();
             var currType = currAssembly.GetTypes().SingleOrDefault(t => t.Name == objectName);
-            if (currType != null)
+           if (mainViewModel.Contents.Count == 0 || currType != mainViewModel.Contents.Last().GetType())
             {
-                switch (args.clear)
+                if (currType != null)
                 {
-                    case Clear.All:
-                        mainViewModel.Contents.Clear();
-                        break;
-                    case Clear.After:
-                        //TODO;
-                        break;
-                    case Clear.No:
-                        break;
-                    default:
-                        break;
+                    switch (args.clear)
+                    {
+                        case Clear.All:
+                            mainViewModel.Contents.Clear();
+                            break;
+                        case Clear.After:
+                            //TODO;
+                            break;
+                        case Clear.No:
+                            break;
+                        default:
+                            break;
+                    }
+                    Type t = currType.BaseType;
+                    Type ct = typeof(PropertyChanged);
+                    if (currType.BaseType == typeof(PropertyChanged))
+                    {
+                        Object o = Activator.CreateInstance(currType, param.ToArray());
+                        mainViewModel.addContent((PropertyChanged)Activator.CreateInstance(currType, param.ToArray()));
+                    }
                 }
-                mainViewModel.addContent(Activator.CreateInstance(currType,param.ToArray()));
+            }
+            else
+            {
+                mainViewModel.Contents.Last().update(param.ToArray());
             }
         }
     }

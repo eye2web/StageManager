@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="500">
-    <Expander Background="White" Margin="0" IsExpanded="True" ExpandDirection="Right">
+    <Expander Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" Padding="0" IsExpanded="True" ExpandDirection="Right">
         <Expander.Header>
             <TextBlock Text="STAGEOPDRACHT" FontWeight="Bold" Visibility="Visible">
                 <TextBlock.LayoutTransform>

@@ -5,13 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using StageManager.Models;
 using Caliburn.Micro;
+using StageManager.Services;
 
 namespace StageManager.ViewModels
 {
-    class BedrijfsbegeleiderViewModel : PropertyChangedBase
+    class BedrijfsbegeleiderViewModel : PropertyChanged
     {
         private static Random random = new Random();
-        private WBedrijfsBegeleider Begeleider = new WStored().SearchBedrijfsBegeleiderSet()[random.Next(new WStored().SearchBedrijfsBegeleiderSet().Count)];//temp
+        private WBedrijfsBegeleider begeleider = new WStored().SearchBedrijfsBegeleiderSet()[random.Next(new WStored().SearchBedrijfsBegeleiderSet().Count)];//temp
+
+        internal WBedrijfsBegeleider Begeleider
+        {
+            get { return begeleider; }
+            set
+            {
+                begeleider = value;
+                NotifyOfPropertyChange(() => Functie);
+                NotifyOfPropertyChange(() => Opleiding);
+                NotifyOfPropertyChange(() => BegeleidingUren);
+                /*NotifyOfPropertyChange(()=>Voornaam);
+                NotifyOfPropertyChange(()=>Achternaam);
+                NotifyOfPropertyChange(()=>EMail);*/
+            }
+        }
 
         /*public String Voornaam
         {
@@ -43,32 +59,32 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Begeleider.Functie;
+                return begeleider.Functie;
             }
         }
 
-       /* public String EMail
-        {
-            get
-            {
-                return begeleider.Email;
-            }
-            set
-            {
-                begeleider.Email = value;
-                NotifyOfPropertyChange(() => EMail);
-            }
-        }*/
+        /* public String EMail
+         {
+             get
+             {
+                 return begeleider.Email;
+             }
+             set
+             {
+                 begeleider.Email = value;
+                 NotifyOfPropertyChange(() => EMail);
+             }
+         }*/
 
         public String Opleiding
         {
             get
             {
-                return Begeleider.Opleidingsniveau;
+                return begeleider.Opleidingsniveau;
             }
             set
             {
-                Begeleider.Opleidingsniveau = value;
+                begeleider.Opleidingsniveau = value;
                 NotifyOfPropertyChange(() => Opleiding);
             }
         }
@@ -77,21 +93,37 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Begeleider.Minimale_begeleidingstijd_gegarandeerd;
+                return begeleider.Minimale_begeleidingstijd_gegarandeerd;
             }
             set
             {
-                Begeleider.Minimale_begeleidingstijd_gegarandeerd = value;
+                begeleider.Minimale_begeleidingstijd_gegarandeerd = value;
                 NotifyOfPropertyChange(() => BegeleidingUren);
             }
         }
 
-        public BedrijfsbegeleiderViewModel(MainViewModel main, WBedrijfsBegeleider bedrijfsbegeleider)
+        public BedrijfsbegeleiderViewModel(MainViewModel main)
         {
             Main = main;
+        }
+        public BedrijfsbegeleiderViewModel(MainViewModel main, WBedrijfsBegeleider bedrijfsbegeleider)
+            : this(main)
+        {
             Begeleider = bedrijfsbegeleider;
         }
 
         public MainViewModel Main { get; set; }
+
+        public virtual void update(object[] o)
+        {
+            try
+            {
+                Begeleider = (WBedrijfsBegeleider)o[1];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

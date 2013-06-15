@@ -245,7 +245,6 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 
-                
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ContentPresenter">
                         <Setter Property="LayoutTransform">

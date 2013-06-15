@@ -180,9 +180,11 @@
     <Compile Include="Services\IFactory.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\ISetEntity.cs" />
+    <Compile Include="Services\IUpdate.cs" />
     <Compile Include="Services\IWrapper.cs" />
     <Compile Include="Services\Mailer.cs" />
     <Compile Include="Services\MainArgs.cs" />
+    <Compile Include="Services\PropertyChanged.cs" />
     <Compile Include="Services\Service.cs" />
     <Compile Include="Services\Wrapper.cs" />
     <Compile Include="Controllers\ViewController.cs" />

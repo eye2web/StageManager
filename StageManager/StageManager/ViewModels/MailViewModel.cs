@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace StageManager.ViewModels
 {
-    class MailViewModel :PropertyChangedBase
+    class MailViewModel :PropertyChanged
     {
         private String to;
         public String To
@@ -104,5 +104,22 @@ namespace StageManager.ViewModels
         }
 
         public MainViewModel Main { get; set; }
+
+        public virtual void update(object[] o)
+        {
+            try
+            {
+                To="";
+                List<String> emails = (List<String>)o[1];
+                for (int i = 0; i < emails.Count; i++)
+                {
+                    To += emails[i] + " ";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using StageManager.Models;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +9,37 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class DocentViewModel : PropertyChangedBase
+    class DocentViewModel : PropertyChanged
     {
         private static Random random = new Random();
-        private WDocent Docent = new WStored().SearchDocentSet(null)[random.Next(new WStored().SearchDocentSet(null).Count)];
+        private WDocent docent = new WStored().SearchDocentSet(null)[random.Next(new WStored().SearchDocentSet(null).Count)];
+
+        internal WDocent Docent
+        {
+            get { return docent; }
+            set
+            {
+                docent = value;
+                NotifyOfPropertyChange(() => Voornaam);
+                NotifyOfPropertyChange(() => Achternaam);
+                NotifyOfPropertyChange(() => Straat);
+                NotifyOfPropertyChange(() => Huisnummer);
+                NotifyOfPropertyChange(() => Postcode);
+                NotifyOfPropertyChange(() => Woonplaats);
+                NotifyOfPropertyChange(() => Telefoon);
+                NotifyOfPropertyChange(() => EMail);
+            }
+        }
 
         public String Voornaam
         {
             get
             {
-                return Docent.Voornaam;
+                return docent.Voornaam;
             }
             set
             {
-                Docent.Voornaam = value;
+                docent.Voornaam = value;
                 NotifyOfPropertyChange(() => Voornaam);
             }
         }
@@ -29,11 +47,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Docent.Achternaam;
+                return docent.Achternaam;
             }
             set
             {
-                Docent.Achternaam = value;
+                docent.Achternaam = value;
                 NotifyOfPropertyChange(() => Achternaam);
             }
         }
@@ -41,11 +59,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Docent.adressets.Straat;
+                return docent.adressets.Straat;
             }
             set
             {
-                Docent.adressets.Straat = value;
+                docent.adressets.Straat = value;
                 NotifyOfPropertyChange(() => Straat);
             }
         }
@@ -53,11 +71,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Docent.adressets.Huisnummer;
+                return docent.adressets.Huisnummer;
             }
             set
             {
-                Docent.adressets.Huisnummer = value;
+                docent.adressets.Huisnummer = value;
                 NotifyOfPropertyChange(() => Huisnummer);
             }
         }
@@ -66,11 +84,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Docent.adressets.Postcode;
+                return docent.adressets.Postcode;
             }
             set
             {
-                Docent.adressets.Postcode = value;
+                docent.adressets.Postcode = value;
                 NotifyOfPropertyChange(() => Postcode);
             }
         }
@@ -78,11 +96,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Docent.adressets.Plaats;
+                return docent.adressets.Plaats;
             }
             set
             {
-                Docent.adressets.Plaats = value;
+                docent.adressets.Plaats = value;
                 NotifyOfPropertyChange(() => Woonplaats);
             }
         }
@@ -90,11 +108,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Docent.Telefoonnummer;
+                return docent.Telefoonnummer;
             }
             set
             {
-                Docent.Telefoonnummer = value;
+                docent.Telefoonnummer = value;
                 NotifyOfPropertyChange(() => Telefoon);
             }
         }
@@ -102,21 +120,37 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Docent.Email;
+                return docent.Email;
             }
             set
             {
-                Docent.Email = value;
+                docent.Email = value;
                 NotifyOfPropertyChange(() => EMail);
             }
         }
 
-        public DocentViewModel(MainViewModel main, WDocent docent)
+        public DocentViewModel(MainViewModel main)
         {
             Main = main;
+        }
+        public DocentViewModel(MainViewModel main, WDocent docent)
+            : this(main)
+        {
             Docent = docent;
         }
 
         public MainViewModel Main { get; set; }
+
+        public virtual void update(object[] o)
+        {
+            try
+            {
+                Docent = (WDocent)o[1];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

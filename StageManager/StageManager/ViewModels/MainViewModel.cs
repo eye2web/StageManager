@@ -19,7 +19,7 @@ namespace StageManager.ViewModels
 
         public MainViewModel()
         {
-            content = new ObservableCollection<object>();
+            content = new ObservableCollection<PropertyChanged>();
         }
 
         private String search;
@@ -38,8 +38,8 @@ namespace StageManager.ViewModels
             }
         }
 
-        private ObservableCollection<Object> content;
-        public ObservableCollection<Object> Contents
+        private ObservableCollection<PropertyChanged> content;
+        public ObservableCollection<PropertyChanged> Contents
         {
             get { return content; }
             set
@@ -49,7 +49,7 @@ namespace StageManager.ViewModels
             }
         }
 
-        public void addContent(Object o)
+        internal void addContent(PropertyChanged o)
         {
             Contents.Add(o);
             NotifyOfPropertyChange(() => Contents);
@@ -67,7 +67,6 @@ namespace StageManager.ViewModels
             EventHandler handler = SomethingHappened;
             if (handler != null)
             {
-                Object[] a = o.ToArray();
                 handler(this, new MainArgs(o, clear));
             }
         }

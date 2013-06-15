@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using StageManager.Models;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +9,32 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class StudentViewModel : PropertyChangedBase
+    class StudentViewModel : PropertyChanged
     {
         private static Random random = new Random();
-        private WStudent Student = new WStored().SearchStudentSet("", "")[random.Next(new WStored().SearchStudentSet("", "").Count)];
+        private WStudent student = new WStored().SearchStudentSet("", "")[random.Next(new WStored().SearchStudentSet("", "").Count)];
+
+        internal WStudent Student
+        {
+            get { return student; }
+            set
+            {
+                student = value;
+                NotifyOfPropertyChange(() => Voornaam);
+                NotifyOfPropertyChange(() => Achternaam);
+                NotifyOfPropertyChange(() => Studentnummer);
+                NotifyOfPropertyChange(() => Opleiding);
+                NotifyOfPropertyChange(() => Emailadres);
+                NotifyOfPropertyChange(() => Telefoonnummer);
+            }
+        }
 
         public string Voornaam
         {
-            get { return Student.Voornaam; }
+            get { return student.Voornaam; }
             set
             {
-                Student.Voornaam = value;
+                student.Voornaam = value;
                 NotifyOfPropertyChange(() => Voornaam);
             }
         }
@@ -27,30 +43,30 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return Student.Achternaam;
+                return student.Achternaam;
             }
             set
             {
-                Student.Achternaam = value;
+                student.Achternaam = value;
                 NotifyOfPropertyChange(() => Achternaam);
             }
         }
 
         public int Studentnummer
         {
-            get { return Student.Studentnummer; }
+            get { return student.Studentnummer; }
             set
             {
-                Student.Studentnummer = value;
+                student.Studentnummer = value;
                 NotifyOfPropertyChange(() => Studentnummer);
             }
         }
         public string Opleiding
         {
-            get { return Student.Opleidingset.Naam; }
+            get { return student.Opleidingset.Naam; }
             set
             {
-                Student.Opleidingset.Naam = value;
+                student.Opleidingset.Naam = value;
                 NotifyOfPropertyChange(() => Opleiding);
             }
         }
@@ -58,29 +74,46 @@ namespace StageManager.ViewModels
        
         public string Emailadres
         {
-            get { return Student.Email; }
+            get { return student.Email; }
             set
             {
-                Student.Email = value;
+                student.Email = value;
                 NotifyOfPropertyChange(() => Emailadres);
             }
         }
         public string Telefoonnummer
         {
-            get { return Student.Telefoonnummer; }
+            get { return student.Telefoonnummer; }
             set
             {
-                Student.Telefoonnummer = value;
+                student.Telefoonnummer = value;
                 NotifyOfPropertyChange(() => Telefoonnummer);
             }
         }
 
-        public StudentViewModel(MainViewModel main, WStudent student)
+        public StudentViewModel(MainViewModel main)
         {
             Main = main;
+
+        }
+        public StudentViewModel(MainViewModel main, WStudent student)
+            : this(main)
+        {
             Student = student;
         }
 
         public MainViewModel Main { get; set; }
+
+        public virtual void update(object[] o)
+        {
+            try
+            {
+                Student = (WStudent)o[1];
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
+        }
     }
 }

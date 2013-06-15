@@ -7,10 +7,11 @@ using StageManager.Models;
 using StageManager.Views;
 using StageManager.Controllers;
 using Caliburn.Micro;
+using StageManager.Services;
 
 namespace StageManager.ViewModels
 {
-    class AlgemeenViewModel : PropertyChangedBase
+    class AlgemeenViewModel : PropertyChanged
     {
         private List<algemeensets> gridContents;
 

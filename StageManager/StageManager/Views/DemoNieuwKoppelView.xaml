@@ -21,7 +21,7 @@
     </UserControl.Resources>
     <StackPanel Orientation="Horizontal">
         <!-- StudentSelectieView -->
-        <Expander Background="White" IsExpanded="True" ExpandDirection="Right">
+        <Expander Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" Padding="0" IsExpanded="True" ExpandDirection="Right">
             <Expander.Header>
                 <TextBlock Text="ZOEK" FontWeight="Bold" Visibility="Visible">
                     <TextBlock.LayoutTransform>
@@ -67,7 +67,7 @@
             </ScrollViewer>
         </Expander>
         <!-- KoppelView -->
-        <Expander Background="White" IsExpanded="True" ExpandDirection="Right">
+        <Expander Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" Padding="0" ExpandDirection="Right" IsExpanded="True">
             <Expander.Header>
                 <TextBlock Text="KOPPEL STUDENT AAN DOCENT" FontWeight="Bold" Visibility="Visible">
                     <TextBlock.LayoutTransform>
@@ -123,7 +123,7 @@
             </ScrollViewer>
         </Expander>
         <!-- KoppelTweedeLezerView -->
-        <Expander Background="White" IsExpanded="True" ExpandDirection="Right">
+        <Expander Background="White" BorderBrush="#FFA0A0A0" BorderThickness="1" Padding="0" ExpandDirection="Right" IsExpanded="True">
             <Expander.Header>
                 <TextBlock Text="KOPPEL STUDENT AAN TWEEDE LEZER" FontWeight="Bold" Visibility="Visible">
                     <TextBlock.LayoutTransform>

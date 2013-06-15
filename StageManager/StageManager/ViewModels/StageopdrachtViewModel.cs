@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using StageManager.Models;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,37 +9,53 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class StageopdrachtViewModel : PropertyChangedBase
+    class StageopdrachtViewModel : PropertyChanged
     {
         private static Random random = new Random();
-        private WStage Stage = new WStored().SearchStageSet()[random.Next(new WStored().SearchStageSet().Count)];
+        private WStage stage = new WStored().SearchStageSet()[random.Next(new WStored().SearchStageSet().Count)];
+
+        internal WStage Stage
+        {
+            get { return stage; }
+            set
+            {
+                stage = value;
+                NotifyOfPropertyChange(() => StartDatum);
+                NotifyOfPropertyChange(() => Bedrijfsbegeleider);
+                NotifyOfPropertyChange(() => Docent);
+                NotifyOfPropertyChange(() => EersteStudent);
+                NotifyOfPropertyChange(() => EindDatum);
+                NotifyOfPropertyChange(() => Omschrijving);
+                NotifyOfPropertyChange(() => TweedeStudent);
+            }
+        }
 
         public DateTime? StartDatum
         {
-            get { return Stage.Start_datum; }
+            get { return stage.Start_datum; }
             set
             {
-                Stage.Start_datum = value;
+                stage.Start_datum = value;
                 NotifyOfPropertyChange(() => StartDatum);
             }
         }
 
         public DateTime? EindDatum
         {
-            get { return Stage.Eind_datum; }
+            get { return stage.Eind_datum; }
             set
             {
-                Stage.Eind_datum = value;
+                stage.Eind_datum = value;
                 NotifyOfPropertyChange(() => EindDatum);
             }
         }
 
         public string Omschrijving
         {
-            get {  return Stage.Stageopdracht_omschijving; }
+            get {  return stage.Stageopdracht_omschijving; }
             set
             {
-                Stage.Stageopdracht_omschijving = value;
+                stage.Stageopdracht_omschijving = value;
                 NotifyOfPropertyChange(() => Omschrijving);
             }
         }
@@ -49,7 +66,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    return Stage.studentset2.Voornaam + " " + Stage.studentset2.Achternaam;
+                    return stage.studentset2.Voornaam + " " + stage.studentset2.Achternaam;
                 }
                 catch (NullReferenceException)
                 {
@@ -65,7 +82,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    return Stage.studentset.Voornaam + " " + Stage.studentset.Achternaam;;
+                    return stage.studentset.Voornaam + " " + stage.studentset.Achternaam;;
                 }
                 catch (NullReferenceException)
                 {
@@ -98,7 +115,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    return Stage.docentsets.Voornaam + " " + Stage.docentsets.Achternaam;
+                    return stage.docentsets.Voornaam + " " + stage.docentsets.Achternaam;
                 }
                 catch (NullReferenceException)
                 {
@@ -108,12 +125,29 @@ namespace StageManager.ViewModels
             set { }
         }
 
-        public StageopdrachtViewModel(MainViewModel main, WStage stage)
+        public StageopdrachtViewModel(MainViewModel main)
         {
             Main = main;
+        }
+        public StageopdrachtViewModel(MainViewModel main, WStage stage)
+            : this(main)
+        {
             Stage = stage;
         }
 
         public MainViewModel Main { get; set; }
+
+        public virtual void update(object[] o)
+        {
+            try
+            {
+                Stage = (WStage)o[1];
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

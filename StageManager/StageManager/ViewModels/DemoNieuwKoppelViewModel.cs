@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using StageManager.Models;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class DemoNieuwKoppelViewModel : PropertyChangedBase
+    class DemoNieuwKoppelViewModel : PropertyChanged
     {
         private List<Object> studentGridContents;
         public List<Object> StudentGridContents
