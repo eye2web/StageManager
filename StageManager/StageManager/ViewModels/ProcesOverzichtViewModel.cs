@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using StageManager.Models;
+using StageManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,34 +44,71 @@ namespace StageManager.ViewModels
             }
         }
 
-        private List<WStudent> selectedStudents;
-        public List<Object> SelectedStudents
+        private Object selectedStudent;
+        public object SelectedStudent
         {
             get
             {
-                return (from s in selectedStudents select (Object)s).ToList();
+                return selectedStudent;
             }
             set
             {
                 if (value != null)
                 {
-                    for (int i = 0; i < value.Count; i++)
+                    selectedStudent = value;
+                    WStudent s = null;
+                    list.TryGetValue(value, out s);
+                    Type t = value.GetType();
+                    System.Reflection.PropertyInfo p = t.GetProperty("MailTo");
+                    System.Reflection.MethodInfo m = p.GetMethod;
+                    bool ob = !(bool)m.Invoke(value, null);
+                    bool temp = !(bool)value.GetType().GetProperty("MailTo").GetMethod.Invoke(value, null);
+                    if (s != null)
                     {
-                        WStudent s = null;
-                        List.TryGetValue(value[i], out s);
-                        selectedStudents.Add(s);
+                        Object o = (Object)new
+                        {
+                            MailTo = !(bool)value.GetType().GetProperty("MailTo").GetMethod.Invoke(value, null),
+                            Email = (String)value.GetType().GetProperty("Email").GetMethod.Invoke(value, null),
+                            EmailURL = (String)value.GetType().GetProperty("EmailURL").GetMethod.Invoke(value, null),
+                            StudentNaam = (String)value.GetType().GetProperty("StudentNaam").GetMethod.Invoke(value, null),
+                            Gegevens = (String)value.GetType().GetProperty("Gegevens").GetMethod.Invoke(value, null),
+                            Stageopdracht = (bool)value.GetType().GetProperty("Stageopdracht").GetMethod.Invoke(value, null),
+                            Feedback = (String)value.GetType().GetProperty("Feedback").GetMethod.Invoke(value, null),
+                            Docent = (String)value.GetType().GetProperty("Docent").GetMethod.Invoke(value, null)
+                        };
+                        list.Remove(value);
+                        list.Add(o,s);
+                        List = list;
                     }
-                    NotifyOfPropertyChange(() => SelectedStudents);
                 }
             }
         }
 
-        public ProcesOverzichtViewModel()
+        public void MailSelectie()
         {
-            selectedStudents = new List<WStudent>();
+            List<String> mails = new List<string>();
+            for (int i = 0; i < List.Keys.Count; i++)
+            {
+                if ((bool)List.Keys.ElementAt(i).GetType().GetProperty("MailTo").GetMethod.Invoke(List.Keys.ElementAt(i), null))
+                {
+                    WStudent s;
+                    List.TryGetValue(List.Keys.ElementAt(i), out s);
+                    mails.Add(s.Email);
+                }
+            }
+            Main.ChangeButton("Mail", new List<object>() { mails }, Clear.All);
+
+        }
+
+        public ProcesOverzichtViewModel(MainViewModel main)
+        {
+            Main = main;
+
+            selectedStudent = new Object();
             List = new Dictionary<object, WStudent>();
             List = new WStored().SearchStudentSet("", "").ToDictionary(t => (Object)new
                             {
+                                MailTo = false,
                                 Email = t.Email,
                                 EmailURL = "mailto:" + t.Email,
                                 StudentNaam = t.Achternaam + ", " + t.Voornaam,
@@ -80,6 +118,8 @@ namespace StageManager.ViewModels
                                 Docent = "Docent"
                             }, t => t);
         }
+
+        public MainViewModel Main { get; set; }
     }
 }
 

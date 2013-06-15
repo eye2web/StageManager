@@ -11,7 +11,7 @@ namespace StageManager.ViewModels
     class BedrijfsbegeleiderViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WBedrijfsBegeleider begeleider = new WStored().SearchBedrijfsBegeleiderSet()[random.Next(new WStored().SearchBedrijfsBegeleiderSet().Count)];//temp
+        private WBedrijfsBegeleider Begeleider = new WStored().SearchBedrijfsBegeleiderSet()[random.Next(new WStored().SearchBedrijfsBegeleiderSet().Count)];//temp
 
         /*public String Voornaam
         {
@@ -43,7 +43,7 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return begeleider.Functie;
+                return Begeleider.Functie;
             }
         }
 
@@ -64,11 +64,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return begeleider.Opleidingsniveau;
+                return Begeleider.Opleidingsniveau;
             }
             set
             {
-                begeleider.Opleidingsniveau = value;
+                Begeleider.Opleidingsniveau = value;
                 NotifyOfPropertyChange(() => Opleiding);
             }
         }
@@ -77,16 +77,21 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return begeleider.Minimale_begeleidingstijd_gegarandeerd;
+                return Begeleider.Minimale_begeleidingstijd_gegarandeerd;
             }
             set
             {
-                begeleider.Minimale_begeleidingstijd_gegarandeerd = value;
+                Begeleider.Minimale_begeleidingstijd_gegarandeerd = value;
                 NotifyOfPropertyChange(() => BegeleidingUren);
             }
         }
 
-        public BedrijfsbegeleiderViewModel()
-        { }
+        public BedrijfsbegeleiderViewModel(MainViewModel main, WBedrijfsBegeleider bedrijfsbegeleider)
+        {
+            Main = main;
+            Begeleider = bedrijfsbegeleider;
+        }
+
+        public MainViewModel Main { get; set; }
     }
 }

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    public class StudentViewModel : PropertyChangedBase
+    class StudentViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WStudent student = new WStored().SearchStudentSet("", "")[random.Next(new WStored().SearchStudentSet("", "").Count)];
+        private WStudent Student = new WStored().SearchStudentSet("", "")[random.Next(new WStored().SearchStudentSet("", "").Count)];
 
         public string Voornaam
         {
-            get { return student.Voornaam; }
+            get { return Student.Voornaam; }
             set
             {
-                student.Voornaam = value;
+                Student.Voornaam = value;
                 NotifyOfPropertyChange(() => Voornaam);
             }
         }
@@ -27,30 +27,30 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return student.Achternaam;
+                return Student.Achternaam;
             }
             set
             {
-                student.Achternaam = value;
+                Student.Achternaam = value;
                 NotifyOfPropertyChange(() => Achternaam);
             }
         }
 
         public int Studentnummer
         {
-            get { return student.Studentnummer; }
+            get { return Student.Studentnummer; }
             set
             {
-                student.Studentnummer = value;
+                Student.Studentnummer = value;
                 NotifyOfPropertyChange(() => Studentnummer);
             }
         }
         public string Opleiding
         {
-            get { return student.Opleidingset.Naam; }
+            get { return Student.Opleidingset.Naam; }
             set
             {
-                student.Opleidingset.Naam = value;
+                Student.Opleidingset.Naam = value;
                 NotifyOfPropertyChange(() => Opleiding);
             }
         }
@@ -58,21 +58,29 @@ namespace StageManager.ViewModels
        
         public string Emailadres
         {
-            get { return student.Email; }
+            get { return Student.Email; }
             set
             {
-                student.Email = value;
+                Student.Email = value;
                 NotifyOfPropertyChange(() => Emailadres);
             }
         }
         public string Telefoonnummer
         {
-            get { return student.Telefoonnummer; }
+            get { return Student.Telefoonnummer; }
             set
             {
-                student.Telefoonnummer = value;
+                Student.Telefoonnummer = value;
                 NotifyOfPropertyChange(() => Telefoonnummer);
             }
         }
+
+        public StudentViewModel(MainViewModel main, WStudent student)
+        {
+            Main = main;
+            Student = student;
+        }
+
+        public MainViewModel Main { get; set; }
     }
 }

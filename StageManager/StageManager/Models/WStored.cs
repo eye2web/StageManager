@@ -14,12 +14,19 @@ namespace StageManager.Models
         public List<WStudent> SearchStudentSet(String searchString, String searchOpleiding)
         {
 
-            if (searchString == null)
+            if (searchString == null && searchOpleiding == null)
             {
                 return (from student
                         in StageManagerEntities.studentsets.ToList()
-                        where student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower()) &&
-                        student.stagesets.First().docentset_Id ==  null
+                        where student.stagesets.First().docentset_Id == null
+                        select new WStudent(student)).ToList();
+            }
+            else if (searchString == null)
+            {
+                return (from student
+                        in StageManagerEntities.studentsets.ToList()
+                        where (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())) &&
+                        student.stagesets.First().docentset_Id == null
                         select new WStudent(student)).ToList();
             }
             else if (searchOpleiding == null)

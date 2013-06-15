@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using StageManager.Services;
 using StageManager.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -28,17 +29,33 @@ namespace StageManager.Controllers
             CurrentViewModel = null; // On Startup View
         }
 
-        public void HandleEvent(object sender, EventArgs args)
+        public void HandleEvent(object sender, EventArgs eventArgs)
         {
+            MainArgs args = (MainArgs)eventArgs;
             MainViewModel mainViewModel = (MainViewModel)sender;
             string objectName = mainViewModel.currentButton + "ViewModel";
+            List<Object> param = new List<object>();
+            param.Add(mainViewModel);
+            param.AddRange(args.param);
 
             Assembly currAssembly = Assembly.GetExecutingAssembly();
             var currType = currAssembly.GetTypes().SingleOrDefault(t => t.Name == objectName);
             if (currType != null)
             {
-                mainViewModel.Contents = null;
-                mainViewModel.Contents = Activator.CreateInstance(currType);
+                switch (args.clear)
+                {
+                    case Clear.All:
+                        mainViewModel.Contents.Clear();
+                        break;
+                    case Clear.After:
+                        //TODO;
+                        break;
+                    case Clear.No:
+                        break;
+                    default:
+                        break;
+                }
+                mainViewModel.addContent(Activator.CreateInstance(currType,param.ToArray()));
             }
         }
     }

@@ -76,22 +76,32 @@ namespace StageManager.ViewModels
         }
 
         private WStudent selectedStudent;
-        public object SelectedStudent
+
+        internal WStudent SelectedStudent
+        {
+            get { return selectedStudent; }
+            set { selectedStudent = value;
+            Main.ChangeButton("Koppel", new List<Object>(){SelectedStudent}, Services.Clear.No);
+            }
+        }
+        public object SelectedObject
         {
             get
             {
-                return selectedStudent;
+                return SelectedStudent;
             }
             set
             {
-                List.TryGetValue(value, out selectedStudent);
+                WStudent s;
+                List.TryGetValue(value, out s);
+                SelectedStudent = s;
             }
         }
 
-        public ZoekViewModel()
+        public ZoekViewModel(MainViewModel main,String zoekString)
         {
-            SearchString = "";
-            searchString = "Trefwoord(en)";
+            Main = main;
+            SearchString = zoekString;
             OpleidingStack = (from opleiding in new WStored().SearchOpleidingSet() select opleiding.Naam).ToList();
 
         }
@@ -117,5 +127,7 @@ namespace StageManager.ViewModels
             }
                 GridContents = list.Keys.ToList();
         }
+
+        public MainViewModel Main { get; set; }
     }
 }

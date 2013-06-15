@@ -11,16 +11,16 @@ namespace StageManager.ViewModels
     class BedrijfViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WBedrijf bedrijf = new WStored().SearchBedrijfSet()[random.Next(new WStored().SearchBedrijfSet().Count)];//temp
+        private WBedrijf Bedrijf = new WStored().SearchBedrijfSet()[random.Next(new WStored().SearchBedrijfSet().Count)];//temp
         public String Naam
         {
             get
             {
-                return bedrijf.Naam;
+                return Bedrijf.Naam;
             }
             set
             {
-                bedrijf.Naam = value;
+                Bedrijf.Naam = value;
                 NotifyOfPropertyChange(() => Naam);
             }
         }
@@ -29,11 +29,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-               return bedrijf.AdresSets.Straat;
+               return Bedrijf.AdresSets.Straat;
             }
             set
             {
-                bedrijf.AdresSets.Straat = value;
+                Bedrijf.AdresSets.Straat = value;
                 NotifyOfPropertyChange(() => Straat);
             }
         }
@@ -42,11 +42,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return bedrijf.AdresSets.Huisnummer;
+                return Bedrijf.AdresSets.Huisnummer;
             }
             set
             {
-                bedrijf.AdresSets.Huisnummer = value;
+                Bedrijf.AdresSets.Huisnummer = value;
                 NotifyOfPropertyChange(() => Huisnummer);
             }
         }
@@ -55,11 +55,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return bedrijf.AdresSets.Postcode;
+                return Bedrijf.AdresSets.Postcode;
             }
             set
             {
-                bedrijf.AdresSets.Postcode = value;
+                Bedrijf.AdresSets.Postcode = value;
                 NotifyOfPropertyChange(() => Postcode);
             }
         }
@@ -68,13 +68,21 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return bedrijf.AdresSets.Plaats;
+                return Bedrijf.AdresSets.Plaats;
             }
             set
             {
-                bedrijf.AdresSets.Plaats = value;
+                Bedrijf.AdresSets.Plaats = value;
                 NotifyOfPropertyChange(() => Plaats);
             }
         }
+
+        public BedrijfViewModel(MainViewModel main, WBedrijf bedrijf)
+        {
+            Main = main;
+            Bedrijf = bedrijf;
+        }
+
+        public MainViewModel Main { get; set; }
     }
 }

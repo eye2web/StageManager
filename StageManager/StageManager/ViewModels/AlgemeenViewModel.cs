@@ -75,8 +75,9 @@ namespace StageManager.ViewModels
             }
         }
 
-        public AlgemeenViewModel()
-        {            
+        public AlgemeenViewModel(MainViewModel main)
+        {
+            Main = main;
             FillView();
         }
 
@@ -149,5 +150,7 @@ namespace StageManager.ViewModels
 
             FillView();
         }
+
+        public MainViewModel Main { get; set; }
     }
 }

@@ -11,34 +11,34 @@ namespace StageManager.ViewModels
     class StageopdrachtViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WStage stage = new WStored().SearchStageSet()[random.Next(new WStored().SearchStageSet().Count)];
+        private WStage Stage = new WStored().SearchStageSet()[random.Next(new WStored().SearchStageSet().Count)];
 
         public DateTime? StartDatum
         {
-            get { return stage.Start_datum; }
+            get { return Stage.Start_datum; }
             set
             {
-                stage.Start_datum = value;
+                Stage.Start_datum = value;
                 NotifyOfPropertyChange(() => StartDatum);
             }
         }
 
         public DateTime? EindDatum
         {
-            get { return stage.Eind_datum; }
+            get { return Stage.Eind_datum; }
             set
             {
-                stage.Eind_datum = value;
+                Stage.Eind_datum = value;
                 NotifyOfPropertyChange(() => EindDatum);
             }
         }
 
         public string Omschrijving
         {
-            get {  return stage.Stageopdracht_omschijving; }
+            get {  return Stage.Stageopdracht_omschijving; }
             set
             {
-                stage.Stageopdracht_omschijving = value;
+                Stage.Stageopdracht_omschijving = value;
                 NotifyOfPropertyChange(() => Omschrijving);
             }
         }
@@ -49,7 +49,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    return stage.studentset2.Voornaam + " " + stage.studentset2.Achternaam;
+                    return Stage.studentset2.Voornaam + " " + Stage.studentset2.Achternaam;
                 }
                 catch (NullReferenceException)
                 {
@@ -65,7 +65,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    return stage.studentset.Voornaam + " " + stage.studentset.Achternaam;;
+                    return Stage.studentset.Voornaam + " " + Stage.studentset.Achternaam;;
                 }
                 catch (NullReferenceException)
                 {
@@ -98,7 +98,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    return stage.docentsets.Voornaam + " " + stage.docentsets.Achternaam;
+                    return Stage.docentsets.Voornaam + " " + Stage.docentsets.Achternaam;
                 }
                 catch (NullReferenceException)
                 {
@@ -107,5 +107,13 @@ namespace StageManager.ViewModels
             }
             set { }
         }
+
+        public StageopdrachtViewModel(MainViewModel main, WStage stage)
+        {
+            Main = main;
+            Stage = stage;
+        }
+
+        public MainViewModel Main { get; set; }
     }
 }

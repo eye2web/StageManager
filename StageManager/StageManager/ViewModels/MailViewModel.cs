@@ -74,8 +74,10 @@ namespace StageManager.ViewModels
             }
         }
 
-        public MailViewModel()
+        public MailViewModel(MainViewModel main, List<String> emails)
         {
+            Main = main;
+
             Message = "Beste student,\n\n" +
                 "Met deze mail vragen wij vriendelijk om je gegevens in te vullen in dit web formulier\n" +
                 "%webkey%\n\n\n" +
@@ -83,6 +85,13 @@ namespace StageManager.ViewModels
                 "Katinka Janssen\n" +
                 "Stagecoördinator AI&I\n" +
                 "Avans Hogeschool 's-Hertogenbosch";
+            if (emails != null)
+            {
+                for (int i = 0; i < emails.Count; i++)
+                {
+                    To += emails[i]+" ";
+                }
+            }
         }
         public void Send()
         {
@@ -93,5 +102,7 @@ namespace StageManager.ViewModels
                 Mailer.SendNew(to[i].Trim(), Message, Subject, new ListDictionary());
             }
         }
+
+        public MainViewModel Main { get; set; }
     }
 }

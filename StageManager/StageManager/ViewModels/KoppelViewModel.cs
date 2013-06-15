@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    public class KoppelViewModel : PropertyChangedBase
+    class KoppelViewModel : PropertyChangedBase
     {
         List<WDocent> DataGrid = new WStored().SearchDocentSet(null);
 
-        public KoppelViewModel()
-        { }
+        public KoppelViewModel(MainViewModel main, WStudent student)
+        {
+            Main = main;
+        }
 
+
+        public MainViewModel Main { get; set; }
     }
 }

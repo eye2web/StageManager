@@ -162,8 +162,9 @@ namespace StageManager.ViewModels
         }
 
 
-        public DemoNieuwKoppelViewModel()
+        public DemoNieuwKoppelViewModel(MainViewModel main)
         {
+            Main = main;
             SearchString = "";
             SearchOpleiding = "";
             FillView();
@@ -192,5 +193,7 @@ namespace StageManager.ViewModels
             SearchOpleiding = "";
             searchStudent();
         }
+
+        public MainViewModel Main { get; set; }
     }
 }

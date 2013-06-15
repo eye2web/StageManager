@@ -11,17 +11,17 @@ namespace StageManager.ViewModels
     class DocentViewModel : PropertyChangedBase
     {
         private static Random random = new Random();
-        private WDocent docent = new WStored().SearchDocentSet(null)[random.Next(new WStored().SearchDocentSet(null).Count)];
+        private WDocent Docent = new WStored().SearchDocentSet(null)[random.Next(new WStored().SearchDocentSet(null).Count)];
 
         public String Voornaam
         {
             get
             {
-                return docent.Voornaam;
+                return Docent.Voornaam;
             }
             set
             {
-                docent.Voornaam = value;
+                Docent.Voornaam = value;
                 NotifyOfPropertyChange(() => Voornaam);
             }
         }
@@ -29,11 +29,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return docent.Achternaam;
+                return Docent.Achternaam;
             }
             set
             {
-                docent.Achternaam = value;
+                Docent.Achternaam = value;
                 NotifyOfPropertyChange(() => Achternaam);
             }
         }
@@ -41,11 +41,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return docent.adressets.Straat;
+                return Docent.adressets.Straat;
             }
             set
             {
-                docent.adressets.Straat = value;
+                Docent.adressets.Straat = value;
                 NotifyOfPropertyChange(() => Straat);
             }
         }
@@ -53,11 +53,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return docent.adressets.Huisnummer;
+                return Docent.adressets.Huisnummer;
             }
             set
             {
-                docent.adressets.Huisnummer = value;
+                Docent.adressets.Huisnummer = value;
                 NotifyOfPropertyChange(() => Huisnummer);
             }
         }
@@ -66,11 +66,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return docent.adressets.Postcode;
+                return Docent.adressets.Postcode;
             }
             set
             {
-                docent.adressets.Postcode = value;
+                Docent.adressets.Postcode = value;
                 NotifyOfPropertyChange(() => Postcode);
             }
         }
@@ -78,11 +78,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return docent.adressets.Plaats;
+                return Docent.adressets.Plaats;
             }
             set
             {
-                docent.adressets.Plaats = value;
+                Docent.adressets.Plaats = value;
                 NotifyOfPropertyChange(() => Woonplaats);
             }
         }
@@ -90,11 +90,11 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return docent.Telefoonnummer;
+                return Docent.Telefoonnummer;
             }
             set
             {
-                docent.Telefoonnummer = value;
+                Docent.Telefoonnummer = value;
                 NotifyOfPropertyChange(() => Telefoon);
             }
         }
@@ -102,16 +102,21 @@ namespace StageManager.ViewModels
         {
             get
             {
-                return docent.Email;
+                return Docent.Email;
             }
             set
             {
-                docent.Email = value;
+                Docent.Email = value;
                 NotifyOfPropertyChange(() => EMail);
             }
         }
 
-        public DocentViewModel()
-        { }
+        public DocentViewModel(MainViewModel main, WDocent docent)
+        {
+            Main = main;
+            Docent = docent;
+        }
+
+        public MainViewModel Main { get; set; }
     }
 }

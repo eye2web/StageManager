@@ -24,6 +24,7 @@
         private stagemanagerEntities smEntities;
 
         public AppBootstrapper()
+            :base()
         {
             windowManager = new WindowManager();
             defaultFactory = new DefaultFactory();
