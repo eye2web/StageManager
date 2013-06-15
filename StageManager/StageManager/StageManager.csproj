@@ -166,6 +166,7 @@
     <Compile Include="Models\webkeysets.cs">
       <DependentUpon>StagemanagerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WEindStage.cs" />
     <Compile Include="Models\WOpleiding.cs" />
     <Compile Include="Models\WPersoon.cs" />
     <Compile Include="Models\WStage.cs" />
