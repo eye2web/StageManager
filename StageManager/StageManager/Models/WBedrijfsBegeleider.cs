@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WBedrijfsBegeleider :Wrapper, ISetEntity<bedrijfsbegeleidersets>
+    public class WBedrijfsBegeleider :Wrapper, ISetEntity<bedrijfsbegeleidersets>
     {
         public string Functie
         {

@@ -48,7 +48,7 @@ namespace StageManager.ViewModels
         }
 
         private Dictionary<Object,WStudent> list;
-        Dictionary<Object, WStudent> List
+        public Dictionary<Object, WStudent> List
         {
             get
             {
@@ -77,6 +77,12 @@ namespace StageManager.ViewModels
         }
 
         private WStudent selectedStudent;
+        public WStudent SelectedStudent
+        {
+            get { return selectedStudent; }
+            set { selectedStudent = value; }
+        }
+
         public object SelectedObject
         {
             get
@@ -89,6 +95,11 @@ namespace StageManager.ViewModels
                 Main.ChangeButton("Koppel", new List<Object>() { selectedStudent.stagesets }, Services.Clear.No);
 
             }
+        }
+
+        public void Test(WStudent student)
+        {
+            bool b = false;
         }
 
         public ZoekViewModel(MainViewModel main)

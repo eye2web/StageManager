@@ -87,7 +87,7 @@ namespace StageManager.ViewModels
 
         public Boolean CanTweedeLezer
         {
-            get { return Stage.GetType()== typeof(WEindStage);
+            get { return Stage!=null? Stage.GetType()== typeof(WEindStage):false;
             }
         }
 
@@ -96,11 +96,16 @@ namespace StageManager.ViewModels
             Main.ChangeButton("");//TODO!!
         }
 
-        public KoppelViewModel(MainViewModel main, WStage stage)
+        public KoppelViewModel(MainViewModel main)
         {
             Main = main;
-            Stage = stage;
             DataGrid = new WStored().SearchDocentSet("");
+        }
+
+        public KoppelViewModel(MainViewModel main, WStage stage)
+            :this(main)
+        {
+            Stage = stage;
         }
 
 

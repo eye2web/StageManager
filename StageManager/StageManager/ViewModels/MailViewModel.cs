@@ -74,10 +74,10 @@ namespace StageManager.ViewModels
             }
         }
 
-        public MailViewModel(MainViewModel main, List<String> emails)
+        public MailViewModel(MainViewModel main)
         {
             Main = main;
-
+            To = "";
             Message = "Beste student,\n\n" +
                 "Met deze mail vragen wij vriendelijk om je gegevens in te vullen in dit web formulier\n" +
                 "%webkey%\n\n\n" +
@@ -85,6 +85,11 @@ namespace StageManager.ViewModels
                 "Katinka Janssen\n" +
                 "Stagecoördinator AI&I\n" +
                 "Avans Hogeschool 's-Hertogenbosch";
+        }
+
+        public MailViewModel(MainViewModel main, List<String> emails)
+            :this(main)
+        {
             if (emails != null)
             {
                 for (int i = 0; i < emails.Count; i++)

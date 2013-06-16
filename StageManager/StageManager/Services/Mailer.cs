@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -109,6 +110,12 @@ namespace StageManager.Services
             {
             webkey = stored.NewWebkey(to);
             }
+            System.Reflection.Assembly thisExe = System.Reflection.Assembly.GetExecutingAssembly();
+            string path = thisExe.Location;
+            DirectoryInfo dirinfo = new DirectoryInfo(path);
+            string folderName = dirinfo.Parent.FullName;
+            path = folderName + "Config.txt";
+            Uri uri = new Uri(path);
             replacements.Add("%webkey%", "<a href='" + webkey + "'>" + webkey + "</a>");
             Send(to, body, Subject, replacements);
         }

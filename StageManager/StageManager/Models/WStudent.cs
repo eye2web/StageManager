@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.Models
 {
-    class WStudent : WPersoon, ISetEntity<studentsets>
+    public class WStudent : WPersoon, ISetEntity<studentsets>
     {
         public int Studentnummer
         {
