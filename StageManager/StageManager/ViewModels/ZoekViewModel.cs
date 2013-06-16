@@ -99,7 +99,7 @@ namespace StageManager.ViewModels
 
         public void Test(WStudent student)
         {
-            bool b = false;
+            Main.ChangeButton("Student", new List<object>() { student });
         }
 
         public ZoekViewModel(MainViewModel main)
@@ -118,7 +118,7 @@ namespace StageManager.ViewModels
         public void searchStudent()
         {
             list = new Dictionary<object, WStudent>();
-            list = (new WStored().SearchStudentSet(searchString, searchOpleiding).ToDictionary(t=>(Object)new
+            list = (new WStored().SearchStudentSetWithStage(searchString, searchOpleiding).ToDictionary(t=>(Object)new
                     {
                             StudentNummer = t.Studentnummer,
                             Voornaam = t.Voornaam,

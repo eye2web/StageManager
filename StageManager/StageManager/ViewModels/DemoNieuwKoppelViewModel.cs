@@ -88,7 +88,7 @@ namespace StageManager.ViewModels
             {
                 try
                 {
-                    selectedStudent = new WStored().SearchStudentSet(value.GetType().GetProperty("Studentnummer").GetMethod.Invoke(value, null).ToString(), "").First();
+                    selectedStudent = new WStored().SearchStudentSetWithStage(value.GetType().GetProperty("Studentnummer").GetMethod.Invoke(value, null).ToString(), "").First();
                     KoppelStudent = selectedStudent;
                     NotifyOfPropertyChange(() => SelectedStudent);
                 }
@@ -181,7 +181,7 @@ namespace StageManager.ViewModels
 
         public void searchStudent()
         {
-            StudentGridContents = (from student in new WStored().SearchStudentSet(SearchString, SearchOpleiding)
+            StudentGridContents = (from student in new WStored().SearchStudentSetWithStage(SearchString, SearchOpleiding)
                                    select (object)new { Studentnummer = student.Studentnummer, Voornaam = student.Voornaam, Achternaam = student.Achternaam, EC_norm_behaald = student.EC_norm_behaald }).ToList();
         }
 

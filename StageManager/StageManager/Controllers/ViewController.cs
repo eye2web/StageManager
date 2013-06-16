@@ -41,35 +41,33 @@ namespace StageManager.Controllers
 
             Assembly currAssembly = Assembly.GetExecutingAssembly();
             var currType = currAssembly.GetTypes().SingleOrDefault(t => t.Name == objectName);
-           if (mainViewModel.Contents.Count == 0 || currType != mainViewModel.Contents.Last().GetType())
+            if (currType != null)
             {
-                if (currType != null)
+                switch (args.clear)
                 {
-                    switch (args.clear)
-                    {
-                        case Clear.All:
-                            mainViewModel.Contents.Clear();
-                            break;
-                        case Clear.After:
-                            //TODO;
-                            break;
-                        case Clear.No:
-                            break;
-                        default:
-                            break;
-                    }
-                    Type t = currType.BaseType;
-                    Type ct = typeof(PropertyChanged);
+                    case Clear.All:
+                        mainViewModel.Contents.Clear();
+                        break;
+                    case Clear.After:
+                        //TODO;
+                        break;
+                    case Clear.No:
+                        break;
+                    default:
+                        break;
+                }
+                if (mainViewModel.Contents.Count == 0 || currType != mainViewModel.Contents.Last().GetType())
+                {
                     if (currType.BaseType == typeof(PropertyChanged))
                     {
-                        Object o = Activator.CreateInstance(currType, param.ToArray());
                         mainViewModel.addContent((PropertyChanged)Activator.CreateInstance(currType, param.ToArray()));
                     }
                 }
-            }
-            else
-            {
-                mainViewModel.Contents.Last().update(param.ToArray());
+
+                else
+                {
+                    mainViewModel.Contents.Last().update(param.ToArray());
+                }
             }
         }
     }

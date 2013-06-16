@@ -57,13 +57,18 @@ namespace StageManager.ViewModels
 
         public void ChangeButton(string name)
         {
-            ChangeButton(name, new List<Object>(), Clear.No);
+            ChangeButton(name, new List<Object>());
         }
 
-        public void ChangeButton(string name, List<Object> o, Clear c=Clear.No)
+        public void ChangeButton(string name, List<Object> o)
+        {
+            ChangeButton(name, o, Clear.No);
+        }
+
+        public void ChangeButton(string name, List<Object> o, Clear c)
         {
             currentButton = name;
-            Clear clear= c;
+            Clear clear = c;
             EventHandler handler = SomethingHappened;
             if (handler != null)
             {

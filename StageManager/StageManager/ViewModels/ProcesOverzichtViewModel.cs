@@ -106,7 +106,7 @@ namespace StageManager.ViewModels
 
             selectedStudent = new Object();
             List = new Dictionary<object, WStudent>();
-            List = new WStored().SearchStudentSet("", "").ToDictionary(t => (Object)new
+            List = new WStored().SearchStudentSetWithStage("", "").ToDictionary(t => (Object)new
                             {
                                 MailTo = false,
                                 Email = t.Email,
