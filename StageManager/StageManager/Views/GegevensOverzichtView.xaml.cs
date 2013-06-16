@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StageManager.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace StageManager.Views
     /// <summary>
     /// Interaction logic for GegevensOverzichtView.xaml
     /// </summary>
-    public partial class GegevensOverzichtView : UserControl
+    public partial class GegevensOverzichtView : UserControl, IExcelAlgorithm
     {
         ObservableCollection<PGDummy> Collection { get; set; }
 
@@ -54,6 +55,49 @@ namespace StageManager.Views
                 "", "", 0, "ja", "", "", "", "", "", "", "", "", "", 0, "", "", "", "", "", "", "", "", "", ""));
 
             listView.ItemsSource = Collection;
+        }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+            ExportExcel ee = new ExportExcel(this);
+            ee.Export();
+        }
+
+        public void createWorksheet(Microsoft.Office.Interop.Excel.Worksheet worksheet)
+        {
+            int i = 1;
+            int j = 1;
+
+            worksheet.Cells[i, j] = "StudentNummer";
+            worksheet.Cells[i, j + 1] = "Achternaam";
+            worksheet.Cells[i, j + 2] = "Voorvoegsels";
+            worksheet.Cells[i, j + 3] = "Roepnaam";
+            worksheet.Cells[i, j + 4] = "EmailURL";
+            worksheet.Cells[i, j + 5] = "Email";
+            worksheet.Cells[i, j + 6] = "Straatnaam";
+            worksheet.Cells[i, j + 7] = "Nummer";
+            worksheet.Cells[i, j + 8] = "Toevoeging";
+            worksheet.Cells[i, j + 9] = "Postcode";
+            worksheet.Cells[i, j + 10] = "Plaats";
+
+            i++;
+
+            foreach (PGDummy item in listView.Items)
+            {
+                worksheet.Cells[i, j] = item.StudentNummer;
+                worksheet.Cells[i, j + 1] = item.Achternaam;
+                worksheet.Cells[i, j + 2] = item.Voorvoegsels;
+                worksheet.Cells[i, j + 3] = item.Roepnaam;
+                worksheet.Cells[i, j + 4] = item.EmailURL;
+                worksheet.Cells[i, j + 5] = item.Email;
+                worksheet.Cells[i, j + 6] = item.Straatnaam;
+                worksheet.Cells[i, j + 7] = item.Nummer;
+                worksheet.Cells[i, j + 8] = item.Toevoeging;
+                worksheet.Cells[i, j + 9] = item.Postcode;
+                worksheet.Cells[i, j + 10] = item.Plaats;
+
+                i++;
+            }
         }
     }
 
@@ -101,9 +145,9 @@ namespace StageManager.Views
         public string BegTelefoon { get; set; }
         public string Website { get; set; }
 
-        public PGDummy(int studentnummer, string achternaam, string voorvoegsels, string roepnaam, string emailurl, string email, string straatnaam, int nummer, string toevoeging, string postcode, string plaats, 
+        public PGDummy(int studentnummer, string achternaam, string voorvoegsels, string roepnaam, string emailurl, string email, string straatnaam, int nummer, string toevoeging, string postcode, string plaats,
             string telefoonnummer, string slb61, string slb62, string slb63, string slb6t, string slb71, string slb72, string slb7t, int ec, string p, string eps, string formgoed, string toestex, string stagecontract,
-            string docent, string bijzonderheden, string bedrijf, string branche, string bstraat, int bnummer, string btoevoeging, string bpostcode, string bplaats, string bland, string bedrijfsbegeleider, string bemailurl, 
+            string docent, string bijzonderheden, string bedrijf, string branche, string bstraat, int bnummer, string btoevoeging, string bpostcode, string bplaats, string bland, string bedrijfsbegeleider, string bemailurl,
             string bemail, string btelefoon, string begtelefoon, string website)
         {
             StudentNummer = studentnummer;
