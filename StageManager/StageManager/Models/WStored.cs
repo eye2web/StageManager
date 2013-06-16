@@ -88,6 +88,21 @@ namespace StageManager.Models
             return (from stage in StageManagerEntities.stagesets.ToList() select new WStage(stage)).ToList();
         }
 
+        public List<WStage> SearchKoppelingSet()
+        {
+            return (from stage in StageManagerEntities.stagesets.ToList()
+                    where stage.docentsets != null && stage.Student2 != null
+                    select new WStage(stage)).ToList();
+        }
+
+        public List<WStage> SearchKoppelingSet2()
+        {
+            return (from stage in StageManagerEntities.stagesets.ToList()
+                    where stage.docentsets != null && stage.Student2 == null
+                    select new WStage(stage)).ToList();
+        }
+
+
         public WStage SearchStageSet(int StudentId)
         {
             return (from stage in StageManagerEntities.stagesets.ToList()
