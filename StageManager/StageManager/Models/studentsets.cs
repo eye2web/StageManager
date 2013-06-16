@@ -25,11 +25,15 @@ namespace StageManager.Models
         public int OpleidingId { get; set; }
         public int Id { get; set; }
         public int webkeysets_Id { get; set; }
+        public Nullable<int> stage_ID { get; set; }
+        public Nullable<int> eindStage_ID { get; set; }
     
         public virtual opleidingsets opleidingsets { get; set; }
         public virtual persoonsets persoonsets { get; set; }
         public virtual ICollection<stagesets> stagesets { get; set; }
         public virtual ICollection<stagesets> stagesets1 { get; set; }
         public virtual webkeysets webkeysets { get; set; }
+        public virtual eindstagesets eindstagesets { get; set; }
+        public virtual stagesets stagesets2 { get; set; }
     }
 }

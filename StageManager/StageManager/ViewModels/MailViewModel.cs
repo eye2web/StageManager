@@ -105,7 +105,7 @@ namespace StageManager.ViewModels
 
         public MainViewModel Main { get; set; }
 
-        public virtual void update(object[] o)
+        public override void update(object[] o)
         {
             try
             {

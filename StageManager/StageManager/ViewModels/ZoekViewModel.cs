@@ -85,9 +85,8 @@ namespace StageManager.ViewModels
             }
             set
             {
-                WStudent s;
-                List.TryGetValue(value, out s);
-                Main.ChangeButton("Koppel", new List<Object>() { s.stagesets }, Services.Clear.No);
+                List.TryGetValue(value, out selectedStudent);
+                Main.ChangeButton("Koppel", new List<Object>() { selectedStudent.stagesets }, Services.Clear.No);
 
             }
         }

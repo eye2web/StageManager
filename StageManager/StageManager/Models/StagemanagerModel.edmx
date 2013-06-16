@@ -278,7 +278,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Studentnummer" Type="varchar" Nullable="false" MaxLength="11" StoreGeneratedPattern="Identity" />
+          <Property Name="Studentnummer" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="EC_norm_behaald" Type="bool" Nullable="false" />
           <Property Name="OpleidingId" Type="int" Nullable="false" />
           <Property Name="Id" Type="int" Nullable="false" />
