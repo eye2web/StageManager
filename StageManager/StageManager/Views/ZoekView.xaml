@@ -44,7 +44,14 @@
                                           CanUserAddRows="False"
                                           CanUserDeleteRows="False"
                                           CanUserResizeRows="False"
-                                          SelectedItem="{Binding Path=SelectedObject}"/>
+                                          SelectedItem="{Binding Path=SelectedObject}">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Menu Item">Item 1</MenuItem>
+                                    <MenuItem Header="Menu Item">Item 2</MenuItem>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
                         </ScrollViewer>
                 </DockPanel>
             </DockPanel>
