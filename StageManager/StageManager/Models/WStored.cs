@@ -16,32 +16,27 @@ namespace StageManager.Models
 
             if (searchString == null && searchOpleiding == null)
             {
-                try
-                {
+                
                     return (from student
                             in StageManagerEntities.studentsets.ToList()
                             select new WStudent(student)).ToList();
-                }
-                catch (Exception)
-                {
-                    return new List<WStudent>();
-                }
             }
-            else if (searchString == null)
+            if (searchString != null && searchOpleiding == null)
+            {
+                return (from student
+                       in StageManagerEntities.studentsets.ToList()
+                        where student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
+                        student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
+                        student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
+                        select new WStudent(student)).ToList();
+            }
+            else if (searchOpleiding != null && searchString == null)
             {
                 return (from student
                         in StageManagerEntities.studentsets.ToList()
                         where student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())
                         select new WStudent(student)).ToList();
-            }
-            else if (searchOpleiding == null)
-            {
-                return (from student
-                        in StageManagerEntities.studentsets.ToList()
-                        where student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
-                        student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
-                        student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
-                        select new WStudent(student)).ToList();
+               
             }
             else
             {
@@ -60,27 +55,9 @@ namespace StageManager.Models
 
             if (searchString == null && searchOpleiding == null)
             {
-                try
-                {
-                    return (from student
-                            in StageManagerEntities.studentsets.ToList()
-                            where student.stagesets.First().docentset_Id == null
-                            select new WStudent(student)).ToList();
-                }
-                catch (Exception)
-                {
-                    return new List<WStudent>();
-                }
+                searchString = "";
             }
-            else if (searchString == null)
-            {
-                return (from student
-                        in StageManagerEntities.studentsets.ToList()
-                        where (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())) &&
-                        student.stagesets.First().docentset_Id == null
-                        select new WStudent(student)).ToList();
-            }
-            else if (searchOpleiding == null)
+            if (searchString != null && searchOpleiding==null)
             {
                 return (from student
                         in StageManagerEntities.studentsets.ToList()
@@ -89,6 +66,15 @@ namespace StageManager.Models
                         student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) &&
                         student.stagesets.First().docentset_Id == null
                         select new WStudent(student)).ToList();
+            }
+            else if (searchOpleiding != null && searchString==null)
+            {
+                return (from student
+                        in StageManagerEntities.studentsets.ToList()
+                        where (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())) &&
+                        student.stagesets.First().docentset_Id == null
+                        select new WStudent(student)).ToList();
+
             }
             else
             {
