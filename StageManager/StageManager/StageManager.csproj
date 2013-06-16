@@ -194,6 +194,7 @@
     <Compile Include="ViewModels\BedrijfViewModel.cs" />
     <Compile Include="ViewModels\DocentViewModel.cs" />
     <Compile Include="ViewModels\GegevensOverzichtViewModel.cs" />
+    <Compile Include="ViewModels\KoppelingenViewModel.cs" />
     <Compile Include="ViewModels\KoppelViewModel.cs" />
     <Compile Include="ViewModels\MailViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -216,6 +217,9 @@
     </Compile>
     <Compile Include="Views\GegevensOverzichtView.xaml.cs">
       <DependentUpon>GegevensOverzichtView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KoppelingenView.xaml.cs">
+      <DependentUpon>KoppelingenView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\KoppelView.xaml.cs">
       <DependentUpon>KoppelView.xaml</DependentUpon>
@@ -246,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GegevensOverzichtView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KoppelingenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -144,6 +144,15 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
+                                <Button Content="Koppelingen" Style="{StaticResource MenuButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="ChangeButton">
+                                                <cal:Parameter Value="Koppelingen" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                             </StackPanel>
                         </Expander>
                         <Expander IsExpanded="true">
