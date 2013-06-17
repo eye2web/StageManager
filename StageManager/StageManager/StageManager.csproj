@@ -196,6 +196,7 @@
     <Compile Include="ViewModels\BedrijfsbegeleiderViewModel.cs" />
     <Compile Include="ViewModels\BedrijfViewModel.cs" />
     <Compile Include="ViewModels\DocentViewModel.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\GegevensOverzichtViewModel.cs" />
     <Compile Include="ViewModels\KoppelingenViewModel.cs" />
     <Compile Include="ViewModels\KoppelViewModel.cs" />
@@ -217,6 +218,9 @@
     </Compile>
     <Compile Include="Views\DocentView.xaml.cs">
       <DependentUpon>DocentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorView.xaml.cs">
+      <DependentUpon>ErrorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GegevensOverzichtView.xaml.cs">
       <DependentUpon>GegevensOverzichtView.xaml</DependentUpon>
@@ -249,6 +253,10 @@
       <DependentUpon>ZoekView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AlgemeenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ErrorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

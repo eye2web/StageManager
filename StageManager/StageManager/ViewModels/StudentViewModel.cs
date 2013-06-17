@@ -110,7 +110,6 @@ namespace StageManager.ViewModels
             }
             catch (Exception)
             {                
-                throw;
             }
         }
     }

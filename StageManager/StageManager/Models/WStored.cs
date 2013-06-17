@@ -199,7 +199,7 @@ namespace StageManager.Models
             do
             {
                 key = randomSting(10);
-                list = (from webkey in StageManagerEntities.webkeysets where webkey.ConnectionKey == key select new WWebkey(webkey)).ToList();
+                list = (from webkey in StageManagerEntities.webkeysets.ToList() where webkey.ConnectionKey == key select new WWebkey(webkey)).ToList();
             }
             while (list.Count > 0);
             new WTempmail(new tempemailsets() { Email = to }) { webkeysets = new WWebkey(new webkeysets()) {ConnectionKey=key } };

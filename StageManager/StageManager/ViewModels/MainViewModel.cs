@@ -20,7 +20,10 @@ namespace StageManager.ViewModels
         public MainViewModel()
         {
             content = new ObservableCollection<PropertyChanged>();
+            Error = new ErrorViewModel();
         }
+
+        public ErrorViewModel Error { get; set; }
 
         private String search;
         public String Search
@@ -33,7 +36,6 @@ namespace StageManager.ViewModels
             {
                 search = value;
                 NotifyOfPropertyChange(() => Search);
-                //OpenZoek(zoek);
                 ChangeButton("Zoek", new List<object>() { value }, Clear.All);
             }
         }
@@ -80,6 +82,11 @@ namespace StageManager.ViewModels
                     Contents.RemoveAt(Contents.Count - 1);
                 }
             }
+        }
+
+        public void CloseAll()
+        {
+            Contents.Clear();
         }
 
         public void ChangeButton(string name)

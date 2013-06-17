@@ -6,6 +6,17 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cal="http://www.caliburnproject.org"
         Title="Stage Manager" WindowState="Maximized">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Close All Open Panels">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="CloseAll"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </MenuItem>
+        </ContextMenu>
+    </Window.ContextMenu>
     <Window.Resources>
         <!-- Zoekvakstijl -->
         <Style x:Key="SearchStyle" TargetType="TextBox">
@@ -239,7 +250,9 @@
             <ItemsControl ItemsSource="{Binding Contents}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <StackPanel Orientation="Horizontal">
+                            
+                        </StackPanel>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 
@@ -273,5 +286,6 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+        <ContentControl cal:View.Model="{Binding Error}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </DockPanel>
 </Window>

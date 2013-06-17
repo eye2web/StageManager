@@ -114,8 +114,12 @@ namespace StageManager.Services
             string path = thisExe.Location;
             DirectoryInfo dirinfo = new DirectoryInfo(path);
             string folderName = dirinfo.Parent.FullName;
-            path = folderName + "Config.txt";
+            path = folderName + "\\Config.txt";
             Uri uri = new Uri(path);
+            String s = File.ReadAllText(uri.AbsolutePath);
+            String[] split = {"server: "};
+            String[] server = s.Split(split, StringSplitOptions.RemoveEmptyEntries);
+            webkey = server[0]+webkey;
             replacements.Add("%webkey%", "<a href='" + webkey + "'>" + webkey + "</a>");
             Send(to, body, Subject, replacements);
         }
