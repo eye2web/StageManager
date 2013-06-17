@@ -75,8 +75,8 @@ namespace StageManager.ViewModels
         }
 
         public MailViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
             To = "";
             Message = "Beste student,\n\n" +
                 "Met deze mail vragen wij vriendelijk om je gegevens in te vullen in dit web formulier\n" +
@@ -107,8 +107,6 @@ namespace StageManager.ViewModels
                 Mailer.SendNew(to[i].Trim(), Message, Subject, new ListDictionary());
             }
         }
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

@@ -101,9 +101,8 @@ namespace StageManager.ViewModels
         }
 
         public ProcesOverzichtViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
-
             selectedStudent = new Object();
             List = new Dictionary<object, WStudent>();
             List = new WStored().SearchStudentSetWithStage("", "").ToDictionary(t => (Object)new
@@ -118,8 +117,6 @@ namespace StageManager.ViewModels
                                 Docent = "Docent"
                             }, t => t);
         }
-
-        public MainViewModel Main { get; set; }
     }
 }
 

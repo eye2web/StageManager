@@ -31,6 +31,7 @@ namespace StageManager.Models
         public int adresset_Id { get; set; }
         public int webkeysets_Id { get; set; }
         public string VervoerMiddel { get; set; }
+        public Nullable<int> docentNummer { get; set; }
     
         public virtual adressets adressets { get; set; }
         public virtual algemeensets algemeensets { get; set; }

@@ -17,12 +17,14 @@ namespace StageManager.ViewModels
         internal WBedrijf Bedrijf
         {
             get { return bedrijf; }
-            set { bedrijf = value; 
-                        NotifyOfPropertyChange(()=>Naam);
-            NotifyOfPropertyChange(()=>Straat);
-            NotifyOfPropertyChange(()=>Huisnummer);
-            NotifyOfPropertyChange(()=>Postcode);
-            NotifyOfPropertyChange(()=>Plaats);
+            set
+            {
+                bedrijf = value;
+                NotifyOfPropertyChange(() => Naam);
+                NotifyOfPropertyChange(() => Straat);
+                NotifyOfPropertyChange(() => Huisnummer);
+                NotifyOfPropertyChange(() => Postcode);
+                NotifyOfPropertyChange(() => Plaats);
             }
         }
         public String Naam
@@ -91,16 +93,15 @@ namespace StageManager.ViewModels
         }
 
         public BedrijfViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
         }
+
         public BedrijfViewModel(MainViewModel main, WBedrijf bedrijf)
             : this(main)
         {
             Bedrijf = bedrijf;
         }
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

@@ -28,6 +28,7 @@ namespace StageManager.ViewModels
         }
 
         public KoppelingenViewModel(MainViewModel main)
+            :base(main)
         {
             koppelGridContents = new List<object>();
             searchKoppelingen();

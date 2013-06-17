@@ -11,10 +11,9 @@ namespace StageManager.ViewModels
     public class GegevensOverzichtViewModel : PropertyChanged
     {
         public GegevensOverzichtViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
         }
 
-        public MainViewModel Main { get; set; }
     }
 }

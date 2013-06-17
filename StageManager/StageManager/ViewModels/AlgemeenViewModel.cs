@@ -77,8 +77,8 @@ namespace StageManager.ViewModels
         }
 
         public AlgemeenViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
             FillView();
         }
 
@@ -151,7 +151,5 @@ namespace StageManager.ViewModels
 
             FillView();
         }
-
-        public MainViewModel Main { get; set; }
     }
 }

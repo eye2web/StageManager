@@ -16,7 +16,6 @@ namespace StageManager.Models
     {
         public stagesets()
         {
-            this.studentsets2 = new HashSet<studentsets>();
             this.kennisgebiedset = new HashSet<kennisgebiedset>();
         }
     
@@ -28,13 +27,13 @@ namespace StageManager.Models
         public Nullable<int> docentset_Id { get; set; }
         public Nullable<int> Student1 { get; set; }
         public Nullable<int> Student2 { get; set; }
+        public Nullable<int> Stage_type { get; set; }
     
         public virtual bedrijfsbegeleidersets bedrijfsbegeleidersets { get; set; }
         public virtual docentsets docentsets { get; set; }
         public virtual eindstagesets eindstagesets { get; set; }
         public virtual studentsets studentsets { get; set; }
         public virtual studentsets studentsets1 { get; set; }
-        public virtual ICollection<studentsets> studentsets2 { get; set; }
         public virtual ICollection<kennisgebiedset> kennisgebiedset { get; set; }
     }
 }

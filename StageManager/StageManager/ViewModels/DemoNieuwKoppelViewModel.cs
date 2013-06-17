@@ -164,8 +164,8 @@ namespace StageManager.ViewModels
 
 
         public DemoNieuwKoppelViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
             SearchString = "";
             SearchOpleiding = "";
             FillView();
@@ -194,7 +194,5 @@ namespace StageManager.ViewModels
             SearchOpleiding = "";
             searchStudent();
         }
-
-        public MainViewModel Main { get; set; }
     }
 }

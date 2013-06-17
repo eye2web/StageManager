@@ -130,16 +130,13 @@ namespace StageManager.ViewModels
         }
 
         public DocentViewModel(MainViewModel main)
-        {
-            Main = main;
-        }
+            : base(main)
+        { }
         public DocentViewModel(MainViewModel main, WDocent docent)
             : this(main)
         {
             Docent = docent;
         }
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

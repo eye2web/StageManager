@@ -14,16 +14,10 @@ namespace StageManager.Models
     
     public partial class eindstagesets
     {
-        public eindstagesets()
-        {
-            this.studentsets = new HashSet<studentsets>();
-        }
-    
         public int Stage_Id { get; set; }
         public Nullable<int> TweedeLezer { get; set; }
     
         public virtual docentsets docentsets { get; set; }
         public virtual stagesets stagesets { get; set; }
-        public virtual ICollection<studentsets> studentsets { get; set; }
     }
 }

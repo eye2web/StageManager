@@ -126,16 +126,15 @@ namespace StageManager.ViewModels
         }
 
         public StageopdrachtViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
         }
+
         public StageopdrachtViewModel(MainViewModel main, WStage stage)
             : this(main)
         {
             Stage = stage;
         }
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

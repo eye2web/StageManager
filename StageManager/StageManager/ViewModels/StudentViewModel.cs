@@ -12,7 +12,7 @@ namespace StageManager.ViewModels
     class StudentViewModel : PropertyChanged
     {
         private static Random random = new Random();
-        private WStudent student = new WStored().SearchStudentSet("", "")[random.Next(new WStored().SearchStudentSet("", "").Count)];
+        private WStudent student;
 
         internal WStudent Student
         {
@@ -92,17 +92,15 @@ namespace StageManager.ViewModels
         }
 
         public StudentViewModel(MainViewModel main)
+            : base(main)
         {
-            Main = main;
-
         }
+
         public StudentViewModel(MainViewModel main, WStudent student)
             : this(main)
         {
             Student = student;
         }
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

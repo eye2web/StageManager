@@ -49,10 +49,37 @@ namespace StageManager.ViewModels
             }
         }
 
-        internal void addContent(PropertyChanged o)
+        public void addContent(PropertyChanged o)
         {
             Contents.Add(o);
             NotifyOfPropertyChange(() => Contents);
+        }
+
+        public void removeContent(PropertyChanged o)
+        {
+            if (Contents.Contains(o))
+            {
+                Contents.Remove(o);
+            }
+        }
+
+        public void removeContentAfter(PropertyChanged o)
+        {
+            if (Contents.Contains(o))
+            {
+                int i = 0;
+                for (i = 0; i < Contents.Count; i++)
+                {
+                    if (Contents[i] == o)
+                    {
+                        break;
+                    }
+                }
+                while (Contents.Count > i + 1)
+                {
+                    Contents.RemoveAt(Contents.Count - 1);
+                }
+            }
         }
 
         public void ChangeButton(string name)
@@ -67,12 +94,17 @@ namespace StageManager.ViewModels
 
         public void ChangeButton(string name, List<Object> o, Clear c)
         {
+            ChangeButton(name, o, c, null);
+        }
+
+        public void ChangeButton(string name, List<Object> o, Clear c, PropertyChanged p)
+        {
             currentButton = name;
             Clear clear = c;
             EventHandler handler = SomethingHappened;
             if (handler != null)
             {
-                handler(this, new MainArgs(o, clear));
+                handler(this, new MainArgs(o, clear, p));
             }
         }
     }

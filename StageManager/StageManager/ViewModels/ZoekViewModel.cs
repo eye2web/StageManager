@@ -99,12 +99,12 @@ namespace StageManager.ViewModels
 
         public void Test(WStudent student)
         {
-            Main.ChangeButton("Student", new List<object>() { student });
+            Main.ChangeButton("Student", new List<object>() { student }, Clear.After, this);
         }
 
         public ZoekViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
             OpleidingStack = (from opleiding in new WStored().SearchOpleidingSet() select opleiding.Naam).ToList();
             searchStudent();
         }
@@ -136,8 +136,6 @@ namespace StageManager.ViewModels
             }
                 GridContents = list.Keys.ToList();
         }
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

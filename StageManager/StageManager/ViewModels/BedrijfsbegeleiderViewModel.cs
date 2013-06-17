@@ -103,16 +103,13 @@ namespace StageManager.ViewModels
         }
 
         public BedrijfsbegeleiderViewModel(MainViewModel main)
-        {
-            Main = main;
-        }
+            : base(main)
+        { }
         public BedrijfsbegeleiderViewModel(MainViewModel main, WBedrijfsBegeleider bedrijfsbegeleider)
             : this(main)
         {
             Begeleider = bedrijfsbegeleider;
         }
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

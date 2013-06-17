@@ -97,8 +97,8 @@ namespace StageManager.ViewModels
         }
 
         public KoppelViewModel(MainViewModel main)
+            :base(main)
         {
-            Main = main;
             DataGrid = new WStored().SearchDocentSet("");
         }
 
@@ -107,9 +107,6 @@ namespace StageManager.ViewModels
         {
             Stage = stage;
         }
-
-
-        public MainViewModel Main { get; set; }
 
         public override void update(object[] o)
         {

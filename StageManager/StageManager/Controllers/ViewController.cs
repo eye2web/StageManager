@@ -49,7 +49,7 @@ namespace StageManager.Controllers
                         mainViewModel.Contents.Clear();
                         break;
                     case Clear.After:
-                        //TODO;
+                        mainViewModel.removeContentAfter(args.Sender);//TODO
                         break;
                     case Clear.No:
                         break;

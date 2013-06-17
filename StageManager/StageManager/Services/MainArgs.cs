@@ -10,11 +10,13 @@ namespace StageManager.Services
     {
         public List<Object> param { get; set; }
         public Clear clear { get; set; }
+        public PropertyChanged Sender { get; set; }
 
-        public MainArgs(List<Object> param, Clear clearScreen)
+        public MainArgs(List<Object> param, Clear clearScreen, PropertyChanged sender)
         {
             this.param = param;
             clear = clearScreen;
+            Sender = sender;
         }
     }
 }
