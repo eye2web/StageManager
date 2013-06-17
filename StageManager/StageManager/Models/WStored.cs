@@ -63,7 +63,7 @@ namespace StageManager.Models
                         where student.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) ||
                         student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
                         student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) && (
-                        student.stagesets.First().docentset_Id == null || student.stagesets2.docentset_Id == null)
+                        student.stagesets.First().docentset_Id == null || student.stagesets1.First().docentset_Id == null)
                         select new WStudent(student)).ToList();
             }
             else if (searchOpleiding != null && searchString==null)
@@ -71,7 +71,7 @@ namespace StageManager.Models
                 return (from student
                         in StageManagerEntities.studentsets.ToList()
                         where (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())) && (
-                        student.stagesets.First().docentset_Id == null || student.stagesets2.docentset_Id == null)
+                        student.stagesets.First().docentset_Id == null || student.stagesets1.First().docentset_Id == null)
                         select new WStudent(student)).ToList();
             }
             else
@@ -82,7 +82,7 @@ namespace StageManager.Models
                         student.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) ||
                         student.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())) &&
                         (student.opleidingsets.Naam.ToLower().Contains(searchOpleiding.ToLower())) &&(
-                        student.stagesets.First().docentset_Id == null || student.stagesets2.docentset_Id == null)
+                        student.stagesets.First().docentset_Id == null || student.stagesets1.First().docentset_Id == null)
                         select new WStudent(student)).ToList();
             }
         }
@@ -93,8 +93,8 @@ namespace StageManager.Models
             {
                 return (from stage
                             in StageManagerEntities.stagesets.ToList()
-                        where stage.studentsets1 != null && stage.studentsets1.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets1.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets1.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) ||
-                        stage.studentsets2.First() != null && stage.studentsets2.First().persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets2.First().persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets2.First().Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
+                        where stage.studentsets1 != null && stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) ||
+                        stage.studentsets1 != null && stage.studentsets1.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets1.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets1.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
 
                         select new WStage(stage)).ToList();
             }

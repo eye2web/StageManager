@@ -118,9 +118,6 @@ namespace StageManager.ViewModels
         public KoppelViewModel(MainViewModel main)
             :base(main)
         {
-<<<<<<< HEAD
-            DataGrid = new WStored().SearchDocentSet("");
-=======
             Main = main;
             list = new Dictionary<object, WDocent>();
             list = (new WStored().SearchDocentSet("").ToDictionary(t => (Object)new
@@ -133,7 +130,6 @@ namespace StageManager.ViewModels
                     },t=>t));
 
             GridContents = list.Keys.ToList();
->>>>>>> 25254b14bddb8cb3acfe12e6f6826a2bd66dff7c
         }
 
         public KoppelViewModel(MainViewModel main, WStage stage)
