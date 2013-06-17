@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class DocentViewModel : PropertyChanged
+    class DocentViewModel : PropertyChanged, IExcelAlgorithm
     {
         private static Random random = new Random();
         private WDocent docent = new WStored().SearchDocentSet(null)[random.Next(new WStored().SearchDocentSet(null).Count)];
@@ -146,7 +146,32 @@ namespace StageManager.ViewModels
             }
             catch (Exception)
             {
+                throw;
             }
+        }
+
+        public void btnExport_Click()
+        {
+            ExportExcel ee = new ExportExcel(this);
+            ee.Export();
+        }
+
+        public void createWorksheet(Microsoft.Office.Interop.Excel.Worksheet worksheet)
+        {
+            worksheet.Cells[1, 1] = "Voornaam";
+            worksheet.Cells[2, 1] = Voornaam;
+            worksheet.Cells[1, 2] = "Achternaam";
+            worksheet.Cells[2, 2] = Achternaam;
+            worksheet.Cells[1, 3] = "Huisnummer";
+            worksheet.Cells[2, 3] = Huisnummer;
+            worksheet.Cells[1, 4] = "Postcode";
+            worksheet.Cells[2, 4] = Postcode;
+            worksheet.Cells[1, 5] = "Woonplaats";
+            worksheet.Cells[2, 5] = Woonplaats;
+            worksheet.Cells[1, 6] = "Telefoon";
+            worksheet.Cells[2, 6] = Telefoon;
+            worksheet.Cells[1, 7] = "E-mail";
+            worksheet.Cells[2, 7] = EMail;
         }
     }
 }

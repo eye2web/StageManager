@@ -9,7 +9,7 @@ using StageManager.Services;
 
 namespace StageManager.ViewModels
 {
-    class BedrijfsbegeleiderViewModel : PropertyChanged
+    class BedrijfsbegeleiderViewModel : PropertyChanged, IExcelAlgorithm
     {
         private static Random random = new Random();
         private WBedrijfsBegeleider begeleider = new WStored().SearchBedrijfsBegeleiderSet()[random.Next(new WStored().SearchBedrijfsBegeleiderSet().Count)];//temp
@@ -119,7 +119,30 @@ namespace StageManager.ViewModels
             }
             catch (Exception)
             {
+                throw;
             }
+        }
+
+        public void btnExport_Click()
+        {
+            ExportExcel ee = new ExportExcel(this);
+            ee.Export();
+        }
+
+        public void createWorksheet(Microsoft.Office.Interop.Excel.Worksheet worksheet)
+        {
+            worksheet.Cells[1, 1] = "Voornaam";
+            //worksheet.Cells[2, 1] = Voornaam;
+            worksheet.Cells[1, 2] = "Achternaam";
+            //worksheet.Cells[2, 2] = Achternaam;
+            worksheet.Cells[1, 3] = "Functie";
+            worksheet.Cells[2, 3] = Functie;
+            worksheet.Cells[1, 4] = "Opleiding";
+            worksheet.Cells[2, 4] = Opleiding;
+            worksheet.Cells[1, 5] = "BegeleidingUren";
+            worksheet.Cells[2, 5] = BegeleidingUren;
+            worksheet.Cells[1, 6] = "E-mailadres";
+            //worksheet.Cells[2, 6] = EMail;
         }
     }
 }

@@ -90,6 +90,7 @@
                             <TextBlock TextWrapping="Wrap">Begeleiding van minimaal 1,5 uur per week geborgd</TextBlock>
                         </Label>
                         <TextBox Name="BegeleidingUren" Margin="20,10,20,10" Grid.Column="1" Grid.Row="5" Width="auto" Height="auto" VerticalContentAlignment="Center"/>
+                        <Button cal:Message.Attach="btnExport_Click" Content="Export" Margin="20,10,20,10" Height="30" Width="80" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Right"/>
                     </Grid>
                 </ScrollViewer>
             </Grid>

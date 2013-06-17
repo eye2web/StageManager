@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StageManager.ViewModels
 {
-    class StudentViewModel : PropertyChanged
+    class StudentViewModel : PropertyChanged, IExcelAlgorithm
     {
         private static Random random = new Random();
         private WStudent student;
@@ -71,7 +71,6 @@ namespace StageManager.ViewModels
             }
         }
 
-       
         public string Emailadres
         {
             get { return student.Email; }
@@ -110,7 +109,30 @@ namespace StageManager.ViewModels
             }
             catch (Exception)
             {                
+                throw;
             }
+        }
+
+        public void btnExport_Click()
+        {
+            ExportExcel ee = new ExportExcel(this);
+            ee.Export();
+        }
+
+        public void createWorksheet(Microsoft.Office.Interop.Excel.Worksheet worksheet)
+        {
+            worksheet.Cells[1, 1] = "Voornaam";
+            worksheet.Cells[2, 1] = Voornaam;
+            worksheet.Cells[1, 2] = "Achternaam";
+            worksheet.Cells[2, 2] = Achternaam;
+            worksheet.Cells[1, 3] = "Studentnummer";
+            worksheet.Cells[2, 3] = Studentnummer;
+            worksheet.Cells[1, 4] = "Opleiding";
+            worksheet.Cells[2, 4] = Opleiding;
+            worksheet.Cells[1, 5] = "E-mailadres";
+            worksheet.Cells[2, 5] = Emailadres;
+            worksheet.Cells[1, 6] = "Telefoonnummer";
+            worksheet.Cells[2, 6] = Telefoonnummer;
         }
     }
 }

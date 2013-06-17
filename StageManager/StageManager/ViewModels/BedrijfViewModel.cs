@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace StageManager.ViewModels
 {
-    class BedrijfViewModel : PropertyChanged
+    class BedrijfViewModel : PropertyChanged, IExcelAlgorithm
     {
         private static Random random = new Random();
         private WBedrijf bedrijf = new WStored().SearchBedrijfSet()[random.Next(new WStored().SearchBedrijfSet().Count)];//temp
@@ -111,7 +113,28 @@ namespace StageManager.ViewModels
             }
             catch (Exception)
             {
+                throw;
             }
+        }
+
+        public void btnExport_Click()
+        {
+            ExportExcel ee = new ExportExcel(this);
+            ee.Export();
+        }
+
+        public void createWorksheet(Microsoft.Office.Interop.Excel.Worksheet worksheet)
+        {
+            worksheet.Cells[1, 1] = "Naam";
+            worksheet.Cells[2, 1] = Naam;
+            worksheet.Cells[1, 2] = "Straat";
+            worksheet.Cells[2, 2] = Straat;
+            worksheet.Cells[1, 3] = "Huisnummer";
+            worksheet.Cells[2, 3] = Huisnummer;
+            worksheet.Cells[1, 4] = "Postcode";
+            worksheet.Cells[2, 4] = Postcode;
+            worksheet.Cells[1, 5] = "Plaats";
+            worksheet.Cells[2, 5] = Plaats;
         }
     }
 }
