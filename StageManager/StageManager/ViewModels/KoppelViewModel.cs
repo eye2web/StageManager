@@ -74,22 +74,41 @@ namespace StageManager.ViewModels
             }
         }
 
-        private List<WDocent> dataGrid;
-        public List<WDocent> DataGrid
-        {
-            get { return dataGrid; }
-            set
-            {
-                dataGrid = value;
-                NotifyOfPropertyChange(()=>DataGrid);
-            }
-        }
-
         public Boolean CanTweedeLezer
         {
             get { return Stage!=null? Stage.GetType()== typeof(WEindStage):false;
             }
         }
+
+        private Dictionary<Object, WDocent> list;
+        public Dictionary<Object, WDocent> List
+        {
+            get
+            {
+                return list;
+            }
+            set
+            {
+                list = value;
+                NotifyOfPropertyChange(() => List);
+            }
+        }
+
+        private List<Object> gridContents;
+        public List<object> GridContents
+        {
+            get
+            {
+                return gridContents;
+            }
+            set
+            {
+                gridContents = value;
+                NotifyOfPropertyChange(() => GridContents);
+            }
+        }
+
+
 
         public void TweedeLezer()
         {
@@ -99,7 +118,17 @@ namespace StageManager.ViewModels
         public KoppelViewModel(MainViewModel main)
         {
             Main = main;
-            DataGrid = new WStored().SearchDocentSet("");
+            list = new Dictionary<object, WDocent>();
+            list = (new WStored().SearchDocentSet("").ToDictionary(t => (Object)new
+                    {
+                            Voornaam = t.Voornaam,
+                            Achternaam = t.Achternaam,
+                            Uren = 5,
+                            Kennisgebied = t.tool_vaardigheidset.First().Naam,
+                            Afstand = 500
+                    },t=>t));
+
+            GridContents = list.Keys.ToList();
         }
 
         public KoppelViewModel(MainViewModel main, WStage stage)
