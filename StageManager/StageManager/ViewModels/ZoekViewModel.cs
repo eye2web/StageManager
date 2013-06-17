@@ -19,7 +19,7 @@ namespace StageManager.ViewModels
             set
             {
                 searchString = value;
-                searchStudent();
+                searchStage();
                 NotifyOfPropertyChange(() => SearchString);
             }
         }
@@ -42,13 +42,13 @@ namespace StageManager.ViewModels
             set
             {
                 searchOpleiding = value;
-                searchStudent();
+                searchStage();
                 NotifyOfPropertyChange(() => SearchOpleiding);
             }
         }
 
-        private Dictionary<Object,WStudent> list;
-        public Dictionary<Object, WStudent> List
+        private Dictionary<Object,WStage> list;
+        public Dictionary<Object, WStage> List
         {
             get
             {
@@ -76,23 +76,23 @@ namespace StageManager.ViewModels
             }
         }
 
-        private WStudent selectedStudent;
-        public WStudent SelectedStudent
+        private WStage selectedStage;
+        public WStage SelectedStage
         {
-            get { return selectedStudent; }
-            set { selectedStudent = value; }
+            get { return selectedStage; }
+            set { selectedStage = value; }
         }
 
         public object SelectedObject
         {
             get
             {
-                return selectedStudent;
+                return selectedStage;
             }
             set
             {
-                List.TryGetValue(value, out selectedStudent);
-                Main.ChangeButton("Koppel", new List<Object>() { selectedStudent.stagesets }, Services.Clear.No);
+                List.TryGetValue(value, out selectedStage);
+                Main.ChangeButton("Koppel", new List<Object>() { selectedStage }, Services.Clear.No);
 
             }
         }
@@ -106,7 +106,7 @@ namespace StageManager.ViewModels
             :base(main)
         {
             OpleidingStack = (from opleiding in new WStored().SearchOpleidingSet() select opleiding.Naam).ToList();
-            searchStudent();
+            searchStage();
         }
 
         public ZoekViewModel(MainViewModel main, String zoekString)
@@ -115,16 +115,16 @@ namespace StageManager.ViewModels
             SearchString = zoekString;
         }
 
-        public void searchStudent()
+        public void searchStage()
         {
-            list = new Dictionary<object, WStudent>();
-            list = (new WStored().SearchStudentSetWithStage(searchString, searchOpleiding).ToDictionary(t=>(Object)new
+            list = new Dictionary<object, WStage>();
+            list = (new WStored().SearchStage(searchString, searchOpleiding).ToDictionary(t=>(Object)new
                     {
-                            StudentNummer = t.Studentnummer,
-                            Voornaam = t.Voornaam,
-                            Achternaam = t.Achternaam,
-                            Opleiding = t.Opleidingset.Naam,
-                            EC_Norm_Behaald = t.EC_norm_behaald
+                            StudentNummer = t.studentset.Studentnummer,
+                            Voornaam = t.studentset.Voornaam,
+                            Achternaam = t.studentset.Achternaam,
+                            Opleiding = t.studentset.Opleidingset.Naam,
+                            EC_Norm_Behaald = t.studentset.EC_norm_behaald
                     },t=>t));
             if (list.Count == 0)
             {
