@@ -120,7 +120,8 @@ namespace StageManager.ViewModels
             list = new Dictionary<object, WStage>();
             list = (new WStored().SearchStage(searchString, searchOpleiding).ToDictionary(t=>(Object)new
                     {
-                            StudentNummer = t.studentset.Studentnummer,
+                            Stage = t.Stageopdracht_omschijving,
+                            Studentnummer = t.studentset.Studentnummer,
                             Voornaam = t.studentset.Voornaam,
                             Achternaam = t.studentset.Achternaam,
                             Opleiding = t.studentset.Opleidingset.Naam,

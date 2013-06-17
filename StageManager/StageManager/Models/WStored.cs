@@ -89,15 +89,28 @@ namespace StageManager.Models
 
         public List<WStage> SearchStage(String searchString, String searchOpleiding)
         {
-            if (searchString != null && searchOpleiding != null)
+
+             if (searchString != null && searchOpleiding != null)
             {
                 return (from stage
                             in StageManagerEntities.stagesets.ToList()
-                        where stage.studentsets1 != null && stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) ||
-                        stage.studentsets1 != null && stage.studentsets1.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets1.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets1.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())
-
+                        where stage.studentsets != null && (stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) && stage.studentsets.opleidingsets.Naam.Contains(searchOpleiding))
                         select new WStage(stage)).ToList();
             }
+            else if (searchString != null && searchOpleiding == null)
+            {
+                return (from stage
+                            in StageManagerEntities.stagesets.ToList()
+                        where stage.studentsets != null && (stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()))
+                        select new WStage(stage)).ToList();
+            }
+             else if (searchString == null && searchOpleiding != null)
+             {
+                 return (from stage
+                             in StageManagerEntities.stagesets.ToList()
+                         where stage.studentsets != null &&  stage.studentsets.opleidingsets.Naam.Contains(searchOpleiding)
+                         select new WStage(stage)).ToList();
+             }
             else
             {
                 return(from stage
@@ -105,7 +118,6 @@ namespace StageManager.Models
                        
                         select new WStage(stage)).ToList();
             }
-
         }
 
         public List<WDocent> SearchDocentSet(String searchString)
