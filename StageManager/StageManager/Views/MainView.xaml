@@ -113,6 +113,17 @@
                 </Button>
             </StackPanel>
             <!-- Mailing -->
+            <StackPanel DockPanel.Dock="Left" Width="200" Orientation="Horizontal">
+                <Button Content="Voeg leerlingen toe" Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="ChangeButton">
+                                <cal:Parameter Value="Mail" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
         </DockPanel>
         <!-- MenuPanel -->
         <Expander DockPanel.Dock="Left" Margin="0" IsExpanded="True" ExpandDirection="Right" Background="#FFF0F0F0">
@@ -170,7 +181,7 @@
                                 </Button>
                             </StackPanel>
                         </Expander>
-                        <!--<Expander IsExpanded="true">
+                        <Expander IsExpanded="true">
                             <Expander.Header>
                                 <TextBlock FontSize="20" Foreground="Black" FontWeight="Light">Documenten</TextBlock>
                             </Expander.Header>
@@ -255,7 +266,7 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                             </StackPanel>
-                        </Expander>-->                                
+                        </Expander>                                
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>
