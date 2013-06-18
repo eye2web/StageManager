@@ -65,8 +65,10 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn Header="Student" DisplayMemberBinding="{Binding StudentNaam}"  />
-                                <GridViewColumn Header="Gegevens"  DisplayMemberBinding="{Binding Gegevens}" />
+                                <!-- comment
+                                <GridViewColumn Header="Gegevens"  DisplayMemberBinding="{Binding Gegevens}" />                                
                                 <GridViewColumn Header="Stageopdracht ingeleverd" DisplayMemberBinding="{Binding Stageopdracht}" />
+                                -->
                                 <GridViewColumn Header="Stageopdracht feedback" DisplayMemberBinding="{Binding Feedback}" />
                                 <GridViewColumn Header="Docent" DisplayMemberBinding="{Binding Docent}" />
                             </GridView>
