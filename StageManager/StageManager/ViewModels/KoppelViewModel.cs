@@ -129,7 +129,7 @@ namespace StageManager.ViewModels
                     {
                         Voornaam = t.Voornaam,
                         Achternaam = t.Achternaam,
-                        Uren = 5,
+                        Uren = t.Rest(),
                         Kennisgebied = t.tool_vaardigheidset.First().Naam,
                         Afstand = 500
                     }, t => t));
