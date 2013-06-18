@@ -105,7 +105,7 @@ namespace StageManager.ViewModels
         {
             selectedStudent = new Object();
             List = new Dictionary<object, WStudent>();
-            List<WStage> stages = new WStored().SearchStage("", "", false);
+            List<WStage> stages = new WStored().SearchStage(false);
 
             List<WStudent> studenten = new List<WStudent>();
 

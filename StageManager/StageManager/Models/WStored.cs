@@ -87,7 +87,7 @@ namespace StageManager.Models
             }
         }
 
-        public List<WStage> SearchStage(String searchString, String searchOpleiding, bool All)
+        public List<WStage> SearchStage(bool All)
         {
             List<stagesets> listStage = StageManagerEntities.stagesets.ToList();
             List<eindstagesets> listEindStage = StageManagerEntities.eindstagesets.ToList();

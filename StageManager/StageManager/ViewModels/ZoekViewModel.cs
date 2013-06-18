@@ -115,10 +115,52 @@ namespace StageManager.ViewModels
             SearchString = zoekString;
         }
 
-        public void searchStage()
+        public void searchStage(String searchString = "", String searchOpleiding = "")
         {
-            list = new Dictionary<object, WStage>();
-            list = (new WStored().SearchStage(searchString, searchOpleiding,false).ToDictionary(t=>(Object)new
+            List = new Dictionary<object, WStage>();
+            List<WStage> stages = new WStored().SearchStage(false);
+ 
+             List<WStudent> studenten = new List<WStudent>();
+ 
+             for (int i = 0; i < stages.Count; i++)
+            {
+                if (stages[i].studentset != null)
+                {
+                     bool contains = false;
+                     for (int j = 0; j < studenten.Count; j++)
+                     {
+                         if (stages[i].studentset.getSet() == studenten[j].getSet())
+                         {
+                             contains = true;
+                             break;
+                         }
+                     }
+
+                     if (!contains&&(foundString(stages[i].studentset, searchString,searchOpleiding)))
+                     {
+                         studenten.Add(stages[i].studentset);
+                     }
+                 }
+                 if (stages[i].studentset2 != null)
+                 {
+                     bool contains = false;
+                     for (int j = 0; j < studenten.Count; j++)
+                     {
+                         if (stages[i].studentset2.getSet() == studenten[j].getSet())
+                         {
+                             contains = true;
+                             break;
+                         }
+                     }
+
+                     if (!contains && (foundString(stages[i].studentset, searchString, searchOpleiding)))
+                     {
+                         studenten.Add(stages[i].studentset2);
+                     }
+                 }
+             }
+             list = new Dictionary<object, WStage>();//TODO
+             list = (stages.ToDictionary(t=>(Object)new
                     {
                             Stage = t.Stageopdracht_omschijving,
                             Studentnummer = t.studentset.Studentnummer,
@@ -147,6 +189,15 @@ namespace StageManager.ViewModels
             catch (Exception)
             {
             }
+        }
+
+        private bool foundString(WStudent wStudent, String searchString, String searchOpleiding)
+        {
+            return ((wStudent.Achternaam.Contains(searchString)
+                || wStudent.Voornaam.Contains(searchString)
+                || wStudent.Telefoonnummer.Contains(searchString)
+                || wStudent.Email.Contains(searchString)
+                || wStudent.Opleidingset.Naam.Contains(searchString)));
         }
     }
 }
