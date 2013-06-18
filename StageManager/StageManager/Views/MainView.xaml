@@ -37,7 +37,7 @@
             <Setter Property="Width" Value="Auto"/>
             <Setter Property="Background" Value="#FFF7F7F7"/>
             <Setter Property="Padding" Value="5"/>
-        </Style> 
+        </Style>
         <!-- TopNavstijl -->
         <Style x:Key="TopNavStyle" TargetType="DockPanel">
             <Setter Property="Background" Value="#FF2197F9"/>
@@ -69,26 +69,40 @@
                 <TextBlock Height="Auto" VerticalAlignment="Center" FontWeight="Light" Margin="10" Foreground="White" FontSize="20">Stagemanager</TextBlock>
             </StackPanel>
             <!-- NavControls -->
-            <StackPanel DockPanel.Dock="Left" Width="200" Orientation="Horizontal">
-                <Canvas Width="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Ellipse HorizontalAlignment="Center"  Fill="White" Height="28" Width="28" Canvas.Left="6" Canvas.Top="6"/>
-                    <Ellipse HorizontalAlignment="Center"  Fill="#FF34BFB9" Height="24" Width="24" Canvas.Left="8" Canvas.Top="8"/>
-                    <Rectangle Canvas.Left="19" Canvas.Top="13" Height="14" Width="2" Fill="White"/>
-                    <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
-                </Canvas>
-                <Button Content="Nieuwe Koppeling" Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+            <StackPanel DockPanel.Dock="Left" Width="Auto" HorizontalAlignment="Left" Orientation="Horizontal">
+
+                <Button Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0,0,20,0" BorderThickness="0" Background="Transparent">
+
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="40" Height="auto" VerticalAlignment="Top" Margin="0,-12,0,0" HorizontalAlignment="Stretch">
+                            <Ellipse HorizontalAlignment="Center"  Fill="White" Height="28" Width="28" Canvas.Left="6" Canvas.Top="6"/>
+                            <Ellipse HorizontalAlignment="Center"  Fill="#FF34BFB9" Height="24" Width="24" Canvas.Left="8" Canvas.Top="8"/>
+                            <Rectangle Canvas.Left="19" Canvas.Top="13" Height="14" Width="2" Fill="White"/>
+                            <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
+                        </Canvas>
+                        <TextBlock>Nieuwe Koppeling</TextBlock>
+                    </StackPanel>
+
+
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <cal:ActionMessage MethodName="ChangeButton">
-                                <cal:Parameter Value="DemoNieuwKoppel" />
+                                <cal:Parameter Value="Zoek" />
                             </cal:ActionMessage>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-            </StackPanel>
-            <!-- Mailing -->
-            <StackPanel DockPanel.Dock="Left" Width="200" Orientation="Horizontal">
-                <Button Content="Voeg leerlingen toe" Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+                
+                <Button Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="40" Height="auto" VerticalAlignment="Top" Margin="0,-12,0,0" HorizontalAlignment="Stretch">
+                            <Ellipse HorizontalAlignment="Center"  Fill="White" Height="28" Width="28" Canvas.Left="6" Canvas.Top="6"/>
+                            <Ellipse HorizontalAlignment="Center"  Fill="#FF34BFB9" Height="24" Width="24" Canvas.Left="8" Canvas.Top="8"/>
+                            <Rectangle Canvas.Left="19" Canvas.Top="13" Height="14" Width="2" Fill="White"/>
+                            <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
+                        </Canvas>
+                        <TextBlock>Voeg leerlingen toe</TextBlock>
+                    </StackPanel>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <cal:ActionMessage MethodName="ChangeButton">
@@ -98,19 +112,31 @@
                     </i:Interaction.Triggers>
                 </Button>
             </StackPanel>
+            <!-- Mailing -->
+            <!--<StackPanel DockPanel.Dock="Left" Width="200" Orientation="Horizontal">
+                <Button Content="Voeg leerlingen toe" Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="ChangeButton">
+                                <cal:Parameter Value="Mail" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>-->
         </DockPanel>
         <!-- MenuPanel -->
         <Expander DockPanel.Dock="Left" Margin="0" IsExpanded="True" ExpandDirection="Right" Background="#FFF0F0F0">
             <!-- ExpanderHeader -->
             <Expander.Header>
-                        <TextBlock x:Name="Exp" Text="MENU" FontWeight="Bold" Visibility="Visible">
-                            <TextBlock.LayoutTransform>
-                                <TransformGroup>
-                                    <RotateTransform CenterX="25" CenterY="25" Angle="90" />
-                                </TransformGroup>
-                            </TextBlock.LayoutTransform>
-                        </TextBlock>
-                    </Expander.Header>
+                <TextBlock x:Name="Exp" Text="MENU" FontWeight="Bold" Visibility="Visible">
+                    <TextBlock.LayoutTransform>
+                        <TransformGroup>
+                            <RotateTransform CenterX="25" CenterY="25" Angle="90" />
+                        </TransformGroup>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
             <!-- ExpanderContent -->
             <StackPanel MinWidth="200">
                 <!-- MenuHeader 
@@ -127,13 +153,13 @@
                             </Expander.Header>
                             <StackPanel>
                                 <Button Content="Proces" Style="{StaticResource MenuButton}">
-                                 <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Click">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
                                             <cal:ActionMessage MethodName="ChangeButton">
                                                 <cal:Parameter Value="ProcesOverzicht" />
                                             </cal:ActionMessage>
                                         </i:EventTrigger>
-                                </i:Interaction.Triggers>
+                                    </i:Interaction.Triggers>
                                 </Button>
                                 <Button Content="Gegevens" Style="{StaticResource MenuButton}">
                                     <i:Interaction.Triggers>
@@ -155,7 +181,7 @@
                                 </Button>
                             </StackPanel>
                         </Expander>
-                        <Expander IsExpanded="true">
+                        <!--<Expander IsExpanded="true">
                             <Expander.Header>
                                 <TextBlock FontSize="20" Foreground="Black" FontWeight="Light">Documenten</TextBlock>
                             </Expander.Header>
@@ -170,8 +196,8 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                             </StackPanel>
-                        </Expander>
-                        <Expander IsExpanded="true">
+                        </Expander>-->
+                        <!--<Expander IsExpanded="true">
                             <Expander.Header>
                                 <TextBlock Text="Views (tijdelijk)" FontSize="20" Foreground="Black" FontWeight="Light"/>
                             </Expander.Header>
@@ -240,7 +266,7 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                             </StackPanel>
-                        </Expander>                                
+                        </Expander>-->
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>
@@ -251,11 +277,11 @@
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal">
-                            
+
                         </StackPanel>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
-                
+
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ContentPresenter">
                         <Setter Property="LayoutTransform">
