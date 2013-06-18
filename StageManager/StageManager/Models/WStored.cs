@@ -94,29 +94,32 @@ namespace StageManager.Models
             {
                 return (from stage
                             in StageManagerEntities.stagesets.ToList()
-                        where stage.studentsets != null && (stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) && stage.studentsets.opleidingsets.Naam.Contains(searchOpleiding))
+                        where stage.studentsets != null && (stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()) && stage.studentsets.opleidingsets.Naam.Contains(searchOpleiding)) &&
+                        stage.docentset_Id == null
                         select new WStage(stage)).ToList();
             }
             else if (searchString != null && searchOpleiding == null)
             {
                 return (from stage
                             in StageManagerEntities.stagesets.ToList()
-                        where stage.studentsets != null && (stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower()))
+                        where stage.studentsets != null && (stage.studentsets.persoonsets.Voornaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.persoonsets.Achternaam.ToLower().Contains(searchString.ToLower()) || stage.studentsets.Studentnummer.ToString().ToLower().Contains(searchString.ToLower())) &&
+                        stage.docentset_Id == null
                         select new WStage(stage)).ToList();
             }
              else if (searchString == null && searchOpleiding != null)
              {
                  return (from stage
                              in StageManagerEntities.stagesets.ToList()
-                         where stage.studentsets != null &&  stage.studentsets.opleidingsets.Naam.Contains(searchOpleiding)
+                         where stage.studentsets != null &&  stage.studentsets.opleidingsets.Naam.Contains(searchOpleiding) &&
+                         stage.docentset_Id == null
                          select new WStage(stage)).ToList();
              }
             else
             {
                 return(from stage
-                            in StageManagerEntities.stagesets.ToList()
-                       
-                        select new WStage(stage)).ToList();
+                       in StageManagerEntities.stagesets.ToList()
+                       where stage.docentset_Id == null                       
+                       select new WStage(stage)).ToList();
             }
         }
 
