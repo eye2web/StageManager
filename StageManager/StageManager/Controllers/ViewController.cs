@@ -32,7 +32,7 @@ namespace StageManager.Controllers
 
         public void HandleEvent(object sender, EventArgs eventArgs)
         {
-                            MainViewModel mainViewModel = (MainViewModel)sender;
+            MainViewModel mainViewModel = (MainViewModel)sender;
 
             try
             {
@@ -49,7 +49,17 @@ namespace StageManager.Controllers
                     switch (args.clear)
                     {
                         case Clear.All:
-                            mainViewModel.Contents.Clear();
+                            try
+                            {
+                                if (currType != mainViewModel.Contents.Last().GetType())
+                                {
+                                    mainViewModel.Contents.Clear();
+                                }
+                            }
+                            catch
+                            {
+                                mainViewModel.Contents.Clear();
+                            }
                             break;
                         case Clear.After:
                             mainViewModel.removeContentAfter(args.Sender);//TODO
