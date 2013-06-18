@@ -69,14 +69,40 @@
                 <TextBlock Height="Auto" VerticalAlignment="Center" FontWeight="Light" Margin="10" Foreground="White" FontSize="20">Stagemanager</TextBlock>
             </StackPanel>
             <!-- NavControls -->
-            <StackPanel DockPanel.Dock="Left" Width="200" Orientation="Horizontal">
-                <Canvas Width="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Ellipse HorizontalAlignment="Center"  Fill="White" Height="28" Width="28" Canvas.Left="6" Canvas.Top="6"/>
-                    <Ellipse HorizontalAlignment="Center"  Fill="#FF34BFB9" Height="24" Width="24" Canvas.Left="8" Canvas.Top="8"/>
-                    <Rectangle Canvas.Left="19" Canvas.Top="13" Height="14" Width="2" Fill="White"/>
-                    <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
-                </Canvas>
-                <Button Content="Nieuwe Koppeling" Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+            <StackPanel DockPanel.Dock="Left" Width="Auto" HorizontalAlignment="Left" Orientation="Horizontal">
+
+                <Button Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0,0,20,0" BorderThickness="0" Background="Transparent">
+
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="40" Height="auto" VerticalAlignment="Top" Margin="0,-12,0,0" HorizontalAlignment="Stretch">
+                            <Ellipse HorizontalAlignment="Center"  Fill="White" Height="28" Width="28" Canvas.Left="6" Canvas.Top="6"/>
+                            <Ellipse HorizontalAlignment="Center"  Fill="#FF34BFB9" Height="24" Width="24" Canvas.Left="8" Canvas.Top="8"/>
+                            <Rectangle Canvas.Left="19" Canvas.Top="13" Height="14" Width="2" Fill="White"/>
+                            <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
+                        </Canvas>
+                        <TextBlock>Nieuwe Koppeling</TextBlock>
+                    </StackPanel>
+
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <cal:ActionMessage MethodName="ChangeButton">
+                                <cal:Parameter Value="Zoek" />
+                            </cal:ActionMessage>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                
+                <Button Height="Auto" Foreground="White" VerticalAlignment="Stretch" Margin="0" BorderThickness="0" Background="Transparent">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Width="40" Height="auto" VerticalAlignment="Top" Margin="0,-12,0,0" HorizontalAlignment="Stretch">
+                            <Ellipse HorizontalAlignment="Center"  Fill="White" Height="28" Width="28" Canvas.Left="6" Canvas.Top="6"/>
+                            <Ellipse HorizontalAlignment="Center"  Fill="#FF34BFB9" Height="24" Width="24" Canvas.Left="8" Canvas.Top="8"/>
+                            <Rectangle Canvas.Left="19" Canvas.Top="13" Height="14" Width="2" Fill="White"/>
+                            <Rectangle Canvas.Left="13" Canvas.Top="19" Height="2" Width="14" Fill="White"/>
+                        </Canvas>
+                        <TextBlock>Leerlingen toevoegen</TextBlock>
+                    </StackPanel>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <cal:ActionMessage MethodName="ChangeButton">
@@ -246,7 +272,7 @@
             </StackPanel>
         </Expander>
         <!-- MainContent -->
-        <ScrollViewer DockPanel.Dock="Left"  Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="0">
+        <ScrollViewer Name="ScrollBar" DockPanel.Dock="Left"  Height="auto" Width="auto" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Margin="0">
             <ItemsControl ItemsSource="{Binding Contents}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
