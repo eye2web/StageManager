@@ -96,26 +96,69 @@ namespace StageManager.ViewModels
                     mails.Add(s.Email);
                 }
             }
-            Main.ChangeButton("Mail", new List<object>() { mails }, Clear.All);
+            Main.ChangeButton("Mail", new List<object>() { mails }, Clear.No);
 
         }
 
         public ProcesOverzichtViewModel(MainViewModel main)
-            :base(main)
+            : base(main)
         {
             selectedStudent = new Object();
             List = new Dictionary<object, WStudent>();
-            List = new WStored().SearchStudentSetWithStage("", "").ToDictionary(t => (Object)new
-                            {
-                                MailTo = false,
-                                Email = t.Email,
-                                EmailURL = "mailto:" + t.Email,
-                                StudentNaam = t.Achternaam + ", " + t.Voornaam,
-                                Gegevens = "Adres komt hier",
-                                Stageopdracht = true,
-                                Feedback = "Geen",
-                                Docent = "Docent"
-                            }, t => t);
+            List<WStage> stages = new WStored().SearchStage("", "", false);
+
+            List<WStudent> studenten = new List<WStudent>();
+
+            for (int i = 0; i < stages.Count; i++)
+            {
+                if (stages[i].studentset != null)
+                {
+                    bool contains = false;
+                    for (int j = 0; j < studenten.Count; j++)
+                    {
+                        if (stages[i].studentset.getSet() == studenten[j].getSet())
+                        {
+                            contains = true;
+                            break;
+                        }
+                    }
+
+                    if (!contains)
+                    {
+                        studenten.Add(stages[i].studentset);
+                    }
+                }
+                if (stages[i].studentset2 != null)
+                {
+                    bool contains = false;
+                    for (int j = 0; j < studenten.Count; j++)
+                    {
+                        if (stages[i].studentset2.getSet() == studenten[j].getSet())
+                        {
+                            contains = true;
+                            break;
+                        }
+                    }
+
+                    if (!contains)
+                    {
+                        studenten.Add(stages[i].studentset2);
+                    }
+                }
+            }
+
+
+            List = studenten.ToDictionary(t => (Object)new
+                          {
+                              MailTo = false,
+                              Email = t.Email,
+                              EmailURL = "mailto:" + t.Email,
+                              StudentNaam = t.Achternaam + ", " + t.Voornaam,
+                              Gegevens = "Adres komt hier",
+                              Stageopdracht = true,
+                              Feedback = "Geen",
+                              Docent = "Docent"
+                          }, t => t);
         }
     }
 }

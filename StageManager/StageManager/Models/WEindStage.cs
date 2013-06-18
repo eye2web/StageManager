@@ -13,6 +13,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().TweedeLezer == null)
+                {
+                    return null;
+                }
                 return new WDocent(getSet().docentsets);
             }
             set

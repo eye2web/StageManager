@@ -71,18 +71,6 @@ namespace StageManager.Models
             }
         }
 
-        public Double? Rest()
-        {
-            Double werkuren;
-            Double.TryParse(algemeenset.Werk_Uren, out werkuren);
-
-            int stageCount = (from stage in StageManagerEntities.stagesets.ToList()
-                              where stage.docentsets != null && stage.docentsets.Id == this.Leraar_Id
-                              select new WStage(stage)).ToList().Count;
-
-            return DBU1 * (werkuren / 4) + DBU2 * (werkuren / 4) - (stageCount*16);
-        }
-
         public int algemeensetId
         {
             get
@@ -125,6 +113,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().algemeensets == null)
+                {
+                    return null;
+                }
                 return new WAlgemeen(getSet().algemeensets);
             }
             set
@@ -137,6 +129,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().persoonsets == null)
+                {
+                    return null;
+                }
                 return new WPersoon(getSet().persoonsets);
             }
             set
@@ -150,6 +146,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().adressets == null)
+                {
+                    return null;
+                }
                 return new WAdres(getSet().adressets);
             }
             set
@@ -162,6 +162,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().webkeysets == null)
+                {
+                    return null;
+                }
                 return new WWebkey(getSet().webkeysets);
             }
             set

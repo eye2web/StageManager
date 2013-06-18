@@ -63,6 +63,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().bedrijfsets == null)
+                {
+                    return null;
+                }
                 return new WBedrijf(getSet().bedrijfsets);
             }
             set

@@ -79,6 +79,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().opleidingsets == null)
+                {
+                    return null;
+                }
                 return new WOpleiding(getSet().opleidingsets);
             }
             set
@@ -92,6 +96,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().persoonsets == null)
+                {
+                    return null;
+                }
                 return new WPersoon(getSet().persoonsets);
             }
             set
@@ -105,6 +113,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().stagesets == null)
+                {
+                    return null;
+                }
                 return new WStage(getSet().stagesets.First());
             }
         }
@@ -113,6 +125,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().webkeysets == null)
+                {
+                    return null;
+                }
                 return new WWebkey(getSet().webkeysets);
             }
             set

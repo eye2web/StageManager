@@ -42,11 +42,6 @@ namespace StageManager.Services
             timer.Stop();
         }
 
-
-        public void forceSync() {
-            timer_Tick(null, null);
-        }
-
         public void save(Object o)
         {
             if (timer.IsEnabled)

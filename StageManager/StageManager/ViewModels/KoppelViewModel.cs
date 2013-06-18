@@ -17,12 +17,10 @@ namespace StageManager.ViewModels
         public WStage Stage
         {
             get { return stage; }
-            set
-            {
-                stage = value;
-                KoppelStudentNaam = stage.studentset.Voornaam + " " + stage.studentset.Achternaam;
-                NotifyOfPropertyChange(() => CanTweedeLezer);
-                NotifyOfPropertyChange(() => KoppelStudentNaam);
+            set { stage = value;
+            KoppelStudentNaam = stage.studentset.Voornaam + " " + stage.studentset.Achternaam;
+            NotifyOfPropertyChange(()=>CanTweedeLezer);
+            NotifyOfPropertyChange(() => KoppelStudentNaam);
             }//TODO Notify
         }
 
@@ -71,7 +69,6 @@ namespace StageManager.ViewModels
             get { return koppelDocentNaam; }
             set
             {
-                System.Diagnostics.Debug.WriteLine("");
                 koppelDocentNaam = value;
                 NotifyOfPropertyChange(() => KoppelDocentNaam);
             }
@@ -79,9 +76,7 @@ namespace StageManager.ViewModels
 
         public Boolean CanTweedeLezer
         {
-            get
-            {
-                return Stage != null ? Stage.GetType() == typeof(WEindStage) : false;
+            get { return Stage!=null? Stage.GetType()== typeof(WEindStage):false;
             }
         }
 
@@ -121,24 +116,24 @@ namespace StageManager.ViewModels
         }
 
         public KoppelViewModel(MainViewModel main)
-            : base(main)
+            :base(main)
         {
             Main = main;
             list = new Dictionary<object, WDocent>();
             list = (new WStored().SearchDocentSet("").ToDictionary(t => (Object)new
                     {
-                        Voornaam = t.Voornaam,
-                        Achternaam = t.Achternaam,
-                        Uren = t.Rest(),
-                        Kennisgebied = t.tool_vaardigheidset.First().Naam,
-                        Afstand = 500
-                    }, t => t));
+                            Voornaam = t.Voornaam,
+                            Achternaam = t.Achternaam,
+                            Uren = 5,
+                            Kennisgebied = t.tool_vaardigheidset.First().Naam,
+                            Afstand = 500
+                    },t=>t));
 
             GridContents = list.Keys.ToList();
         }
 
         public KoppelViewModel(MainViewModel main, WStage stage)
-            : this(main)
+            :this(main)
         {
             Stage = stage;
         }
@@ -150,16 +145,8 @@ namespace StageManager.ViewModels
                 Stage = (WStage)o[1];
             }
             catch (Exception)
-            {
+            {   
             }
-        }
-
-        public void Koppelen()
-        {
-            Stage.docentsets = KoppelDocent;            
-            Wrapper myWrapper = new Wrapper();
-            myWrapper.forceSync();
-            Main.ChangeButton("Zoek", new List<Object>(), Services.Clear.All);
         }
     }
 }

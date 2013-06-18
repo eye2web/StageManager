@@ -35,6 +35,7 @@ namespace StageManager.ViewModels
                     }
                 }
                 to = s;
+                NotifyOfPropertyChange(() => To);
             }
         }
         private String message;

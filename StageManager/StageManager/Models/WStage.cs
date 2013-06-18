@@ -91,6 +91,10 @@ namespace StageManager.Models
         {
             get
             {
+                if(getSet().docentsets==null)
+                {
+                    return null;
+                }
                 return new WDocent(getSet().docentsets);
             }
             set
@@ -104,6 +108,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().studentsets == null)
+                {
+                    return null;
+                }
                 return new WStudent(getSet().studentsets);
             }
             set
@@ -117,6 +125,10 @@ namespace StageManager.Models
         {   
             get
             {
+                if (getSet().studentsets1 == null)
+                {
+                    return null;
+                }
                 return new WStudent(getSet().studentsets1);
             }
             set
@@ -154,6 +166,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().bedrijfsbegeleidersets == null)
+                {
+                    return null;
+                }
                 return new WBedrijfsBegeleider(getSet().bedrijfsbegeleidersets);
             }
             set

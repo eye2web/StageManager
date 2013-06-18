@@ -52,6 +52,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().academiesets == null)
+                {
+                    return null;
+                }
                 return new WAcademie(getSet().academiesets);
             }
             set

@@ -65,6 +65,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().adressets == null)
+                {
+                    return null;
+                }
                 return new WAdres(getSet().adressets);
             }
             set

@@ -39,6 +39,10 @@ namespace StageManager.Models
         {
             get
             {
+                if (getSet().webkeysets == null)
+                {
+                    return null;
+                }
                 return new WWebkey(set.webkeysets);
             }
             set
