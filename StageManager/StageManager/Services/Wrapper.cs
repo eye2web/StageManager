@@ -65,10 +65,14 @@ namespace StageManager.Services
 
         public void add(object o)
         {
-            if (stageManagerEntities.Set(o.GetType()).Find(o) == null)
+            try
             {
                 stageManagerEntities.Set(o.GetType()).Add(o);
                 save(o);
+            }
+            catch (Exception)
+            {
+
             }
         }
         public void delete(object o)

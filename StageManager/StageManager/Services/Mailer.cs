@@ -34,7 +34,7 @@ namespace StageManager.Services
                 mails = new LinkedList<MailMessage>();
                 smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.SendCompleted += next;
-                smtp.Credentials = new NetworkCredential("min08.stagemanager@gmail.com", "Stagemanager");
+                smtp.Credentials = new NetworkCredential("stagemanager.min08sog@gmail.com", "stagemanager");
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
                 stored = new WStored();
@@ -102,14 +102,10 @@ namespace StageManager.Services
                 replacements.Remove("%webkey%");
             }
             String webkey;
-            if(stored.containsMail(to))
-            {
-                webkey = stored.mailWebkey(to).ConnectionKey;
-            }
-            else
-            {
             webkey = stored.NewWebkey(to);
-            }
+            WWebkey key = new WWebkey(new webkeysets() { ConnectionKey = webkey, Status="actief" });
+            key.add(key.getSet());
+
             System.Reflection.Assembly thisExe = System.Reflection.Assembly.GetExecutingAssembly();
             string path = thisExe.Location;
             DirectoryInfo dirinfo = new DirectoryInfo(path);
@@ -117,9 +113,9 @@ namespace StageManager.Services
             path = folderName + "\\Config.txt";
             Uri uri = new Uri(path);
             String s = File.ReadAllText(uri.AbsolutePath);
-            String[] split = {"server: "};
+            String[] split = { "server: " };
             String[] server = s.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            webkey = server[0]+webkey;
+            webkey = server[0] + webkey;
             replacements.Add("%webkey%", "<a href='" + webkey + "'>" + webkey + "</a>");
             Send(to, body, Subject, replacements);
         }
