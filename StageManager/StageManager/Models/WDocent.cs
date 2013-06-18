@@ -142,6 +142,20 @@ namespace StageManager.Models
             }
         }
 
+        public Double? Rest()
+        {
+            Double werkuren;
+            Double.TryParse(algemeenset.Werk_Uren, out werkuren);
+
+           int stageCount = (from stage in StageManagerEntities.stagesets.ToList()
+                             where stage.docentsets != null && stage.docentsets.Id == this.Leraar_Id
+                              select new WStage(stage)).ToList().Count;
+
+            return DBU1 * (werkuren / 4) + DBU2 * (werkuren / 4) - (stageCount*16);
+        }
+
+
+
         public virtual WAdres adressets
         {
             get

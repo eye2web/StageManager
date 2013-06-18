@@ -116,18 +116,19 @@ namespace StageManager.ViewModels
         }
 
         public KoppelViewModel(MainViewModel main)
-            :base(main)
+            : base(main)
         {
             Main = main;
             list = new Dictionary<object, WDocent>();
             list = (new WStored().SearchDocentSet("").ToDictionary(t => (Object)new
                     {
-                            Voornaam = t.Voornaam,
-                            Achternaam = t.Achternaam,
-                            Uren = 5,
-                            Kennisgebied = t.tool_vaardigheidset.First().Naam,
-                            Afstand = 500
-                    },t=>t));
+                        Voornaam = t.Voornaam,
+                        Achternaam = t.Achternaam,
+                        Uren = t.Rest(),
+                        Kennisgebied = t.tool_vaardigheidset.First().Naam,
+                        Afstand = 500
+                    }, t => t));
+
 
             GridContents = list.Keys.ToList();
         }
@@ -148,5 +149,14 @@ namespace StageManager.ViewModels
             {   
             }
         }
+
+        public void Koppelen()
+        {
+            Stage.docentsets = KoppelDocent;            
+            Wrapper myWrapper = new Wrapper();
+            myWrapper.forceSync();
+            Main.ChangeButton("Zoek", new List<Object>(), Services.Clear.All);
+        }
+
     }
 }
