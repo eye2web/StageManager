@@ -192,7 +192,6 @@
     <Compile Include="Services\Service.cs" />
     <Compile Include="Services\Wrapper.cs" />
     <Compile Include="Controllers\ViewController.cs" />
-    <Compile Include="ViewModels\AlgemeenViewModel.cs" />
     <Compile Include="ViewModels\BedrijfsbegeleiderViewModel.cs" />
     <Compile Include="ViewModels\BedrijfViewModel.cs" />
     <Compile Include="ViewModels\DocentViewModel.cs" />
@@ -207,9 +206,6 @@
     <Compile Include="ViewModels\StageopdrachtViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\ZoekViewModel.cs" />
-    <Compile Include="Views\AlgemeenView.xaml.cs">
-      <DependentUpon>AlgemeenView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\BedrijfsbegeleiderView.xaml.cs">
       <DependentUpon>BedrijfsbegeleiderView.xaml</DependentUpon>
     </Compile>
@@ -252,10 +248,6 @@
     <Compile Include="Views\ZoekView.xaml.cs">
       <DependentUpon>ZoekView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AlgemeenView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ErrorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,16 +268,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\BedrijfsbegeleiderView.xaml">
